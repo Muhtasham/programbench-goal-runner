@@ -4,47 +4,164 @@ Codex `/goal` runner for ProgramBench tasks.
 
 GoalBench runs Codex CLI goal mode against ProgramBench cleanroom task images,
 packages each generated replacement as `submission.tar.gz`, evaluates with
-ProgramBench, and publishes a static report.
+ProgramBench, and publishes a static report. It is a Codex `/goal` scaffold
+measurement, not the official ProgramBench mini-SWE-agent baseline.
 
-This is a Codex `/goal` scaffold measurement, not the official ProgramBench
-mini-SWE-agent baseline.
+## What This Measures
 
-## Current Public Track
+ProgramBench asks an agent to rebuild a CLI program from only a compiled
+executable and bundled documentation. GoalBench keeps that shape, but swaps the
+agent scaffold for Codex CLI `/goal`.
 
-Primary track:
+Current reportable tracks:
 
-- model: `gpt-5.5`
-- reasoning: `xhigh`
-- agent: Codex CLI `/goal`
-- mode: `mini-swe-compatible-nointernet`
-- platform: Linux `amd64`
-- task set: ProgramBench 200 tasks
+| Track | Config | Prompt | Compliance label |
+| --- | --- | --- | --- |
+| Verbatim paper prompt | `configs/cpx62-paperprompt-xhigh.json` | ProgramBench paper prompt with `/goal ` prepended and only harness context appended | Paper-prompt no internet |
+| Mini-SWE-compatible | `configs/full-miniswecompat-xhigh.json` | Short mini-SWE-style prompt with `/goal ` prepended | Mini-SWE-compatible no internet |
+| Stricter GoalBench | `configs/full-nointernet-xhigh.json` | GoalBench audit-heavy prompt with `/goal ` prepended | No internet |
 
-The headline track is the closest GoalBench parity attempt: no internet/source
-lookup, strict host egress, wrapper-only black-box target access, and a shorter
-mini-SWE-style task prompt. It is still a Codex `/goal` scaffold result, not an
-official mini-SWE-agent baseline submission.
+All reportable no-internet tracks use strict host egress, wrapper-only target
+access, and post-run audits.
 
-## Architecture
+## System Layout
 
 ```text
-laptop
-  └─ ssh to Linux amd64 coordinator
-
-coordinator VM
-  ├─ tmux Codex /goal sessions, one per active task
-  ├─ offline ProgramBench target containers for black-box probing
-  ├─ local_state/ for batch state and report inputs
-  └─ ~/pb-goal-runs/ for per-task prompts, submissions, eval JSON
-
-eval workers, optional
-  ├─ receive copied run artifacts
-  ├─ finalize assigned shards with ProgramBench
-  └─ never publish
+                         GitHub / Pages
+                              ^
+                              | publish only from coordinator
+                              |
+local laptop  --ssh-->  coordinator VM  -----------------------------+
+                         |                                           |
+                         | runs Codex /goal sessions                 |
+                         | owns merged report                        |
+                         |                                           |
+                         +--> target Docker containers               |
+                         |    one clean ProgramBench image per task  |
+                         |                                           |
+                         +--> ProgramBench evaluator                 |
+                         |    package -> audit -> eval -> summarize  |
+                         |
+                         +--> optional eval/inference workers
+                              same repo commit, separate shards
+                              no publishing
 ```
 
-Codex runs on the VM host, not inside Docker. Docker is used for target
-containers during inference and for ProgramBench evaluation after packaging.
+Codex runs on the VM host, not inside the target container. Docker is used for
+the reference target during inference and by ProgramBench during evaluation.
+
+## Run Flow
+
+```text
+target_sets/*.txt
+      |
+      v
+run-batch.py watch
+      |
+      +-- prepare per-task run root
+      |     CODEX_INITIAL_PROMPT.md
+      |     run.json
+      |     start-target.sh
+      |     start-codex-goal.sh
+      |
+      +-- start target container
+      |
+      +-- start tmux Codex session
+      |     codex --enable goals ... "$(cat CODEX_INITIAL_PROMPT.md)"
+      |
+      +-- watch transcript
+      |     running -> goal_done
+      |     failed before goal_done -> fresh retry only
+      |
+      v
+run-batch.py finalize
+      |
+      +-- hard gates
+      |     prompt starts with /goal
+      |     transcript shows /goal
+      |     run.json has model/reasoning/mode/strict egress
+      |
+      +-- package-submission
+      +-- audit-run.py
+      +-- ProgramBench eval
+      +-- summarize-results.py
+      |
+      v
+static report
+```
+
+## How `/goal` Is Applied
+
+Every benchmark prompt is rendered to `GOAL_PROMPT.md`. The actual prompt sent
+to Codex is written to `CODEX_INITIAL_PROMPT.md` as:
+
+```text
+/goal <rendered ProgramBench/GoalBench prompt>
+```
+
+`start-codex-goal.sh` then loads that file and invokes Codex:
+
+```bash
+CODEX_INITIAL_PROMPT="$(cat CODEX_INITIAL_PROMPT.md)"
+codex --enable goals --disable plugins --disable apps \
+  -m gpt-5.5 \
+  -c model_reasoning_effort=xhigh \
+  -c trust_level=trusted \
+  -C solution \
+  --yolo --no-alt-screen \
+  "$CODEX_INITIAL_PROMPT"
+```
+
+For the paper-prompt track, the bytes immediately after `/goal ` are the copied
+ProgramBench paper prompt from Appendix 8.2, followed by a small harness context
+block with instance id, target command, package command, and solution directory.
+
+Before publishing, hard gates check both the prompt file and transcript:
+
+```text
+CODEX_INITIAL_PROMPT.md begins with /goal
+tmux transcript contains /goal
+run.json records model, reasoning effort, inference mode, and strict egress
+```
+
+## No-Internet Controls
+
+Reportable no-internet runs use layered controls. The prompt alone is not the
+security boundary.
+
+```text
+Codex process
+  user: codex-runner
+  |
+  +-- UID-scoped iptables
+  |     only loopback is allowed for codex-runner
+  |
+  +-- local OpenAI allowlist proxy
+  |     Codex talks to http://127.0.0.1:18080
+  |     proxy makes the OpenAI/Codex network calls
+  |
+  +-- guard-bin PATH
+  |     blocks source lookup, package installs, binary analysis tools,
+  |     broad host traversal, and direct docker access
+  |
+  +-- target wrapper
+        sudo -n /usr/local/bin/pb-target-exec <container> <command>
+        only allows docker exec into pb-goal-* target containers as agent
+```
+
+The coordinator/root account still needs normal network for setup, Docker pulls,
+Git operations, and publishing. The restricted Codex task user does not.
+
+Required host checks before a serious run:
+
+```bash
+scripts/doctor.sh configs/cpx62-paperprompt-xhigh.json
+sudo scripts/linux-openai-egress-guard.sh status codex-runner
+sudo -H -u codex-runner sudo -n /usr/local/bin/pb-target-exec __pb-wrapper-check true
+```
+
+The wrapper check should fail with `refusing non ProgramBench target container`,
+not `command not found` and not `sudo: a password is required`.
 
 ## Setup
 
@@ -54,121 +171,98 @@ Use Linux `amd64` for serious runs. ProgramBench task images are published for
 ```bash
 git clone git@github.com:Muhtasham/goalbench.git
 cd goalbench
-scripts/bootstrap-linux-vm.sh
+scripts/bootstrap-linux-vm.sh --codex-user codex-runner
 codex login
-scripts/doctor.sh configs/linux-smoke-miniswecompat-xhigh.json
+scripts/doctor.sh configs/cpx62-paperprompt-xhigh.json
 ```
 
 Bootstrap installs Docker, `uv`, `tmux`, Codex CLI if missing, a sibling
-`../ProgramBench` checkout, and the target wrapper used by no-internet runs.
+`../ProgramBench` checkout, Codex goal/fast defaults, and the target wrapper
+used by no-internet runs.
 
-## Smoke Run
+## Single-VM Sweep
 
-```bash
-scripts/start-sweep-tmux.sh configs/linux-smoke-miniswecompat-xhigh.json
-uv run python scripts/run-config.py status configs/linux-smoke-miniswecompat-xhigh.json
-uv run python scripts/run-config.py finalize configs/linux-smoke-miniswecompat-xhigh.json
-```
-
-Do not treat smoke scores as ProgramBench-comparable.
-
-## Primary Sweep
+Start inference in a named tmux session so SSH disconnects do not stop the run:
 
 ```bash
-scripts/run-sweep.sh --dry-run
-scripts/run-sweep.sh
+RUN_VERSION="$(date -u +%Y%m%dT%H%M%SZ)"
+tmux new-session -d -s "goalbench-watch-$RUN_VERSION" \
+  "cd '$PWD' && uv run python scripts/run-config.py watch configs/cpx62-paperprompt-xhigh.json --run-version '$RUN_VERSION'"
 ```
 
-By default, full configs run up to 10 parallel Codex `/goal` sessions. Lower
-parallelism on smaller hosts:
+Start a second tmux session to finalize completed rows sequentially:
 
 ```bash
-scripts/run-sweep.sh --max-parallel 4
-MAX_PARALLEL=4 scripts/start-sweep-tmux.sh configs/full-miniswecompat-xhigh.json
+tmux new-session -d -s "goalbench-finalize-$RUN_VERSION" \
+  "cd '$PWD' && while true; do uv run python scripts/run-config.py finalize configs/cpx62-paperprompt-xhigh.json --run-version '$RUN_VERSION' --programbench-repo ../ProgramBench --allow-partial --limit 1; sleep 60; done"
 ```
 
-Publish only after evaluation artifacts are ready:
+`watch` can run up to `max_parallel` Codex sessions. `finalize --limit 1`
+packages, audits, and evaluates one ready task per call, so a simple loop can
+keep evaluation moving without running multiple ProgramBench evals on the same
+VM.
+
+## Multi-VM 200-Task Sweep
+
+For a 5-way run, split the 200 task list into five 40-task shard files and use
+one batch name per shard:
+
+```text
+goalbench-vm      shard 0/5  cpx62-paperprompt-xhigh-shard-0-of-5
+goalbench-eval-1  shard 1/5  cpx62-paperprompt-xhigh-shard-1-of-5
+goalbench-eval-2  shard 2/5  cpx62-paperprompt-xhigh-shard-2-of-5
+goalbench-eval-3  shard 3/5  cpx62-paperprompt-xhigh-shard-3-of-5
+goalbench-eval-4  shard 4/5  cpx62-paperprompt-xhigh-shard-4-of-5
+```
+
+Each VM runs two tmux supervisors:
+
+```text
+pb-paperprompt-xhigh-shard-N-<version>
+  inference watcher, max 10 Codex /goal sessions
+
+pb-paperprompt-xhigh-finalize-shard-N-<version>
+  sequential package -> audit -> ProgramBench eval loop
+```
+
+Keep every VM on the same Git commit, Codex version, config, and `RUN_VERSION`.
+Only the coordinator should merge artifacts and publish the static site.
+
+## Retry Policy
+
+GoalBench does not paste continuation prompts into failed Codex sessions.
+
+Retryable:
+
+- `session_failed_before_goal_done`: tmux/Codex ended before `/goal` completed
+  and no valid submission was produced. Retry starts a fresh solution directory
+  and records attempt metadata.
+
+Not retryable:
+
+- valid low-scoring submissions
+- audit violations
+- evaluator results
+- normal no-submission exits unless explicitly reported as a fresh attempt
+
+Command:
 
 ```bash
-scripts/run-sweep.sh --publish
+uv run python scripts/run-config.py retry \
+  configs/cpx62-paperprompt-xhigh.json \
+  --run-version "$RUN_VERSION" \
+  --failed \
+  --max-attempts 2
 ```
-
-## Scoring Policy
-
-GoalBench does not paste continuation prompts into failed Codex sessions. A row
-is scored once Codex reached `/goal` completion, produced `submission.tar.gz`,
-passed the no-internet audit, and ProgramBench wrote an eval result. Low scores
-from valid submissions are model results and are not rerun.
-
-The only retryable failure class is `session_failed_before_goal_done`: the tmux
-session ended before `/goal` completed and no submission was produced. Retrying
-that class starts a fresh solution directory and records attempt metadata:
-
-```bash
-uv run python scripts/run-config.py retry configs/cpx62-miniswecompat-xhigh.json --failed --max-attempts 2
-```
-
-Rows that end normally without a submission are reported separately as
-no-submission/zero rows. Audit violations, valid evaluations, and low scores are
-not retried.
-
-Before publishing, `scripts/run-sweep.sh` validates hard gates for the current
-run: initial prompt begins with `/goal`, transcript shows `/goal`, `run.json`
-records model/reasoning/mode/strict egress, `submission.tar.gz` exists, audit
-passed, and the eval JSON exists.
 
 ## Modes
 
-| Mode | Config | Meaning |
-| --- | --- | --- |
-| `mini-swe-compatible-nointernet` | `configs/full-miniswecompat-xhigh.json` | Parity attempt. Same no-internet enforcement, but with a shorter mini-SWE-style task prompt and no GoalBench audit loop requirements. Still a Codex `/goal` scaffold, not an official mini-SWE-agent baseline. |
-| `no-internet` | `configs/full-nointernet-xhigh.json` | Stricter GoalBench track. Internet/source/package lookup is blocked, target binary-analysis tools are blocked, target probing stays black-box, and the prompt asks for an explicit behavior audit. |
-| `no-internet-local-tools` | `configs/full-localtools-xhigh.json` | Coming soon. External lookup stays blocked, but local binary-analysis/tracing tools are allowed. Non-compliant ablation. |
-
-Current recommended sequence:
-
-1. `cpx62-miniswecompat-xhigh`
-2. `cpx62-miniswecompat-high`
-3. `cpx62-nointernet-xhigh` if we want the stricter GoalBench audit-heavy scaffold
-4. `cpx62-localtools-xhigh` once enabled
-
-## No-Internet Enforcement
-
-No-internet runs use layered controls:
-
-- Codex runs as a dedicated non-root `codex_user`.
-- UID-scoped egress rules allow only OpenAI/Codex traffic needed for model calls.
-- `guard-bin/` blocks source lookup, package installs, binary-analysis tools,
-  and broad host traversal.
-- The target is accessed through the wrapper command, not direct Docker root
-  access.
-- Post-run audits flag parent traversal and other compliance issues.
-
-Root/coordinator still needs normal network for setup, Docker, Git, and
-publishing. The restricted Codex task user does not.
-
-## Sharded Evaluation
-
-For full runs, evaluate completed submissions on eval-only workers.
-
-| Label | Role | Publishes |
-| --- | --- | --- |
-| `goalbench-coordinator-1` | inference, shard 0, merge, publish | yes |
-| `goalbench-eval-1` | eval shard 1 | no |
-| `goalbench-eval-2` | eval shard 2 | no |
-| `goalbench-eval-3` | eval shard 3 | no |
-
-Start a shard on a synced worker:
-
-```bash
-RUN_VERSION=<version> NODE_LABEL=goalbench-eval-1 \
-  scripts/start-eval-shard-tmux.sh \
-  configs/cpx62-miniswecompat-xhigh.json \
-  local_state/batches/cpx62-miniswecompat-xhigh/<version>/shards/shard-1.txt \
-  1
-```
-
-Only the coordinator should rebuild or publish the website.
+| Mode | Meaning |
+| --- | --- |
+| `paper-prompt-nointernet` | Verbatim ProgramBench paper prompt with `/goal ` prepended, strict egress, wrapper-only target access. |
+| `mini-swe-compatible-nointernet` | Shorter parity prompt with the same no-internet enforcement. |
+| `no-internet` | Stricter GoalBench prompt that also asks for an explicit behavior audit. |
+| `no-internet-local-tools` | Non-comparable ablation: internet/source/package lookup blocked, but local binary-analysis/tracing tools allowed. |
 
 ## Reporting
 
@@ -198,10 +292,11 @@ Raw Codex logs and submission tarballs stay local by default.
 ## Useful Commands
 
 ```bash
-scripts/doctor.sh configs/full-miniswecompat-xhigh.json
-uv run python scripts/run-config.py status configs/full-miniswecompat-xhigh.json
-uv run python scripts/run-config.py finalize configs/full-miniswecompat-xhigh.json
-scripts/backup-run-root.sh --batch-name full-miniswecompat-xhigh --run-version <version>
+scripts/doctor.sh configs/cpx62-paperprompt-xhigh.json
+uv run python scripts/run-config.py status configs/cpx62-paperprompt-xhigh.json
+uv run python scripts/run-config.py finalize configs/cpx62-paperprompt-xhigh.json --programbench-repo ../ProgramBench --allow-partial --limit 1
+uv run python scripts/validate-run-gates.py local_state/batches/<batch>/<version>/results.csv
+scripts/backup-run-root.sh --batch-name <batch> --run-version <version>
 uv run ruff check .
 uv run ty check
 uv run pre-commit run --all-files

@@ -166,7 +166,7 @@ if [[ -f "$CONFIG" ]]; then
   strict_egress="$(config_bool strict_egress)"
   codex_user="$(config_optional codex_user)"
   egress_user="${codex_user:-$(id -un)}"
-  if [[ "$inference_mode" == "no-internet" || "$inference_mode" == "mini-swe-compatible-nointernet" || "$inference_mode" == "no-internet-local-tools" ]]; then
+  if [[ "$inference_mode" == "no-internet" || "$inference_mode" == "mini-swe-compatible-nointernet" || "$inference_mode" == "paper-prompt-nointernet" || "$inference_mode" == "no-internet-local-tools" ]]; then
     if [[ "$strict_egress" != "true" ]]; then
       fail "$inference_mode requires strict_egress=true"
     elif [[ "$(id -u)" -eq 0 && -z "$codex_user" ]]; then
