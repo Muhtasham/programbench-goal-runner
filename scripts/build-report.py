@@ -2089,22 +2089,24 @@ def render_empty_state() -> str:
 
 
 def render_data_downloads(prefix: str = "") -> str:
+    _ = prefix
     return f"""
     <div class="download-strip" aria-label="Report data downloads">
       <div class="download-actions">
-        <a class="button primary" href="{prefix}data/results.csv">results.csv</a>
-        <a class="button" href="{prefix}data/results.json">results.json</a>
-        <a class="button" href="{prefix}data/prompts.json">prompts.json</a>
+        <a class="button primary" href="{SITE_URL}data/results.csv">results.csv</a>
+        <a class="button" href="{SITE_URL}data/results.json">results.json</a>
+        <a class="button" href="{SITE_URL}data/prompts.json">prompts.json</a>
       </div>
     </div>
     """
 
 
 def render_data_buttons(prefix: str = "") -> str:
+    _ = prefix
     return f"""
-      <a class="button" href="{prefix}data/results.csv">results.csv</a>
-      <a class="button" href="{prefix}data/results.json">results.json</a>
-      <a class="button" href="{prefix}data/prompts.json">prompts.json</a>
+      <a class="button" href="{SITE_URL}data/results.csv">results.csv</a>
+      <a class="button" href="{SITE_URL}data/results.json">results.json</a>
+      <a class="button" href="{SITE_URL}data/prompts.json">prompts.json</a>
     """
 
 
