@@ -173,7 +173,7 @@ def public_log_entry(entry: dict) -> dict:
 def public_manifest(manifest: dict, eval_summary_path: str, eval_json_path: str) -> dict:
     run_name = manifest.get("metrics", {}).get("run_name") or manifest["run"]["run_name"]
     paper_compliant = (
-        manifest["run"]["inference_mode"] == "paper"
+        manifest["run"]["inference_mode"] in {"paper", "paper-prompt-nointernet"}
         and manifest["run"].get("target_access") == "wrapper"
         and manifest["run"]["host_system"] == "Linux"
         and manifest["run"]["host_machine"] in {"x86_64", "AMD64"}
@@ -187,8 +187,9 @@ def public_manifest(manifest: dict, eval_summary_path: str, eval_json_path: str)
         "run_version": manifest["run"].get("run_version", ""),
         "model": manifest["run"]["model"],
         "reasoning_effort": manifest["run"]["reasoning_effort"],
+        "codex_version": manifest["run"].get("codex_version", ""),
         "inference_mode": manifest["run"]["inference_mode"],
-        "paper_mode": manifest["run"]["inference_mode"] == "paper",
+        "paper_mode": manifest["run"]["inference_mode"] in {"paper", "paper-prompt-nointernet"},
         "paper_compliant": paper_compliant,
         "host_system": manifest["run"]["host_system"],
         "host_machine": manifest["run"]["host_machine"],

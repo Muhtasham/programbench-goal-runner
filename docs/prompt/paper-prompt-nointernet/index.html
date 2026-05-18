@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProgramBench Paper Prompt + /goal Prompt · GoalBench</title>
+
+  <link rel="canonical" href="https://muhtasham.github.io/goalbench/prompt/paper-prompt-nointernet/">
+  <meta name="description" content="GoalBench measures Codex /goal on ProgramBench tasks: rebuild CLI behavior from binaries and documentation, then score with ProgramBench behavioral tests.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GoalBench">
+  <meta property="og:title" content="ProgramBench Paper Prompt + /goal Prompt · GoalBench">
+  <meta property="og:description" content="GoalBench measures Codex /goal on ProgramBench tasks: rebuild CLI behavior from binaries and documentation, then score with ProgramBench behavioral tests.">
+  <meta property="og:url" content="https://muhtasham.github.io/goalbench/prompt/paper-prompt-nointernet/">
+  <meta property="og:image" content="https://muhtasham.github.io/goalbench/assets/goalbench-social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="GoalBench preview card">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ProgramBench Paper Prompt + /goal Prompt · GoalBench">
+  <meta name="twitter:description" content="GoalBench measures Codex /goal on ProgramBench tasks: rebuild CLI behavior from binaries and documentation, then score with ProgramBench behavioral tests.">
+  <meta name="twitter:image" content="https://muhtasham.github.io/goalbench/assets/goalbench-social-preview.png">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --ink: #182026; --muted: #5b6b78; --line: #d9e0e6; --soft: #f4f8f6; --accent: #0f766e; --accent-strong: #0b5f59; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: linear-gradient(180deg, #fbfcfb 0%, #f6f9f7 300px, #ffffff 301px); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    a { color: #075985; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    header, main { max-width: 980px; margin: 0 auto; padding: 22px 28px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 850; text-decoration: none; }
+    .brand-mark { width: 30px; height: 30px; display: block; flex: 0 0 auto; }
+    .nav-links { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { color: #40515c; text-decoration: none; border-radius: 6px; padding: 7px 9px; font-size: 14px; }
+    .nav-links a:hover { color: #075985; background: #eef6f3; }
+    .prompt-hero { padding: 34px 0 28px; border-bottom: 1px solid var(--line); }
+    .prompt-eyebrow { color: var(--accent-strong); font-size: 13px; font-weight: 850; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    h1 { margin: 0; font-size: clamp(34px, 6vw, 64px); line-height: 0.98; letter-spacing: 0; }
+    p { color: var(--muted); line-height: 1.55; }
+    .meta-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 20px 0; }
+    .meta-grid div { border: 1px solid var(--line); border-radius: 8px; padding: 12px; background: #ffffff; min-width: 0; }
+    .meta-grid span { display: block; color: var(--muted); font-size: 12px; font-weight: 850; text-transform: uppercase; }
+    .meta-grid strong, .meta-grid code { display: block; margin-top: 7px; overflow-wrap: anywhere; }
+    pre { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; padding: 16px; background: #10201d; color: #effff9; line-height: 1.55; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    pre code { color: inherit; font-size: 13px; }
+    @media (max-width: 760px) { header, main { padding-left: 16px; padding-right: 16px; } .topbar { align-items: flex-start; flex-direction: column; } .nav-links { justify-content: flex-start; } .meta-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="topbar" aria-label="Primary">
+      <a class="nav-brand" href="../../"><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#10201d"/>
+  <path d="M40.5 10.5h9.75L24.25 53.5H14.5L40.5 10.5Z" fill="#effff9"/>
+  <path d="M48.25 10.5h4.25L26.5 53.5h-4.25L48.25 10.5Z" fill="#14b8a6"/>
+  <path d="M37.5 43.5h13v8.25h-13z" fill="#f6c453"/></svg><span>GoalBench</span></a>
+      <div class="nav-links">
+        <a href="../../">Leaderboard</a>
+        <a href="../../extended/">Extended</a>
+        <a href="../../task-details.html">Tasks</a>
+        <a href="../../runbook.html">Runbook</a>
+        <a href="https://github.com/Muhtasham/goalbench">GitHub</a>
+        <a href="https://programbench.com/">ProgramBench</a>
+      </div>
+    </nav>
+    <section class="prompt-hero">
+      <p class="prompt-eyebrow">Codex /goal prompt artifact</p>
+      <h1>ProgramBench Paper Prompt + /goal</h1>
+      <p>Verbatim ProgramBench paper system prompt from arXiv v1, prefixed with /goal and followed by a minimal harness-context block.</p>
+    </section>
+  </header>
+  <main>
+    <div class="meta-grid">
+      <div><span>Mode</span><strong>paper-prompt-nointernet</strong></div>
+      <div><span>Source</span><code>prompts/programbench_goal_paper_prompt.md</code></div>
+      <div><span>SHA-256</span><code>ecaface9b27ec302aa2f0154241568a040258faa9a3fca14fcfb4401619522ad</code></div>
+      <div><span>Machine-readable</span><a href="../../data/prompts.json">data/prompts.json</a></div>
+    </div>
+    <pre><code>You are a helpful assistant that can interact with a computer.
+
+This is a reverse-engineering benchmark. You are given a compiled binary and its documentation.
+Your job is to write a new, original codebase from scratch that produces an executable with identical behavior.
+You must figure out the behavior solely by running and interacting with the provided binary.
+Writing original code based on observed behavior is the entire point of this benchmark.
+
+Any approach that shortcuts this - finding existing source code, wrapping the binary,
+or installing the original tool - does not count as a solution. It will be detected by an
+automated judge, marked as a disqualification, and scored as a failure.
+The trace will be posted to an online wall of shame.
+
+&lt;RULES&gt;
+## What is not allowed
+
+### 1. Obtaining source code
+
+The only source of truth about what the executable does is the executable itself and its
+bundled documentation. You must not search the internet, package registries, or any external
+source for information about this project&#x27;s source code. Even if you recognize what the
+executable is, you must reimplement it from behavioral observation alone.
+
+This includes but is not limited to:
+- Cloning or browsing the original GitHub repository, its forks, or mirrors
+- Downloading the project from package registries: `cargo install &lt;project&gt;`, `go get github.com/&lt;org&gt;/&lt;project&gt;`, `pip install &lt;project&gt;`, `apt-get source &lt;project&gt;`, `npm install &lt;project&gt;`, etc.
+- Fetching source tarballs from project websites (e.g., `curl https://lua.org/ftp/lua-5.5.0.tar.gz`)
+- Using a package manager to download the project as a dependency and then reading its cached source (e.g., navigating into `~/.cargo/registry/src/` or `$(go env GOPATH)/pkg/mod/`)
+- Searching the web for the project&#x27;s source code or implementation details
+
+### 2. Wrapping or reusing the original binary
+
+Your submission must be a genuine reimplementation. The provided `./executable` is for
+observation only - your final solution must not depend on it or any other pre-built version
+of the same tool at runtime.
+
+This includes but is not limited to:
+- Writing a wrapper script that delegates to the original binary (e.g., `exec zstd &quot;$@&quot;`)
+- Installing the tool from a package manager and shimming to it (e.g., `apt-get install nnn &amp;&amp; cp $(which nnn) ./executable`)
+- Writing a `compile.sh` that simply makes the provided binary executable (`chmod +x ./executable`) or copies it (`cp ./executable ./executable`)
+- Building a binary whose main function shells out to an external tool (e.g., `Command::new(&quot;miniserve&quot;).args(args).exec()`)
+- Re-linking prebuilt `.o` object files found in the workspace without writing new source code
+
+### 3. Binary analysis of the provided executable
+
+All information about the provided `./executable` must be obtained by interacting with it
+through its normal user interface (CLI flags, stdin/stdout, etc.).
+- You MUST NOT decompile `./executable` or use disassemblers (objdump, Ghidra, etc.) on it
+- You MUST NOT use strace, ltrace, or similar tracing/instrumentation tools on `./executable`
+
+Note: this restriction applies ONLY to the provided `./executable`. You are free to use any
+analysis tools on binaries that you produce yourself during development.
+
+## What IS allowed
+
+- Running the executable with any inputs, flags, and arguments to observe its behavior
+- Reading any documentation files bundled in the workspace
+&lt;/RULES&gt;
+
+
+&lt;HARNESS_CONTEXT&gt;
+You are running inside a Codex `/goal` session for a ProgramBench task. The paper prompt above is preserved verbatim from `assets/system_prompt.txt` in the arXiv v1 source bundle; this block only maps that prompt onto the GoalBench/Codex harness.
+
+Instance: `{{instance_id}}`
+Run: `{{run_name}}`
+Target container image: `{{image}}:task_cleanroom`
+Target command form: `{{target_command}}`
+Package command: `{{package_command}}`
+Solution directory: `{{solution_dir}}`
+
+Use the target command form to run the provided executable in its cleanroom container. The target executable is `/workspace/executable` inside that container, and bundled documentation is inside `/workspace` in that container. Write your replacement codebase in the current solution directory. Provide `compile.sh` at the solution root; it must build or copy your replacement to `./executable`. Run `package-submission` before finishing.
+&lt;/HARNESS_CONTEXT&gt;
+</code></pre>
+  </main>
+</body>
+</html>

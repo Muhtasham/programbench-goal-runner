@@ -45,6 +45,12 @@ PROMPTS = {
         "path": Path("prompts/programbench_goal_mini_swe_compatible.md"),
         "summary": "Short Codex /goal prompt for the closest mini-SWE-agent scaffold parity attempt.",
     },
+    "paper-prompt-nointernet": {
+        "slug": "paper-prompt-nointernet",
+        "title": "ProgramBench Paper Prompt + /goal",
+        "path": Path("prompts/programbench_goal_paper_prompt.md"),
+        "summary": "Verbatim ProgramBench paper system prompt from arXiv v1, prefixed with /goal and followed by a minimal harness-context block.",
+    },
     "no-internet": {
         "slug": "no-internet",
         "title": "No Internet",
@@ -642,6 +648,7 @@ def mode_label(row: ResultRow) -> str:
     return {
         "no-internet": "No internet",
         "mini-swe-compatible-nointernet": "Mini-SWE-compatible no internet",
+        "paper-prompt-nointernet": "Paper prompt no internet",
         "no-internet-local-tools": "No internet + local tools",
     }.get(row.inference_mode, row.inference_mode or "Unknown")
 
@@ -670,6 +677,8 @@ def compliance_label(row: ResultRow) -> str:
         return "Codex no-internet ablation"
     if row.inference_mode == "mini-swe-compatible-nointernet":
         return "Codex /goal mini-SWE-compatible no-internet"
+    if row.inference_mode == "paper-prompt-nointernet":
+        return "Codex /goal paper-prompt no-internet"
     if row.inference_mode == "no-internet-local-tools":
         return "Non-compliant: local/binary tools allowed"
     if is_programbench_comparable(row):

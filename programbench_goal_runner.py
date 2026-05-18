@@ -10,6 +10,7 @@ import pwd
 import re
 import shlex
 import shutil
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,15 +18,18 @@ DEFAULT_ROOT = Path.home() / "pb-goal-runs"
 NO_INTERNET_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_no_internet.md"
 MINI_SWE_COMPAT_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_mini_swe_compatible.md"
 LOCAL_TOOLS_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_local_tools.md"
+PAPER_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_paper_prompt.md"
 DEFAULT_MODEL = "gpt-5.5"
 DEFAULT_REASONING_EFFORT = "xhigh"
 DEFAULT_INFERENCE_MODE = "no-internet"
 MINI_SWE_COMPAT_MODE = "mini-swe-compatible-nointernet"
-INFERENCE_MODES = ("no-internet", MINI_SWE_COMPAT_MODE, "no-internet-local-tools")
-NO_INTERNET_MODES = {"no-internet", MINI_SWE_COMPAT_MODE, "no-internet-local-tools"}
+PAPER_PROMPT_MODE = "paper-prompt-nointernet"
+INFERENCE_MODES = ("no-internet", MINI_SWE_COMPAT_MODE, PAPER_PROMPT_MODE, "no-internet-local-tools")
+NO_INTERNET_MODES = {"no-internet", MINI_SWE_COMPAT_MODE, PAPER_PROMPT_MODE, "no-internet-local-tools"}
 MODE_RUN_SEGMENTS = {
     "no-internet": "nointernet",
     MINI_SWE_COMPAT_MODE: "miniswecompat",
+    PAPER_PROMPT_MODE: "paperprompt",
     "no-internet-local-tools": "localtools",
 }
 BLOCKED_ALWAYS_TOOLS = (
@@ -151,6 +155,15 @@ def chown_tree(path: Path, user: str) -> None:
 
 def file_sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def command_output(command: list[str]) -> str:
+    try:
+        return (
+            subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, check=False).stdout
+        ).strip()
+    except FileNotFoundError:
+        return ""
 
 
 def write_guard_bin(
@@ -392,8 +405,9 @@ def prepare(args: argparse.Namespace) -> None:
     cache_dir = instance_dir / "tool-caches"
     primary_no_internet_mode = args.inference_mode == "no-internet"
     mini_swe_compat_mode = args.inference_mode == MINI_SWE_COMPAT_MODE
+    paper_prompt_mode = args.inference_mode == PAPER_PROMPT_MODE
     local_tools_mode = args.inference_mode == "no-internet-local-tools"
-    strict_no_internet_mode = primary_no_internet_mode or mini_swe_compat_mode
+    strict_no_internet_mode = primary_no_internet_mode or mini_swe_compat_mode or paper_prompt_mode
     tool_env = list(LOCAL_TOOLS_OFFLINE_ENV) if local_tools_mode else list(TOOL_CACHE_ENV)
     container_name = f"pb-goal-{slug(prepared_run_name)}-{slug(args.instance_id)}"
     session_name = f"pb-goal-{slug(prepared_run_name)}-{slug(args.instance_id)}"
@@ -408,11 +422,14 @@ def prepare(args: argparse.Namespace) -> None:
         )
     )
     objective = (
-        f"Complete ProgramBench instance {args.instance_id} by reimplementing the target CLI from the provided "
-        "binary behavior and documentation, without internet access, until compile.sh builds ./executable and "
-        "package-submission succeeds. Do not inspect parent directories or files outside the solution directory."
-        if mini_swe_compat_mode
+        ""
+        if paper_prompt_mode
         else (
+            f"Complete ProgramBench instance {args.instance_id} by reimplementing the target CLI from the provided "
+            "binary behavior and documentation, without internet access, until compile.sh builds ./executable and "
+            "package-submission succeeds. Do not inspect parent directories or files outside the solution directory."
+            if mini_swe_compat_mode
+            else (
             f"Complete ProgramBench instance {args.instance_id} in the target container by reimplementing the "
             "target CLI from black-box behavior only, without stopping until solution/compile.sh builds ./executable, "
             "package-submission succeeds, and .goal/BEHAVIOR_AUDIT.md documents adversarial target-vs-local probe "
@@ -421,6 +438,7 @@ def prepare(args: argparse.Namespace) -> None:
             "discovered behavior class remains unexplored. Do not mark the goal complete just because packaging works "
             "or representative probes pass. "
             "Do not inspect parent directories or files outside the solution directory."
+            )
         )
     )
 
@@ -428,8 +446,8 @@ def prepare(args: argparse.Namespace) -> None:
     helper_dir.mkdir(parents=True, exist_ok=True)
     cache_dir.mkdir(parents=True, exist_ok=True)
     write_guard_bin(guard_dir, container_name, args.target_access, args.target_wrapper_command, local_tools_mode)
-    (solution_dir / "AGENT_RULES.md").write_text(
-        (
+    if mini_swe_compat_mode or paper_prompt_mode:
+        agent_rules = (
             "Do not use internet, package registries, public source, external docs, ProgramBench tests, or "
             "the ProgramBench evaluator repository. Do not inspect files outside this solution directory or run "
             "commands against parent/sibling directories. Probe the target executable only through normal "
@@ -437,8 +455,8 @@ def prepare(args: argparse.Namespace) -> None:
             "Do not read, decompile, disassemble, trace, or wrap the target binary. Implement a complete replacement "
             "codebase here. compile.sh must produce ./executable. Run package-submission before finishing.\n"
         )
-        if mini_swe_compat_mode
-        else (
+    elif primary_no_internet_mode:
+        agent_rules = (
             "Do not use internet, package managers, upstream source, decompilers, "
             "disassemblers, tracing/instrumentation tools, ProgramBench tests, or "
             "the ProgramBench evaluator repository. Do not inspect files outside "
@@ -453,19 +471,20 @@ def prepare(args: argparse.Namespace) -> None:
             "with the behavioral probe matrix, target-vs-local comparisons, known gaps, and stopping rationale. "
             "Do not mark the goal complete merely because package-submission succeeds.\n"
         )
-        if primary_no_internet_mode
-        else (
+    else:
+        agent_rules = (
             "No-internet local-tools research mode: this is not ProgramBench-compliant and must not be reported as a "
             "no-internet benchmark result. Do not use internet, package registries, public source, external docs, or "
             "ProgramBench tests. Local installed tools, binary-analysis tools, tracing tools, and agent-created tools "
             f"are allowed. Probe the target executable at /workspace/executable with {target_command}.\n"
         )
-    )
+    (solution_dir / "AGENT_RULES.md").write_text(agent_rules)
     prompt_template = (
         args.prompt_template
         or {
             "no-internet": NO_INTERNET_PROMPT_TEMPLATE,
             MINI_SWE_COMPAT_MODE: MINI_SWE_COMPAT_PROMPT_TEMPLATE,
+            PAPER_PROMPT_MODE: PAPER_PROMPT_TEMPLATE,
             "no-internet-local-tools": LOCAL_TOOLS_PROMPT_TEMPLATE,
         }[args.inference_mode]
     )
@@ -487,7 +506,11 @@ def prepare(args: argparse.Namespace) -> None:
     )
     (instance_dir / "GOAL_OBJECTIVE.txt").write_text(objective + "\n")
     (instance_dir / "CODEX_INITIAL_PROMPT.md").write_text(
-        "/goal " + objective + "\n\n" + (instance_dir / "GOAL_PROMPT.md").read_text()
+        (
+            "/goal " + (instance_dir / "GOAL_PROMPT.md").read_text()
+            if paper_prompt_mode
+            else "/goal " + objective + "\n\n" + (instance_dir / "GOAL_PROMPT.md").read_text()
+        )
     )
     (instance_dir / "run.json").write_text(
         json.dumps(
@@ -513,10 +536,18 @@ def prepare(args: argparse.Namespace) -> None:
                 "docker_cpus": args.docker_cpus,
                 "docker_memory": args.docker_memory,
                 "inference_mode": args.inference_mode,
-                "paper_mode": False,
-                "paper_compliant": False,
+                "paper_mode": paper_prompt_mode,
+                "paper_compliant": (
+                    paper_prompt_mode
+                    and args.target_access == "wrapper"
+                    and platform.system() == "Linux"
+                    and platform.machine() in {"x86_64", "AMD64"}
+                    and str(args.docker_cpus) == "20"
+                    and args.docker_memory == "60g"
+                ),
                 "model": args.model,
                 "reasoning_effort": args.reasoning_effort,
+                "codex_version": command_output(["codex", "--version"]),
                 "created_at": datetime.now(timezone.utc).isoformat(),
                 "host_machine": platform.machine(),
                 "host_system": platform.system(),

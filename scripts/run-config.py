@@ -14,7 +14,12 @@ from typing import Any
 
 REPO = Path(__file__).resolve().parents[1]
 RUN_BATCH = REPO / "scripts" / "run-batch.py"
-NO_INTERNET_MODES = {"no-internet", "mini-swe-compatible-nointernet", "no-internet-local-tools"}
+NO_INTERNET_MODES = {
+    "no-internet",
+    "mini-swe-compatible-nointernet",
+    "paper-prompt-nointernet",
+    "no-internet-local-tools",
+}
 
 
 def load_config(path: Path) -> dict[str, Any]:
@@ -67,6 +72,7 @@ def common_watch_args(config: dict[str, Any], args: argparse.Namespace) -> list[
         "reasoning_effort",
         "codex_user",
         "run_name_prefix",
+        "prompt_template",
     )
     return [
         sys.executable,

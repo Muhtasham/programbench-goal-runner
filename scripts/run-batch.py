@@ -24,7 +24,12 @@ TERMINAL_STATUSES = {"goal_done", "packaged", "evaluated", "failed", "finalize_f
 CLEANUP_STATUSES = TERMINAL_STATUSES
 SESSION_FAILED_BEFORE_GOAL_DONE = "session_failed_before_goal_done"
 GATE_FAILED = "gate_failed"
-NO_INTERNET_MODES = {"no-internet", "mini-swe-compatible-nointernet", "no-internet-local-tools"}
+NO_INTERNET_MODES = {
+    "no-internet",
+    "mini-swe-compatible-nointernet",
+    "paper-prompt-nointernet",
+    "no-internet-local-tools",
+}
 STATUS_RANK = {
     "pending": 0,
     "running": 1,
@@ -312,6 +317,8 @@ def prepare_instance(args: argparse.Namespace, instance_id: str, run_root: Path,
         retry = f"-attempt-{attempt}" if attempt > 1 else ""
         run_name = f"{args.run_name_prefix}-{version}{instance_id.replace('__', '-').split('.', 1)[0]}{retry}"
         cmd.extend(["--run-name", run_name])
+    if args.prompt_template:
+        cmd.extend(["--prompt-template", args.prompt_template])
     output = run(cmd).stdout.splitlines()
     instance_dir = Path(next(line for line in output if line.startswith("/"))).resolve()
     run_json = json.loads((instance_dir / "run.json").read_text())
@@ -706,7 +713,7 @@ def add_common_run_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--docker-memory", default="60g")
     parser.add_argument(
         "--inference-mode",
-        choices=["no-internet", "mini-swe-compatible-nointernet", "no-internet-local-tools"],
+        choices=["no-internet", "mini-swe-compatible-nointernet", "paper-prompt-nointernet", "no-internet-local-tools"],
         default="no-internet",
     )
     parser.add_argument("--target-access", choices=["direct-docker", "wrapper"], default="direct-docker")
@@ -716,6 +723,7 @@ def add_common_run_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--strict-egress", action="store_true")
     parser.add_argument("--codex-user", default="")
     parser.add_argument("--run-name-prefix", default="")
+    parser.add_argument("--prompt-template", default="")
 
 
 def main() -> None:
