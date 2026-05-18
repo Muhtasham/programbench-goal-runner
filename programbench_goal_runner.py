@@ -688,13 +688,16 @@ if [ -n "{codex_user}" ] && [ "$(id -u)" -eq 0 ]; then
   chown "$CODEX_USER:$CODEX_USER" "$CODEX_CONFIG"
 fi
 {tmux_command} kill-session -t {shlex.quote(session_name)} >/dev/null 2>&1 || true
-CODEX_INITIAL_PROMPT="$(cat {shlex.quote(str(instance_dir / "CODEX_INITIAL_PROMPT.md"))})"
 {tmux_command} new-session -d -s {shlex.quote(session_name)} -c {shlex.quote(str(solution_dir))} \\
   "{codex_env} codex --enable goals --disable plugins --disable apps -m {shlex.quote(args.model)} \\
   -c model_reasoning_effort={shlex.quote(args.reasoning_effort)} \\
   -c trust_level=trusted \\
-  -C {shlex.quote(str(solution_dir))} $CODEX_BYPASS_FLAG --no-alt-screen $(printf '%q' "$CODEX_INITIAL_PROMPT")"
+  -C {shlex.quote(str(solution_dir))} $CODEX_BYPASS_FLAG --no-alt-screen"
 {tmux_command} pipe-pane -o -t {shlex.quote(session_name)} 'cat >> {transcript_log}'
+sleep 4
+{tmux_command} load-buffer {shlex.quote(str(instance_dir / "CODEX_INITIAL_PROMPT.md"))}
+{tmux_command} paste-buffer -t {shlex.quote(session_name)}
+{tmux_command} send-keys -t {shlex.quote(session_name)} Enter
 echo "Attached session: {tmux_command} attach -t {session_name}"
 """,
     )
