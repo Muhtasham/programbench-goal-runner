@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paper Prompt + /goal (mini-SWE-style) Prompt · GoalBench</title>
+  <title>Paper Prompt + Goal Contract (mini-SWE-style) Prompt · GoalBench</title>
 
-  <link rel="canonical" href="https://muhtasham.github.io/goalbench/prompt/paper-prompt-nointernet/">
+  <link rel="canonical" href="https://muhtasham.github.io/goalbench/prompt/paper-prompt-goal-contract-nointernet/">
   <meta name="description" content="GoalBench measures Codex /goal on ProgramBench tasks: rebuild CLI behavior from binaries and documentation, then score with ProgramBench behavioral tests.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="GoalBench">
-  <meta property="og:title" content="Paper Prompt + /goal (mini-SWE-style) Prompt · GoalBench">
+  <meta property="og:title" content="Paper Prompt + Goal Contract (mini-SWE-style) Prompt · GoalBench">
   <meta property="og:description" content="GoalBench measures Codex /goal on ProgramBench tasks: rebuild CLI behavior from binaries and documentation, then score with ProgramBench behavioral tests.">
-  <meta property="og:url" content="https://muhtasham.github.io/goalbench/prompt/paper-prompt-nointernet/">
+  <meta property="og:url" content="https://muhtasham.github.io/goalbench/prompt/paper-prompt-goal-contract-nointernet/">
   <meta property="og:image" content="https://muhtasham.github.io/goalbench/assets/goalbench-social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="GoalBench preview card">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Paper Prompt + /goal (mini-SWE-style) Prompt · GoalBench">
+  <meta name="twitter:title" content="Paper Prompt + Goal Contract (mini-SWE-style) Prompt · GoalBench">
   <meta name="twitter:description" content="GoalBench measures Codex /goal on ProgramBench tasks: rebuild CLI behavior from binaries and documentation, then score with ProgramBench behavioral tests.">
   <meta name="twitter:image" content="https://muhtasham.github.io/goalbench/assets/goalbench-social-preview.png">
   <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
@@ -65,18 +65,32 @@
     </nav>
     <section class="prompt-hero">
       <p class="prompt-eyebrow">Codex /goal prompt artifact</p>
-      <h1>Paper Prompt + /goal (mini-SWE-style)</h1>
-      <p>ProgramBench paper system prompt from arXiv v1, prefixed with /goal and run through the mini-SWE-style task workspace scaffold.</p>
+      <h1>Paper Prompt + Goal Contract (mini-SWE-style)</h1>
+      <p>ProgramBench paper prompt with a stronger Codex Goal contract, run through the mini-SWE-style task workspace scaffold.</p>
     </section>
   </header>
   <main>
     <div class="meta-grid">
-      <div><span>Mode</span><strong>paper-prompt-nointernet</strong></div>
-      <div><span>Source</span><code>prompts/programbench_goal_paper_prompt.md</code></div>
-      <div><span>SHA-256</span><code>76451cdc851023e2fe5ef506b48f95efddab5ec16da7298200976c5d9791c29a</code></div>
+      <div><span>Mode</span><strong>paper-prompt-goal-contract-nointernet</strong></div>
+      <div><span>Source</span><code>prompts/programbench_goal_contract_paper_prompt.md</code></div>
+      <div><span>SHA-256</span><code>c3dfd1eca64eb4e1cdcd0dbb02a58698c5cc97610090e0eb2bbe813eeab1ba31</code></div>
       <div><span>Machine-readable</span><a href="../../data/prompts.json">data/prompts.json</a></div>
     </div>
-    <pre><code>You are a helpful assistant that can interact with a computer.
+    <pre><code>Complete ProgramBench instance `{{instance_id}}` by producing the strongest defensible original replacement CLI from the bundled documentation and allowed normal user-interface black-box observations of the target executable.
+
+Success condition: the workspace contains a complete codebase where `compile.sh` builds or copies the replacement to `./executable`, `{{package_command}}` succeeds, and the implementation has been checked against the target with focused normal user-interface CLI, stdin, stdout, stderr, exit-code, and filesystem-effect probes.
+
+Verification surface: bundled documentation, normal user-interface target executions through `{{target_command}}`, local executions of your replacement, build output, package output, and any probe notes you create in the workspace. Cover args, flags, subcommands, help/version output, config/env behavior, stdin, stdout, stderr, exit codes, file inputs/outputs, filesystem effects, and TUI behavior where applicable. The target command is only for allowed observations of `./executable`; it is not permission to inspect the target binary or hidden implementation state.
+
+Constraints and boundaries: preserve the no-internet, no-package/source-lookup, no-runtime-wrapper-around-the-original-binary, no-target-binary-analysis, no-reading/copying/hashing of the target executable bytes, no-tracing/instrumentation, no-ProgramBench-tests/evaluator-feedback, and workspace-only constraints below. Use only bundled documentation, allowed target executions, local executions of your own replacement, and files you create in the workspace.
+
+Iteration policy: between iterations, compare target-vs-local observable behavior over documented commands, args/flags/subcommands, help/version output, config/env behavior, self-created inputs, stdin, stdout, stderr, exit codes, file inputs/outputs, filesystem effects, and TUI behavior where applicable. Identify the highest-value missing behavior class, make one focused implementation improvement, and re-check it. Continue until the implementation is the best defensible submission under these constraints.
+
+Blocked stop condition: if no valid improvement path remains, if the benchmark environment blocks further evidence, or if a required behavior cannot be inferred without violating the rules, finish with the best implementation produced and record the attempted paths, evidence gathered, blocker, unresolved behavioral gaps, and next input that would unlock progress in a short note in the workspace.
+
+The ProgramBench rules below remain binding.
+
+You are a helpful assistant that can interact with a computer.
 
 This is a reverse-engineering benchmark. You are given a compiled binary and its documentation.
 Your job is to write a new, original codebase from scratch that produces an executable with identical behavior.
@@ -136,7 +150,7 @@ analysis tools on binaries that you produce yourself during development.
 
 
 &lt;HARNESS_CONTEXT&gt;
-You are running inside a Codex `/goal` session for a ProgramBench task. The paper prompt above is preserved verbatim from `assets/system_prompt.txt` in the arXiv v1 source bundle; this block only maps that prompt onto the GoalBench/Codex harness.
+You are running inside a Codex `/goal` session for a ProgramBench task. The ProgramBench paper prompt above is preserved from `assets/system_prompt.txt` in the arXiv v1 source bundle; the opening Goal contract maps that prompt onto Codex Goals by making the outcome, verification surface, constraints, boundaries, iteration policy, and blocked stop condition explicit.
 
 Instance: `{{instance_id}}`
 Run: `{{run_name}}`

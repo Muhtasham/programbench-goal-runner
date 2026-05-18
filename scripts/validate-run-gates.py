@@ -13,11 +13,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[1]
 STATE_ROOT = REPO / "local_state" / "batches"
 NO_INTERNET_MODES = {
-    "no-internet",
     "mini-swe-compatible-nointernet",
     "paper-prompt-nointernet",
     "paper-prompt-goal-contract-nointernet",
-    "no-internet-local-tools",
 }
 
 

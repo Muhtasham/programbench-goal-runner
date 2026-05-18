@@ -15,12 +15,9 @@ from typing import Any
 REPO = Path(__file__).resolve().parents[1]
 RUN_BATCH = REPO / "scripts" / "run-batch.py"
 NO_INTERNET_MODES = {
-    "no-internet",
     "mini-swe-compatible-nointernet",
     "paper-prompt-nointernet",
-    "paper-prompt-miniswe-exec-nointernet",
     "paper-prompt-goal-contract-nointernet",
-    "no-internet-local-tools",
 }
 
 

@@ -47,33 +47,15 @@ PROMPTS = {
     },
     "paper-prompt-nointernet": {
         "slug": "paper-prompt-nointernet",
-        "title": "ProgramBench Paper Prompt + /goal",
+        "title": "Paper Prompt + /goal (mini-SWE-style)",
         "path": Path("prompts/programbench_goal_paper_prompt.md"),
-        "summary": "Verbatim ProgramBench paper system prompt from arXiv v1, prefixed with /goal and followed by a minimal harness-context block.",
-    },
-    "paper-prompt-miniswe-exec-nointernet": {
-        "slug": "paper-prompt-miniswe-exec-nointernet",
-        "title": "Paper Prompt + Mini-SWE-Style Execution",
-        "path": Path("prompts/programbench_goal_paper_prompt_miniswe_exec.md"),
-        "summary": "ProgramBench paper prompt with /goal and a closer execution scaffold where the target is run as ./executable in the task workspace.",
+        "summary": "ProgramBench paper system prompt from arXiv v1, prefixed with /goal and run through the mini-SWE-style task workspace scaffold.",
     },
     "paper-prompt-goal-contract-nointernet": {
         "slug": "paper-prompt-goal-contract-nointernet",
-        "title": "Paper Prompt + Goal Contract",
+        "title": "Paper Prompt + Goal Contract (mini-SWE-style)",
         "path": Path("prompts/programbench_goal_contract_paper_prompt.md"),
-        "summary": "ProgramBench paper prompt with a stronger Codex Goal contract that names outcome, verification surface, constraints, boundaries, iteration policy, and blocked stop condition.",
-    },
-    "no-internet": {
-        "slug": "no-internet",
-        "title": "No Internet",
-        "path": Path("prompts/programbench_goal_no_internet.md"),
-        "summary": "Stricter GoalBench prompt with explicit behavior-audit requirements.",
-    },
-    "no-internet-local-tools": {
-        "slug": "no-internet-local-tools",
-        "title": "No Internet + Local Tools",
-        "path": Path("prompts/programbench_goal_local_tools.md"),
-        "summary": "Non-comparable ablation prompt that keeps external lookup blocked while allowing local binary-analysis tools.",
+        "summary": "ProgramBench paper prompt with a stronger Codex Goal contract, run through the mini-SWE-style task workspace scaffold.",
     },
 }
 
@@ -658,12 +640,9 @@ def mode_label(row: ResultRow) -> str:
     if row.inference_mode == "paper":
         return "Legacy internal"
     return {
-        "no-internet": "No internet",
         "mini-swe-compatible-nointernet": "Mini-SWE-compatible no internet",
-        "paper-prompt-nointernet": "Paper prompt no internet",
-        "paper-prompt-miniswe-exec-nointernet": "Paper prompt + mini-SWE-style execution no internet",
+        "paper-prompt-nointernet": "Paper prompt + /goal no internet",
         "paper-prompt-goal-contract-nointernet": "Paper prompt + Goal contract no internet",
-        "no-internet-local-tools": "No internet + local tools",
     }.get(row.inference_mode, row.inference_mode or "Unknown")
 
 
@@ -687,18 +666,12 @@ def host_profile(row: ResultRow) -> str:
 
 
 def compliance_label(row: ResultRow) -> str:
-    if row.inference_mode == "no-internet":
-        return "Codex no-internet ablation"
     if row.inference_mode == "mini-swe-compatible-nointernet":
         return "Codex /goal mini-SWE-compatible no-internet"
     if row.inference_mode == "paper-prompt-nointernet":
-        return "Codex /goal paper-prompt no-internet"
-    if row.inference_mode == "paper-prompt-miniswe-exec-nointernet":
-        return "Codex /goal paper prompt + mini-SWE-style execution"
+        return "Codex /goal paper prompt no-internet, mini-SWE-style execution"
     if row.inference_mode == "paper-prompt-goal-contract-nointernet":
-        return "Codex /goal contract no-internet"
-    if row.inference_mode == "no-internet-local-tools":
-        return "Non-compliant: local/binary tools allowed"
+        return "Codex /goal contract no-internet, mini-SWE-style execution"
     if is_programbench_comparable(row):
         return "Legacy internal"
     return "Local smoke: host/resources differ"
@@ -1232,7 +1205,7 @@ def render_leaderboard(groups: list[dict], prefix: str = "") -> str:
     )
 
 
-def render_disclosures(groups: list[dict]) -> str:
+def render_disclosures(groups: list[dict], prefix: str = "") -> str:
     return "\n".join(
         f"""
             <tr>
@@ -1244,7 +1217,7 @@ def render_disclosures(groups: list[dict]) -> str:
               <td>{cell(str(group["host_profile"]))}</td>
               <td>{group["instances"]}/{PROGRAMBENCH_TASKS}</td>
               <td>{percent(group["average_pass_rate"])}</td>
-              <td>{prompt_link(str(group["prompt"]["mode"]))}</td>
+              <td>{prompt_link(str(group["prompt"]["mode"]), prefix)}</td>
               <td>{short_minutes(group["duration"]["average_seconds"])}</td>
               <td>{short_minutes(group["duration"]["max_seconds"])}</td>
               <td>{group["total_wall_clock_hours"]:.2f}h</td>
@@ -1434,7 +1407,6 @@ def run_chips(group: dict) -> str:
     compliance = str(group["compliance"])
     if compliance not in {
         "Codex /goal mini-SWE-compatible no-internet",
-        "Codex no-internet ablation",
     }:
         values.insert(1, cell(compliance))
     return "".join(f'<span class="run-chip">{value}</span>' for value in values)
@@ -2099,15 +2071,11 @@ def render_empty_state() -> str:
       <div class="mode-grid">
         <div class="mode-card">
           <strong>Headline track</strong>
-          <p>GPT-5.5 xhigh with Codex <code>/goal</code>, no internet/source/package lookup, target binary-analysis tools blocked, black-box target access, and the mini-SWE-compatible prompt.</p>
+          <p>GPT-5.5 xhigh with Codex <code>/goal</code>, the ProgramBench paper prompt, strict no-internet controls, and mini-SWE-style task execution.</p>
         </div>
         <div class="mode-card">
-          <strong>Comparison track</strong>
-          <p>GPT-5.5 high uses the same mini-SWE-compatible no-internet scaffold, changing only reasoning effort for high-vs-xhigh comparison.</p>
-        </div>
-        <div class="mode-card">
-          <strong>Local-tools ablation</strong>
-          <p>Coming soon. External lookup remains blocked, but local binary-analysis/tracing tools are allowed. Reported separately as non-compliant.</p>
+          <strong>Goal-contract track</strong>
+          <p>The same paper prompt and mini-SWE-style execution, with an explicit Codex Goal contract for outcome, evidence, constraints, iteration, and blocked-stop behavior.</p>
         </div>
       </div>
       <p class="link-row"><a class="button primary" href="extended/">Open extended view</a><a class="button" href="task-details.html">How task pages work</a></p>
@@ -2308,7 +2276,7 @@ def render_results_sections(data: dict, instances: list[ResultRow]) -> str:
     <div class="table-wrap">
       <table>
         <thead><tr><th>#</th><th>Model</th><th>Run</th><th>Mode</th><th>Compliance</th><th>Host profile</th><th>Tasks</th><th>Avg. pass</th><th>Prompt</th><th>Avg /goal</th><th>Max /goal</th><th>Total wall</th></tr></thead>
-        <tbody>{render_disclosures(data["groups"])}</tbody>
+        <tbody>{render_disclosures(data["groups"], "../")}</tbody>
       </table>
     </div>
     <p>These disclosure fields make scaffold differences explicit: prompt, compliance label, host size, per-session latency, and total wall-clock sum. Rows labeled smaller VM are Codex <code>/goal</code> scaffold experiments on the disclosed runner size.</p>
@@ -2367,14 +2335,15 @@ def render_html(data: dict, extended: bool = False) -> str:
     instances = [
         ResultRow(**{key: value for key, value in row.items() if key in result_fields}) for row in data["rows"]
     ]
+    prefix = "../" if extended else ""
     nav = f"""
     <nav class="topbar" aria-label="Primary">
-      <a class="nav-brand" href="./">{brand_slash_svg()}<span>{SITE_NAME}</span></a>
+      <a class="nav-brand" href="{prefix or "./"}">{brand_slash_svg()}<span>{SITE_NAME}</span></a>
       <div class="nav-links">
-        <a href="./">Leaderboard</a>
-        <a href="extended/">Extended</a>
-        <a href="task-details.html">Tasks</a>
-        <a href="runbook.html">Runbook</a>
+        <a href="{prefix or "./"}">Leaderboard</a>
+        <a href="{prefix}extended/">Extended</a>
+        <a href="{prefix}task-details.html">Tasks</a>
+        <a href="{prefix}runbook.html">Runbook</a>
         <a href="{GOALBENCH_GITHUB}">GitHub</a>
         <a href="{PROGRAMBENCH_EXTENDED}">ProgramBench</a>
       </div>
@@ -2401,7 +2370,7 @@ def render_html(data: dict, extended: bool = False) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
   {social_meta(title, path="extended/" if extended else "")}
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">
   <style>
     :root {{
       color-scheme: light;
@@ -2836,7 +2805,7 @@ def render_html(data: dict, extended: bool = False) -> str:
         <div class="method-notes-copy">
           <h2>Method Notes</h2>
           <p>GoalBench reports separate Codex <code>/goal</code> runs on ProgramBench tasks; these are not official mini-SWE-agent leaderboard submissions. Resolved means ProgramBench's filtered behavioral pass rate is exactly 100%, and almost resolved means at least 95%.</p>
-          <p>The headline run is the closest GoalBench parity attempt: GPT-5.5 xhigh, strict no-internet enforcement, wrapper-only black-box target access, and a shorter mini-SWE-style prompt. The stricter <code>no-internet</code> scaffold adds an explicit behavior-audit prompt; <code>no-internet-local-tools</code> is a coming non-comparable ablation with local binary-analysis tools allowed.</p>
+          <p>GoalBench currently keeps three public prompt tracks separate: <code>mini-swe-compatible-nointernet</code> for the already-published mini-SWE-compatible result, <code>paper-prompt-nointernet</code> for the ProgramBench paper prompt with <code>/goal</code> and mini-SWE-style execution, and <code>paper-prompt-goal-contract-nointernet</code> for the same scaffold with an explicit Codex Goal contract.</p>
           <p>GoalBench uses a host-side wrapper to transport allowed black-box CLI interactions into the target container. This differs from mini-SWE-agent's in-container execution, but the wrapper is restricted to normal user-interface observations of the target executable and forbids source lookup, binary reading, disassembly, tracing, instrumentation, and evaluator/test access.</p>
           <p>The public table is scoped to the latest published result set. Cost is estimated from Codex token logs, not billing. See <a href="task-details.html">Task Details</a> and the <a href="runbook.html">runbook</a> for scoring, evidence, egress, and setup details. Sources: <a href="https://programbench.com/extended/">ProgramBench extended results</a> and <a href="https://programbench.com/run/gpt-5-5-xhigh/">GPT 5.5 xhigh run detail</a>.</p>
         </div>

@@ -25,12 +25,9 @@ CLEANUP_STATUSES = TERMINAL_STATUSES
 SESSION_FAILED_BEFORE_GOAL_DONE = "session_failed_before_goal_done"
 GATE_FAILED = "gate_failed"
 NO_INTERNET_MODES = {
-    "no-internet",
     "mini-swe-compatible-nointernet",
     "paper-prompt-nointernet",
-    "paper-prompt-miniswe-exec-nointernet",
     "paper-prompt-goal-contract-nointernet",
-    "no-internet-local-tools",
 }
 STATUS_RANK = {
     "pending": 0,
@@ -716,14 +713,11 @@ def add_common_run_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument(
         "--inference-mode",
         choices=[
-            "no-internet",
             "mini-swe-compatible-nointernet",
             "paper-prompt-nointernet",
-            "paper-prompt-miniswe-exec-nointernet",
             "paper-prompt-goal-contract-nointernet",
-            "no-internet-local-tools",
         ],
-        default="no-internet",
+        default="paper-prompt-nointernet",
     )
     parser.add_argument("--target-access", choices=["direct-docker", "wrapper"], default="direct-docker")
     parser.add_argument("--target-wrapper-command", default="sudo -n /usr/local/bin/pb-target-exec")

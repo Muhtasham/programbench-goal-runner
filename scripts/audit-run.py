@@ -531,8 +531,6 @@ def audit(args: argparse.Namespace) -> None:
         findings.append(
             Finding(str(instance_dir / "submission.tar.gz"), "submission exists but cannot compile without compile.sh")
         )
-    if run["inference_mode"] == "no-internet":
-        findings.extend(audit_behavior_audit_file(solution_dir))
     findings.extend(audit_solution_files(solution_dir))
     findings.extend(audit_submission_archive(instance_dir))
 
@@ -554,7 +552,7 @@ def audit(args: argparse.Namespace) -> None:
             solution_dir,
             log_cwds.get(log),
             run["container_name"],
-            run.get("inference_mode") == "no-internet-local-tools",
+            False,
         )
     )
 

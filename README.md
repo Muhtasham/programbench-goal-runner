@@ -17,13 +17,13 @@ Current reportable tracks:
 
 | Track | Config | Prompt | Compliance label |
 | --- | --- | --- | --- |
-| Verbatim paper prompt | `configs/cpx62-paperprompt-xhigh.json` | ProgramBench paper prompt with `/goal ` prepended and only harness context appended | Paper-prompt no internet |
-| Goal-contract paper prompt | `configs/cpx62-goalcontract-xhigh.json` | ProgramBench paper prompt with a stronger Codex Goal completion contract | Paper prompt + Goal contract no internet |
-| Mini-SWE-compatible | `configs/full-miniswecompat-xhigh.json` | Short mini-SWE-style prompt with `/goal ` prepended | Mini-SWE-compatible no internet |
-| Stricter GoalBench | `configs/full-nointernet-xhigh.json` | GoalBench audit-heavy prompt with `/goal ` prepended | No internet |
+| Mini-SWE-compatible | `configs/full-miniswecompat-xhigh.json` | Short mini-SWE-style prompt with `/goal ` prepended. Kept because the current published site result uses it. | Mini-SWE-compatible no internet |
+| Paper prompt + `/goal` | `configs/cpx62-paperprompt-xhigh.json` | ProgramBench paper prompt with `/goal ` prepended, using mini-SWE-style task execution. | Paper prompt + `/goal` no internet |
+| Paper prompt + Goal contract | `configs/cpx62-goalcontract-xhigh.json` | ProgramBench paper prompt plus a stronger Codex Goal completion contract, using mini-SWE-style task execution. | Paper prompt + Goal contract no internet |
 
-All reportable no-internet tracks use strict host egress, wrapper-only target
-access, and post-run audits.
+All reportable no-internet tracks use strict host egress, black-box target
+access, mini-SWE-style task workspaces for the paper-prompt tracks, and
+post-run audits.
 
 ## System Layout
 
@@ -113,9 +113,12 @@ codex --enable goals --disable plugins --disable apps \
   "$CODEX_INITIAL_PROMPT"
 ```
 
-For the paper-prompt track, the bytes immediately after `/goal ` are the copied
+For the paper-prompt tracks, the bytes immediately after `/goal ` are the
 ProgramBench paper prompt from Appendix 8.2, followed by a small harness context
-block with instance id, target command, package command, and solution directory.
+block with instance id, target command, package command, and workspace details.
+The Goal-contract variant adds the Codex Goal contract before the same paper
+rules, making outcome, verification, boundaries, iteration policy, and blocked
+stop conditions explicit.
 
 Before publishing, hard gates check both the prompt file and transcript:
 
@@ -185,7 +188,7 @@ scripts/doctor.sh configs/cpx62-paperprompt-xhigh.json
 
 Bootstrap installs Docker, `uv`, `tmux`, Codex CLI if missing, a sibling
 `../ProgramBench` checkout, Codex goal/fast defaults, and the target wrapper
-used by no-internet runs.
+used by reportable black-box runs.
 
 ## Single-VM Sweep
 
@@ -266,11 +269,9 @@ uv run python scripts/run-config.py retry \
 
 | Mode | Meaning |
 | --- | --- |
-| `paper-prompt-nointernet` | Verbatim ProgramBench paper prompt with `/goal ` prepended, strict egress, wrapper-only target access. |
-| `paper-prompt-goal-contract-nointernet` | ProgramBench paper prompt with a stronger Goal contract that names the outcome, verification surface, constraints, boundaries, iteration policy, and blocked stop condition. |
-| `mini-swe-compatible-nointernet` | Shorter parity prompt with the same no-internet enforcement. |
-| `no-internet` | Stricter GoalBench prompt that also asks for an explicit behavior audit. |
-| `no-internet-local-tools` | Non-comparable ablation: internet/source/package lookup blocked, but local binary-analysis/tracing tools allowed. |
+| `mini-swe-compatible-nointernet` | Shorter parity prompt with the same no-internet enforcement. Kept for the already-published site result. |
+| `paper-prompt-nointernet` | ProgramBench paper prompt with `/goal ` prepended, strict egress, and mini-SWE-style task execution. |
+| `paper-prompt-goal-contract-nointernet` | ProgramBench paper prompt with a stronger Goal contract plus strict egress and mini-SWE-style task execution. |
 
 ## Reporting
 

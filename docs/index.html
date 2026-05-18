@@ -444,7 +444,7 @@
       </div>
     </div>
     <div class="pill-row">
-      <span class="pill">Generated 2026-05-18 20:23 UTC</span>
+      <span class="pill">Generated 2026-05-18 21:38 UTC</span>
       <span class="pill">200 evaluated instances</span>
       <span class="pill">200 tasks in full ProgramBench</span>
       <span class="pill">Sorted Resolved → Almost → Avg. pass</span>
@@ -712,7 +712,7 @@
         <div class="method-notes-copy">
           <h2>Method Notes</h2>
           <p>GoalBench reports separate Codex <code>/goal</code> runs on ProgramBench tasks; these are not official mini-SWE-agent leaderboard submissions. Resolved means ProgramBench's filtered behavioral pass rate is exactly 100%, and almost resolved means at least 95%.</p>
-          <p>The headline run is the closest GoalBench parity attempt: GPT-5.5 xhigh, strict no-internet enforcement, wrapper-only black-box target access, and a shorter mini-SWE-style prompt. The stricter <code>no-internet</code> scaffold adds an explicit behavior-audit prompt; <code>no-internet-local-tools</code> is a coming non-comparable ablation with local binary-analysis tools allowed.</p>
+          <p>GoalBench currently keeps three public prompt tracks separate: <code>mini-swe-compatible-nointernet</code> for the already-published mini-SWE-compatible result, <code>paper-prompt-nointernet</code> for the ProgramBench paper prompt with <code>/goal</code> and mini-SWE-style execution, and <code>paper-prompt-goal-contract-nointernet</code> for the same scaffold with an explicit Codex Goal contract.</p>
           <p>GoalBench uses a host-side wrapper to transport allowed black-box CLI interactions into the target container. This differs from mini-SWE-agent's in-container execution, but the wrapper is restricted to normal user-interface observations of the target executable and forbids source lookup, binary reading, disassembly, tracing, instrumentation, and evaluator/test access.</p>
           <p>The public table is scoped to the latest published result set. Cost is estimated from Codex token logs, not billing. See <a href="task-details.html">Task Details</a> and the <a href="runbook.html">runbook</a> for scoring, evidence, egress, and setup details. Sources: <a href="https://programbench.com/extended/">ProgramBench extended results</a> and <a href="https://programbench.com/run/gpt-5-5-xhigh/">GPT 5.5 xhigh run detail</a>.</p>
         </div>

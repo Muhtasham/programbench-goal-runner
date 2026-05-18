@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIG="${1:-configs/cpx62-nointernet-xhigh.json}"
+CONFIG="${1:-configs/cpx62-paperprompt-xhigh.json}"
 RUN_VERSION="${RUN_VERSION:-${2:-}}"
 PROGRAMBENCH_REPO="${PROGRAMBENCH_REPO:-}"
 SESSION="${3:-}"

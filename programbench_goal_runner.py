@@ -15,44 +15,29 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 DEFAULT_ROOT = Path.home() / "pb-goal-runs"
-NO_INTERNET_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_no_internet.md"
 MINI_SWE_COMPAT_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_mini_swe_compatible.md"
-LOCAL_TOOLS_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_local_tools.md"
 PAPER_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_paper_prompt.md"
-PAPER_MINISWE_EXEC_PROMPT_TEMPLATE = (
-    Path(__file__).parent / "prompts" / "programbench_goal_paper_prompt_miniswe_exec.md"
-)
 GOAL_CONTRACT_PAPER_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_contract_paper_prompt.md"
 DEFAULT_MODEL = "gpt-5.5"
 DEFAULT_REASONING_EFFORT = "xhigh"
-DEFAULT_INFERENCE_MODE = "no-internet"
+DEFAULT_INFERENCE_MODE = "paper-prompt-nointernet"
 MINI_SWE_COMPAT_MODE = "mini-swe-compatible-nointernet"
 PAPER_PROMPT_MODE = "paper-prompt-nointernet"
-PAPER_MINISWE_EXEC_MODE = "paper-prompt-miniswe-exec-nointernet"
 GOAL_CONTRACT_PAPER_MODE = "paper-prompt-goal-contract-nointernet"
 INFERENCE_MODES = (
-    "no-internet",
     MINI_SWE_COMPAT_MODE,
     PAPER_PROMPT_MODE,
-    PAPER_MINISWE_EXEC_MODE,
     GOAL_CONTRACT_PAPER_MODE,
-    "no-internet-local-tools",
 )
 NO_INTERNET_MODES = {
-    "no-internet",
     MINI_SWE_COMPAT_MODE,
     PAPER_PROMPT_MODE,
-    PAPER_MINISWE_EXEC_MODE,
     GOAL_CONTRACT_PAPER_MODE,
-    "no-internet-local-tools",
 }
 MODE_RUN_SEGMENTS = {
-    "no-internet": "nointernet",
     MINI_SWE_COMPAT_MODE: "miniswecompat",
     PAPER_PROMPT_MODE: "paperprompt",
-    PAPER_MINISWE_EXEC_MODE: "paperprompt-minisweexec",
     GOAL_CONTRACT_PAPER_MODE: "goalcontract",
-    "no-internet-local-tools": "localtools",
 }
 BLOCKED_ALWAYS_TOOLS = (
     "brew",
@@ -447,36 +432,30 @@ def prepare(args: argparse.Namespace) -> None:
     guard_dir = instance_dir / "guard-bin"
     helper_dir = instance_dir / "helper-bin"
     cache_dir = instance_dir / "tool-caches"
-    primary_no_internet_mode = args.inference_mode == "no-internet"
     mini_swe_compat_mode = args.inference_mode == MINI_SWE_COMPAT_MODE
     paper_prompt_mode = args.inference_mode == PAPER_PROMPT_MODE
-    paper_miniswe_exec_mode = args.inference_mode == PAPER_MINISWE_EXEC_MODE
     goal_contract_paper_mode = args.inference_mode == GOAL_CONTRACT_PAPER_MODE
-    local_tools_mode = args.inference_mode == "no-internet-local-tools"
+    mini_swe_style_execution = paper_prompt_mode or goal_contract_paper_mode
+    local_tools_mode = False
     strict_no_internet_mode = (
-        primary_no_internet_mode
-        or mini_swe_compat_mode
+        mini_swe_compat_mode
         or paper_prompt_mode
-        or paper_miniswe_exec_mode
         or goal_contract_paper_mode
     )
-    tool_env = list(LOCAL_TOOLS_OFFLINE_ENV) if local_tools_mode else list(TOOL_CACHE_ENV)
+    tool_env = list(TOOL_CACHE_ENV)
     container_name = f"pb-goal-{slug(prepared_run_name)}-{slug(args.instance_id)}"
     session_name = f"pb-goal-{slug(prepared_run_name)}-{slug(args.instance_id)}"
     image = image_name(args.instance_id)
     target_command = (
         "./executable <args>"
-        if paper_miniswe_exec_mode
-        else
-        f"docker exec {container_name} bash -lc '<command>'"
-        if local_tools_mode and args.target_access == "direct-docker"
+        if mini_swe_style_execution
         else (
             f"docker exec -u agent {container_name} bash -lc '<command>'"
             if args.target_access == "direct-docker"
             else f"{args.target_wrapper_command} {container_name} bash -lc '<command>'"
         )
     )
-    if paper_prompt_mode or paper_miniswe_exec_mode or goal_contract_paper_mode:
+    if paper_prompt_mode or goal_contract_paper_mode:
         objective = ""
     elif mini_swe_compat_mode:
         objective = (
@@ -500,7 +479,7 @@ def prepare(args: argparse.Namespace) -> None:
     helper_dir.mkdir(parents=True, exist_ok=True)
     cache_dir.mkdir(parents=True, exist_ok=True)
     write_guard_bin(guard_dir, container_name, args.target_access, args.target_wrapper_command, local_tools_mode)
-    if mini_swe_compat_mode or paper_prompt_mode or paper_miniswe_exec_mode or goal_contract_paper_mode:
+    if mini_swe_compat_mode or paper_prompt_mode or goal_contract_paper_mode:
         agent_rules = (
             "Do not use internet, package registries, public source, external docs, ProgramBench tests, or "
             "the ProgramBench evaluator repository. Do not inspect files outside this solution directory or run "
@@ -509,39 +488,15 @@ def prepare(args: argparse.Namespace) -> None:
             "Do not read, decompile, disassemble, trace, or wrap the target binary. Implement a complete replacement "
             "codebase here. compile.sh must produce ./executable. Run package-submission before finishing.\n"
         )
-    elif primary_no_internet_mode:
-        agent_rules = (
-            "Do not use internet, package managers, upstream source, decompilers, "
-            "disassemblers, tracing/instrumentation tools, ProgramBench tests, or "
-            "the ProgramBench evaluator repository. Do not inspect files outside "
-            "this solution directory, do not run commands against '..', and do not inspect parent directories. "
-            "The harness helper is exposed only as the package-submission command. Probe the "
-            f"target executable at /workspace/executable with {target_command}. "
-            "Use only documentation already present in the target container. For documented options that accept "
-            "values, probe valid/invalid values, case variants for word values, and combinations with help/version. "
-            "Treat hidden tests as adversarial edge-case tests; do not call remaining gaps low-value without "
-            "evidence. Add generated/fuzzed target-vs-local probe classes after the first implementation works. "
-            "Keep .goal/BEHAVIOR_AUDIT.md "
-            "with the behavioral probe matrix, target-vs-local comparisons, known gaps, and stopping rationale. "
-            "Do not mark the goal complete merely because package-submission succeeds.\n"
-        )
     else:
-        agent_rules = (
-            "No-internet local-tools research mode: this is not ProgramBench-compliant and must not be reported as a "
-            "no-internet benchmark result. Do not use internet, package registries, public source, external docs, or "
-            "ProgramBench tests. Local installed tools, binary-analysis tools, tracing tools, and agent-created tools "
-            f"are allowed. Probe the target executable at /workspace/executable with {target_command}.\n"
-        )
+        raise SystemExit(f"unsupported inference mode: {args.inference_mode}")
     (solution_dir / "AGENT_RULES.md").write_text(agent_rules)
     prompt_template = (
         args.prompt_template
         or {
-            "no-internet": NO_INTERNET_PROMPT_TEMPLATE,
             MINI_SWE_COMPAT_MODE: MINI_SWE_COMPAT_PROMPT_TEMPLATE,
             PAPER_PROMPT_MODE: PAPER_PROMPT_TEMPLATE,
-            PAPER_MINISWE_EXEC_MODE: PAPER_MINISWE_EXEC_PROMPT_TEMPLATE,
             GOAL_CONTRACT_PAPER_MODE: GOAL_CONTRACT_PAPER_PROMPT_TEMPLATE,
-            "no-internet-local-tools": LOCAL_TOOLS_PROMPT_TEMPLATE,
         }[args.inference_mode]
     )
     prompt_template_path = Path(prompt_template).expanduser()
@@ -563,7 +518,7 @@ def prepare(args: argparse.Namespace) -> None:
     (instance_dir / "GOAL_OBJECTIVE.txt").write_text(objective + "\n")
     (instance_dir / "CODEX_INITIAL_PROMPT.md").write_text(
         "/goal " + (instance_dir / "GOAL_PROMPT.md").read_text()
-        if paper_prompt_mode or paper_miniswe_exec_mode or goal_contract_paper_mode
+        if paper_prompt_mode or goal_contract_paper_mode
         else "/goal " + objective + "\n\n" + (instance_dir / "GOAL_PROMPT.md").read_text()
     )
     (instance_dir / "run.json").write_text(
@@ -584,7 +539,7 @@ def prepare(args: argparse.Namespace) -> None:
                 "codex_user": codex_user,
                 "target_wrapper_command": args.target_wrapper_command,
                 "target_command": target_command,
-                "mini_swe_style_execution": paper_miniswe_exec_mode,
+                "mini_swe_style_execution": mini_swe_style_execution,
                 "prompt_template": str(prompt_template_path),
                 "prompt_template_sha256": file_sha256(prompt_template_path),
                 "prompt_rendered_sha256": file_sha256(instance_dir / "GOAL_PROMPT.md"),
@@ -611,7 +566,7 @@ def prepare(args: argparse.Namespace) -> None:
         )
         + "\n"
     )
-    if paper_miniswe_exec_mode:
+    if mini_swe_style_execution:
         write_target_shim_source(instance_dir / "target-shim.c", container_name, args.target_wrapper_command)
 
     network_check = (
@@ -633,7 +588,7 @@ docker run -d --platform linux/amd64 \\
   {shlex.quote(image)}:task_cleanroom \\
   sleep infinity
 docker exec -u agent {shlex.quote(container_name)} bash -lc 'pwd; find /workspace -maxdepth 2 -type f | sort | head -80'
-if [ {str(paper_miniswe_exec_mode).lower()} = true ]; then
+if [ {str(mini_swe_style_execution).lower()} = true ]; then
   docker exec -u agent {shlex.quote(container_name)} bash -lc \\
     'cd /workspace && tar --exclude=./executable --exclude=./solution -cf - .' \\
     | tar -C {shlex.quote(str(solution_dir))} -xf -

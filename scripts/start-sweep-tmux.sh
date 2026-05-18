@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-CONFIG="${1:-configs/linux-smoke-nointernet-xhigh.json}"
+CONFIG="${1:-configs/linux-smoke-miniswecompat-xhigh.json}"
 SESSION="${2:-}"
 PROGRAMBENCH_REPO="${PROGRAMBENCH_REPO:-}"
 SKIP_DOCTOR=0

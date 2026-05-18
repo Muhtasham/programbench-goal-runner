@@ -14,9 +14,9 @@ STRICT_EGRESS="${STRICT_EGRESS:-1}"
 CODEX_USER="${CODEX_USER:-codex-runner}"
 
 MODES=(
-  no-internet
   mini-swe-compatible-nointernet
-  no-internet-local-tools
+  paper-prompt-nointernet
+  paper-prompt-goal-contract-nointernet
 )
 
 run() {
@@ -59,7 +59,7 @@ check_guard_behavior() {
   local guard_dir="$instance_dir/guard-bin"
 
   case "$mode" in
-    no-internet|mini-swe-compatible-nointernet)
+    mini-swe-compatible-nointernet|paper-prompt-nointernet|paper-prompt-goal-contract-nointernet)
       (
         cd "$solution_dir"
         if PATH="$guard_dir:$PATH" rg --files -uu .. >/tmp/pb-smoke-rg.out 2>/tmp/pb-smoke-rg.err; then
@@ -72,17 +72,6 @@ check_guard_behavior() {
           exit 1
         fi
         grep -q "blocked curl" /tmp/pb-smoke-curl.err
-      )
-      ;;
-    no-internet-local-tools)
-      (
-        cd "$solution_dir"
-        if PATH="$guard_dir:$PATH" curl --version >/tmp/pb-smoke-curl.out 2>/tmp/pb-smoke-curl.err; then
-          echo "guard allowed curl in $mode" >&2
-          exit 1
-        fi
-        grep -q "blocked curl" /tmp/pb-smoke-curl.err
-        PATH="$guard_dir:$PATH" strings --version >/dev/null
       )
       ;;
   esac

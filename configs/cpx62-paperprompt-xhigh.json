@@ -1,7 +1,7 @@
 {
   "batch_name": "cpx62-paperprompt-xhigh",
   "target_file": "target_sets/all_tasks.txt",
-  "max_parallel": 10,
+  "max_parallel": 1,
   "poll_seconds": 60,
   "docker_cpus": 16,
   "docker_memory": "30g",

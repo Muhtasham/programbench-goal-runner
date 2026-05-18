@@ -1,7 +1,0 @@
-# Local Mac/ARM smoke batch for Codex /goal no-internet xhigh.
-# Not ProgramBench-comparable: intended to test harness, persistence, packaging, and eval plumbing under Docker amd64 emulation.
-wfxr__csview.8ac4de0
-agourlay__zip-password-finder.704700d
-sitkevij__hex.61ae69b
-oppiliappan__eva.41ae245
-htop-dev__htop.523600b

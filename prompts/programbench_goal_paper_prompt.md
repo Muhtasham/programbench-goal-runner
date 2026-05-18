@@ -67,5 +67,7 @@ Target command form: `{{target_command}}`
 Package command: `{{package_command}}`
 Solution directory: `{{solution_dir}}`
 
-Use the target command form to run the provided executable in its cleanroom container. The target executable is `/workspace/executable` inside that container, and bundled documentation is inside `/workspace` in that container. Write your replacement codebase in the current solution directory. Provide `compile.sh` at the solution root; it must build or copy your replacement to `./executable`. Run `package-submission` before finishing.
+This track uses a mini-SWE-style execution scaffold. The current directory is the task workspace, and it is also exposed as `/workspace` on the host while this single-task run is active. Bundled documentation from the cleanroom target image has been copied into this workspace. The provided black-box target is available as `./executable`; run it directly with normal CLI/stdin/stdout/stderr/file interactions, for example `./executable --help` or `/workspace/executable --help`.
+
+The initial `./executable` is for observation only. Do not read, copy, hash, decompile, disassemble, trace, instrument, or wrap it. Write your replacement codebase in this workspace. Provide `compile.sh` at the workspace root; it must build or copy your replacement to `./executable`. Run `package-submission` before finishing.
 </HARNESS_CONTEXT>

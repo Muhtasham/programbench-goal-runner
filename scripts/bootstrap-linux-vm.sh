@@ -188,7 +188,7 @@ echo
 echo "Next checks:"
 echo "  docker run --rm hello-world"
 echo "  codex login"
-echo "  scripts/doctor.sh configs/linux-smoke-nointernet-xhigh.json"
+echo "  scripts/doctor.sh configs/linux-smoke-miniswecompat-xhigh.json"
 echo
 echo "Start smoke:"
-echo "  scripts/start-sweep-tmux.sh configs/linux-smoke-nointernet-xhigh.json"
+echo "  scripts/start-sweep-tmux.sh configs/linux-smoke-miniswecompat-xhigh.json"
