@@ -1,12 +1,12 @@
-Complete ProgramBench instance `{{instance_id}}` by producing the strongest defensible original replacement CLI from the bundled documentation and allowed black-box observations of the target executable.
+Complete ProgramBench instance `{{instance_id}}` by producing the strongest defensible original replacement CLI from the bundled documentation and allowed normal user-interface black-box observations of the target executable.
 
-Success condition: the solution directory contains a complete codebase where `compile.sh` builds or copies the replacement to `./executable`, `{{package_command}}` succeeds, and the implementation has been checked against the target with focused CLI, stdin, stdout, stderr, exit-code, and filesystem probes.
+Success condition: the solution directory contains a complete codebase where `compile.sh` builds or copies the replacement to `./executable`, `{{package_command}}` succeeds, and the implementation has been checked against the target with focused normal user-interface CLI, stdin, stdout, stderr, exit-code, and filesystem-effect probes.
 
-Verification surface: bundled documentation, allowed target executions through `{{target_command}}`, local executions of your replacement, build output, package output, and any probe notes you create in the solution directory.
+Verification surface: bundled documentation, normal user-interface target executions transported through `{{target_command}}`, local executions of your replacement, build output, package output, and any probe notes you create in the solution directory. The target command is only a harness transport for allowed observations of `/workspace/executable`; it is not permission to inspect the target binary or hidden implementation state.
 
-Constraints and boundaries: preserve the no-internet, no-package/source-lookup, no-runtime-wrapper-around-the-original-binary, no-target-binary-analysis, no-tracing/instrumentation, solution-directory-only, and wrapper-only target-access constraints below. Use only bundled documentation, allowed target executions, and files you create in the solution directory.
+Constraints and boundaries: preserve the no-internet, no-package/source-lookup, no-runtime-wrapper-around-the-original-binary, no-target-binary-analysis, no-reading/copying/hashing of the target executable bytes, no-tracing/instrumentation, no-ProgramBench-tests/evaluator-feedback, solution-directory-only, and wrapper-only target-access constraints below. Use only bundled documentation, allowed target executions, local executions of your own replacement, and files you create in the solution directory.
 
-Iteration policy: between iterations, compare target-vs-local behavior, identify the highest-value missing behavior class, make one focused implementation improvement, and re-check it. Continue until the implementation is the best defensible submission under these constraints.
+Iteration policy: between iterations, compare target-vs-local observable behavior over documented commands, help/version output, self-created inputs, stdin, stdout, stderr, exit codes, and filesystem effects. Identify the highest-value missing behavior class, make one focused implementation improvement, and re-check it. Continue until the implementation is the best defensible submission under these constraints.
 
 Blocked stop condition: if no valid improvement path remains, if the benchmark environment blocks further evidence, or if a required behavior cannot be inferred without violating the rules, finish with the best implementation produced and record unresolved behavioral gaps in a short note in the solution directory.
 
@@ -81,5 +81,5 @@ Target command form: `{{target_command}}`
 Package command: `{{package_command}}`
 Solution directory: `{{solution_dir}}`
 
-Use the target command form to run the provided executable in its cleanroom container. The target executable is `/workspace/executable` inside that container, and bundled documentation is inside `/workspace` in that container. Write your replacement codebase in the current solution directory. Provide `compile.sh` at the solution root; it must build or copy your replacement to `./executable`. Run `package-submission` before finishing.
+Use the target command form only to run the provided executable through its normal user interface in its cleanroom container. Do not use it to read, copy, hash, decompile, disassemble, trace, instrument, or wrap the target executable. The target executable is `/workspace/executable` inside that container, and bundled documentation is inside `/workspace` in that container. Write your replacement codebase in the current solution directory. Provide `compile.sh` at the solution root; it must build or copy your replacement to `./executable`. Run `package-submission` before finishing.
 </HARNESS_CONTEXT>
