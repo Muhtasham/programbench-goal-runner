@@ -6,3 +6,4 @@ runs/
 local_state/
 fleet.local.*
 ops.local/
+references.local/
