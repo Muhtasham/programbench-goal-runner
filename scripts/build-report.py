@@ -51,6 +51,12 @@ PROMPTS = {
         "path": Path("prompts/programbench_goal_paper_prompt.md"),
         "summary": "Verbatim ProgramBench paper system prompt from arXiv v1, prefixed with /goal and followed by a minimal harness-context block.",
     },
+    "paper-prompt-miniswe-exec-nointernet": {
+        "slug": "paper-prompt-miniswe-exec-nointernet",
+        "title": "Paper Prompt + Mini-SWE-Style Execution",
+        "path": Path("prompts/programbench_goal_paper_prompt_miniswe_exec.md"),
+        "summary": "ProgramBench paper prompt with /goal and a closer execution scaffold where the target is run as ./executable in the task workspace.",
+    },
     "paper-prompt-goal-contract-nointernet": {
         "slug": "paper-prompt-goal-contract-nointernet",
         "title": "Paper Prompt + Goal Contract",
@@ -655,6 +661,7 @@ def mode_label(row: ResultRow) -> str:
         "no-internet": "No internet",
         "mini-swe-compatible-nointernet": "Mini-SWE-compatible no internet",
         "paper-prompt-nointernet": "Paper prompt no internet",
+        "paper-prompt-miniswe-exec-nointernet": "Paper prompt + mini-SWE-style execution no internet",
         "paper-prompt-goal-contract-nointernet": "Paper prompt + Goal contract no internet",
         "no-internet-local-tools": "No internet + local tools",
     }.get(row.inference_mode, row.inference_mode or "Unknown")
@@ -686,6 +693,8 @@ def compliance_label(row: ResultRow) -> str:
         return "Codex /goal mini-SWE-compatible no-internet"
     if row.inference_mode == "paper-prompt-nointernet":
         return "Codex /goal paper-prompt no-internet"
+    if row.inference_mode == "paper-prompt-miniswe-exec-nointernet":
+        return "Codex /goal paper prompt + mini-SWE-style execution"
     if row.inference_mode == "paper-prompt-goal-contract-nointernet":
         return "Codex /goal contract no-internet"
     if row.inference_mode == "no-internet-local-tools":

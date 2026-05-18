@@ -28,6 +28,7 @@ NO_INTERNET_MODES = {
     "no-internet",
     "mini-swe-compatible-nointernet",
     "paper-prompt-nointernet",
+    "paper-prompt-miniswe-exec-nointernet",
     "paper-prompt-goal-contract-nointernet",
     "no-internet-local-tools",
 }
@@ -718,6 +719,7 @@ def add_common_run_args(parser: argparse.ArgumentParser) -> None:
             "no-internet",
             "mini-swe-compatible-nointernet",
             "paper-prompt-nointernet",
+            "paper-prompt-miniswe-exec-nointernet",
             "paper-prompt-goal-contract-nointernet",
             "no-internet-local-tools",
         ],
