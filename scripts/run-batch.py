@@ -548,8 +548,12 @@ def finalize_one(args: argparse.Namespace, record: dict) -> dict:
                     {**record, "status": "finalize_failed", "finalize_failed_at": now(), "failure_class": GATE_FAILED},
                     "hard gate failed after eval: missing eval result",
                 )
-            return {**record, "status": "evaluated", "evaluated_at": now(), "last_error": ""}
-        return {**record, "status": "packaged", "packaged_at": now(), "last_error": ""}
+            updated = {**record, "status": "evaluated", "evaluated_at": now(), "last_error": ""}
+            updated.pop("failure_class", None)
+            return updated
+        updated = {**record, "status": "packaged", "packaged_at": now(), "last_error": ""}
+        updated.pop("failure_class", None)
+        return updated
     except subprocess.TimeoutExpired as e:
         return add_error(
             {**record, "status": "finalize_failed", "finalize_failed_at": now()},
@@ -584,6 +588,7 @@ def mark_evaluated_from_results(record: dict) -> dict:
     updated = {**record, "status": "evaluated", "evaluated_at": record.get("evaluated_at") or now(), "last_error": ""}
     updated.pop("failed_at", None)
     updated.pop("finalize_failed_at", None)
+    updated.pop("failure_class", None)
     return updated
 
 
