@@ -153,6 +153,12 @@ Codex process
 The coordinator/root account still needs normal network for setup, Docker pulls,
 Git operations, and publishing. The restricted Codex task user does not.
 
+GoalBench uses a host-side wrapper to transport allowed black-box CLI
+interactions into the target container. This differs from mini-SWE-agent's
+in-container execution, but the wrapper is restricted to normal user-interface
+observations of the target executable and forbids source lookup, binary reading,
+disassembly, tracing, instrumentation, and evaluator/test access.
+
 Required host checks before a serious run:
 
 ```bash

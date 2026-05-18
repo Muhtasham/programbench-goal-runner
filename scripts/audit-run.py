@@ -77,6 +77,19 @@ BINARY_ANALYSIS_TOOLS = (
     "strace",
     "xxd",
 )
+TARGET_EXECUTABLE_INSPECTION_TOOLS = (
+    "cat",
+    "cp",
+    "head",
+    "ls",
+    "md5sum",
+    "readlink",
+    "sha256sum",
+    "shasum",
+    "stat",
+    "tail",
+    "wc",
+)
 PARENT_INSPECTION = re.compile(r"(^|[;&|]\s*)(cat|find|grep|head|ls|rg|sed|tail|wc)\s+[^;&|]*\.\.")
 HARNESS_PARENT_PATH = re.compile(
     r"\.\./(?:package-submission|start-target|check-compliance|eval-submission|run\.json|GOAL_PROMPT|GOAL_OBJECTIVE)"
@@ -185,6 +198,34 @@ def uses_binary_analysis_on_target(command: str, tool: str) -> bool:
     ):
         return True
     return False
+
+
+def uses_target_executable_inspection(command: str, tool: str) -> bool:
+    try:
+        tokens = shlex.split(command)
+    except ValueError:
+        tool_path = rf"(?:/(?:bin|usr/bin|usr/local/bin|opt/homebrew/bin)/)?{re.escape(tool)}"
+        return any(
+            bool(re.search(rf"^\s*{tool_path}([\s;&|()]|$)[^;&|]*?/workspace/executable", segment))
+            for segment in re.split(r"(?:;|\n|&&|\|\|)", command)
+        )
+    for token in tokens:
+        if (
+            token != command
+            and ("\n" in token or ";" in token or "/workspace/executable" in token)
+            and any(
+                uses_target_executable_inspection(segment, tool)
+                for segment in re.split(r"(?:;|\n|&&|\|\|)", token)
+                if segment.strip()
+            )
+        ):
+            return True
+    index = command_token_index(tokens)
+    return bool(
+        index is not None
+        and Path(tokens[index]).name == tool
+        and any("/workspace/executable" in later for later in tokens[index + 1 :])
+    )
 
 
 def command_token_index(tokens: list[str]) -> int | None:
@@ -488,6 +529,11 @@ def audit_command(
             Finding(line_source, f"binary analysis tool used on target executable: {tool}", command)
             for tool in BINARY_ANALYSIS_TOOLS
             if uses_binary_analysis_on_target(command, tool)
+        )
+        findings.extend(
+            Finding(line_source, f"target executable inspection command: {tool}", command)
+            for tool in TARGET_EXECUTABLE_INSPECTION_TOOLS
+            if uses_target_executable_inspection(command, tool)
         )
     findings.extend(
         Finding(line_source, f"source/package lookup pattern: {pattern}", command)
