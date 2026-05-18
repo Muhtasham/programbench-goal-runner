@@ -2365,13 +2365,12 @@ def render_html(data: dict, extended: bool = False) -> str:
         else "Given only a compiled binary and its documentation, the agent must architect and implement a replacement CLI that reproduces the original program's behavior. We score each submission with ProgramBench's behavioral tests."
     )
     body = render_results_sections(data, instances) if extended else render_home_results(data, instances)
-    base = '<base href="../">\n  ' if extended else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {base}<title>{title}</title>
+  <title>{title}</title>
   {social_meta(title, path="extended/" if extended else "")}
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
