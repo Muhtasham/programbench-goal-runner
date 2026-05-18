@@ -479,7 +479,20 @@ def prepare(args: argparse.Namespace) -> None:
             else f"{args.target_wrapper_command} {container_name} bash -lc '<command>'"
         )
     )
-    if paper_prompt_mode or goal_contract_paper_mode:
+    if goal_contract_paper_mode:
+        objective = (
+            f"Complete ProgramBench instance {args.instance_id} by producing the strongest defensible original "
+            "replacement CLI, verified by bundled documentation, allowed normal user-interface target executions, "
+            "local replacement executions, compile.sh, package-submission, and workspace probe notes, while "
+            "preserving no-internet, no source/package lookup, no target binary reading or analysis, no tracing, "
+            "no wrapping, no evaluator/test access, and workspace-only boundaries. Between iterations, compare "
+            "target-vs-local observable behavior across args, flags, subcommands, help/version output, config/env "
+            "behavior, stdin, stdout, stderr, exit codes, file inputs/outputs, filesystem effects, and TUI behavior "
+            "where applicable; fix the highest-value missing behavior class and re-check it. If blocked or no valid "
+            "path remains, finish with the best implementation plus a short note recording evidence, blockers, "
+            "unresolved gaps, and what would unlock progress."
+        )
+    elif paper_prompt_mode:
         objective = (
             f"Complete ProgramBench instance {args.instance_id} by reimplementing the target CLI from bundled docs "
             "and normal user-interface observations only, until compile.sh builds ./executable and "
