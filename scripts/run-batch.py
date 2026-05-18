@@ -215,7 +215,7 @@ def prompt_starts_goal(record: dict) -> bool:
 
 def transcript_shows_goal(record: dict) -> bool:
     path = transcript_path(record)
-    return path.is_file() and "/goal " in path.read_text(errors="replace")
+    return path.is_file() and "/goal" in path.read_text(errors="replace")
 
 
 def run_json(record: dict) -> dict:
