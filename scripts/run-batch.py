@@ -595,7 +595,7 @@ def mark_evaluated_from_results(record: dict) -> dict:
 def reconcile_results(state: dict) -> None:
     for instance_id in evaluated_result_ids(state):
         record = state["items"].get(instance_id)
-        if record and record["status"] != "evaluated":
+        if record and (record["status"] != "evaluated" or record.get("failure_class")):
             state["items"][instance_id] = mark_evaluated_from_results(record)
 
 
