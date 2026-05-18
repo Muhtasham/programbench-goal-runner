@@ -16,6 +16,7 @@ NO_INTERNET_MODES = {
     "no-internet",
     "mini-swe-compatible-nointernet",
     "paper-prompt-nointernet",
+    "paper-prompt-goal-contract-nointernet",
     "no-internet-local-tools",
 }
 

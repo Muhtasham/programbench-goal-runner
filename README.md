@@ -18,6 +18,7 @@ Current reportable tracks:
 | Track | Config | Prompt | Compliance label |
 | --- | --- | --- | --- |
 | Verbatim paper prompt | `configs/cpx62-paperprompt-xhigh.json` | ProgramBench paper prompt with `/goal ` prepended and only harness context appended | Paper-prompt no internet |
+| Goal-contract paper prompt | `configs/cpx62-goalcontract-xhigh.json` | ProgramBench paper prompt with a stronger Codex Goal completion contract | Paper prompt + Goal contract no internet |
 | Mini-SWE-compatible | `configs/full-miniswecompat-xhigh.json` | Short mini-SWE-style prompt with `/goal ` prepended | Mini-SWE-compatible no internet |
 | Stricter GoalBench | `configs/full-nointernet-xhigh.json` | GoalBench audit-heavy prompt with `/goal ` prepended | No internet |
 
@@ -260,6 +261,7 @@ uv run python scripts/run-config.py retry \
 | Mode | Meaning |
 | --- | --- |
 | `paper-prompt-nointernet` | Verbatim ProgramBench paper prompt with `/goal ` prepended, strict egress, wrapper-only target access. |
+| `paper-prompt-goal-contract-nointernet` | ProgramBench paper prompt with a stronger Goal contract that names the outcome, verification surface, constraints, boundaries, iteration policy, and blocked stop condition. |
 | `mini-swe-compatible-nointernet` | Shorter parity prompt with the same no-internet enforcement. |
 | `no-internet` | Stricter GoalBench prompt that also asks for an explicit behavior audit. |
 | `no-internet-local-tools` | Non-comparable ablation: internet/source/package lookup blocked, but local binary-analysis/tracing tools allowed. |

@@ -51,6 +51,12 @@ PROMPTS = {
         "path": Path("prompts/programbench_goal_paper_prompt.md"),
         "summary": "Verbatim ProgramBench paper system prompt from arXiv v1, prefixed with /goal and followed by a minimal harness-context block.",
     },
+    "paper-prompt-goal-contract-nointernet": {
+        "slug": "paper-prompt-goal-contract-nointernet",
+        "title": "Paper Prompt + Goal Contract",
+        "path": Path("prompts/programbench_goal_contract_paper_prompt.md"),
+        "summary": "ProgramBench paper prompt with a stronger Codex Goal contract that names outcome, verification surface, constraints, boundaries, iteration policy, and blocked stop condition.",
+    },
     "no-internet": {
         "slug": "no-internet",
         "title": "No Internet",
@@ -649,6 +655,7 @@ def mode_label(row: ResultRow) -> str:
         "no-internet": "No internet",
         "mini-swe-compatible-nointernet": "Mini-SWE-compatible no internet",
         "paper-prompt-nointernet": "Paper prompt no internet",
+        "paper-prompt-goal-contract-nointernet": "Paper prompt + Goal contract no internet",
         "no-internet-local-tools": "No internet + local tools",
     }.get(row.inference_mode, row.inference_mode or "Unknown")
 
@@ -679,6 +686,8 @@ def compliance_label(row: ResultRow) -> str:
         return "Codex /goal mini-SWE-compatible no-internet"
     if row.inference_mode == "paper-prompt-nointernet":
         return "Codex /goal paper-prompt no-internet"
+    if row.inference_mode == "paper-prompt-goal-contract-nointernet":
+        return "Codex /goal contract no-internet"
     if row.inference_mode == "no-internet-local-tools":
         return "Non-compliant: local/binary tools allowed"
     if is_programbench_comparable(row):

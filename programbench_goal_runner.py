@@ -19,17 +19,32 @@ NO_INTERNET_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_
 MINI_SWE_COMPAT_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_mini_swe_compatible.md"
 LOCAL_TOOLS_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_local_tools.md"
 PAPER_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_paper_prompt.md"
+GOAL_CONTRACT_PAPER_PROMPT_TEMPLATE = Path(__file__).parent / "prompts" / "programbench_goal_contract_paper_prompt.md"
 DEFAULT_MODEL = "gpt-5.5"
 DEFAULT_REASONING_EFFORT = "xhigh"
 DEFAULT_INFERENCE_MODE = "no-internet"
 MINI_SWE_COMPAT_MODE = "mini-swe-compatible-nointernet"
 PAPER_PROMPT_MODE = "paper-prompt-nointernet"
-INFERENCE_MODES = ("no-internet", MINI_SWE_COMPAT_MODE, PAPER_PROMPT_MODE, "no-internet-local-tools")
-NO_INTERNET_MODES = {"no-internet", MINI_SWE_COMPAT_MODE, PAPER_PROMPT_MODE, "no-internet-local-tools"}
+GOAL_CONTRACT_PAPER_MODE = "paper-prompt-goal-contract-nointernet"
+INFERENCE_MODES = (
+    "no-internet",
+    MINI_SWE_COMPAT_MODE,
+    PAPER_PROMPT_MODE,
+    GOAL_CONTRACT_PAPER_MODE,
+    "no-internet-local-tools",
+)
+NO_INTERNET_MODES = {
+    "no-internet",
+    MINI_SWE_COMPAT_MODE,
+    PAPER_PROMPT_MODE,
+    GOAL_CONTRACT_PAPER_MODE,
+    "no-internet-local-tools",
+}
 MODE_RUN_SEGMENTS = {
     "no-internet": "nointernet",
     MINI_SWE_COMPAT_MODE: "miniswecompat",
     PAPER_PROMPT_MODE: "paperprompt",
+    GOAL_CONTRACT_PAPER_MODE: "goalcontract",
     "no-internet-local-tools": "localtools",
 }
 BLOCKED_ALWAYS_TOOLS = (
@@ -406,8 +421,11 @@ def prepare(args: argparse.Namespace) -> None:
     primary_no_internet_mode = args.inference_mode == "no-internet"
     mini_swe_compat_mode = args.inference_mode == MINI_SWE_COMPAT_MODE
     paper_prompt_mode = args.inference_mode == PAPER_PROMPT_MODE
+    goal_contract_paper_mode = args.inference_mode == GOAL_CONTRACT_PAPER_MODE
     local_tools_mode = args.inference_mode == "no-internet-local-tools"
-    strict_no_internet_mode = primary_no_internet_mode or mini_swe_compat_mode or paper_prompt_mode
+    strict_no_internet_mode = (
+        primary_no_internet_mode or mini_swe_compat_mode or paper_prompt_mode or goal_contract_paper_mode
+    )
     tool_env = list(LOCAL_TOOLS_OFFLINE_ENV) if local_tools_mode else list(TOOL_CACHE_ENV)
     container_name = f"pb-goal-{slug(prepared_run_name)}-{slug(args.instance_id)}"
     session_name = f"pb-goal-{slug(prepared_run_name)}-{slug(args.instance_id)}"
@@ -421,15 +439,16 @@ def prepare(args: argparse.Namespace) -> None:
             else f"{args.target_wrapper_command} {container_name} bash -lc '<command>'"
         )
     )
-    objective = (
-        ""
-        if paper_prompt_mode
-        else (
+    if paper_prompt_mode or goal_contract_paper_mode:
+        objective = ""
+    elif mini_swe_compat_mode:
+        objective = (
             f"Complete ProgramBench instance {args.instance_id} by reimplementing the target CLI from the provided "
             "binary behavior and documentation, without internet access, until compile.sh builds ./executable and "
             "package-submission succeeds. Do not inspect parent directories or files outside the solution directory."
-            if mini_swe_compat_mode
-            else (
+        )
+    else:
+        objective = (
             f"Complete ProgramBench instance {args.instance_id} in the target container by reimplementing the "
             "target CLI from black-box behavior only, without stopping until solution/compile.sh builds ./executable, "
             "package-submission succeeds, and .goal/BEHAVIOR_AUDIT.md documents adversarial target-vs-local probe "
@@ -438,15 +457,13 @@ def prepare(args: argparse.Namespace) -> None:
             "discovered behavior class remains unexplored. Do not mark the goal complete just because packaging works "
             "or representative probes pass. "
             "Do not inspect parent directories or files outside the solution directory."
-            )
         )
-    )
 
     solution_dir.mkdir(parents=True, exist_ok=True)
     helper_dir.mkdir(parents=True, exist_ok=True)
     cache_dir.mkdir(parents=True, exist_ok=True)
     write_guard_bin(guard_dir, container_name, args.target_access, args.target_wrapper_command, local_tools_mode)
-    if mini_swe_compat_mode or paper_prompt_mode:
+    if mini_swe_compat_mode or paper_prompt_mode or goal_contract_paper_mode:
         agent_rules = (
             "Do not use internet, package registries, public source, external docs, ProgramBench tests, or "
             "the ProgramBench evaluator repository. Do not inspect files outside this solution directory or run "
@@ -485,6 +502,7 @@ def prepare(args: argparse.Namespace) -> None:
             "no-internet": NO_INTERNET_PROMPT_TEMPLATE,
             MINI_SWE_COMPAT_MODE: MINI_SWE_COMPAT_PROMPT_TEMPLATE,
             PAPER_PROMPT_MODE: PAPER_PROMPT_TEMPLATE,
+            GOAL_CONTRACT_PAPER_MODE: GOAL_CONTRACT_PAPER_PROMPT_TEMPLATE,
             "no-internet-local-tools": LOCAL_TOOLS_PROMPT_TEMPLATE,
         }[args.inference_mode]
     )
@@ -506,11 +524,9 @@ def prepare(args: argparse.Namespace) -> None:
     )
     (instance_dir / "GOAL_OBJECTIVE.txt").write_text(objective + "\n")
     (instance_dir / "CODEX_INITIAL_PROMPT.md").write_text(
-        (
-            "/goal " + (instance_dir / "GOAL_PROMPT.md").read_text()
-            if paper_prompt_mode
-            else "/goal " + objective + "\n\n" + (instance_dir / "GOAL_PROMPT.md").read_text()
-        )
+        "/goal " + (instance_dir / "GOAL_PROMPT.md").read_text()
+        if paper_prompt_mode or goal_contract_paper_mode
+        else "/goal " + objective + "\n\n" + (instance_dir / "GOAL_PROMPT.md").read_text()
     )
     (instance_dir / "run.json").write_text(
         json.dumps(

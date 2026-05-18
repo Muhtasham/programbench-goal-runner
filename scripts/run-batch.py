@@ -28,6 +28,7 @@ NO_INTERNET_MODES = {
     "no-internet",
     "mini-swe-compatible-nointernet",
     "paper-prompt-nointernet",
+    "paper-prompt-goal-contract-nointernet",
     "no-internet-local-tools",
 }
 STATUS_RANK = {
@@ -713,7 +714,13 @@ def add_common_run_args(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--docker-memory", default="60g")
     parser.add_argument(
         "--inference-mode",
-        choices=["no-internet", "mini-swe-compatible-nointernet", "paper-prompt-nointernet", "no-internet-local-tools"],
+        choices=[
+            "no-internet",
+            "mini-swe-compatible-nointernet",
+            "paper-prompt-nointernet",
+            "paper-prompt-goal-contract-nointernet",
+            "no-internet-local-tools",
+        ],
         default="no-internet",
     )
     parser.add_argument("--target-access", choices=["direct-docker", "wrapper"], default="direct-docker")
