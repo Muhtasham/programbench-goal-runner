@@ -818,12 +818,15 @@ uv run python scripts/build-report.py \
 ```
 
 This writes `docs/evidence/<run>/<instance>/manifest.json`,
-`eval-summary.json`, and a size-safe public `eval.json`. The public eval keeps
-test statuses and failure messages but redacts evaluator `log.output` payloads
-and truncates long captured test text. If the local artifact contains
-`usage-audit.json`, that is exported too. Raw Codex JSONL traces and
-`submission.tar.gz` files remain local under `local_state/run_artifacts/`
-unless explicitly reviewed and published.
+`eval-summary.json`, `agent-summary.json`, and a size-safe public `eval.json`.
+The public eval keeps test statuses and failure metadata but redacts evaluator
+`log.output` payloads and truncates long captured test text. The agent summary
+publishes aggregate Codex trace stats, such as shell command count, build/package
+calls, executable-observation calls, and blocked attempts, without publishing raw
+commands or JSONL traces. If the local artifact contains `usage-audit.json`, that
+is exported too. Raw Codex JSONL traces and `submission.tar.gz` files remain
+local under `local_state/run_artifacts/` unless explicitly reviewed and
+published.
 
 Refresh the ProgramBench baseline rows before rebuilding the public report:
 

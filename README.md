@@ -304,8 +304,9 @@ uv run python scripts/build-report.py --output-dir docs
 uv run python scripts/privacy-scan.py
 ```
 
-Public output includes sanitized aggregate rows and public evidence summaries.
-Raw Codex logs and submission tarballs stay local by default.
+Public output includes sanitized aggregate rows, public eval summaries, and
+per-task aggregate Codex trace summaries. Raw Codex logs and submission tarballs
+stay local by default.
 
 ## Useful Commands
 

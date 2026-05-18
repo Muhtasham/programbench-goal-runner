@@ -1272,6 +1272,7 @@ def evidence_links(row: ResultRow, prefix: str = "") -> str:
         (f"{base}/manifest.json", "manifest"),
         (f"{base}/eval.json", "eval json"),
         (f"{base}/eval-summary.json", "eval summary"),
+        (f"{base}/agent-summary.json", "agent summary"),
         (f"{base}/usage-audit.json", "usage audit"),
     ]
     rendered = " · ".join(
@@ -1753,6 +1754,7 @@ def render_evidence_highlights(rows: list[ResultRow]) -> str:
             )
             continue
         counts = summary.get("status_counts", {})
+        agent_summary = read_public_evidence(row, "agent-summary.json")
         non_passed = [test for test in summary.get("failed_tests", []) if test.get("status") != "passed"]
         failures = [test for test in non_passed if test.get("status") != "skipped"]
         first_failures = failures[:6]
@@ -1770,11 +1772,23 @@ def render_evidence_highlights(rows: list[ResultRow]) -> str:
         )
         if not tests:
             tests = '<li class="muted">No failing tests listed.</li>'
+        agent_text = (
+            "Agent trace summary unavailable."
+            if not agent_summary
+            else (
+                f"Agent trace: {integer(int(agent_summary.get('exec_command_calls', 0)))} shell command(s), "
+                f"{integer(int(agent_summary.get('target_or_local_executable_calls', 0)))} executable-observation command(s), "
+                f"{integer(int(agent_summary.get('build_calls', 0)))} build command(s), "
+                f"{integer(int(agent_summary.get('blocked_attempts', 0)))} blocked attempt(s). "
+                "Raw Codex logs are not published."
+            )
+        )
         cards.append(
             f"""
       <div class="evidence-card">
         <h3>{cell(model_display(row))} · <code>{cell(version_label(row.run_version))}</code></h3>
         <p>{percent(row.score)} from <strong>{row.n_resolved_tests}/{row.n_tests}</strong> ProgramBench-scored tests. Raw public eval statuses: {", ".join(f"{cell(str(key))}: {cell(str(value))}" for key, value in sorted(counts.items())) or "unavailable"}.</p>
+        <p class="muted">{cell(agent_text)}</p>
         <p class="muted">{cell(reason_text)}</p>
         <ul>{tests}</ul>
         <p>{evidence_links(row, "../../")}</p>

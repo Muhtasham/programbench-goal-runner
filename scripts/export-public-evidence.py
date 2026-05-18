@@ -5,6 +5,7 @@ import argparse
 import csv
 import json
 import re
+import shlex
 import shutil
 from collections import Counter
 from pathlib import Path
@@ -16,6 +17,7 @@ MAX_FAILED_TESTS = 80
 MAX_PUBLIC_TEST_RESULTS = 120
 MAX_LOG_STEPS = 120
 MAX_PACKAGE_FILES = 250
+MAX_COMMAND_TOOLS = 20
 SECRET_PATTERNS = (
     (re.compile(r"\b(?:sk|pk|rk)_(?:live|test)_[A-Za-z0-9]{8,}\b"), "[redacted-stripe-key]"),
     (re.compile(r"\bwhsec_[A-Za-z0-9]{8,}\b"), "[redacted-stripe-webhook-secret]"),
@@ -148,6 +150,113 @@ def public_usage_audit(usage_audit: dict, instance_id: str) -> dict:
     }
 
 
+def jsonl_events(path: Path) -> list[dict]:
+    events = []
+    for line in path.read_text(errors="replace").splitlines():
+        try:
+            events.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return events
+
+
+def command_tool(command: str) -> str:
+    try:
+        tokens = shlex.split(command)
+    except ValueError:
+        tokens = command.strip().split()
+    if not tokens:
+        return ""
+    index = 0
+    while index < len(tokens) and "=" in tokens[index] and not tokens[index].startswith(("/", "./")):
+        index += 1
+    if index < len(tokens) and Path(tokens[index]).name in {"sudo", "env"}:
+        index += 1
+    while index < len(tokens) and tokens[index].startswith("-"):
+        index += 1
+    return Path(tokens[index]).name if index < len(tokens) else ""
+
+
+def command_category(command: str) -> str:
+    lowered = command.lower()
+    if "package-submission" in lowered:
+        return "package"
+    if "compile.sh" in lowered or re.search(r"\b(make|cmake|cargo|go|gcc|g\+\+|cc|rustc|python -m py_compile)\b", lowered):
+        return "build"
+    if "./executable" in command or "/workspace/executable" in command or "pb-target-exec" in command:
+        return "target_or_local_executable"
+    if any(name in lowered for name in ("probe", "compare", "fuzz", "fixture")):
+        return "probe_helper"
+    return "other"
+
+
+def is_blocked_output(output: str) -> bool:
+    return "blocked " in output
+
+
+def is_rejected_output(output: str) -> bool:
+    return "Failed to create unified exec process" in output
+
+
+def agent_summary_from_logs(log_paths: list[Path]) -> dict:
+    calls = []
+    outputs = {}
+    token_counts = 0
+    first_timestamp = ""
+    last_timestamp = ""
+    for path in log_paths:
+        for event in jsonl_events(path):
+            timestamp = event.get("timestamp", "")
+            if timestamp:
+                first_timestamp = first_timestamp or timestamp
+                last_timestamp = timestamp
+            payload = event.get("payload", {})
+            if event.get("type") == "event_msg" and payload.get("type") == "token_count":
+                token_counts += 1
+            if event.get("type") != "response_item":
+                continue
+            if payload.get("type") == "function_call_output":
+                outputs[payload.get("call_id", "")] = payload.get("output", "")
+            if payload.get("type") == "function_call" and payload.get("name") == "exec_command":
+                try:
+                    arguments = json.loads(payload.get("arguments", "{}"))
+                except json.JSONDecodeError:
+                    arguments = {}
+                calls.append(
+                    {
+                        "call_id": payload.get("call_id", ""),
+                        "command": arguments.get("cmd", ""),
+                        "workdir_present": bool(arguments.get("workdir", "")),
+                        "timestamp": timestamp,
+                    }
+                )
+    tool_counts = Counter(command_tool(call["command"]) for call in calls if command_tool(call["command"]))
+    category_counts = Counter(command_category(call["command"]) for call in calls)
+    blocked_attempts = sum(is_blocked_output(outputs.get(call["call_id"], "")) for call in calls)
+    rejected_attempts = sum(is_rejected_output(outputs.get(call["call_id"], "")) for call in calls)
+    return {
+        "schema": "goalbench-agent-summary-v1",
+        "raw_logs_published": False,
+        "raw_logs_policy": "Raw Codex JSONL logs stay local. This artifact contains aggregate command/tool statistics only.",
+        "log_files_count": len(log_paths),
+        "session_started_at": first_timestamp,
+        "session_ended_at": last_timestamp,
+        "token_count_events": token_counts,
+        "exec_command_calls": len(calls),
+        "commands_with_explicit_workdir": sum(call["workdir_present"] for call in calls),
+        "blocked_attempts": blocked_attempts,
+        "rejected_exec_attempts": rejected_attempts,
+        "command_categories": dict(sorted(category_counts.items())),
+        "top_command_tools": [
+            {"tool": tool, "count": count}
+            for tool, count in tool_counts.most_common(MAX_COMMAND_TOOLS)
+        ],
+        "target_or_local_executable_calls": category_counts.get("target_or_local_executable", 0),
+        "build_calls": category_counts.get("build", 0),
+        "package_calls": category_counts.get("package", 0),
+    }
+
+
 def public_extra(extra: dict) -> dict:
     allowed = {key: extra[key] for key in ("time",) if key in extra}
     if "message" in extra:
@@ -170,7 +279,7 @@ def public_log_entry(entry: dict) -> dict:
     }
 
 
-def public_manifest(manifest: dict, eval_summary_path: str, eval_json_path: str) -> dict:
+def public_manifest(manifest: dict, eval_summary_path: str, eval_json_path: str, agent_summary_path: str) -> dict:
     run_name = manifest.get("metrics", {}).get("run_name") or manifest["run"]["run_name"]
     paper_compliant = (
         manifest["run"]["inference_mode"] in {"paper", "paper-prompt-nointernet"}
@@ -220,6 +329,7 @@ def public_manifest(manifest: dict, eval_summary_path: str, eval_json_path: str)
                 [path for path in manifest["copied_files"].get("codex_logs", []) if path]
             ),
             "raw_logs_published": False,
+            "summary_path": agent_summary_path,
         },
     }
 
@@ -234,11 +344,20 @@ def export_one(manifest_path: Path, output_dir: Path) -> None:
     eval_json_path = manifest_path.parent / f"{instance_id}.eval.json"
     summary_name = "eval-summary.json"
     public_eval_name = "eval.json"
+    agent_summary_name = "agent-summary.json"
     (target_dir / summary_name).write_text(
         json.dumps(eval_summary(read_json(eval_json_path)), indent=2, sort_keys=True) + "\n"
     )
     (target_dir / public_eval_name).write_text(
         json.dumps(public_eval(read_json(eval_json_path)), indent=2, sort_keys=True) + "\n"
+    )
+    (target_dir / agent_summary_name).write_text(
+        json.dumps(
+            agent_summary_from_logs(sorted((manifest_path.parent / "codex_logs").glob("*.jsonl"))),
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n"
     )
     usage_audit_path = manifest_path.parent / "usage-audit.json"
     if usage_audit_path.is_file():
@@ -246,7 +365,8 @@ def export_one(manifest_path: Path, output_dir: Path) -> None:
             json.dumps(public_usage_audit(read_json(usage_audit_path), instance_id), indent=2, sort_keys=True) + "\n"
         )
     (target_dir / "manifest.json").write_text(
-        json.dumps(public_manifest(manifest, summary_name, public_eval_name), indent=2, sort_keys=True) + "\n"
+        json.dumps(public_manifest(manifest, summary_name, public_eval_name, agent_summary_name), indent=2, sort_keys=True)
+        + "\n"
     )
     print(target_dir)
 
