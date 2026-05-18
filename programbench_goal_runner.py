@@ -456,7 +456,11 @@ def prepare(args: argparse.Namespace) -> None:
         )
     )
     if paper_prompt_mode or goal_contract_paper_mode:
-        objective = ""
+        objective = (
+            f"Complete ProgramBench instance {args.instance_id} by reimplementing the target CLI from bundled docs "
+            "and normal user-interface observations only, until compile.sh builds ./executable and "
+            "package-submission succeeds."
+        )
     elif mini_swe_compat_mode:
         objective = (
             f"Complete ProgramBench instance {args.instance_id} by reimplementing the target CLI from the provided "
@@ -558,6 +562,7 @@ def prepare(args: argparse.Namespace) -> None:
                 "model": args.model,
                 "reasoning_effort": args.reasoning_effort,
                 "codex_version": command_output(["codex", "--version"]),
+                "codex_launch_mode": "interactive_goal_then_prompt",
                 "created_at": datetime.now(timezone.utc).isoformat(),
                 "host_machine": platform.machine(),
                 "host_system": platform.system(),
@@ -695,8 +700,12 @@ fi
   -C {shlex.quote(str(solution_dir))} $CODEX_BYPASS_FLAG --no-alt-screen"
 {tmux_command} pipe-pane -o -t {shlex.quote(session_name)} 'cat >> {transcript_log}'
 sleep 4
-{tmux_command} load-buffer {shlex.quote(str(instance_dir / "CODEX_INITIAL_PROMPT.md"))}
+GOAL_OBJECTIVE="$(cat {shlex.quote(str(instance_dir / "GOAL_OBJECTIVE.txt"))})"
+{tmux_command} send-keys -t {shlex.quote(session_name)} "/goal $GOAL_OBJECTIVE" Enter
+sleep 2
+{tmux_command} load-buffer {shlex.quote(str(instance_dir / "GOAL_PROMPT.md"))}
 {tmux_command} paste-buffer -t {shlex.quote(session_name)}
+sleep 2
 {tmux_command} send-keys -t {shlex.quote(session_name)} Enter
 echo "Attached session: {tmux_command} attach -t {session_name}"
 """,

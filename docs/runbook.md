@@ -169,6 +169,12 @@ Each generated script also marks its exact solution directory trusted in the
 local Codex config before launch, so unattended `tmux` runs do not stop at the
 directory trust prompt.
 
+The generated launcher starts Codex interactively in tmux, then sends a compact
+`/goal <objective>` command followed by the rendered benchmark prompt from
+`GOAL_PROMPT.md`. `CODEX_INITIAL_PROMPT.md` is still written for auditability
+and begins with `/goal`, but the live launch avoids passing a large multi-line
+Goal as a one-shot CLI argument.
+
 Override `--model` and `--reasoning-effort` when preparing runs if you want a
 separate high/xhigh sweep. These values are written into `run.json` and the
 metrics CSV. Container and `tmux` session names include the run name, so high

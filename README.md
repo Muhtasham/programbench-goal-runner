@@ -68,7 +68,8 @@ run-batch.py watch
       +-- start target container
       |
       +-- start tmux Codex session
-      |     codex --enable goals ... "$(cat CODEX_INITIAL_PROMPT.md)"
+      |     codex --enable goals ...
+      |     send /goal objective, then paste GOAL_PROMPT.md
       |
       +-- watch transcript
       |     running -> goal_done
@@ -93,24 +94,30 @@ static report
 
 ## How `/goal` Is Applied
 
-Every benchmark prompt is rendered to `GOAL_PROMPT.md`. The actual prompt sent
-to Codex is written to `CODEX_INITIAL_PROMPT.md` as:
+Every benchmark prompt is rendered to `GOAL_PROMPT.md`. For auditability, the
+paper-prompt tracks also write `CODEX_INITIAL_PROMPT.md` as the literal
+`/goal`-prefixed paper prompt:
 
 ```text
 /goal <rendered ProgramBench/GoalBench prompt>
 ```
 
-`start-codex-goal.sh` then loads that file and invokes Codex:
+`start-codex-goal.sh` starts an interactive Codex tmux session, creates the
+Goal with a compact objective, then submits the rendered benchmark prompt as the
+work instruction. This keeps `/goal` continuation attached to a live TUI
+session instead of relying on a one-shot CLI argument:
 
 ```bash
-CODEX_INITIAL_PROMPT="$(cat CODEX_INITIAL_PROMPT.md)"
 codex --enable goals --disable plugins --disable apps \
   -m gpt-5.5 \
   -c model_reasoning_effort=xhigh \
   -c trust_level=trusted \
   -C solution \
-  --yolo --no-alt-screen \
-  "$CODEX_INITIAL_PROMPT"
+  --yolo --no-alt-screen
+tmux send-keys "/goal <objective>" Enter
+tmux load-buffer GOAL_PROMPT.md
+tmux paste-buffer
+tmux send-keys Enter
 ```
 
 For the paper-prompt tracks, the bytes immediately after `/goal ` are the
