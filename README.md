@@ -154,6 +154,7 @@ Codex process
   +-- guard-bin PATH
   |     blocks source lookup, package installs, binary analysis tools,
   |     broad host traversal, and direct docker access
+  |     allows ordinary local git commands, but blocks git source acquisition
   |
   +-- target wrapper
         sudo -n /usr/local/bin/pb-target-exec <container> <command>
