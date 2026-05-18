@@ -170,54 +170,24 @@ def uses_tool(command: str, tool: str) -> bool:
     return False
 
 
-def uses_binary_analysis_on_target(command: str, tool: str) -> bool:
+def shell_command_parts(command: str) -> list[str]:
+    return [part.strip() for part in re.split(r"(?:;|\n|&&|\|\|)", command) if part.strip()]
+
+
+def uses_tool_on_target(command: str, tool: str) -> bool:
     try:
         tokens = shlex.split(command)
     except ValueError:
         tool_path = rf"(?:/(?:bin|usr/bin|usr/local/bin|opt/homebrew/bin)/)?{re.escape(tool)}"
         return any(
             bool(re.search(rf"^\s*{tool_path}([\s;&|()]|$)[^;&|]*?/workspace/executable", segment))
-            for segment in re.split(r"(?:;|\n|&&|\|\|)", command)
+            for segment in shell_command_parts(command)
         )
     for token in tokens:
         if (
             token != command
             and ("\n" in token or ";" in token or "/workspace/executable" in token)
-            and any(
-                uses_binary_analysis_on_target(segment, tool)
-                for segment in re.split(r"(?:;|\n|&&|\|\|)", token)
-                if segment.strip()
-            )
-        ):
-            return True
-    index = command_token_index(tokens)
-    if (
-        index is not None
-        and Path(tokens[index]).name == tool
-        and any("/workspace/executable" in later for later in tokens[index + 1 :])
-    ):
-        return True
-    return False
-
-
-def uses_target_executable_inspection(command: str, tool: str) -> bool:
-    try:
-        tokens = shlex.split(command)
-    except ValueError:
-        tool_path = rf"(?:/(?:bin|usr/bin|usr/local/bin|opt/homebrew/bin)/)?{re.escape(tool)}"
-        return any(
-            bool(re.search(rf"^\s*{tool_path}([\s;&|()]|$)[^;&|]*?/workspace/executable", segment))
-            for segment in re.split(r"(?:;|\n|&&|\|\|)", command)
-        )
-    for token in tokens:
-        if (
-            token != command
-            and ("\n" in token or ";" in token or "/workspace/executable" in token)
-            and any(
-                uses_target_executable_inspection(segment, tool)
-                for segment in re.split(r"(?:;|\n|&&|\|\|)", token)
-                if segment.strip()
-            )
+            and any(uses_tool_on_target(segment, tool) for segment in shell_command_parts(token))
         ):
             return True
     index = command_token_index(tokens)
@@ -528,12 +498,12 @@ def audit_command(
         findings.extend(
             Finding(line_source, f"binary analysis tool used on target executable: {tool}", command)
             for tool in BINARY_ANALYSIS_TOOLS
-            if uses_binary_analysis_on_target(command, tool)
+            if uses_tool_on_target(command, tool)
         )
         findings.extend(
             Finding(line_source, f"target executable inspection command: {tool}", command)
             for tool in TARGET_EXECUTABLE_INSPECTION_TOOLS
-            if uses_target_executable_inspection(command, tool)
+            if uses_tool_on_target(command, tool)
         )
     findings.extend(
         Finding(line_source, f"source/package lookup pattern: {pattern}", command)
