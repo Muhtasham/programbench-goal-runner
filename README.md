@@ -155,6 +155,7 @@ Codex process
   |     blocks source lookup, package installs, binary analysis tools,
   |     broad host traversal, and direct docker access
   |     allows ordinary local git commands, but blocks git source acquisition
+  |     allows loopback curl/wget, but blocks external URL fetches
   |
   +-- target wrapper
         sudo -n /usr/local/bin/pb-target-exec <container> <command>

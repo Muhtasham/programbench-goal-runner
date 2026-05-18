@@ -41,7 +41,6 @@ MODE_RUN_SEGMENTS = {
 }
 BLOCKED_ALWAYS_TOOLS = (
     "brew",
-    "curl",
     "dtruss",
     "file",
     "gdb",
@@ -57,7 +56,6 @@ BLOCKED_ALWAYS_TOOLS = (
     "strings",
     "strace",
     "uv",
-    "wget",
     "xxd",
 )
 SOURCE_ACQUISITION_GUARDS = {
@@ -82,6 +80,10 @@ HOST_INSPECTION_GUARDS = (
     "sed",
     "tail",
     "wc",
+)
+URL_FETCH_GUARDS = (
+    "curl",
+    "wget",
 )
 HOST_INSPECTION_PATTERNS = (
     "/" + "Users" + "/",
@@ -276,6 +278,28 @@ if [[ "$args" =~ $blocked_re ]]; then
   echo "blocked {tool}: ProgramBench no-internet runs allow local builds, not source/package acquisition" >&2
   exit 126
 fi
+{exec_line}
+""",
+        )
+    for tool in URL_FETCH_GUARDS:
+        real = shutil.which(tool)
+        exec_line = (
+            f'exec {shlex.quote(real)} "$@"' if real else f'echo "{tool} is not available on this host" >&2\nexit 127'
+        )
+        write_executable(
+            guard_dir / tool,
+            f"""#!/usr/bin/env bash
+set -euo pipefail
+for arg in "$@"; do
+  case "$arg" in
+    http://localhost*|https://localhost*|http://127.0.0.1*|https://127.0.0.1*|http://0.0.0.0*|https://0.0.0.0*|http://[::1]*|https://[::1]*)
+      ;;
+    http://*|https://*)
+      echo "blocked {tool}: ProgramBench no-internet runs allow loopback fetches, not external URL fetches" >&2
+      exit 126
+      ;;
+  esac
+done
 {exec_line}
 """,
         )
