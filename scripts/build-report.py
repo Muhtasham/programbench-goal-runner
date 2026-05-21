@@ -574,6 +574,7 @@ def read_target_ids(path: Path) -> list[str]:
 
 
 def aggregate(rows: list[ResultRow]) -> dict:
+    costed_rows = [row for row in rows if cost_known(row)]
     return {
         "instances": len(rows),
         "resolved": sum(row.resolved for row in rows),
@@ -583,8 +584,11 @@ def aggregate(rows: list[ResultRow]) -> dict:
         "average_pass_rate": sum(row.score for row in rows) / len(rows) if rows else 0,
         "total_calls": sum(row.calls for row in rows),
         "average_calls": sum(row.calls for row in rows) / len(rows) if rows else 0,
-        "total_cost_usd": sum(row.estimated_cost_usd for row in rows),
-        "average_cost_usd": sum(row.estimated_cost_usd for row in rows) / len(rows) if rows else 0,
+        "total_cost_usd": sum(row.estimated_cost_usd for row in costed_rows),
+        "average_cost_usd": sum(row.estimated_cost_usd for row in costed_rows) / len(costed_rows) if costed_rows else 0,
+        "costed_instances": len(costed_rows),
+        "cost_coverage_rate": len(costed_rows) / len(rows) if rows else 0,
+        "partial_cost": len(costed_rows) != len(rows),
         "total_wall_clock_hours": sum(row.wall_clock_seconds for row in rows) / 3600,
     }
 
@@ -799,6 +803,7 @@ def row_to_dict(row: ResultRow) -> dict:
         "calls": row.calls,
         "wall_clock_seconds": row.wall_clock_seconds,
         "estimated_cost_usd": row.estimated_cost_usd,
+        "estimated_cost_known": cost_known(row),
         "host_system": row.host_system,
         "host_machine": row.host_machine,
         "docker_cpus": row.docker_cpus,
@@ -839,6 +844,27 @@ def percent(value: float) -> str:
 
 def money(value: float) -> str:
     return f"${value:.2f}"
+
+
+def cost_known(row: ResultRow) -> bool:
+    return row.estimated_cost_usd > 0
+
+
+def row_cost(row: ResultRow) -> str:
+    return money(row.estimated_cost_usd) if cost_known(row) else "n/a"
+
+
+def summary_cost(summary: dict, key: str) -> str:
+    if not summary["costed_instances"]:
+        return "n/a"
+    suffix = "*" if summary["partial_cost"] else ""
+    return f"{whole_money(summary[key]) if key == 'total_cost_usd' else money(summary[key])}{suffix}"
+
+
+def summary_cost_note(summary: dict) -> str:
+    if summary["partial_cost"]:
+        return f"token logs for {summary['costed_instances']}/{summary['instances']} tasks"
+    return "est. from token logs"
 
 
 def display_timestamp(value: str) -> str:
@@ -1025,13 +1051,14 @@ def render_score_distribution(rows: list[ResultRow]) -> str:
 def render_efficiency_plots(rows: list[ResultRow]) -> str:
     if not rows:
         return ""
+    cost_rows = [row for row in rows if cost_known(row)]
     return f"""
     <h2>Efficiency Plots</h2>
-    <p>Each point is one evaluated task. Compute is shown as Codex calls because public results omit raw token logs; cost is estimated from local token logs and a pricing snapshot.</p>
+    <p>Each point is one evaluated task. Compute is shown as Codex calls for every row; cost plots include only rows with available local token logs.</p>
     <div class="plot-grid">
       <section class="plot-card">
         <h3>Pass vs. Est. Cost</h3>
-        {plot_points(rows, lambda row: row.estimated_cost_usd, "Est. cost (USD)", money)}
+        {plot_points(cost_rows, lambda row: row.estimated_cost_usd, "Est. cost (USD)", money) if cost_rows else pending_plot("Pass vs. Est. Cost", "cost unavailable")}
       </section>
       <section class="plot-card">
         <h3>Pass vs. Calls</h3>
@@ -1100,9 +1127,9 @@ def render_summary_cards(label: str, summary: dict) -> str:
           <div><strong>{percent(summary["resolved_rate"])}</strong><span>resolved</span></div>
           <div><strong>{percent(summary["almost_resolved_rate"])}</strong><span>almost</span></div>
           <div><strong>{percent(summary["average_pass_rate"])}</strong><span>avg pass</span></div>
-          <div><strong>{whole_money(summary["total_cost_usd"])}</strong><span>total est. cost</span></div>
+          <div><strong>{summary_cost(summary, "total_cost_usd")}</strong><span>{summary_cost_note(summary)}</span></div>
           <div><strong>{integer(summary["total_calls"])}</strong><span>total calls</span></div>
-          <div><strong>{money(summary["average_cost_usd"])}</strong><span>est. cost / task</span></div>
+          <div><strong>{summary_cost(summary, "average_cost_usd")}</strong><span>est. cost / costed task</span></div>
           <div><strong>{summary["average_calls"]:.1f}</strong><span>calls / task</span></div>
           <div><strong>{short_minutes(summary["duration"]["average_seconds"])}</strong><span>avg /goal session</span></div>
           <div><strong>{short_minutes(summary["duration"]["max_seconds"])}</strong><span>max /goal session</span></div>
@@ -1137,7 +1164,8 @@ def run_metric_cards(group: dict) -> str:
       <div class="run-kpi primary"><span>Resolved</span><strong>{group["resolved"]} / {group["instances"]}</strong><em>{percent(group["resolved_rate"])}</em></div>
       <div class="run-kpi"><span>Almost resolved</span><strong>{group["almost_resolved"]} / {group["instances"]}</strong><em>{percent(group["almost_resolved_rate"])}</em></div>
       <div class="run-kpi"><span>Average pass rate</span><strong>{percent(group["average_pass_rate"])}</strong><em>behavioral tests</em></div>
-      <div class="run-kpi"><span>Total est. cost</span><strong>{whole_money(group["total_cost_usd"])}</strong><em>{money(group["average_cost_usd"])} / task</em></div>
+      <div class="run-kpi"><span>Total est. cost</span><strong>{summary_cost(group, "total_cost_usd")}</strong><em>{summary_cost_note(group)}</em></div>
+      <div class="run-kpi"><span>Avg. cost</span><strong>{summary_cost(group, "average_cost_usd")}</strong><em>per costed task</em></div>
       <div class="run-kpi"><span>Total calls</span><strong>{integer(group["total_calls"])}</strong><em>{group["average_calls"]:.1f} / task</em></div>
       <div class="run-kpi"><span>Avg /goal session</span><strong>{short_minutes(group["duration"]["average_seconds"])}</strong><em>{hours(group["duration"]["average_seconds"])}</em></div>
       <div class="run-kpi"><span>Max /goal session</span><strong>{short_minutes(group["duration"]["max_seconds"])}</strong><em>{hours(group["duration"]["max_seconds"])}</em></div>
@@ -1195,7 +1223,7 @@ def render_leaderboard(groups: list[dict], prefix: str = "") -> str:
               <td>{cell(str(group["agent"]))}</td>
               <td>{result_count(group, "resolved")}</td>
               <td>{result_count(group, "almost_resolved")}</td>
-              <td>{money(group["average_cost_usd"])}</td>
+              <td>{summary_cost(group, "average_cost_usd")}</td>
               <td>{group["average_calls"]:.1f}</td>
               <td>{short_minutes(group["duration"]["average_seconds"])}</td>
               <td>{short_minutes(group["duration"]["max_seconds"])}</td>
@@ -1246,7 +1274,7 @@ def render_instances(rows: list[ResultRow], prefix: str = "") -> str:
               <td>{eval_status(row)}</td>
               <td>{percent(row.score)}</td>
               <td>{row.n_resolved_tests}/{row.n_tests}</td>
-              <td>{money(row.estimated_cost_usd)}</td>
+              <td>{row_cost(row)}</td>
               <td>{row.calls}</td>
               <td>{row.wall_clock_seconds / 3600:.2f}h</td>
               <td>{cell(row.host_system)}/{cell(row.host_machine)}</td>
@@ -1462,7 +1490,7 @@ def render_run_detail(group: dict, rows: list[ResultRow]) -> str:
           <td>{"yes" if row.almost_resolved else "no"}</td>
           <td>{eval_status(row)}</td>
           <td>{row.n_resolved_tests}/{row.n_tests}</td>
-          <td>{money(row.estimated_cost_usd)}</td>
+          <td>{row_cost(row)}</td>
           <td>{row.calls}</td>
           <td>{evidence_links(row, "../../")}</td>
         </tr>
@@ -1822,7 +1850,7 @@ def render_task_detail(instance_id: str, rows: list[ResultRow], official_tasks: 
           <td>{percent(row.score)}</td>
           <td>{eval_status(row)}</td>
           <td>{row.n_resolved_tests}/{row.n_tests}</td>
-          <td>{money(row.estimated_cost_usd)}</td>
+          <td>{row_cost(row)}</td>
           <td>{row.calls}</td>
           <td>{row.wall_clock_seconds / 3600:.2f}h</td>
           <td>{evidence_links(row, "../../")}</td>
@@ -2821,7 +2849,7 @@ def render_html(data: dict, extended: bool = False) -> str:
           <p>GoalBench reports separate Codex <code>/goal</code> runs on ProgramBench tasks; these are not official mini-SWE-agent leaderboard submissions. Resolved means ProgramBench's filtered behavioral pass rate is exactly 100%, and almost resolved means at least 95%.</p>
           <p>GoalBench currently keeps three public prompt tracks separate: <code>mini-swe-compatible-nointernet</code> for the already-published mini-SWE-compatible result, <code>paper-prompt-nointernet</code> for the ProgramBench paper prompt with <code>/goal</code> and mini-SWE-style execution, and <code>paper-prompt-goal-contract-nointernet</code> for the same scaffold with an explicit Codex Goal contract.</p>
           <p>GoalBench uses a host-side wrapper to transport allowed black-box CLI interactions into the target container. This differs from mini-SWE-agent's in-container execution, but the wrapper is restricted to normal user-interface observations of the target executable and forbids source lookup, binary reading, disassembly, tracing, instrumentation, and evaluator/test access.</p>
-          <p>The public table is scoped to the latest published result set. Cost is estimated from Codex token logs, not billing. See <a href="task-details.html">Task Details</a> and the <a href="runbook.html">runbook</a> for scoring, evidence, egress, and setup details. Sources: <a href="https://programbench.com/extended/">ProgramBench extended results</a> and <a href="https://programbench.com/run/gpt-5-5-xhigh/">GPT 5.5 xhigh run detail</a>.</p>
+          <p>The public table is scoped to the latest published result set. Cost is estimated from Codex token logs, not billing; rows marked <code>n/a</code> or aggregate costs marked <code>*</code> have incomplete local token-log coverage, so calls are the more complete compute proxy for those tracks. See <a href="task-details.html">Task Details</a> and the <a href="runbook.html">runbook</a> for scoring, evidence, egress, and setup details. Sources: <a href="https://programbench.com/extended/">ProgramBench extended results</a> and <a href="https://programbench.com/run/gpt-5-5-xhigh/">GPT 5.5 xhigh run detail</a>.</p>
         </div>
         {render_tweet_embed()}
       </div>

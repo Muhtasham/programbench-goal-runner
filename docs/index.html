@@ -444,7 +444,7 @@
       </div>
     </div>
     <div class="pill-row">
-      <span class="pill">Generated 2026-05-21 22:26 UTC</span>
+      <span class="pill">Generated 2026-05-21 22:32 UTC</span>
       <span class="pill">597 evaluated instances</span>
       <span class="pill">200 tasks in full ProgramBench</span>
       <span class="pill">Sorted Resolved → Almost → Avg. pass</span>
@@ -487,7 +487,7 @@
               <td>Codex /goal</td>
               <td>0.0% (0/200)</td>
               <td>0.5% (1/200)</td>
-              <td>$0.71</td>
+              <td>$3.54*</td>
               <td>59.5</td>
               <td>11.4m</td>
               <td>25.6m</td>
@@ -501,7 +501,7 @@
               <td>Codex /goal</td>
               <td>0.0% (0/197)</td>
               <td>0.0% (0/197)</td>
-              <td>$0.80</td>
+              <td>$3.95*</td>
               <td>67.7</td>
               <td>13.2m</td>
               <td>22.5m</td>
@@ -523,9 +523,9 @@
           <div><strong>0.5%</strong><span>resolved</span></div>
           <div><strong>6.0%</strong><span>almost</span></div>
           <div><strong>63.6%</strong><span>avg pass</span></div>
-          <div><strong>$977</strong><span>total est. cost</span></div>
+          <div><strong>$977</strong><span>est. from token logs</span></div>
           <div><strong>16,038</strong><span>total calls</span></div>
-          <div><strong>$4.89</strong><span>est. cost / task</span></div>
+          <div><strong>$4.89</strong><span>est. cost / costed task</span></div>
           <div><strong>80.2</strong><span>calls / task</span></div>
           <div><strong>14.7m</strong><span>avg /goal session</span></div>
           <div><strong>27.2m</strong><span>max /goal session</span></div>
@@ -540,9 +540,9 @@
           <div><strong>0.0%</strong><span>resolved</span></div>
           <div><strong>0.5%</strong><span>almost</span></div>
           <div><strong>53.4%</strong><span>avg pass</span></div>
-          <div><strong>$142</strong><span>total est. cost</span></div>
+          <div><strong>$142*</strong><span>token logs for 40/200 tasks</span></div>
           <div><strong>11,900</strong><span>total calls</span></div>
-          <div><strong>$0.71</strong><span>est. cost / task</span></div>
+          <div><strong>$3.54*</strong><span>est. cost / costed task</span></div>
           <div><strong>59.5</strong><span>calls / task</span></div>
           <div><strong>11.4m</strong><span>avg /goal session</span></div>
           <div><strong>25.6m</strong><span>max /goal session</span></div>
@@ -557,9 +557,9 @@
           <div><strong>0.0%</strong><span>resolved</span></div>
           <div><strong>0.0%</strong><span>almost</span></div>
           <div><strong>52.5%</strong><span>avg pass</span></div>
-          <div><strong>$158</strong><span>total est. cost</span></div>
+          <div><strong>$158*</strong><span>token logs for 40/197 tasks</span></div>
           <div><strong>13,337</strong><span>total calls</span></div>
-          <div><strong>$0.80</strong><span>est. cost / task</span></div>
+          <div><strong>$3.95*</strong><span>est. cost / costed task</span></div>
           <div><strong>67.7</strong><span>calls / task</span></div>
           <div><strong>13.2m</strong><span>avg /goal session</span></div>
           <div><strong>22.5m</strong><span>max /goal session</span></div>
@@ -776,7 +776,7 @@
           <p>GoalBench reports separate Codex <code>/goal</code> runs on ProgramBench tasks; these are not official mini-SWE-agent leaderboard submissions. Resolved means ProgramBench's filtered behavioral pass rate is exactly 100%, and almost resolved means at least 95%.</p>
           <p>GoalBench currently keeps three public prompt tracks separate: <code>mini-swe-compatible-nointernet</code> for the already-published mini-SWE-compatible result, <code>paper-prompt-nointernet</code> for the ProgramBench paper prompt with <code>/goal</code> and mini-SWE-style execution, and <code>paper-prompt-goal-contract-nointernet</code> for the same scaffold with an explicit Codex Goal contract.</p>
           <p>GoalBench uses a host-side wrapper to transport allowed black-box CLI interactions into the target container. This differs from mini-SWE-agent's in-container execution, but the wrapper is restricted to normal user-interface observations of the target executable and forbids source lookup, binary reading, disassembly, tracing, instrumentation, and evaluator/test access.</p>
-          <p>The public table is scoped to the latest published result set. Cost is estimated from Codex token logs, not billing. See <a href="task-details.html">Task Details</a> and the <a href="runbook.html">runbook</a> for scoring, evidence, egress, and setup details. Sources: <a href="https://programbench.com/extended/">ProgramBench extended results</a> and <a href="https://programbench.com/run/gpt-5-5-xhigh/">GPT 5.5 xhigh run detail</a>.</p>
+          <p>The public table is scoped to the latest published result set. Cost is estimated from Codex token logs, not billing; rows marked <code>n/a</code> or aggregate costs marked <code>*</code> have incomplete local token-log coverage, so calls are the more complete compute proxy for those tracks. See <a href="task-details.html">Task Details</a> and the <a href="runbook.html">runbook</a> for scoring, evidence, egress, and setup details. Sources: <a href="https://programbench.com/extended/">ProgramBench extended results</a> and <a href="https://programbench.com/run/gpt-5-5-xhigh/">GPT 5.5 xhigh run detail</a>.</p>
         </div>
 
     <aside class="tweet-card" aria-label="Request tweet">
