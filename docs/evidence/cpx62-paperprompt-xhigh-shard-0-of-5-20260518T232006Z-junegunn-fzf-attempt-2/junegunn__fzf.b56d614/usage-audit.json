@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-05-19T20:21:32.028371+00:00",
+  "notes": [
+    "Costs are estimates from local Codex token_count logs, not authoritative billed dollars.",
+    "Pricing comes from an official-doc snapshot because there is no supported structured pricing endpoint.",
+    "reasoning_output_tokens is preserved for audit only; it is not added separately to output_tokens.",
+    "long_context_calls counts Codex calls whose last_token_usage.input_tokens exceeded the pricing threshold."
+  ],
+  "pricing_snapshot": {
+    "age_hours": 58.58,
+    "fetched_at": "2026-05-17T09:47:01.626118+00:00",
+    "max_age_hours": 24,
+    "models": {
+      "gpt-5": {
+        "cached_input_usd_per_mtok": 0.125,
+        "input_usd_per_mtok": 1.25,
+        "long_context_cached_input_multiplier": null,
+        "long_context_input_multiplier": null,
+        "long_context_input_threshold_tokens": null,
+        "long_context_output_multiplier": null,
+        "output_usd_per_mtok": 10.0,
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-5"
+      },
+      "gpt-5.4": {
+        "cached_input_usd_per_mtok": 0.25,
+        "input_usd_per_mtok": 2.5,
+        "long_context_cached_input_multiplier": 2.0,
+        "long_context_input_multiplier": 2.0,
+        "long_context_input_threshold_tokens": 272000,
+        "long_context_output_multiplier": 1.5,
+        "output_usd_per_mtok": 15.0,
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-5.4"
+      },
+      "gpt-5.5": {
+        "cached_input_usd_per_mtok": 0.5,
+        "input_usd_per_mtok": 5.0,
+        "long_context_cached_input_multiplier": 2.0,
+        "long_context_input_multiplier": 2.0,
+        "long_context_input_threshold_tokens": 272000,
+        "long_context_output_multiplier": 1.5,
+        "output_usd_per_mtok": 30.0,
+        "source_url": "https://developers.openai.com/api/docs/models/gpt-5.5"
+      }
+    },
+    "notes": [
+      "OpenAI does not currently expose a supported structured pricing endpoint for these model price cards.",
+      "Prices are standard API text token rates per 1M tokens.",
+      "Codex subscription billing and fast-mode multipliers may differ from these API rates.",
+      "Reasoning output tokens are diagnostic and are not added on top of output_tokens.",
+      "When model docs expose a long-context threshold, costs apply that multiplier per Codex token_count call."
+    ],
+    "pricing_api_endpoint": null,
+    "source": "OpenAI model documentation pricing cards",
+    "source_type": "official_docs_scrape"
+  },
+  "row": {
+    "cached_input_tokens": 3369216,
+    "calls": 50,
+    "estimated_cost_usd": "4.3115",
+    "input_tokens": 3600392,
+    "instance_id": "junegunn__fzf.b56d614",
+    "long_context_calls": 0,
+    "model": "gpt-5.5",
+    "output_tokens": 49033,
+    "pricing_source": "https://developers.openai.com/api/docs/models/gpt-5.5",
+    "reasoning_effort": "xhigh",
+    "reasoning_output_tokens": 14490,
+    "run_name": "cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-junegunn-fzf-attempt-2",
+    "run_version": "20260518T232006Z",
+    "session_logs": [
+      "/home/codex-runner/.codex/sessions/2026/05/19/rollout-2026-05-19T15-54-26-019e40f2-0fa7-77c1-8d53-636fe2636bc8.jsonl"
+    ],
+    "total_tokens": 3649425
+  },
+  "totals": {
+    "cached_input_tokens": 123376768,
+    "calls": 2367,
+    "estimated_cost_usd": 141.5759,
+    "input_tokens": 129317690,
+    "long_context_calls": 0,
+    "output_tokens": 1672751,
+    "reasoning_output_tokens": 463127,
+    "total_tokens": 130990441
+  },
+  "warnings_for_instance": []
+}

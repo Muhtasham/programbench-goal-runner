@@ -145,7 +145,7 @@
       <div class="metric"><strong>1488</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>48.7%</strong><span>official best score</span></div>
       <div class="metric"><strong>53.2%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.20h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>52.2%</td>
+          <td><span class="status almost" title="1 evaluator warning(s)">warn 1</span></td>
+          <td>802/1537</td>
+          <td>$3.84</td>
+          <td>58</td>
+          <td>0.20h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>51.3%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>763/1488</td>
+          <td>$4.65</td>
+          <td>72</td>
+          <td>0.23h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>53.2% from <strong>821/1542</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 873, not_run: 6, passed: 1444, skipped: 20.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>debe624ffde1</code> tests.test_administration.test_completion_invalid_shell <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>debe624ffde1</code> tests.test_comprehensive_commands.test_new_with_committer_date_is_author_date <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-stacked-git-stgit/stacked-git__stgit.430027d/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>52.2% from <strong>802/1537</strong> ProgramBench-scored tests. Raw public eval statuses: error: 1, failure: 850, not_run: 1, passed: 1466, skipped: 20.</p>
+        <p class="muted">Agent trace: 55 shell command(s), 33 executable-observation command(s), 6 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>debe624ffde1</code> tests.test_command_variants.test_completion_fish_all_commands <span class="muted">(failure)</span></li>
+
+
+          <li><code>debe624ffde1</code> tests.test_administration.test_completion_help <span class="muted">(failure)</span></li>
+
+
+          <li><code>debe624ffde1</code> tests.test_administration.test_completion_bash <span class="muted">(failure)</span></li>
+
+
+          <li><code>debe624ffde1</code> tests.test_command_variants.test_completion_bash_all_commands <span class="muted">(failure)</span></li>
+
+
+          <li><code>debe624ffde1</code> tests.test_command_variants.test_squash_with_file_mode_changes <span class="muted">(failure)</span></li>
+
+
+          <li><code>debe624ffde1</code> tests.test_additional_commands.test_show_with_patch_range <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

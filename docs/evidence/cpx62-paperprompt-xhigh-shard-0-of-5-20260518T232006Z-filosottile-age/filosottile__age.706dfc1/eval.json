@@ -1,0 +1,782 @@
+{
+  "error_code": "compile_failed",
+  "error_details_chars": 124,
+  "error_details_redacted": true,
+  "executable_hash": null,
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.16474036098225042
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.1173705940018408
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 125,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "compile",
+      "wall_time": 0.1484628350008279
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "not_run": 839
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "df88744325cf",
+    "8ebac061b133"
+  ],
+  "test_records": 839,
+  "test_results": [
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestDuplicates.test_duplicate_identity_file_warns",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestDuplicates.test_duplicate_recipient_warns",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestDuplicates.test_duplicate_recipients_file_warns",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestDuplicates.test_no_duplicate_no_warning",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestEncryptToIdentity.test_encrypt_and_decrypt_with_identity",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestEncryptToIdentity.test_encrypt_to_identity_and_additional_recipient",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestErrorEdgeCases.test_armor_only_encryption_no_decrypt",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestErrorEdgeCases.test_bad_age_public_key_format",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestErrorEdgeCases.test_decrypt_passphrase_encrypted_with_identity_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestErrorEdgeCases.test_help_short_with_flags",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestErrorEdgeCases.test_help_with_encrypt_flags",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestOutputFileLazy.test_output_not_created_on_bad_recipient",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestOutputFileLazy.test_output_not_created_on_missing_input",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestOutputFileLazy.test_output_not_created_on_wrong_key_decrypt",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_mix_r_and_R_flags",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_multiple_recipients_files",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_nonexistent_recipients_file_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_recipients_file_long_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_recipients_file_multiple_keys",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_recipients_file_short_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestRecipientsFile.test_recipients_file_with_empty_lines",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_advanced.TestStdinUsage.test_recipients_from_stdin_dash",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestArmorMode.test_armor_decrypt_roundtrip",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestArmorMode.test_armor_long_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestArmorMode.test_armor_produces_pem_format",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestArmorMode.test_armor_with_leading_trailing_whitespace",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_binary_data",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_empty_file_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_empty_input",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_invalid_input_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_large_data",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_long_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_multiple_identity_files",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_short_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestDecrypt.test_decrypt_to_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_decrypt_roundtrip",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_explicit_encrypt_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_file_input",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_multiple_recipients",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_recipients_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_recipients_file_with_comments",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_short_e_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_stdin_to_stdout",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_to_file_decrypt_from_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_with_identity_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestEncryptX25519.test_encrypt_wrong_key_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_decrypt_and_encrypt_flags_conflict",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_decrypt_without_identity_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_github_recipient_removed",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_invalid_recipient_format",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_missing_identity_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_missing_input_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestErrorHandling.test_no_recipient_no_passphrase_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_convert_from_stdin",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_convert_identity_to_recipient",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_file_not_overwritten",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_help",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_output_long_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_pq_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_pq_to_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_pq_y_incompatible",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_stdout",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_to_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_version",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestKeygenBasic.test_keygen_y_pq_key",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestNoArgs.test_help_flag_long",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestNoArgs.test_help_flag_short",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestNoArgs.test_no_args_shows_usage",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestNoArgs.test_unknown_flag_error",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestNoArgs.test_version_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestOutputFile.test_input_output_same_file_rejected",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestOutputFile.test_output_flag_long",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestOutputFile.test_output_not_created_on_error",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestOutputFile.test_output_overwrites_existing",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestSSHKeys.test_encrypt_decrypt_with_ed25519_ssh_key",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_basic.TestSSHKeys.test_encrypt_to_ssh_pubkey_inline",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_armored_encrypt_decrypt",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_decrypt_with_d_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_empty_data",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_encrypt_decrypt",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_encrypt_to_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_incompatible_with_recipients",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_inspect_shows_scrypt",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_max_work_factor",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_no_passphrase_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassBasic.test_batchpass_wrong_password_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_batchpass.TestBatchpassWithoutPlugin.test_nonexistent_plugin_gives_hint",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestDecryptionEdgeCases.test_decrypt_armored_without_flag",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestDecryptionEdgeCases.test_multiple_keys_first_matches",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestDecryptionEdgeCases.test_x25519_decrypt_from_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestInspectPostQuantumAndMultiple.test_inspect_empty_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestInspectPostQuantumAndMultiple.test_inspect_multiple_recipient_types",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestInspectPostQuantumAndMultiple.test_inspect_non_age_binary",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestKeygenConversion.test_convert_x25519_key_to_recipient",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestKeygenConversion.test_keygen_y_to_output_file",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestMoreArmorCoverage.test_armor_file_with_multiple_keys",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestMoreArmorCoverage.test_armor_to_file_and_decrypt",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestPostQuantumRoundtrip.test_encrypt_decrypt_pq_roundtrip",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestPostQuantumRoundtrip.test_pq_armored_roundtrip",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestPostQuantumRoundtrip.test_pq_encrypt_to_identity",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestPostQuantumRoundtrip.test_pq_inspect_shows_mlkem_stanza",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestPostQuantumRoundtrip.test_pq_wrong_key_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestRSAFullRoundtrip.test_encrypt_decrypt_rsa_roundtrip",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestRSAFullRoundtrip.test_encrypt_to_rsa_decrypt_with_identity",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestRSAFullRoundtrip.test_rsa_armored_roundtrip",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestRSAFullRoundtrip.test_rsa_inspect_shows_ssh_rsa_stanza",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestRSAFullRoundtrip.test_rsa_wrong_key_decrypt_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestStreamCoverage.test_encrypt_exactly_64k_data",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestStreamCoverage.test_encrypt_one_more_than_chunk",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_coverage_boost.TestStreamCoverage.test_encrypt_very_large_data",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_decrypt_with_armor_flag_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_decrypt_with_encrypt_flag_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_decrypt_with_passphrase_flag_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_decrypt_with_recipient_flag_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_decrypt_with_recipients_file_flag_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_identity_with_passphrase_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_identity_without_encrypt_flag_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_passphrase_with_recipient_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_passphrase_with_recipients_file_fails",
+      "status": "not_run"
+    },
+    {
+      "branch": "df88744325cf",
+      "extra": {},
+      "name": "eval.tests.test_age_error_paths.TestFlagConflicts.test_too_many_args_second_is_flag_hint",
+      "status": "not_run"
+    }
+  ],
+  "test_results_omitted": 719,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

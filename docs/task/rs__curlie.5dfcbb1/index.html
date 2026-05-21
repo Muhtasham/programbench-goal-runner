@@ -144,8 +144,8 @@
     <div class="metric-grid">
       <div class="metric"><strong>701</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>92.9%</strong><span>official best score</span></div>
-      <div class="metric"><strong>83.7%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>87.0%</strong><span>Codex best score</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -154,6 +154,38 @@
         <tbody>
         <tr>
           <td>1</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>87.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>610/701</td>
+          <td>$4.58</td>
+          <td>83</td>
+          <td>0.21h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>85.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>596/701</td>
+          <td>$3.33</td>
+          <td>52</td>
+          <td>0.18h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
           <td>GPT 5.5 (xhigh)</td>
           <td><code>20260517T094700Z</code></td>
           <td>Codex /goal</td>
@@ -175,8 +207,40 @@
   <div class="evidence-grid">
 
       <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>85.0% from <strong>596/701</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 113, passed: 628.</p>
+        <p class="muted">Agent trace: 98 shell command(s), 74 executable-observation command(s), 6 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
+        <ul>
+          <li><code>dbd9fc98f71c</code> eval.tests.test_basic.test_version_command <span class="muted">(failure)</span></li>
+
+
+          <li><code>dbd9fc98f71c</code> eval.tests.test_httpie_syntax.test_method_head <span class="muted">(failure)</span></li>
+
+
+          <li><code>dbd9fc98f71c</code> eval.tests.test_httpie_syntax.test_form_mode_with_flag <span class="muted">(failure)</span></li>
+
+
+          <li><code>dbd9fc98f71c</code> eval.tests.test_httpie_syntax.test_form_mode_with_long_flag <span class="muted">(failure)</span></li>
+
+
+          <li><code>15c07bf6acbd</code> eval.tests.test_basic.test_version_command <span class="muted">(failure)</span></li>
+
+
+          <li><code>15c07bf6acbd</code> eval.tests.test_curl_passthrough.test_compound_short_flags <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>83.7% from <strong>587/701</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 121, passed: 620.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
         <ul>
           <li><code>dbd9fc98f71c</code> eval.tests.test_basic.test_version_command <span class="muted">(failure)</span></li>

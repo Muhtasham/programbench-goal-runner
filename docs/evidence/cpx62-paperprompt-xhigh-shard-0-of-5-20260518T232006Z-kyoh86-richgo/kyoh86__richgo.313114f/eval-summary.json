@@ -1,0 +1,1226 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.13320229697274044
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "remove_hashed_files",
+      "wall_time": 0.1358498060144484
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.10845032299403101
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.11703502904856578
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.11692827998194844
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.12500865902984515
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6575055469875224
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.10941709898179397
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1170305089908652
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11004130600485951
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.13432766299229115
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 12.813464058039244
+    },
+    {
+      "branch": "7e3fefff015d",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02590691001387313
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12495693902019411
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.118056305043865
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1179348059813492
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.13605724601075053
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 137.40813683299348
+    },
+    {
+      "branch": "6d64c2331ec1",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.026515827979892492
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.09665154700633138
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.08702823496423662
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10975100699579343
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12383100297302008
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 37.81599970802199
+    },
+    {
+      "branch": "aedc381a5a8d",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03693069802829996
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13584651600103825
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.10282864398323
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12907825299771503
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11224780703196302
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 78.57975790300407
+    },
+    {
+      "branch": "db156070d060",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02294565102783963
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12070409400621429
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.13818809803342447
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1341682430356741
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10768191498937085
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.499176399956923
+    },
+    {
+      "branch": "48161f6d1b3b",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.025643960980232805
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12320768501376733
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11864092200994492
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11866921302862465
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12081236497033387
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.461028145044111
+    },
+    {
+      "branch": "1f13d5619c54",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.04191888798959553
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11813402397092432
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1187489329604432
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12670276098651811
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.09376099798828363
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.446654831001069
+    },
+    {
+      "branch": "c68a69428706",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.020926480006892234
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.1401910790009424
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12963154003955424
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1037856699549593
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12005727697396651
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 5.3790113519644365
+    },
+    {
+      "branch": "b233535428c2",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.036141131015028805
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13094692502636462
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12195074005285278
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11776320601347834
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12197176902554929
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 4.401850207999814
+    },
+    {
+      "branch": "73dbce9e523e",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03730241599259898
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.08394873701035976
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.09683345601661131
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12697631097398698
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11903940100455657
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 8.44908943399787
+    },
+    {
+      "branch": "226305cc3bbb",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.025472412002272904
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13048701698426157
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11953068902948871
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.13388190401019529
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1262024540337734
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.381267463031691
+    },
+    {
+      "branch": "161b993de396",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.0365163889946416
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.10981247702147812
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11187994899228215
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1220384890330024
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10797363397432491
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.542713579023257
+    },
+    {
+      "branch": "8c6f85788a1a",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.015828248986508697
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "7e743544e9a8bc6505fa6aabc1959355ecf9185b74872d53555745462805ffa9",
+  "failed_tests": [
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_basic_pass",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationLoading.test_config_from_cwd_yml",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestConfigFileFormats.test_yml_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationOptions.test_label_type_short",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_coverage_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestStyleCombinations.test_all_style_types",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestTestPrefixConfig.test_leave_test_prefix_false",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestHideSettings.test_hide_fail_package",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_multiline_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationLoading.test_config_without_local_only",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestLineRemoval.test_removal_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_skip_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestConfigFileFormats.test_config_without_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationLoading.test_config_from_cwd_yaml",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationOptions.test_cover_threshold_setting",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationOptions.test_style_configuration",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_basic_fail",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_build_error",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationOptions.test_label_type_long",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationLoading.test_config_local_only_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestTestPrefixConfig.test_leave_test_prefix_true",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestConfigPrecedence.test_cwd_overrides_default",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestStyleCombinations.test_multiple_style_attributes",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_basic_invocation.TestPassthrough.test_fmt_command_passthrough",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestColorConfiguration.test_named_colors",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationOptions.test_label_type_none",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestHideSettings.test_hide_pass_package",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.TestConfigFileFormats.test_yaml_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestColorConfiguration.test_light_colors",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationErrors.test_invalid_yaml",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestForceColor.test_force_color_disabled",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestForceColor.test_force_color_enabled",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestSpecialCharacters.test_unicode_in_test_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_configuration.TestConfigurationErrors.test_missing_config_file",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestBenchmarks.test_benchmark_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestLongOutput.test_many_tests_pass",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestLongOutput.test_long_test_name",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestCoverageEdgeCases.test_full_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestSubtests.test_parallel_subtests",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestSubtests.test_deeply_nested_subtests",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestSpecialCharacters.test_special_chars_in_error",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestFailurePatterns.test_multiple_failures",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestFailurePatterns.test_fatal_error",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.TestCoverageEdgeCases.test_zero_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestLocalOnlyEnvironment.test_local_only_set_to_0",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestLocalOnlyEnvironment.test_local_only_set_to_1",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestPipelineIntegration.test_testfilter_preserves_structure",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestPipelineIntegration.test_testfilter_in_pipeline",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestStdoutStderr.test_test_output_to_stdout",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_with_skip_test",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestPipelineIntegration.test_testfilter_with_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestStdoutStderr.test_build_errors_visible",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_with_passing_test",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_with_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestOutputPreservation.test_preserves_panic_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommandFlags.test_run_flag_filters_tests",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_with_subtests",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestOutputPreservation.test_preserves_error_messages",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_no_test_files",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_with_failing_test",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_with_timeout",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_build_failure",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommand.test_test_command_verbose_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_environment.TestOutputPreservation.test_preserves_log_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommandFlags.test_parallel_flag_passthrough",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestCoverageReporting.test_coverage_above_threshold",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommandFlags.test_short_flag_passthrough",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestCoverageReporting.test_coverage_summary_in_output",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestOutputFormatting.test_output_shows_file_line_references",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestOutputFormatting.test_output_contains_test_names",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestTestCommandFlags.test_count_flag_passthrough",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestOutputFormatting.test_non_verbose_mode_summary",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestOutputFormatting.test_output_preserves_test_logs",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestCoverageReporting.test_coverage_below_threshold",
+      "status": "failure"
+    },
+    {
+      "branch": "7e3fefff015d",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_test_command.TestOutputFormatting.test_output_preserves_failure_messages",
+      "status": "failure"
+    },
+    {
+      "branch": "6d64c2331ec1",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.test_config_with_hex_colors",
+      "status": "failure"
+    },
+    {
+      "branch": "6d64c2331ec1",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.test_config_with_rgb_colors",
+      "status": "failure"
+    },
+    {
+      "branch": "6d64c2331ec1",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.test_config_with_named_colors",
+      "status": "failure"
+    },
+    {
+      "branch": "6d64c2331ec1",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.test_config_with_text_styles",
+      "status": "failure"
+    },
+    {
+      "branch": "6d64c2331ec1",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_config.test_config_hide_pass_package",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 505,
+  "status_counts": {
+    "failure": 584,
+    "passed": 202,
+    "skipped": 1
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "7e3fefff015d",
+    "6d64c2331ec1",
+    "aedc381a5a8d",
+    "db156070d060",
+    "48161f6d1b3b",
+    "1f13d5619c54",
+    "c68a69428706",
+    "b233535428c2",
+    "73dbce9e523e",
+    "226305cc3bbb",
+    "161b993de396",
+    "8c6f85788a1a"
+  ],
+  "test_records": 787,
+  "warnings": []
+}

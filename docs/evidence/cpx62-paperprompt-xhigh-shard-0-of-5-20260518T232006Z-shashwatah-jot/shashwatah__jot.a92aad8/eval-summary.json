@@ -1,0 +1,1127 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.13738893601112068
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "remove_hashed_files",
+      "wall_time": 0.12619504402391613
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.1244504380156286
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.13686271599726751
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.11922804202185944
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.12445619801292196
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.645936671004165
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.1226858600275591
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1110243410221301
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1282149559701793
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11769532295875251
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 10.048447503999341
+    },
+    {
+      "branch": "c4f46363268e",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03194916702341288
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11691007297486067
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11925964697729796
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11663087300257757
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12657520803622901
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 9.10435714299092
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.032302965002600104
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12687515403376892
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12126807996537536
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11772584897698835
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10667790798470378
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 39.97459798998898
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02668900805292651
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.1414336260058917
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1294626590097323
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1292908099712804
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11664889304665849
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 7.593246739997994
+    },
+    {
+      "branch": "da03f47f3ae8",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02092414302751422
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.0871075929608196
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.09079554199706763
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.08431150094838813
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10403183603193611
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.587596821016632
+    },
+    {
+      "branch": "4648fc65a45a",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.019428786996286362
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11237310303840786
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12613100500311702
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1269099930068478
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1344118519918993
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.5194807550287805
+    },
+    {
+      "branch": "acb602d37a0c",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02370720502221957
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13250600697938353
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11703589902026579
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10093729296931997
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12113495799712837
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 5.938781226053834
+    },
+    {
+      "branch": "e5ea0b741776",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.023548285011202097
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11763567704474553
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.13342333200853318
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12569076399086043
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.09049703099299222
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.3604448690311983
+    },
+    {
+      "branch": "669d25dc68c5",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.0206837430014275
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.14189620898105204
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12568702304270118
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10715778399026021
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1073630130267702
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 12.217371576000005
+    },
+    {
+      "branch": "bcffb206da76",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.027464104001410306
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.1332160200108774
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12648993800394237
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11619999702088535
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.0990382750169374
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 6.024961013987195
+    },
+    {
+      "branch": "482bffc77db0",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.037243425962515175
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "84af68e641e3bd9f5ea6222402426cdb5420893d0df4a75a71a159cc83588ae2",
+  "failed_tests": [
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_move_vault_to_same_location",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_list_empty_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_create_folder_with_special_chars",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_note_name_with_unicode",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_vault_name_with_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_create_note_with_special_chars",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_multiple_vaults_switching",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_conditions.test_folder_with_empty_name",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_edge_cases.test_nested_folders_navigation",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_create_folder_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_create_folder_in_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_rename_folder",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_relative_path",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_remove_folder",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_move_folder_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_create_note_in_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_conditions.test_note_with_empty_name",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_remove_note",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_rename_note_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_remove_note_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_to_subfolder",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_move_note_to_subfolder",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_enter_vault_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_parent_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_enter_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_rename_folder_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_move_folder",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_rename_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_vmove_folder_to_different_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_remove_folder_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_create_note_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_rename_note",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_create_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_remove_vault_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_create_vault_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_move_note_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_vmove_note_to_different_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_move_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_remove_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "c4f46363268e",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_rename_vault_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_folder_create",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_enter_operations.test_enter_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_to_folder",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_enter_operations.test_switch_between_vaults",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_rename_operations.test_rename_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_move_operations.test_move_vault_to_new_location_checks_paths",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_note_create",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_note_create_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_note_operations.test_note_create_verifies_multiple_notes",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_move_operations.test_move_note_to_folder_verifies_paths",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_move_operations.test_vmove_with_vm_alias_verifies_both_locations",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_move_operations.test_move_note_with_mv_alias_checks_content",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_move_operations.test_move_folder_and_verify_location",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_move_operations.test_vmove_note_to_different_vault_checks_both_vaults",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_nested_path",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_rename_operations.test_rename_folder",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_folder_create_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_vault_create",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_rename_operations.test_rename_with_nt_item_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_remove_operations.test_remove_vault",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_folder_operations.test_chdir_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_rename_operations.test_rename_note",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_rename_operations.test_rename_note_using_rn_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_remove_operations.test_remove_note_with_rm_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_remove_operations.test_remove_note_with_item_type_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_remove_operations.test_remove_note",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_remove_operations.test_remove_folder_with_fd_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_remove_operations.test_remove_folder",
+      "status": "failure"
+    },
+    {
+      "branch": "00cd38f2ece5",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_vault_operations.test_vault_create_with_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_config_operations.test_config_creates_directory_if_missing",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 153,
+      "message_redacted": true,
+      "name": "tests.test_config_operations.test_get_config_when_only_file_exists",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_aliases.test_config_cf_get_editor_identical",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_config_operations.test_get_default_editor",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 124,
+      "message_redacted": true,
+      "name": "tests.test_config_operations.test_config_file_location_xdg",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 153,
+      "message_redacted": true,
+      "name": "tests.test_config_operations.test_set_editor_with_special_characters",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 153,
+      "message_redacted": true,
+      "name": "tests.test_config_operations.test_set_editor_very_long_value",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_aliases.test_enter_en_identical_output",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_aliases.test_move_mv_vault_identical",
+      "status": "failure"
+    },
+    {
+      "branch": "61cbf5f33b3c",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_aliases.test_note_nt_duplicate_identical_error",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 283,
+  "status_counts": {
+    "failure": 363,
+    "passed": 483
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "c4f46363268e",
+    "00cd38f2ece5",
+    "61cbf5f33b3c",
+    "da03f47f3ae8",
+    "4648fc65a45a",
+    "acb602d37a0c",
+    "e5ea0b741776",
+    "669d25dc68c5",
+    "bcffb206da76",
+    "482bffc77db0"
+  ],
+  "test_records": 846,
+  "warnings": []
+}

@@ -1,0 +1,727 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 1.1598070419859141
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.10095584800001234
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.13099774002330378
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.13001219497527927
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.1202445820090361
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6665727290092036
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13825026201084256
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.13625034096185118
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11221863399259746
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11873288796050474
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 8.627511886006687
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.018667886964976788
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.10981379303848371
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12201549601741135
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10654397599864751
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12981954601127654
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 48.936845967022236
+    },
+    {
+      "branch": "bbc3caab3762",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.028140911017544568
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "ff4db0d27f482fed46756d1559934fd264f848fadf64f98ca689ed9fdd34ee9a",
+  "failed_tests": [
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_inline_string_with_newline_escape",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_output_to_file_error",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_invalid_font_size_error",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_default_output_same_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_only_converts_bob_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_creates_output_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_multiple_files",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_converts_bob_files",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_invalid_stroke_width_error",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_output_message",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_rectangle_box",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_circles_diagram",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_complex_diagram_from_file",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_escape_text_in_quotes",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_legend_styling_applied",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_demo_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_inline_string_multiline",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_vertical_line",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_horizontal_line",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_text_rendering",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_rounded_rectangle",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_svg_dimensions_scale_with_input",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_merge_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_circuits_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_height_increases_with_more_rows",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_example_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_build_with_file_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_svgbob.test_long_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_output_file_write_error_permission",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 49,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_output_to_existing_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 55,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_concurrent_output_directory_creation",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 60,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_output_directory_with_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_inline_string_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_inline_mode_with_complex_diagram",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 165,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle11_radius_6",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_diagram_with_grid_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_whitespace_only_bob_file",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 41,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circles_connected_with_arrow",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 164,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle5_period_quote_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 40,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle_scale_factor_3x",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 40,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle1_underscore_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_scale_factor",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 40,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_single_file_conversion_in_current_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_very_small_scale",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 57,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_stdout_shows_conversion_progress",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_stdin_default_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_diagram_with_diagonal_lines",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 44,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_batch_convert_ten_files",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_large_diagram_file",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_files_sorted_alphabetically_in_output",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle2_underscored_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 164,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle9_radius_5",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_scale_half",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 40,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle_with_text_content",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 164,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle6_radius_3_5",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_all_flags_combined_with_file_io",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 48,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_single_file_with_output_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_combined_font_and_scale",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_complex_diagrams.test_large_architecture_diagram_with_legend",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_build_subcommand_with_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_invalid_font_size",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 58,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_file_naming_preserves_basename",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 56,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_subdirectory_pattern_matching",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle3_comma_dash_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 165,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle10_parentheses_sides",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 164,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle7_radius_4_bottom_tail",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_mixed_line_styles",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_complex_diagram_with_multiple_shapes",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 40,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle_scale_factor",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_absolute_vs_relative_paths",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 46,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_multiple_files_batch_processing",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_complex_shapes.test_octagon_eight_sided_polygon",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 177,
+      "message_redacted": true,
+      "name": "tests.test_complex_diagrams.test_legend_edge_cases_whitespace_newlines",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_scale_range",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 182,
+      "message_redacted": true,
+      "name": "tests.test_complex_diagrams.test_extreme_diagonal_lines_clipping",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_build_subcommand_creates_output_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_flags.test_invalid_stroke_width",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 50,
+      "message_redacted": true,
+      "name": "tests.test_build_subcommand.test_output_files_have_svg_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 41,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_overlapping_circles_vertical",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_circle_shapes.test_circle_with_leading_spaces",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 273,
+  "status_counts": {
+    "failure": 353,
+    "passed": 121
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "1b6f0d2f3f1f",
+    "bbc3caab3762"
+  ],
+  "test_records": 474,
+  "warnings": []
+}

@@ -1,0 +1,80 @@
+{
+  "blocked_attempts": 1,
+  "build_calls": 7,
+  "command_categories": {
+    "build": 7,
+    "other": 38,
+    "package": 2,
+    "target_or_local_executable": 48
+  },
+  "commands_with_explicit_workdir": 95,
+  "exec_command_calls": 95,
+  "log_files_count": 1,
+  "package_calls": 2,
+  "raw_logs_policy": "Raw Codex JSONL logs stay local. This artifact contains aggregate command/tool statistics only.",
+  "raw_logs_published": false,
+  "rejected_exec_attempts": 0,
+  "schema": "goalbench-agent-summary-v1",
+  "session_ended_at": "2026-05-19T01:06:21.299Z",
+  "session_started_at": "2026-05-19T00:53:56.726Z",
+  "target_or_local_executable_calls": 48,
+  "token_count_events": 54,
+  "top_command_tools": [
+    {
+      "count": 34,
+      "tool": "executable"
+    },
+    {
+      "count": 25,
+      "tool": "python3"
+    },
+    {
+      "count": 12,
+      "tool": "sed"
+    },
+    {
+      "count": 4,
+      "tool": "ls"
+    },
+    {
+      "count": 3,
+      "tool": "find"
+    },
+    {
+      "count": 3,
+      "tool": "printf"
+    },
+    {
+      "count": 3,
+      "tool": "git"
+    },
+    {
+      "count": 3,
+      "tool": "compile.sh"
+    },
+    {
+      "count": 2,
+      "tool": "executable;"
+    },
+    {
+      "count": 2,
+      "tool": "command"
+    },
+    {
+      "count": 1,
+      "tool": "pwd"
+    },
+    {
+      "count": 1,
+      "tool": "chmod"
+    },
+    {
+      "count": 1,
+      "tool": "rm"
+    },
+    {
+      "count": 1,
+      "tool": "package-submission"
+    }
+  ]
+}

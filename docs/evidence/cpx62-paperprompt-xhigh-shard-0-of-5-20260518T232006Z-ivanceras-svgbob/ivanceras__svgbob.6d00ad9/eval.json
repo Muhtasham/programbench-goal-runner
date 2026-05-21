@@ -1,0 +1,1428 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "executable_hash": "ff4db0d27f482fed46756d1559934fd264f848fadf64f98ca689ed9fdd34ee9a",
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 1.1598070419859141
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.10095584800001234
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.13099774002330378
+    },
+    {
+      "branch": "",
+      "command": "mv ./executable /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.13001219497527927
+    },
+    {
+      "branch": "",
+      "command": "sha256sum /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 117,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.1202445820090361
+    },
+    {
+      "branch": "",
+      "command": "pip3 install -q --disable-pip-version-check pytest-rerunfailures",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 222,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6665727290092036
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13825026201084256
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.13625034096185118
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11221863399259746
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11873288796050474
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 36125,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 8.627511886006687
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "command": "docker cp 57f61a62d85afc326043bddde06c8262981f5b681cad79dfce52eef8d98bea86:/workspace/eval/results.xml /tmp/tmppdw40doc.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 20646,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.018667886964976788
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.10981379303848371
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12201549601741135
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10654397599864751
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12981954601127654
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 296570,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 48.936845967022236
+    },
+    {
+      "branch": "bbc3caab3762",
+      "command": "docker cp 1706aed9c61b2620a72d847e89c23b38d155ad0d782a9f9a010240205b754626:/workspace/eval/results.xml /tmp/tmpuycqqft0.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 150513,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.028140911017544568
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "failure": 353,
+    "passed": 121
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "1b6f0d2f3f1f",
+    "bbc3caab3762"
+  ],
+  "test_records": 474,
+  "test_results": [
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.099
+      },
+      "name": "eval.tests.test_svgbob.test_inline_string_with_newline_escape",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_svgbob.test_output_to_file_error",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "eval.tests.test_svgbob.test_invalid_font_size_error",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.106
+      },
+      "name": "eval.tests.test_svgbob.test_build_default_output_same_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_svgbob.test_build_only_converts_bob_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "eval.tests.test_svgbob.test_build_creates_output_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.101
+      },
+      "name": "eval.tests.test_svgbob.test_build_multiple_files",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.102
+      },
+      "name": "eval.tests.test_svgbob.test_build_converts_bob_files",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "eval.tests.test_svgbob.test_invalid_stroke_width_error",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.099
+      },
+      "name": "eval.tests.test_svgbob.test_build_output_message",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.073
+      },
+      "name": "eval.tests.test_svgbob.test_rectangle_box",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "eval.tests.test_svgbob.test_circles_diagram",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.106
+      },
+      "name": "eval.tests.test_svgbob.test_complex_diagram_from_file",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.11
+      },
+      "name": "eval.tests.test_svgbob.test_escape_text_in_quotes",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.095
+      },
+      "name": "eval.tests.test_svgbob.test_legend_styling_applied",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "eval.tests.test_svgbob.test_demo_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.201
+      },
+      "name": "eval.tests.test_svgbob.test_inline_string_multiline",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.103
+      },
+      "name": "eval.tests.test_svgbob.test_vertical_line",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.103
+      },
+      "name": "eval.tests.test_svgbob.test_horizontal_line",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.096
+      },
+      "name": "eval.tests.test_svgbob.test_text_rendering",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.082
+      },
+      "name": "eval.tests.test_svgbob.test_rounded_rectangle",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.181
+      },
+      "name": "eval.tests.test_svgbob.test_svg_dimensions_scale_with_input",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.077
+      },
+      "name": "eval.tests.test_svgbob.test_merge_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.091
+      },
+      "name": "eval.tests.test_svgbob.test_circuits_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.184
+      },
+      "name": "eval.tests.test_svgbob.test_height_increases_with_more_rows",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.108
+      },
+      "name": "eval.tests.test_svgbob.test_example_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_svgbob.test_build_with_file_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "1b6f0d2f3f1f",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.241
+      },
+      "name": "eval.tests.test_svgbob.test_long_file_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "tests.test_cli_flags.test_output_file_write_error_permission",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 49,
+        "message_redacted": true,
+        "time": 0.121
+      },
+      "name": "tests.test_build_subcommand.test_output_to_existing_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 55,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "tests.test_build_subcommand.test_concurrent_output_directory_creation",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 60,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "tests.test_build_subcommand.test_output_directory_with_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "tests.test_cli_flags.test_inline_string_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "tests.test_cli_flags.test_inline_mode_with_complex_diagram",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 165,
+        "message_redacted": true,
+        "time": 0.155
+      },
+      "name": "tests.test_circle_shapes.test_circle11_radius_6",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "tests.test_build_subcommand.test_diagram_with_grid_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "tests.test_build_subcommand.test_whitespace_only_bob_file",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 41,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "tests.test_circle_shapes.test_circles_connected_with_arrow",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 164,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "tests.test_circle_shapes.test_circle5_period_quote_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "tests.test_circle_shapes.test_circle_scale_factor_3x",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "tests.test_circle_shapes.test_circle1_underscore_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.08
+      },
+      "name": "tests.test_cli_flags.test_scale_factor",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.077
+      },
+      "name": "tests.test_build_subcommand.test_single_file_conversion_in_current_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.112
+      },
+      "name": "tests.test_cli_flags.test_very_small_scale",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 57,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "tests.test_build_subcommand.test_stdout_shows_conversion_progress",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.088
+      },
+      "name": "tests.test_cli_flags.test_stdin_default_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.128
+      },
+      "name": "tests.test_build_subcommand.test_diagram_with_diagonal_lines",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 44,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "tests.test_build_subcommand.test_batch_convert_ten_files",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "tests.test_build_subcommand.test_large_diagram_file",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.106
+      },
+      "name": "tests.test_build_subcommand.test_files_sorted_alphabetically_in_output",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.109
+      },
+      "name": "tests.test_circle_shapes.test_circle2_underscored_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 164,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "tests.test_circle_shapes.test_circle9_radius_5",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "tests.test_cli_flags.test_scale_half",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.127
+      },
+      "name": "tests.test_circle_shapes.test_circle_with_text_content",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 164,
+        "message_redacted": true,
+        "time": 0.112
+      },
+      "name": "tests.test_circle_shapes.test_circle6_radius_3_5",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.083
+      },
+      "name": "tests.test_cli_flags.test_all_flags_combined_with_file_io",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 48,
+        "message_redacted": true,
+        "time": 0.108
+      },
+      "name": "tests.test_build_subcommand.test_single_file_with_output_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.084
+      },
+      "name": "tests.test_cli_flags.test_combined_font_and_scale",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.124
+      },
+      "name": "tests.test_complex_diagrams.test_large_architecture_diagram_with_legend",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.097
+      },
+      "name": "tests.test_cli_flags.test_build_subcommand_with_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "tests.test_cli_flags.test_invalid_font_size",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 58,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "tests.test_build_subcommand.test_file_naming_preserves_basename",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 56,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "tests.test_build_subcommand.test_subdirectory_pattern_matching",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "tests.test_circle_shapes.test_circle3_comma_dash_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 165,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "tests.test_circle_shapes.test_circle10_parentheses_sides",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 164,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "tests.test_circle_shapes.test_circle7_radius_4_bottom_tail",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "tests.test_build_subcommand.test_mixed_line_styles",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.116
+      },
+      "name": "tests.test_build_subcommand.test_complex_diagram_with_multiple_shapes",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.111
+      },
+      "name": "tests.test_circle_shapes.test_circle_scale_factor",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "tests.test_build_subcommand.test_absolute_vs_relative_paths",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 46,
+        "message_redacted": true,
+        "time": 0.116
+      },
+      "name": "tests.test_build_subcommand.test_multiple_files_batch_processing",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "tests.test_complex_shapes.test_octagon_eight_sided_polygon",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 177,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "tests.test_complex_diagrams.test_legend_edge_cases_whitespace_newlines",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.106
+      },
+      "name": "tests.test_cli_flags.test_scale_range",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 182,
+        "message_redacted": true,
+        "time": 0.111
+      },
+      "name": "tests.test_complex_diagrams.test_extreme_diagonal_lines_clipping",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "tests.test_cli_flags.test_build_subcommand_creates_output_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.128
+      },
+      "name": "tests.test_cli_flags.test_invalid_stroke_width",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 50,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "tests.test_build_subcommand.test_output_files_have_svg_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 41,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "tests.test_circle_shapes.test_overlapping_circles_vertical",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.141
+      },
+      "name": "tests.test_circle_shapes.test_circle_with_leading_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "tests.test_build_subcommand.test_diagram_with_text_labels",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 56,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "tests.test_build_subcommand.test_empty_bob_file",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "tests.test_build_subcommand.test_nested_shapes",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "tests.test_build_subcommand.test_special_characters_in_diagram",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 169,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "tests.test_circle_shapes.test_circle_large_vertical_bars",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 164,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "tests.test_circle_shapes.test_circle8_large_slash_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 60,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "tests.test_build_subcommand.test_no_matching_files",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.082
+      },
+      "name": "tests.test_complex_shapes.test_nested_rectangles_inner_outer",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.14
+      },
+      "name": "tests.test_complex_diagrams.test_massive_grid_boundary_clipping_stress",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.101
+      },
+      "name": "tests.test_complex_shapes.test_irregular_polygon_asymmetric_vertices",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 183,
+        "message_redacted": true,
+        "time": 0.088
+      },
+      "name": "tests.test_complex_diagrams.test_precise_collinear_lines_alignment",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.11
+      },
+      "name": "tests.test_cli_flags.test_build_subcommand_nonexistent_input_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "tests.test_complex_shapes.test_trapezoid_four_sides_two_parallel",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 47,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "tests.test_build_subcommand.test_multiple_extensions_in_same_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 66,
+        "message_redacted": true,
+        "time": 0.129
+      },
+      "name": "tests.test_build_subcommand.test_nonexistent_input_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "tests.test_build_subcommand.test_very_long_lines",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 41,
+        "message_redacted": true,
+        "time": 0.132
+      },
+      "name": "tests.test_circle_shapes.test_stacked_circles_independent_detection",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "tests.test_complex_shapes.test_broken_dashed_rectangle_class",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 41,
+        "message_redacted": true,
+        "time": 0.142
+      },
+      "name": "tests.test_circle_shapes.test_circles_connected_by_line",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.127
+      },
+      "name": "tests.test_build_subcommand.test_file_with_newlines_at_end",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.141
+      },
+      "name": "tests.test_build_subcommand.test_output_directory_same_as_input",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 41,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "tests.test_circle_shapes.test_circles_horizontal_arrangement",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "tests.test_circle_shapes.test_circle_scale_factor_half",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "tests.test_complex_shapes.test_mixed_shapes_in_diagram",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.096
+      },
+      "name": "tests.test_complex_shapes.test_overlapping_rectangles_boundaries",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.094
+      },
+      "name": "tests.test_complex_diagrams.test_empty_diagram_minimal_output",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 174,
+        "message_redacted": true,
+        "time": 0.087
+      },
+      "name": "tests.test_complex_diagrams.test_huge_flowchart_boundary_stress",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.079
+      },
+      "name": "tests.test_cli_flags.test_build_subcommand_with_extension_filter",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 49,
+        "message_redacted": true,
+        "time": 0.14
+      },
+      "name": "tests.test_circle_shapes.test_multilevel_flowchart_circles",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "tests.test_build_subcommand.test_diagram_with_vertical_lines",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 61,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "tests.test_build_subcommand.test_different_file_extension",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "tests.test_build_subcommand.test_input_pattern_with_no_wildcard",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 180,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "tests.test_complex_diagrams.test_mixed_shapes_with_legend_integration",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "tests.test_complex_shapes.test_three_level_nested_rectangles",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 164,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "tests.test_circle_shapes.test_circle4_dot_dash_pattern",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 174,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "tests.test_circle_shapes.test_circle_inside_box",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 41,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "tests.test_circle_shapes.test_circle_grid_arrangement",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "tests.test_complex_shapes.test_filled_rectangle_with_hash_marks",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 40,
+        "message_redacted": true,
+        "time": 0.129
+      },
+      "name": "tests.test_circle_shapes.test_circle0_smallest_radius",
+      "status": "failure"
+    },
+    {
+      "branch": "bbc3caab3762",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "tests.test_complex_shapes.test_zigzag_polygon_alternating_diagonals",
+      "status": "failure"
+    }
+  ],
+  "test_results_omitted": 233,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

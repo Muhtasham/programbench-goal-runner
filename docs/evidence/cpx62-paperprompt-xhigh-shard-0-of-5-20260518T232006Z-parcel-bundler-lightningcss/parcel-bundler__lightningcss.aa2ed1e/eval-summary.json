@@ -1,0 +1,1030 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 1.0655432029743679
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "remove_hashed_files",
+      "wall_time": 0.1302136510494165
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.12389118399005383
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.14390407101018354
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.12433317297836766
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.13841395103372633
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6398107360000722
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.14454161399044096
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12657655001385137
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11718582600587979
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10141948697855696
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 136.49675000703428
+    },
+    {
+      "branch": "65648d8896da",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02993876999244094
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12207352498080581
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12642559700179845
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10824340296676382
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1301657829899341
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 239.86327949201223
+    },
+    {
+      "branch": "dbdaecc4a16f",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03528124501463026
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12199598696315661
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11435409798286855
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.09758247097488493
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12545395700726658
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 7.7658755060401745
+    },
+    {
+      "branch": "880c457eefa5",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.033219966979231685
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11823390005156398
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1258712680428289
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12762561801355332
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.13911531498888507
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 5.575752738979645
+    },
+    {
+      "branch": "35469ee3ea06",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03753729397431016
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13175776798743755
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12401952099753544
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12256491801235825
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1144785630167462
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.405398468952626
+    },
+    {
+      "branch": "d4936b1ad070",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03410643298411742
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11631469399435446
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12308723700698465
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1243156009586528
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1254799549933523
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 10.894349587964825
+    },
+    {
+      "branch": "4d5cb7dc1440",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03585681499680504
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11873419495532289
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.10464211198268458
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.06240019103279337
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.0807885309914127
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.622579034999944
+    },
+    {
+      "branch": "951581809da3",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.021018766972701997
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12870641303015873
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11293940799077973
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10087493399623781
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12507669196929783
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.699691818037536
+    },
+    {
+      "branch": "6e177bdba40e",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.020101731992326677
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "24b4996f26ad69e5bc673753f6ccc856866880ef461a2da0b4d1a96232977e15",
+  "failed_tests": [
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_page_rules",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_counter_style",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-fill-mode-forwards]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-style-ridge]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_custom_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_comprehensive_css.test_minify_shorthand_combination",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_comprehensive_css.test_font_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-origin-content-box]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_flexbox_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_document_at_rule",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_browserslist.test_browserslistrc_discovery",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-items-baseline]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modern_features.test_gap_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-attachment-scroll]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-avoid]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_cli_combinations.test_css_modules_with_minify",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-style-inset]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_complex_nth_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_font_face",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_comprehensive_css.test_background_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-auto]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_media_queries_comprehensive",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_grid_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_calc_and_math_functions",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-attachment-fixed]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-repeat]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_nested_at_rules",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-always]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-fill-mode-backwards]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modules.test_css_modules_basic",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_browserslist.test_browserslist_config_env_var",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_cli_combinations.test_css_modules_with_targets",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-attachment-local]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_attribute_selectors_complex",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_comprehensive_css.test_alignment_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_font_feature_values",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-style-outset]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_supports_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-repeat-x]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_background_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-stretch]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_view_transition",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-all]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modules.test_css_modules_stdout",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-fill-mode-both]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_aspect_ratio",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_browserslist.test_browserslist_environment_sections",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_cli_combinations.test_all_flags_combined",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_dir_lang_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_comprehensive_css.test_masking_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_font_palette_values",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[box-decoration-break-slice]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-normal]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_border_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_keyframes_variations",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_browserslist.test_browserslist_node_env",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-center]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modern_features.test_css_nesting",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-avoid-page]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-repeat-y]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_object_fit_and_position",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-iteration-count-infinite]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 86,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modules.test_css_modules_scopes_classes",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_cli_combinations.test_stdin_with_multiple_options",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_comprehensive_css.test_text_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-flex-start]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-multiply]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_where_is_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_comprehensive.test_font_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-iteration-count-1]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_advanced_features.test_container_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[box-decoration-break-clone]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-content-center]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_container_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-page]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_browserslist.test_browserslist_default_section",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-no-repeat]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modern_features.test_cascade_layers",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 86,
+      "message_redacted": true,
+      "name": "eval.tests.test_css_modules.test_css_modules_scopes_ids",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_cli_combinations.test_custom_media_with_targets",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 2678,
+  "status_counts": {
+    "failure": 2753,
+    "passed": 397,
+    "skipped": 5
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "65648d8896da",
+    "dbdaecc4a16f",
+    "880c457eefa5",
+    "35469ee3ea06",
+    "d4936b1ad070",
+    "4d5cb7dc1440",
+    "951581809da3",
+    "6e177bdba40e"
+  ],
+  "test_records": 3155,
+  "warnings": []
+}

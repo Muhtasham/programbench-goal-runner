@@ -1,0 +1,1362 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "executable_hash": "9e39ca3820373934e24b857e725b6d6a5f7cb4b1b03b96a9cd1b8b85b4bb0863",
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.21894332498777658
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.12262669202755205
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.13088847798644565
+    },
+    {
+      "branch": "",
+      "command": "mv ./executable /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.12875218101544306
+    },
+    {
+      "branch": "",
+      "command": "sha256sum /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 117,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.11945967999054119
+    },
+    {
+      "branch": "",
+      "command": "pip3 install -q --disable-pip-version-check pytest-rerunfailures",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 222,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6552838410134427
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.14037677200394683
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12126747501315549
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.13638505002018064
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=thread/--timeout-method=signal/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12515656801406294
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 775642,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 93.54570285300724
+    },
+    {
+      "branch": "b0846e00e790",
+      "command": "docker cp 16e531b2d9abf998b08e94ce78d42e53c57994cbd99b5db3cbe3af056b7b57e1:/workspace/eval/results.xml /tmp/tmphk2clj5d.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 715559,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.04174927499843761
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "failure": 609,
+    "passed": 464,
+    "skipped": 20
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "b0846e00e790"
+  ],
+  "test_records": 1093,
+  "test_results": [
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 888,
+        "message_redacted": true,
+        "time": 0.186
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t02",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 468,
+        "message_redacted": true,
+        "time": 0.165
+      },
+      "name": "tests.test_fasta_ops.test_maskfasta_soft_mask",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 486,
+        "message_redacted": true,
+        "time": 0.179
+      },
+      "name": "tests.test_fasta_ops.test_maskfasta_soft_overrides_custom_char",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 467,
+        "message_redacted": true,
+        "time": 0.178
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t30",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 379,
+        "message_redacted": true,
+        "time": 0.18
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t19",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 303,
+        "message_redacted": true,
+        "time": 0.183
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_sort_t08",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 409,
+        "message_redacted": true,
+        "time": 0.17
+      },
+      "name": "tests.test_annotate.test_annotate_single_file_fraction_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 126,
+        "message_redacted": true,
+        "time": 0.214
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t7_three_blocks_bed12",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 395,
+        "message_redacted": true,
+        "time": 0.171
+      },
+      "name": "tests.test_harvest_closest.test_closest_t51",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 200,
+        "message_redacted": true,
+        "time": 0.281
+      },
+      "name": "tests.test_annotate.test_annotate_adjacent_non_overlapping_features",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 951,
+        "message_redacted": true,
+        "time": 0.162
+      },
+      "name": "tests.test_harvest_closest.test_closest_t68",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 385,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "tests.test_harvest_closest.test_closest_t35",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 83,
+        "message_redacted": true,
+        "time": 0.15
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtofastq_paired_end",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 396,
+        "message_redacted": true,
+        "time": 0.208
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t19",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 385,
+        "message_redacted": true,
+        "time": 0.163
+      },
+      "name": "tests.test_harvest_closest.test_closest_t26",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 318,
+        "message_redacted": true,
+        "time": 0.155
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 479,
+        "message_redacted": true,
+        "time": 0.221
+      },
+      "name": "tests.test_fasta_ops.test_maskfasta_custom_mask_character",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 312,
+        "message_redacted": true,
+        "time": 0.194
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t20",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 1214,
+        "message_redacted": true,
+        "time": 0.189
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t03",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 84,
+        "message_redacted": true,
+        "time": 0.202
+      },
+      "name": "tests.test_fasta_ops.test_nuc_error_missing_fasta",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 467,
+        "message_redacted": true,
+        "time": 0.214
+      },
+      "name": "tests.test_annotate.test_annotate_multiple_files_fraction_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 466,
+        "message_redacted": true,
+        "time": 0.202
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t31",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 907,
+        "message_redacted": true,
+        "time": 0.182
+      },
+      "name": "tests.test_harvest_closest.test_closest_t69",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 250,
+        "message_redacted": true,
+        "time": 0.151
+      },
+      "name": "tests.test_annotate.test_annotate_bed3_format",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 245,
+        "message_redacted": true,
+        "time": 0.434
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t8_split_vs_bed12",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 166,
+        "message_redacted": true,
+        "time": 0.158
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bedtobam_t1_basic_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 297,
+        "message_redacted": true,
+        "time": 0.157
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t01",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 395,
+        "message_redacted": true,
+        "time": 0.142
+      },
+      "name": "tests.test_harvest_closest.test_closest_t38",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 252,
+        "message_redacted": true,
+        "time": 0.155
+      },
+      "name": "tests.test_harvest_closest.test_closest_t59",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 385,
+        "message_redacted": true,
+        "time": 0.159
+      },
+      "name": "tests.test_harvest_closest.test_closest_t29",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 405,
+        "message_redacted": true,
+        "time": 0.212
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t24",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 274,
+        "message_redacted": true,
+        "time": 0.174
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 329,
+        "message_redacted": true,
+        "time": 0.182
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t21",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 830,
+        "message_redacted": true,
+        "time": 0.179
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t04",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 350,
+        "message_redacted": true,
+        "time": 0.198
+      },
+      "name": "tests.test_fasta_ops.test_nuc_basic_profile",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 351,
+        "message_redacted": true,
+        "time": 0.2
+      },
+      "name": "tests.test_fasta_ops.test_nuc_empty_bed",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 465,
+        "message_redacted": true,
+        "time": 0.19
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t32",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 365,
+        "message_redacted": true,
+        "time": 0.187
+      },
+      "name": "tests.test_annotate.test_annotate_with_names_header",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 409,
+        "message_redacted": true,
+        "time": 0.192
+      },
+      "name": "tests.test_annotate.test_annotate_features_extending_beyond_intervals",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 754,
+        "message_redacted": true,
+        "time": 0.166
+      },
+      "name": "tests.test_harvest_closest.test_closest_t70",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 303,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t02",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 395,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "tests.test_harvest_closest.test_closest_t41",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 284,
+        "message_redacted": true,
+        "time": 0.188
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t9_deletion_and_intron_split",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 449,
+        "message_redacted": true,
+        "time": 0.159
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t25",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 247,
+        "message_redacted": true,
+        "time": 0.186
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 385,
+        "message_redacted": true,
+        "time": 0.192
+      },
+      "name": "tests.test_harvest_closest.test_closest_t32",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 153,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t07",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 83,
+        "message_redacted": true,
+        "time": 0.16
+      },
+      "name": "tests.test_harvest_format_conversion.test_bamtofastq_paired_end",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 310,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t22",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 1065,
+        "message_redacted": true,
+        "time": 0.192
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 471,
+        "message_redacted": true,
+        "time": 0.188
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t33",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 358,
+        "message_redacted": true,
+        "time": 0.163
+      },
+      "name": "tests.test_fasta_ops.test_nuc_with_sequence_output",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 357,
+        "message_redacted": true,
+        "time": 0.181
+      },
+      "name": "tests.test_fasta_ops.test_nuc_zero_length_intervals",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 273,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "tests.test_annotate.test_annotate_counts_with_names_header",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 303,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t03",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 440,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "tests.test_annotate.test_annotate_both_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 327,
+        "message_redacted": true,
+        "time": 0.151
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t2",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 321,
+        "message_redacted": true,
+        "time": 0.225
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t10_deletion_splitD",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 395,
+        "message_redacted": true,
+        "time": 0.188
+      },
+      "name": "tests.test_harvest_closest.test_closest_t44",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 318,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t15",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 315,
+        "message_redacted": true,
+        "time": 0.195
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t08",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 291,
+        "message_redacted": true,
+        "time": 0.311
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 466,
+        "message_redacted": true,
+        "time": 0.132
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t28",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 182,
+        "message_redacted": true,
+        "time": 0.164
+      },
+      "name": "tests.test_harvest_format_conversion.test_bed12tobed6_one_block",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 370,
+        "message_redacted": true,
+        "time": 0.214
+      },
+      "name": "tests.test_fasta_ops.test_nuc_pattern_matching",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 360,
+        "message_redacted": true,
+        "time": 0.194
+      },
+      "name": "tests.test_fasta_ops.test_nuc_interval_beyond_chromosome",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 1186,
+        "message_redacted": true,
+        "time": 0.195
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 469,
+        "message_redacted": true,
+        "time": 0.199
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t34",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 298,
+        "message_redacted": true,
+        "time": 0.209
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t04",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 409,
+        "message_redacted": true,
+        "time": 0.189
+      },
+      "name": "tests.test_annotate.test_annotate_same_strand_filtering",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 391,
+        "message_redacted": true,
+        "time": 0.223
+      },
+      "name": "tests.test_annotate.test_annotate_single_file_both_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 327,
+        "message_redacted": true,
+        "time": 0.165
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t3",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 306,
+        "message_redacted": true,
+        "time": 0.196
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t11_deletion_bed12",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 263,
+        "message_redacted": true,
+        "time": 0.15
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_complement_t09",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 395,
+        "message_redacted": true,
+        "time": 0.152
+      },
+      "name": "tests.test_harvest_closest.test_closest_t47",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 252,
+        "message_redacted": true,
+        "time": 0.173
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t134",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 466,
+        "message_redacted": true,
+        "time": 0.163
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t29",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 321,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t09",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 182,
+        "message_redacted": true,
+        "time": 0.145
+      },
+      "name": "tests.test_harvest_format_conversion.test_bed12tobed6_two_blocks",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 308,
+        "message_redacted": true,
+        "time": 0.165
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t07",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 368,
+        "message_redacted": true,
+        "time": 0.195
+      },
+      "name": "tests.test_fasta_ops.test_nuc_strand_aware_revcomp",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 366,
+        "message_redacted": true,
+        "time": 0.193
+      },
+      "name": "tests.test_fasta_ops.test_nuc_multiline_fasta",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 409,
+        "message_redacted": true,
+        "time": 0.196
+      },
+      "name": "tests.test_annotate.test_annotate_diff_strand_filtering",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 308,
+        "message_redacted": true,
+        "time": 0.199
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 470,
+        "message_redacted": true,
+        "time": 0.18
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t35",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 381,
+        "message_redacted": true,
+        "time": 0.148
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t10",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 392,
+        "message_redacted": true,
+        "time": 0.17
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t7",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 416,
+        "message_redacted": true,
+        "time": 0.179
+      },
+      "name": "tests.test_annotate.test_annotate_four_annotation_files",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 311,
+        "message_redacted": true,
+        "time": 0.171
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t12_deletion_bed12_splitD",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 161,
+        "message_redacted": true,
+        "time": 0.216
+      },
+      "name": "tests.test_harvest_format_conversion.test_bamtobed_one_block_with_split",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 110,
+        "message_redacted": true,
+        "time": 0.192
+      },
+      "name": "tests.test_harvest_general_coverage.TestGeneral.test_general_t08_gzipped_file",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 319,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t16",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 285,
+        "message_redacted": true,
+        "time": 0.176
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_groupby_t10",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 273,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t10",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 184,
+        "message_redacted": true,
+        "time": 0.168
+      },
+      "name": "tests.test_harvest_format_conversion.test_bed12tobed6_three_blocks",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 318,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t08",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 362,
+        "message_redacted": true,
+        "time": 0.159
+      },
+      "name": "tests.test_fasta_ops.test_nuc_gc_content_calculation",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 470,
+        "message_redacted": true,
+        "time": 0.199
+      },
+      "name": "tests.test_fasta_ops.test_maskfasta_overlapping_intervals",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 464,
+        "message_redacted": true,
+        "time": 0.159
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t36",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 409,
+        "message_redacted": true,
+        "time": 0.175
+      },
+      "name": "tests.test_annotate.test_annotate_no_overlaps",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 314,
+        "message_redacted": true,
+        "time": 0.179
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 423,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t11",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 234,
+        "message_redacted": true,
+        "time": 0.127
+      },
+      "name": "tests.test_annotate.test_annotate_precise_fraction_calculations",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 185,
+        "message_redacted": true,
+        "time": 0.17
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t13_numeric_tag",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 391,
+        "message_redacted": true,
+        "time": 0.17
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t10",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 152,
+        "message_redacted": true,
+        "time": 0.209
+      },
+      "name": "tests.test_harvest_format_conversion.test_bamtobed_two_blocks_no_split",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 302,
+        "message_redacted": true,
+        "time": 0.177
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t11",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 327,
+        "message_redacted": true,
+        "time": 0.2
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t17",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 277,
+        "message_redacted": true,
+        "time": 0.189
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_groupby_t11",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 190,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "tests.test_harvest_format_conversion.test_bed12tobed6_three_blocks_with_number",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 316,
+        "message_redacted": true,
+        "time": 0.152
+      },
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t09",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 235,
+        "message_redacted": true,
+        "time": 0.216
+      },
+      "name": "tests.test_harvest_general_coverage.TestCoverage.test_coverage_t10_split_blocks",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 474,
+        "message_redacted": true,
+        "time": 0.152
+      },
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t37",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 358,
+        "message_redacted": true,
+        "time": 0.211
+      },
+      "name": "tests.test_fasta_ops.test_nuc_bed6_format_preserved",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 409,
+        "message_redacted": true,
+        "time": 0.198
+      },
+      "name": "tests.test_annotate.test_annotate_empty_annotation_file",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 314,
+        "message_redacted": true,
+        "time": 0.192
+      },
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t07",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 472,
+        "message_redacted": true,
+        "time": 0.183
+      },
+      "name": "tests.test_fasta_ops.test_maskfasta_boundary_intervals",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 312,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t14",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 167,
+        "message_redacted": true,
+        "time": 0.342
+      },
+      "name": "tests.test_annotate.test_annotate_gap_in_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "extra": {
+        "message_chars": 254,
+        "message_redacted": true,
+        "time": 0.422
+      },
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t14_extra_long_header",
+      "status": "failure"
+    }
+  ],
+  "test_results_omitted": 509,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

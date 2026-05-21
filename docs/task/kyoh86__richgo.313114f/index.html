@@ -145,7 +145,7 @@
       <div class="metric"><strong>546</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>88.1%</strong><span>official best score</span></div>
       <div class="metric"><strong>86.6%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.17h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>20.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>109/546</td>
+          <td>$3.48</td>
+          <td>60</td>
+          <td>0.21h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>17.8%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>97/546</td>
+          <td>$2.38</td>
+          <td>43</td>
+          <td>0.14h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/usage-audit.json">usage audit</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>86.6% from <strong>473/546</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 90, passed: 696, skipped: 1.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>aedc381a5a8d</code> tests.test_config.test_config_invalid_yaml_logs_error_continues <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>aedc381a5a8d</code> tests.test_core.test_test_command_with_short_flag <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-kyoh86-richgo/kyoh86__richgo.313114f/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>17.8% from <strong>97/546</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 584, passed: 202, skipped: 1.</p>
+        <p class="muted">Agent trace: 84 shell command(s), 56 executable-observation command(s), 12 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>7e3fefff015d</code> eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_basic_pass <span class="muted">(failure)</span></li>
+
+
+          <li><code>7e3fefff015d</code> eval.tests.test_configuration.TestConfigurationLoading.test_config_from_cwd_yml <span class="muted">(failure)</span></li>
+
+
+          <li><code>7e3fefff015d</code> eval.tests.test_advanced_config.TestConfigFileFormats.test_yml_extension <span class="muted">(failure)</span></li>
+
+
+          <li><code>7e3fefff015d</code> eval.tests.test_configuration.TestConfigurationOptions.test_label_type_short <span class="muted">(failure)</span></li>
+
+
+          <li><code>7e3fefff015d</code> eval.tests.test_basic_invocation.TestTestFilterMode.test_testfilter_coverage_output <span class="muted">(failure)</span></li>
+
+
+          <li><code>7e3fefff015d</code> eval.tests.test_advanced_config.TestStyleCombinations.test_all_style_types <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/usage-audit.json">usage audit</a></p>
       </div>
 
   </div>

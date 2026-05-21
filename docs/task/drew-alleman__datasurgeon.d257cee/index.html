@@ -145,7 +145,7 @@
       <div class="metric"><strong>502</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>80.7%</strong><span>official best score</span></div>
       <div class="metric"><strong>72.9%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.21h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>36.3%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>182/502</td>
+          <td>$4.01</td>
+          <td>71</td>
+          <td>0.20h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>30.9%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>155/502</td>
+          <td>$2.89</td>
+          <td>56</td>
+          <td>0.17h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>72.9% from <strong>366/502</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 154, passed: 410.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
         <ul>
           <li><code>f5ab65c66ad6</code> eval.tests.test_extraction_features.test_aws_long_flag <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>61d5d5110768</code> tests.test_extraction_basic.test_email_tld_length_restrictions <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-drew-alleman-datasurgeon-attempt-3/drew-alleman__datasurgeon.d257cee/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>36.3% from <strong>182/502</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 338, passed: 226.</p>
+        <p class="muted">Agent trace: 185 shell command(s), 159 executable-observation command(s), 10 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>f5ab65c66ad6</code> eval.tests.test_additional_coverage.test_aws_key_formats <span class="muted">(failure)</span></li>
+
+
+          <li><code>f5ab65c66ad6</code> eval.tests.test_additional_coverage.test_credit_card_various_formats <span class="muted">(failure)</span></li>
+
+
+          <li><code>f5ab65c66ad6</code> eval.tests.test_edge_cases.test_very_long_line <span class="muted">(failure)</span></li>
+
+
+          <li><code>f5ab65c66ad6</code> eval.tests.test_additional_coverage.test_phone_various_formats <span class="muted">(failure)</span></li>
+
+
+          <li><code>f5ab65c66ad6</code> eval.tests.test_additional_coverage.test_mac_various_formats <span class="muted">(failure)</span></li>
+
+
+          <li><code>f5ab65c66ad6</code> eval.tests.test_additional_coverage.test_drop_filter_on_same_content <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

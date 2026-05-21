@@ -1,0 +1,728 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.18638387497048825
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.1255389649886638
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.12754194700391963
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.12774122698465362
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.1294117009965703
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6184543110430241
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13118301396025345
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12027908500749618
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1279026559786871
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.13158821198157966
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 12.570475974003784
+    },
+    {
+      "branch": "86f3178a4b28",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.025972041999921203
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12932872102828696
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.09591628704220057
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11775350401876494
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11454918701201677
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 102.4754000499961
+    },
+    {
+      "branch": "269b33cf14ef",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03887536202091724
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "ebd173c727ba197603c1dfb0d4c49d68f0046a9c8285d752647dc11c8e7e6ed8",
+  "failed_tests": [
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_audio_formats.test_add_comment_aiff",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_audio_formats.test_endian_big",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_audio_formats.test_au_ulaw",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_effects.test_highpass_filter",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_effects.test_echos_effect",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_effects.test_dcshift_effect",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_effects.test_bandreject_filter",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_invalid_format_name",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_invalid_encoding_for_format",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_missing_effect_argument",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_effects.test_noiseprof_effect",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_format_conversion.test_wav_ulaw_encoding",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_format_conversion.test_add_comment_wav",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_format_conversion.test_endian_big",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_global_options.test_no_clobber_prevents_overwrite",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_audio_formats.test_comment_file",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_audio_formats.test_au_alaw",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_audio_formats.test_comment_in_aiff",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_global_options.test_plot_octave",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_clipping_warning",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_global_options.test_sox_opts_env_variable",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_global_options.test_plot_gnuplot",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_nonexistent_effects_file",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_format_conversion.test_wav_alaw_encoding",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_effects.test_stretch_effect",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_info_mode.test_info_annotations",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_format_conversion.test_comment_file",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_format_conversion.test_comment_in_wav",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_ima_adpcm_wav_write",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_ms_adpcm_wav_write",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_invalid_rate_zero",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_sln_asterisk_format",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 35,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_effects.test_rate_quality_options",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_wav_float64",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_raw_ulaw_format",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_global_options.test_verbosity_level_3",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_synth_stat.test_stat_scale_option",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_voc_8bit",
+      "status": "failure"
+    },
+    {
+      "branch": "86f3178a4b28",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_more_formats.test_raw_alaw_format",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_bits_option_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_comp.test_stats_scale_factor",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_attenuation_out_of_range",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_hilbert_custom_taps",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_distortion.test_divide_mono_passthrough",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_volume_option_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_lowpass_attenuation",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_gain_headroom_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_basic.test_echo_zero_decay",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_basic.test_delay_stereo_independent_channels",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_gain_invalid_option",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_vol_amplitude_multiplication",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_help_effect_specific",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 78,
+      "message_redacted": true,
+      "name": "tests.test_effects_fade_silence.test_fade_parabolic",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_multiple_verbosity_flags",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_fade_silence.test_silence_stereo",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_type_option_unknown",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_phase_out_of_range",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 64,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_comp.test_vad_detects_speech",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_frequency_above_nyquist_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_norm_option",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_lowpass_passband_preservation",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_invalid_option",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_gain_conflicting_options_equalise_balance",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_distortion.test_overdrive_invalid_parameter",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_distortion.test_overdrive_default_parameters",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_vol_db_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_verbosity_with_level",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_compand_stereo_channels",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_basic.test_reverb_invalid_parameters",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 70,
+      "message_redacted": true,
+      "name": "tests.test_effects_fade_silence.test_silence_remove_from_start",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_encoding_option_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_taps_below_minimum",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_missing_frequency_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_cli_options.test_buffer_option_missing_argument",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_amplitude.test_gain_conflicting_options_normalize_restore",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_comp.test_vad_removes_all_silence",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_filters.test_sinc_highpass_attenuation",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_advanced_comp.test_mcompand_2band_compression",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_distortion.test_overdrive_stereo_processing",
+      "status": "failure"
+    },
+    {
+      "branch": "269b33cf14ef",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "tests.test_effects_distortion.test_overdrive_custom_gain_colour",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 557,
+  "status_counts": {
+    "failure": 611,
+    "passed": 623,
+    "skipped": 26
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "86f3178a4b28",
+    "269b33cf14ef"
+  ],
+  "test_records": 1260,
+  "warnings": []
+}

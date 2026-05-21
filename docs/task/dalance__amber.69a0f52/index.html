@@ -144,8 +144,8 @@
     <div class="metric-grid">
       <div class="metric"><strong>565</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>74.3%</strong><span>official best score</span></div>
-      <div class="metric"><strong>19.3%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>72.2%</strong><span>Codex best score</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -154,6 +154,38 @@
         <tbody>
         <tr>
           <td>1</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>72.2%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>408/565</td>
+          <td>$1.96</td>
+          <td>38</td>
+          <td>0.12h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>72.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>407/565</td>
+          <td>$2.36</td>
+          <td>42</td>
+          <td>0.15h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
           <td>GPT 5.5 (xhigh)</td>
           <td><code>20260517T094700Z</code></td>
           <td>Codex /goal</td>
@@ -175,8 +207,40 @@
   <div class="evidence-grid">
 
       <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>72.2% from <strong>408/565</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 184, not_run: 19, passed: 577, skipped: 5.</p>
+        <p class="muted">Agent trace: 51 shell command(s), 32 executable-observation command(s), 5 build command(s), 0 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_binary_file_skipped_by_default <span class="muted">(failure)</span></li>
+
+
+          <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_statistics_output <span class="muted">(failure)</span></li>
+
+
+          <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_key_from_empty_file_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_skip_vcs_directories <span class="muted">(failure)</span></li>
+
+
+          <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_no_matches_found_behavior <span class="muted">(failure)</span></li>
+
+
+          <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_file_output_enabled <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>19.3% from <strong>109/565</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 121, not_run: 434, passed: 230.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch.</p>
         <ul>
           <li><code>12565bd8e77e</code> eval.tests.test_comprehensive.test_non_interactive_mode <span class="muted">(failure)</span></li>

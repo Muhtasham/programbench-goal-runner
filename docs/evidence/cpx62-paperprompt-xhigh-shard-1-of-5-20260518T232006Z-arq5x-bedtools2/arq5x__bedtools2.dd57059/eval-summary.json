@@ -1,0 +1,679 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.21894332498777658
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.12262669202755205
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.13088847798644565
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.12875218101544306
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.11945967999054119
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6552838410134427
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.14037677200394683
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12126747501315549
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.13638505002018064
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12515656801406294
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 93.54570285300724
+    },
+    {
+      "branch": "b0846e00e790",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.04174927499843761
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "9e39ca3820373934e24b857e725b6d6a5f7cb4b1b03b96a9cd1b8b85b4bb0863",
+  "failed_tests": [
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 888,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t02",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 468,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_maskfasta_soft_mask",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 486,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_maskfasta_soft_overrides_custom_char",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 467,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t30",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 379,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t19",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 303,
+      "message_redacted": true,
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_sort_t08",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 409,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_single_file_fraction_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 126,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t7_three_blocks_bed12",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 395,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t51",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 200,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_adjacent_non_overlapping_features",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 951,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t68",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 385,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t35",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 83,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtofastq_paired_end",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 396,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t19",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 385,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t26",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 318,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 479,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_maskfasta_custom_mask_character",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 312,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t20",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 1214,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t03",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 84,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_error_missing_fasta",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 467,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_multiple_files_fraction_coverage",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 466,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t31",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 907,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t69",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 250,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_bed3_format",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 245,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t8_split_vs_bed12",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 166,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bedtobam_t1_basic_conversion",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 297,
+      "message_redacted": true,
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t01",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 395,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t38",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 252,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t59",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 385,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t29",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 405,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t24",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 274,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 329,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t21",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 830,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t04",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 350,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_basic_profile",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 351,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_empty_bed",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 465,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t32",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 365,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_with_names_header",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 409,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_features_extending_beyond_intervals",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 754,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t70",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 303,
+      "message_redacted": true,
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t02",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 395,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t41",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 284,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t9_deletion_and_intron_split",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 449,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t25",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 247,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 385,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t32",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 153,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t07",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 83,
+      "message_redacted": true,
+      "name": "tests.test_harvest_format_conversion.test_bamtofastq_paired_end",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 310,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t22",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 1065,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t05",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 471,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t33",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 358,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_with_sequence_output",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 357,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_zero_length_intervals",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 273,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_counts_with_names_header",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 303,
+      "message_redacted": true,
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t03",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 440,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_both_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 327,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t2",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 321,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t10_deletion_splitD",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 395,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t44",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 318,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t15",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 315,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t08",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 291,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 466,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t28",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 182,
+      "message_redacted": true,
+      "name": "tests.test_harvest_format_conversion.test_bed12tobed6_one_block",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 370,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_pattern_matching",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 360,
+      "message_redacted": true,
+      "name": "tests.test_fasta_ops.test_nuc_interval_beyond_chromosome",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 1186,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_sortandnaming_t06",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 469,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t34",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 298,
+      "message_redacted": true,
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_multicov_t04",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 409,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_same_strand_filtering",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 391,
+      "message_redacted": true,
+      "name": "tests.test_annotate.test_annotate_single_file_both_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 327,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t3",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 306,
+      "message_redacted": true,
+      "name": "tests.test_harvest_bam_bed_conversions.test_bamtobed_t11_deletion_bed12",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 263,
+      "message_redacted": true,
+      "name": "tests.test_harvest_complement_flank_sort_multicov.test_complement_t09",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 395,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest.test_closest_t47",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 252,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t134",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 466,
+      "message_redacted": true,
+      "name": "tests.test_harvest_closest_extended.test_kclosest_t29",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 321,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_getfasta_t09",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 182,
+      "message_redacted": true,
+      "name": "tests.test_harvest_format_conversion.test_bed12tobed6_two_blocks",
+      "status": "failure"
+    },
+    {
+      "branch": "b0846e00e790",
+      "message_chars": 308,
+      "message_redacted": true,
+      "name": "tests.test_harvest_fasta_groupby.test_jaccard_t07",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 549,
+  "status_counts": {
+    "failure": 609,
+    "passed": 464,
+    "skipped": 20
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "b0846e00e790"
+  ],
+  "test_records": 1093,
+  "warnings": []
+}

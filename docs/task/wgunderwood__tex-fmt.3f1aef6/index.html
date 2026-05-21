@@ -144,8 +144,8 @@
     <div class="metric-grid">
       <div class="metric"><strong>455</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>80.7%</strong><span>official best score</span></div>
-      <div class="metric"><strong>40.9%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>56.9%</strong><span>Codex best score</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -154,6 +154,38 @@
         <tbody>
         <tr>
           <td>1</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>56.9%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>259/455</td>
+          <td>$0.00</td>
+          <td>75</td>
+          <td>0.28h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>52.5%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>239/455</td>
+          <td>$0.00</td>
+          <td>67</td>
+          <td>0.22h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
           <td>GPT 5.5 (xhigh)</td>
           <td><code>20260517T094700Z</code></td>
           <td>Codex /goal</td>
@@ -175,8 +207,19 @@
   <div class="evidence-grid">
 
       <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>40.9% from <strong>186/455</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 29, not_run: 249, passed: 216, skipped: 1.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
         <ul>
           <li><code>453e9bab36fd</code> eval.tests.test_basic_invocation.test_args_flag <span class="muted">(failure)</span></li>

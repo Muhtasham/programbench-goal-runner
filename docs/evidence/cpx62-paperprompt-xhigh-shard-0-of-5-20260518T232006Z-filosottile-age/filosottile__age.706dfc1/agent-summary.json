@@ -1,0 +1,105 @@
+{
+  "blocked_attempts": 0,
+  "build_calls": 14,
+  "command_categories": {
+    "build": 14,
+    "other": 22,
+    "package": 3,
+    "probe_helper": 16,
+    "target_or_local_executable": 47
+  },
+  "commands_with_explicit_workdir": 102,
+  "exec_command_calls": 102,
+  "log_files_count": 1,
+  "package_calls": 3,
+  "raw_logs_policy": "Raw Codex JSONL logs stay local. This artifact contains aggregate command/tool statistics only.",
+  "raw_logs_published": false,
+  "rejected_exec_attempts": 1,
+  "schema": "goalbench-agent-summary-v1",
+  "session_ended_at": "2026-05-19T01:47:03.528Z",
+  "session_started_at": "2026-05-19T01:32:47.768Z",
+  "target_or_local_executable_calls": 47,
+  "token_count_events": 80,
+  "top_command_tools": [
+    {
+      "count": 35,
+      "tool": "executable"
+    },
+    {
+      "count": 21,
+      "tool": "python3"
+    },
+    {
+      "count": 9,
+      "tool": "sed"
+    },
+    {
+      "count": 6,
+      "tool": "compile.sh"
+    },
+    {
+      "count": 4,
+      "tool": "git"
+    },
+    {
+      "count": 4,
+      "tool": "printf"
+    },
+    {
+      "count": 3,
+      "tool": "find"
+    },
+    {
+      "count": 2,
+      "tool": "ls"
+    },
+    {
+      "count": 2,
+      "tool": "mkdir"
+    },
+    {
+      "count": 2,
+      "tool": "gcc"
+    },
+    {
+      "count": 2,
+      "tool": "ln"
+    },
+    {
+      "count": 2,
+      "tool": "ssh-keygen"
+    },
+    {
+      "count": 2,
+      "tool": "package-submission"
+    },
+    {
+      "count": 1,
+      "tool": "pwd"
+    },
+    {
+      "count": 1,
+      "tool": "go"
+    },
+    {
+      "count": 1,
+      "tool": "which"
+    },
+    {
+      "count": 1,
+      "tool": "cc"
+    },
+    {
+      "count": 1,
+      "tool": "chmod"
+    },
+    {
+      "count": 1,
+      "tool": "rg"
+    },
+    {
+      "count": 1,
+      "tool": "cmp"
+    }
+  ]
+}

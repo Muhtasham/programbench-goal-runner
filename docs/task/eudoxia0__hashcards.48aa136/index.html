@@ -145,7 +145,7 @@
       <div class="metric"><strong>1019</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>86.8%</strong><span>official best score</span></div>
       <div class="metric"><strong>82.9%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.30h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>78.2%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>797/1019</td>
+          <td>$0.00</td>
+          <td>107</td>
+          <td>0.27h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>70.7%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>720/1019</td>
+          <td>$0.00</td>
+          <td>106</td>
+          <td>0.28h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>82.9% from <strong>845/1019</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 217, passed: 1072, skipped: 4.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>8c389ff5af21</code> tests.test_card_parsing.test_frontmatter_custom_deck_name <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>8c389ff5af21</code> tests.test_media_handling.test_image_with_title <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>78.2% from <strong>797/1019</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 292, passed: 997, skipped: 4.</p>
+        <p class="muted">Agent trace: 162 shell command(s), 94 executable-observation command(s), 11 build command(s), 1 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>8c389ff5af21</code> tests.test_card_parsing.test_frontmatter_custom_deck_name <span class="muted">(failure)</span></li>
+
+
+          <li><code>8c389ff5af21</code> tests.test_error_handling.test_unclosed_frontmatter <span class="muted">(failure)</span></li>
+
+
+          <li><code>8c389ff5af21</code> tests.test_error_handling.test_malformed_frontmatter <span class="muted">(failure)</span></li>
+
+
+          <li><code>8c389ff5af21</code> tests.test_database_operations.test_duplicate_cards_deduplicated <span class="muted">(failure)</span></li>
+
+
+          <li><code>8c389ff5af21</code> tests.test_error_handling.test_stats_with_broken_symlink <span class="muted">(failure)</span></li>
+
+
+          <li><code>8c389ff5af21</code> tests.test_export_command.test_export_with_frontmatter <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

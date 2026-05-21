@@ -145,7 +145,7 @@
       <div class="metric"><strong>332</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>76.5%</strong><span>official best score</span></div>
       <div class="metric"><strong>69.0%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.19h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>67.8%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>225/332</td>
+          <td>$4.68</td>
+          <td>87</td>
+          <td>0.23h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>62.7%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>208/332</td>
+          <td>$3.65</td>
+          <td>58</td>
+          <td>0.20h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>69.0% from <strong>229/332</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 104, passed: 244, skipped: 6.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>4e239660f8fd</code> tests.test_config.test_yaml_with_comments <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>4e239660f8fd</code> tests.test_args_output.test_multiple_detail_columns_alignment <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-pls-rs-pls/pls-rs__pls.4e1ae50/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>67.8% from <strong>225/332</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 108, passed: 240, skipped: 6.</p>
+        <p class="muted">Agent trace: 154 shell command(s), 134 executable-observation command(s), 6 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>4e239660f8fd</code> tests.test_config.test_multiple_icon_choices <span class="muted">(failure)</span></li>
+
+
+          <li><code>4e239660f8fd</code> tests.test_config.test_empty_config_file <span class="muted">(failure)</span></li>
+
+
+          <li><code>4e239660f8fd</code> tests.test_config.test_perm_styles <span class="muted">(failure)</span></li>
+
+
+          <li><code>4e239660f8fd</code> tests.test_config.test_yaml_with_comments <span class="muted">(failure)</span></li>
+
+
+          <li><code>4e239660f8fd</code> tests.test_config.test_importance_sorting <span class="muted">(failure)</span></li>
+
+
+          <li><code>4e239660f8fd</code> tests.test_args_output.test_detail_user_group_columns <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

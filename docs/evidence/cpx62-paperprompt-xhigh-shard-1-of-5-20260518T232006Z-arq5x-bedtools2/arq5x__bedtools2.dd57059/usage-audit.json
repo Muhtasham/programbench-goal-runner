@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-05-19T20:23:04.216183+00:00",
+  "notes": [
+    "Costs are estimates from local Codex token_count logs, not authoritative billed dollars.",
+    "Pricing comes from an official-doc snapshot because there is no supported structured pricing endpoint.",
+    "reasoning_output_tokens is preserved for audit only; it is not added separately to output_tokens.",
+    "long_context_calls counts Codex calls whose last_token_usage.input_tokens exceeded the pricing threshold."
+  ],
+  "pricing_snapshot": {
+    "age_hours": null,
+    "fetched_at": "",
+    "max_age_hours": 24,
+    "models": {},
+    "notes": [],
+    "pricing_api_endpoint": null,
+    "source": "",
+    "source_type": ""
+  },
+  "row": {
+    "cached_input_tokens": 2227584,
+    "calls": 41,
+    "estimated_cost_usd": "",
+    "input_tokens": 2426552,
+    "instance_id": "arq5x__bedtools2.dd57059",
+    "long_context_calls": 0,
+    "model": "gpt-5.5",
+    "output_tokens": 39319,
+    "pricing_source": "",
+    "reasoning_effort": "xhigh",
+    "reasoning_output_tokens": 7053,
+    "run_name": "cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-arq5x-bedtools2",
+    "run_version": "20260518T232006Z",
+    "session_logs": [
+      "/home/codex-runner/.codex/sessions/2026/05/18/rollout-2026-05-18T23-39-11-019e3d75-3238-76b3-b255-07e826675a09.jsonl"
+    ],
+    "total_tokens": 2465871
+  },
+  "totals": {
+    "cached_input_tokens": 117821696,
+    "calls": 2378,
+    "estimated_cost_usd": 0.0,
+    "input_tokens": 123686332,
+    "long_context_calls": 0,
+    "output_tokens": 1630368,
+    "reasoning_output_tokens": 467542,
+    "total_tokens": 125316700
+  },
+  "warnings_for_instance": [
+    "arq5x__bedtools2.dd57059: no estimated cost; missing pricing for gpt-5.5",
+    "arq5x__bedtools2.dd57059: pricing source missing for gpt-5.5"
+  ]
+}

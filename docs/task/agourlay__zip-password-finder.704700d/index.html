@@ -144,8 +144,8 @@
     <div class="metric-grid">
       <div class="metric"><strong>680</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>98.7%</strong><span>official best score</span></div>
-      <div class="metric"><strong>92.5%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>94.1%</strong><span>Codex best score</span></div>
+      <div class="metric"><strong>2</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -154,6 +154,22 @@
         <tbody>
         <tr>
           <td>1</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>94.1%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>640/680</td>
+          <td>$0.00</td>
+          <td>48</td>
+          <td>0.14h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>2</td>
           <td>GPT 5.5 (xhigh)</td>
           <td><code>20260517T094700Z</code></td>
           <td>Codex /goal</td>
@@ -175,8 +191,35 @@
   <div class="evidence-grid">
 
       <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>94.1% from <strong>640/680</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 40, passed: 751, skipped: 1.</p>
+        <p class="muted">Agent trace: 97 shell command(s), 65 executable-observation command(s), 6 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>3001c1482b82</code> eval.tests.test_error_handling.test_starting_password_with_dictionary_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>3001c1482b82</code> eval.tests.test_error_handling.test_starting_password_too_long_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>3001c1482b82</code> eval.tests.test_error_handling.test_starting_password_too_short_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>3001c1482b82</code> eval.tests.test_error_handling.test_starting_password_out_of_charset_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>644934f68973</code> eval.tests.test_starting_password.test_starting_password_outside_charset <span class="muted">(failure)</span></li>
+
+
+          <li><code>644934f68973</code> eval.tests.test_starting_password.test_starting_password_with_dictionary <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>92.5% from <strong>629/680</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 51, passed: 740, skipped: 1.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>3001c1482b82</code> eval.tests.test_error_handling.test_max_password_length_zero_error <span class="muted">(failure)</span></li>

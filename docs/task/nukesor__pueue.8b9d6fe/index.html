@@ -145,7 +145,7 @@
       <div class="metric"><strong>638</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>16.1%</strong><span>official best score</span></div>
       <div class="metric"><strong>17.1%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.20h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>14.9%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>95/638</td>
+          <td>$2.50</td>
+          <td>44</td>
+          <td>0.15h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>13.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>83/638</td>
+          <td>$5.66</td>
+          <td>69</td>
+          <td>0.24h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>17.1% from <strong>109/638</strong> ProgramBench-scored tests. Raw public eval statuses: error: 435, failure: 627, passed: 145, skipped: 16.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>803faac7d834</code> eval.tests.test_coverage_targeted.TestCompressedState.test_compressed_state_saves_and_restores <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>803faac7d834</code> eval.tests.test_coverage_targeted.TestCleanCommand.test_clean_successful_only_keeps_failed <span class="muted">(error)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-nukesor-pueue/nukesor__pueue.8b9d6fe/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>14.9% from <strong>95/638</strong> ProgramBench-scored tests. Raw public eval statuses: error: 435, failure: 641, passed: 131, skipped: 16.</p>
+        <p class="muted">Agent trace: 76 shell command(s), 60 executable-observation command(s), 4 build command(s), 3 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>803faac7d834</code> eval.tests.test_additional_coverage.TestEditFilesModeEdgeCases.test_edit_files_mode_empty_path_fails <span class="muted">(failure)</span></li>
+
+
+          <li><code>803faac7d834</code> eval.tests.test_coverage_targeted.TestCompressedState.test_compressed_state_saves_and_restores <span class="muted">(failure)</span></li>
+
+
+          <li><code>803faac7d834</code> eval.tests.test_coverage_targeted.TestEditTomlMode.test_edit_in_toml_mode <span class="muted">(failure)</span></li>
+
+
+          <li><code>803faac7d834</code> eval.tests.test_basic_invocation.TestCompletions.test_completions_to_nonexistent_dir <span class="muted">(failure)</span></li>
+
+
+          <li><code>803faac7d834</code> eval.tests.test_additional_coverage.TestEditCoverage.test_edit_multiple_tasks <span class="muted">(error)</span></li>
+
+
+          <li><code>803faac7d834</code> eval.tests.test_coverage_boost.TestQueryDescendingOrder.test_order_by_command_desc <span class="muted">(error)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

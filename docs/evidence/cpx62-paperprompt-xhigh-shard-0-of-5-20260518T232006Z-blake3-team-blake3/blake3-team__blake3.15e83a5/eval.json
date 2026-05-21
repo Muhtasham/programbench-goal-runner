@@ -1,0 +1,1362 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "executable_hash": "41858599f10bc08f81965e49e71a84c8389d5d41e9c31233f2f7502d8c7e4ae5",
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.7290142279816791
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.1244650770095177
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.4165221860166639
+    },
+    {
+      "branch": "",
+      "command": "mv ./executable /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.11263878201134503
+    },
+    {
+      "branch": "",
+      "command": "sha256sum /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 117,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.12682701699668542
+    },
+    {
+      "branch": "",
+      "command": "pip3 install -q --disable-pip-version-check pytest-rerunfailures",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 222,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.7068223830428906
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.10877462703501806
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11431510502006859
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10651816497556865
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11251021199859679
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 226829,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 37.97139509499539
+    },
+    {
+      "branch": "06dabfabaea7",
+      "command": "docker cp cc99996e4f52637278c547f1c96eefdc35c2cf33603505f6b9dea78b4b8c6f2e:/workspace/eval/results.xml /tmp/tmprr9xsf6t.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 109624,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.032020957965869457
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "failure": 229,
+    "passed": 455,
+    "skipped": 3
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "06dabfabaea7"
+  ],
+  "test_records": 687,
+  "test_results": [
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.013
+      },
+      "name": "tests.test_basic.test_stdin_large_input",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 64,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_edge_cases_final.test_keyed_mode_with_escaped_filename",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.006
+      },
+      "name": "tests.test_check.test_check_windows_path_on_linux",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_check.test_check_unicode_replacement_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.005
+      },
+      "name": "tests.test_basic.test_no_args_reads_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_advanced.test_seek_and_length_with_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_errors.test_raw_with_check_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_check.test_check_conflicts_with_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_errors.test_multiple_stdin_indicators",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_check.test_check_stdin_checkfile",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_advanced.test_length_with_keyed_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_check.test_check_malformed_lines_reported",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_basic.test_stdin_small_string",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_errors.test_seek_and_length_combined",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_errors.test_raw_with_tag_outputs_raw",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 69,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_final_gaps.test_keyed_mode_65_bytes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_keyed_mode_cannot_use_stdin_dash",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_advanced.test_no_mmap_with_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_check.test_check_invalid_escape_sequence",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_check.test_check_conflicts_with_no_names",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.013
+      },
+      "name": "tests.test_edge_cases_final.test_carriage_return_at_different_positions",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_check.test_check_invalid_hex_characters",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_errors.test_dev_zero_hash",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_edge_cases_final.test_multiple_escape_sequences_in_filename",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_advanced.test_seek_with_keyed_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_basic.test_explicit_dash_for_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_basic.test_stdin_binary_data",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_check.test_check_blank_lines_reported",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_derive_key_basic",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_length_one_byte",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_guts_coverage.test_incremental_update_logic",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.015
+      },
+      "name": "tests.test_io.test_stdin_small_input",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_errors.test_keyed_mode_key_too_short",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.006
+      },
+      "name": "tests.test_check.test_check_trailing_backslash_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_edge_cases_final.test_all_three_escape_types_mixed",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_edge_cases_final.test_incomplete_escape_sequence_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_check.test_check_conflicts_with_raw",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_errors.test_large_seek_offset",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_check.test_check_empty_filename_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_advanced.test_no_mmap_with_keyed_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_basic.test_mixed_files_and_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_basic.test_stdin_unicode",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 69,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_final_gaps.test_keyed_mode_1025_bytes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.005
+      },
+      "name": "tests.test_errors.test_derive_key_empty_context",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_keyed.test_keyed_test_vector_input_len_0",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_length_one_hundred",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_harvest.test_hash_one",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.024
+      },
+      "name": "tests.test_io.test_stdin_large_input",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_errors.test_keyed_mode_key_too_long",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_edge_cases_final.test_long_filename_with_multiple_escapes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_check_with_keyed_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_check.test_check_conflicts_with_tag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_check.test_check_null_character_rejected",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib.test_extended_output_64_bytes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib.test_derive_key_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.006
+      },
+      "name": "tests.test_advanced.test_length_with_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_harvest.test_newline_and_backslash_escaping_on_unix",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 54,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_escape_sequences.test_carriage_return_escape",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_final_gaps.test_stdin_65_bytes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_keyed.test_keyed_test_vector_input_len_1",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_guts_coverage.test_chunk_state_via_normal_hash",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_no_names_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_harvest.test_hash_one_tag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 37,
+        "message_redacted": true,
+        "time": 0.001
+      },
+      "name": "tests.test_io.test_permission_denied_error",
+      "status": "skipped"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.015
+      },
+      "name": "tests.test_io.test_file_just_under_16kb",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_errors.test_filename_with_carriage_return_escaped",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.017
+      },
+      "name": "tests.test_harvest.test_check",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_check_with_derive_key_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_keyed.test_keyed_test_vector_input_len_128",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib.test_seek_offset_middle",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.017
+      },
+      "name": "tests.test_keyed.test_keyed_differs_from_unkeyed",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_advanced.test_seek_with_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 21,
+        "message_redacted": true,
+        "time": 0.0
+      },
+      "name": "tests.test_harvest.test_slash_normalization_on_windows",
+      "status": "skipped"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 92,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_harvest.test_invalid_unicode_on_unix",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_final_gaps.test_stdin_1025_bytes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib.test_seek_and_length_one_byte",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_guts_coverage.test_multi_chunk_hash_exercises_parent_cv",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_tag_format_output",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_lib.test_seek_max_u64",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.011
+      },
+      "name": "tests.test_keyed.test_keyed_multiple_files_different_keys",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_harvest.test_hash_one_raw",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.016
+      },
+      "name": "tests.test_io.test_file_just_over_16kb",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_stdin_mixed_with_files",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.005
+      },
+      "name": "tests.test_harvest.test_check_invalid_characters",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.013
+      },
+      "name": "tests.test_keyed.test_keyed_test_vector_input_len_129",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_keyed.test_keyed_multiple_files",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_lib.test_seek_offset_high_counter",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 21,
+        "message_redacted": true,
+        "time": 0.001
+      },
+      "name": "tests.test_harvest.test_invalid_unicode_on_windows",
+      "status": "skipped"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.031
+      },
+      "name": "tests.test_hazmat.test_merge_root_verify_against_direct_hash",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_lib.test_keyed_with_extended_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.011
+      },
+      "name": "tests.test_guts_coverage.test_guts_constants_are_correct",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_errors.test_no_mmap_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_lib.test_raw_with_length_16",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_lib.test_keyed_with_tag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib3.test_check_mode_invalid_hash_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.011
+      },
+      "name": "tests.test_keyed.test_keyed_zero_length_output",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_lib2.test_keyed_mode_invalid_key_length_short",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_harvest.test_keyed",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 64,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_keyed.test_keyed_empty_input_matches_test_vector",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_lib.test_default_stdin_no_args",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.007
+      },
+      "name": "tests.test_lib.test_raw_output",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_keyed.test_keyed_with_length_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib.test_derive_key_with_extended_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_lib3.test_combined_flags_no_mmap_threads_extended_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib3.test_seek_at_chunk_boundary",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_lib.test_file_and_stdin_mixed",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib.test_raw_with_seek_and_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_lib.test_derive_key_raw_output",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib2.test_combined_keyed_raw_seek_length",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib3.test_check_mode_invalid_hex_characters",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_lib2.test_keyed_mode_invalid_key_length_long",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_lib2.test_keyed_mode_with_mmap",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_lib4.test_input_1023_bytes_chunk_boundary",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.01
+      },
+      "name": "tests.test_lib4.test_raw_output_seek_and_length_100",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_keyed.test_keyed_short_key_error",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_lib.test_extended_output_1000_bytes",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.012
+      },
+      "name": "tests.test_keyed.test_keyed_with_seek_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib4.test_keyed_mode_empty_file",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.008
+      },
+      "name": "tests.test_lib3.test_keyed_mode_empty_file",
+      "status": "failure"
+    },
+    {
+      "branch": "06dabfabaea7",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.009
+      },
+      "name": "tests.test_lib3.test_seek_maximum_u64_value",
+      "status": "failure"
+    }
+  ],
+  "test_results_omitted": 112,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

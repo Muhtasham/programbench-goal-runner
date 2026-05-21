@@ -145,7 +145,7 @@
       <div class="metric"><strong>647</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>97.8%</strong><span>official best score</span></div>
       <div class="metric"><strong>96.3%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.25h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>65.4%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>423/647</td>
+          <td>$3.43</td>
+          <td>58</td>
+          <td>0.18h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>64.6%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>418/647</td>
+          <td>$2.26</td>
+          <td>37</td>
+          <td>0.14h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>96.3% from <strong>623/647</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 24, passed: 660, skipped: 3.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>06dabfabaea7</code> tests.test_check.test_check_unicode_replacement_rejected <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>06dabfabaea7</code> tests.test_check.test_check_malformed_lines_reported <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-blake3-team-blake3/blake3-team__blake3.15e83a5/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>65.4% from <strong>423/647</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 229, passed: 455, skipped: 3.</p>
+        <p class="muted">Agent trace: 163 shell command(s), 132 executable-observation command(s), 8 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>06dabfabaea7</code> tests.test_basic.test_stdin_large_input <span class="muted">(failure)</span></li>
+
+
+          <li><code>06dabfabaea7</code> tests.test_edge_cases_final.test_keyed_mode_with_escaped_filename <span class="muted">(failure)</span></li>
+
+
+          <li><code>06dabfabaea7</code> tests.test_check.test_check_windows_path_on_linux <span class="muted">(failure)</span></li>
+
+
+          <li><code>06dabfabaea7</code> tests.test_check.test_check_unicode_replacement_rejected <span class="muted">(failure)</span></li>
+
+
+          <li><code>06dabfabaea7</code> tests.test_basic.test_no_args_reads_stdin <span class="muted">(failure)</span></li>
+
+
+          <li><code>06dabfabaea7</code> tests.test_advanced.test_seek_and_length_with_stdin <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

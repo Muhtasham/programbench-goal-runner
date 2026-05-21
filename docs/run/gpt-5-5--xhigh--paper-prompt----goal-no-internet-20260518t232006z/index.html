@@ -1,0 +1,3156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GPT 5.5 (xhigh) GoalBench Run</title>
+
+  <link rel="canonical" href="https://muhtasham.github.io/goalbench/run/gpt-5-5--xhigh--paper-prompt----goal-no-internet-20260518t232006z/">
+  <meta name="description" content="200 evaluated tasks: 0.0% resolved, 0.5% almost resolved, 53.4% average pass rate.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GoalBench">
+  <meta property="og:title" content="GPT 5.5 (xhigh) · Paper prompt + /goal no internet · GoalBench">
+  <meta property="og:description" content="200 evaluated tasks: 0.0% resolved, 0.5% almost resolved, 53.4% average pass rate.">
+  <meta property="og:url" content="https://muhtasham.github.io/goalbench/run/gpt-5-5--xhigh--paper-prompt----goal-no-internet-20260518t232006z/">
+  <meta property="og:image" content="https://muhtasham.github.io/goalbench/assets/goalbench-social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="GoalBench preview card">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GPT 5.5 (xhigh) · Paper prompt + /goal no internet · GoalBench">
+  <meta name="twitter:description" content="200 evaluated tasks: 0.0% resolved, 0.5% almost resolved, 53.4% average pass rate.">
+  <meta name="twitter:image" content="https://muhtasham.github.io/goalbench/assets/goalbench-social-preview.png">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --ink: #182026;
+      --muted: #5b6b78;
+      --line: #d9e0e6;
+      --soft: #f4f8f6;
+      --accent: #0f766e;
+      --accent-strong: #0b5f59;
+      --warn: #b45309;
+      --bad: #be123c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fbfcfb 0%, #f6f9f7 360px, #ffffff 361px);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: #075985; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    header, main { max-width: 1180px; margin: 0 auto; padding: 22px 28px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 850; text-decoration: none; }
+    .brand-mark { width: 30px; height: 30px; display: block; flex: 0 0 auto; }
+    .nav-links { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a { color: #40515c; text-decoration: none; border-radius: 6px; padding: 7px 9px; font-size: 14px; }
+    .nav-links a:hover { color: #075985; background: #eef6f3; }
+    .run-hero {
+      padding: 34px 0 28px;
+      border-bottom: 1px solid var(--line);
+    }
+    .run-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 850;
+      margin: 0 0 10px;
+    }
+    h1 {
+      margin: 0;
+      max-width: 820px;
+      color: var(--ink);
+      font-size: clamp(38px, 7vw, 76px);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+    h2 { margin: 34px 0 8px; font-size: 20px; }
+    p { color: var(--muted); line-height: 1.5; }
+    .run-summary { max-width: 760px; margin: 14px 0 0; font-size: 17px; }
+    .run-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      color: #263640;
+      background: #ffffff;
+      font-size: 13px;
+      font-weight: 750;
+      text-decoration: none;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+    .button:hover { border-color: #9fb4ad; background: #f5faf8; }
+    .button.primary { border-color: var(--accent); background: var(--accent); color: #ffffff; }
+    .button.primary:hover { background: #115e59; }
+    .run-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .run-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 1px solid #cbd8d3;
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: #31434d;
+      background: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .run-kpis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+      gap: 10px;
+      margin: 24px 0 10px;
+    }
+    .run-kpi {
+      min-height: 112px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      background: #ffffff;
+    }
+    .run-kpi.primary { border-color: #b7d8cf; background: #f1fbf7; }
+    .run-kpi span { display: block; color: #4e606c; font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    .run-kpi strong { display: block; margin-top: 14px; color: var(--ink); font-size: clamp(22px, 3vw, 30px); line-height: 1; }
+    .run-kpi em { display: block; margin-top: 8px; color: var(--muted); font-size: 12px; font-style: normal; }
+    .duration-panel, .prompt-panel {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      background: #ffffff;
+      margin: 18px 0;
+    }
+    .duration-panel h2, .prompt-panel h2 { margin-top: 0; }
+    .duration-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .duration-stats div, .duration-bucket {
+      min-height: 76px;
+      border: 1px solid #e2e9e5;
+      border-radius: 7px;
+      padding: 10px;
+      background: #f8fbfa;
+    }
+    .duration-stats span, .duration-bucket span, .prompt-panel dt {
+      display: block;
+      color: #4e606c;
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .duration-stats strong, .duration-bucket strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .duration-stats em, .duration-bucket em {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-style: normal;
+    }
+    .duration-buckets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 10px; }
+    .duration-longest { margin-bottom: 0; }
+    .prompt-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; }
+    .prompt-panel dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 12px 0 0; }
+    .prompt-panel dl div { border: 1px solid #e2e9e5; border-radius: 7px; padding: 10px; background: #f8fbfa; min-width: 0; }
+    .prompt-panel dd { margin: 7px 0 0; overflow-wrap: anywhere; }
+    .plot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 14px 0 18px; }
+    .plot-card { border: 1px solid var(--line); border-radius: 8px; padding: 14px; background: #ffffff; }
+    .plot { width: 100%; height: auto; display: block; }
+    .plot line { stroke: var(--line); stroke-width: 1.5; }
+    .plot text { fill: var(--muted); font-size: 11px; }
+    .heatmap-wrap { border: 1px solid var(--line); border-radius: 8px; padding: 14px; background: #ffffff; }
+    .heatmap { display: grid; grid-template-columns: repeat(auto-fill, minmax(16px, 1fr)); gap: 4px; max-width: 860px; }
+    .heat-cell { display: block; aspect-ratio: 1; border-radius: 4px; outline: 1px solid rgba(24, 32, 38, 0.06); }
+    .table-wrap { border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; background: #ffffff; }
+    table { border-collapse: collapse; width: 100%; min-width: 860px; }
+    th, td { border-bottom: 1px solid var(--line); padding: 10px 12px; text-align: left; font-size: 13px; vertical-align: middle; white-space: nowrap; }
+    td:last-child { min-width: 220px; white-space: normal; }
+    th { background: var(--soft); color: #33424d; font-weight: 750; }
+    tr:last-child td { border-bottom: 0; }
+    tbody tr:hover td { background: #fbfdfc; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
+    .status {
+      display: inline-block;
+      min-width: 64px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-weight: 750;
+      font-size: 12px;
+      text-align: center;
+      background: var(--soft);
+    }
+    .status.resolved { color: #065f46; background: #d1fae5; }
+    .status.almost { color: var(--warn); background: #fef3c7; }
+    .status.open { color: var(--bad); background: #ffe4e6; }
+    .muted { color: var(--muted); }
+    @media (max-width: 680px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+      .nav-links { justify-content: flex-start; }
+      .run-kpi { min-height: 104px; padding: 12px; }
+      .duration-buckets, .prompt-panel dl { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(34px, 11vw, 48px); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="topbar" aria-label="Primary">
+      <a class="nav-brand" href="../../"><svg class="brand-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#10201d"/>
+  <path d="M40.5 10.5h9.75L24.25 53.5H14.5L40.5 10.5Z" fill="#effff9"/>
+  <path d="M48.25 10.5h4.25L26.5 53.5h-4.25L48.25 10.5Z" fill="#14b8a6"/>
+  <path d="M37.5 43.5h13v8.25h-13z" fill="#f6c453"/></svg><span>GoalBench</span></a>
+      <div class="nav-links">
+        <a href="../../">Leaderboard</a>
+        <a href="../../extended/">Extended</a>
+        <a href="../../task-details.html">Tasks</a>
+        <a href="../../runbook.html">Runbook</a>
+        <a href="https://github.com/Muhtasham/goalbench">GitHub</a>
+        <a href="https://programbench.com/extended/">ProgramBench</a>
+      </div>
+    </nav>
+    <section class="run-hero">
+      <p class="run-eyebrow">Codex <code>/goal</code> run detail</p>
+      <h1>GPT 5.5 (xhigh)</h1>
+      <p class="run-summary">A GoalBench scaffold run against ProgramBench tasks. This page shows the run's measured outcomes, task scores, and public evidence links; it is not an official mini-SWE-agent leaderboard submission.</p>
+      <div class="run-chips"><span class="run-chip">Paper prompt + /goal no internet</span><span class="run-chip">Codex /goal paper prompt no-internet, mini-SWE-style execution</span><span class="run-chip">smaller VM: 16 CPU / 30g</span><span class="run-chip">version 20260518T232006Z</span></div>
+      <div class="run-actions">
+        <a class="button primary" href="../../">Back to leaderboard</a>
+        <a class="button" href="https://programbench.com/run/gpt-5-5-xhigh/">Official ProgramBench baseline</a>
+      </div>
+    </section>
+  </header>
+  <main>
+
+    <div class="run-kpis" aria-label="Run metrics">
+      <div class="run-kpi primary"><span>Resolved</span><strong>0 / 200</strong><em>0.0%</em></div>
+      <div class="run-kpi"><span>Almost resolved</span><strong>1 / 200</strong><em>0.5%</em></div>
+      <div class="run-kpi"><span>Average pass rate</span><strong>53.4%</strong><em>behavioral tests</em></div>
+      <div class="run-kpi"><span>Total est. cost</span><strong>$142</strong><em>$0.71 / task</em></div>
+      <div class="run-kpi"><span>Total calls</span><strong>11,900</strong><em>59.5 / task</em></div>
+      <div class="run-kpi"><span>Avg /goal session</span><strong>11.4m</strong><em>0.191h</em></div>
+      <div class="run-kpi"><span>Max /goal session</span><strong>25.6m</strong><em>0.427h</em></div>
+      <div class="run-kpi"><span>Total wall time</span><strong>38.11h</strong><em>sum across 200 tasks</em></div>
+    </div>
+
+
+    <section class="duration-panel" aria-label="Run duration distribution">
+      <div>
+        <h2>Goal Session Duration</h2>
+        <p class="muted">Wall-clock time is measured per Codex <code>/goal</code> session from launch to packaged submission. ProgramBench's public mini-SWE-agent runs use a much larger timeout, so this block makes latency differences explicit.</p>
+      </div>
+      <div class="duration-stats">
+        <div><span>Average</span><strong>0.191h</strong><em>11.4 min</em></div>
+        <div><span>Median</span><strong>0.184h</strong><em>11.1 min</em></div>
+        <div><span>P75</span><strong>0.218h</strong><em>13.1 min</em></div>
+        <div><span>P90</span><strong>0.248h</strong><em>14.9 min</em></div>
+        <div><span>P95</span><strong>0.279h</strong><em>16.8 min</em></div>
+        <div><span>Max</span><strong>0.427h</strong><em>25.6 min</em></div>
+        <div><span>Over 6h</span><strong>0 / 200</strong><em>0.0%</em></div>
+      </div>
+      <div class="duration-buckets">
+        <div class="duration-bucket">
+          <span>&lt;15 min</span>
+          <strong>180 / 200</strong>
+          <em>90.0%</em>
+        </div>
+
+
+        <div class="duration-bucket">
+          <span>15-30 min</span>
+          <strong>20 / 200</strong>
+          <em>10.0%</em>
+        </div>
+
+
+        <div class="duration-bucket">
+          <span>&gt;30 min</span>
+          <strong>0 / 200</strong>
+          <em>0.0%</em>
+        </div>
+        </div>
+      <p class="duration-longest">Longest task: <a href="../../task/wfxr__csview.8ac4de0/"><code>wfxr__csview.8ac4de0</code></a> at <strong>25.6 min</strong>.</p>
+    </section>
+
+
+    <section class="prompt-panel">
+      <div>
+        <h2>Prompt & Config</h2>
+        <p class="muted">ProgramBench paper system prompt from arXiv v1, prefixed with /goal and run through the mini-SWE-style task workspace scaffold. The exact prompt is published as a stable artifact and referenced from <code>results.json</code> and <code>results.csv</code>.</p>
+      </div>
+      <div class="prompt-actions">
+        <a class="button primary" href="../../prompt/paper-prompt-nointernet/">View prompt</a>
+        <a class="button" href="../../data/results.json">results.json</a>
+        <a class="button" href="../../data/results.csv">results.csv</a>
+      </div>
+      <dl>
+        <div><dt>Prompt</dt><dd>Paper Prompt + /goal (mini-SWE-style)</dd></div>
+        <div><dt>Source</dt><dd><code>prompts/programbench_goal_paper_prompt.md</code></dd></div>
+        <div><dt>SHA-256</dt><dd><code>76451cdc851023e2fe5ef506b48f95efddab5ec16da7298200976c5d9791c29a</code></dd></div>
+      </dl>
+    </section>
+
+
+    <h2>Behavioral Test Pass Rate Distribution</h2>
+    <p>These plots mirror ProgramBench's run-detail views: a score histogram and a cumulative count by behavioral test pass-rate bucket.</p>
+    <div class="plot-grid">
+      <section class="plot-card">
+        <h3>Histogram</h3>
+
+      <svg class="plot" viewBox="0 0 520 240" role="img" aria-label="Behavioral test pass rate histogram">
+        <line x1="42" y1="18" x2="42" y2="194" />
+        <line x1="42" y1="194" x2="506" y2="194" />
+        <text x="34" y="22" text-anchor="end">34</text>
+        <text x="34" y="198" text-anchor="end">0</text>
+        <text x="42" y="228">0%</text>
+        <text x="506" y="228" text-anchor="end">100%</text>
+        <text x="260.0" y="228" text-anchor="middle">behavioral test pass rate</text>
+        <text x="12" y="120.0" transform="rotate(-90 12 120.0)" text-anchor="middle">tasks</text>
+        <rect x="44.0" y="64.6" width="42.4" height="129.4" fill="#0f766e"><title>0-10% pass: 25 task(s)</title></rect><rect x="90.4" y="137.1" width="42.4" height="56.9" fill="#0f766e"><title>10-20% pass: 11 task(s)</title></rect><rect x="136.8" y="162.9" width="42.4" height="31.1" fill="#0f766e"><title>20-30% pass: 6 task(s)</title></rect><rect x="183.2" y="116.4" width="42.4" height="77.6" fill="#0f766e"><title>30-40% pass: 15 task(s)</title></rect><rect x="229.6" y="74.9" width="42.4" height="119.1" fill="#0f766e"><title>40-50% pass: 23 task(s)</title></rect><rect x="276.0" y="90.5" width="42.4" height="103.5" fill="#0f766e"><title>50-60% pass: 20 task(s)</title></rect><rect x="322.4" y="23.2" width="42.4" height="170.8" fill="#0f766e"><title>60-70% pass: 33 task(s)</title></rect><rect x="368.8" y="18.0" width="42.4" height="176.0" fill="#0f766e"><title>70-80% pass: 34 task(s)</title></rect><rect x="415.2" y="64.6" width="42.4" height="129.4" fill="#0f766e"><title>80-90% pass: 25 task(s)</title></rect><rect x="461.6" y="152.6" width="42.4" height="41.4" fill="#0f766e"><title>90-100% pass: 8 task(s)</title></rect>
+      </svg>
+
+      </section>
+      <section class="plot-card">
+        <h3>Cumulative</h3>
+
+      <svg class="plot" viewBox="0 0 520 240" role="img" aria-label="Behavioral test pass rate cumulative distribution">
+        <line x1="42" y1="18" x2="42" y2="194" />
+        <line x1="42" y1="194" x2="506" y2="194" />
+        <text x="34" y="22" text-anchor="end">200</text>
+        <text x="34" y="198" text-anchor="end">0</text>
+        <text x="42" y="228">0%</text>
+        <text x="506" y="228" text-anchor="end">100%</text>
+        <text x="260.0" y="228" text-anchor="middle">behavioral test pass rate</text>
+        <text x="12" y="120.0" transform="rotate(-90 12 120.0)" text-anchor="middle">tasks</text>
+        <rect x="44.0" y="18.0" width="42.4" height="176.0" fill="#0f766e"><title>&gt;= 0% pass: 200 task(s), 100.0%</title></rect><rect x="90.4" y="40.0" width="42.4" height="154.0" fill="#0f766e"><title>&gt;= 10% pass: 175 task(s), 87.5%</title></rect><rect x="136.8" y="49.7" width="42.4" height="144.3" fill="#0f766e"><title>&gt;= 20% pass: 164 task(s), 82.0%</title></rect><rect x="183.2" y="55.0" width="42.4" height="139.0" fill="#0f766e"><title>&gt;= 30% pass: 158 task(s), 79.0%</title></rect><rect x="229.6" y="68.2" width="42.4" height="125.8" fill="#0f766e"><title>&gt;= 40% pass: 143 task(s), 71.5%</title></rect><rect x="276.0" y="88.4" width="42.4" height="105.6" fill="#0f766e"><title>&gt;= 50% pass: 120 task(s), 60.0%</title></rect><rect x="322.4" y="106.0" width="42.4" height="88.0" fill="#0f766e"><title>&gt;= 60% pass: 100 task(s), 50.0%</title></rect><rect x="368.8" y="135.0" width="42.4" height="59.0" fill="#0f766e"><title>&gt;= 70% pass: 67 task(s), 33.5%</title></rect><rect x="415.2" y="165.0" width="42.4" height="29.0" fill="#0f766e"><title>&gt;= 80% pass: 33 task(s), 16.5%</title></rect><rect x="461.6" y="187.0" width="42.4" height="7.0" fill="#0f766e"><title>&gt;= 90% pass: 8 task(s), 4.0%</title></rect>
+      </svg>
+
+      </section>
+    </div>
+
+    <h2>Score by Task</h2>
+    <p class="muted">Each cell is one evaluated task instance. Dark green means fully resolved, amber means almost resolved, and muted cells are partial or open.</p>
+    <div class="heatmap-wrap"><div class="heatmap"><a class="heat-cell" style="background:#d97706" title="abishekvashok__cmatrix.5c082c6: 97.4%" href="../../task/abishekvashok__cmatrix.5c082c6/"></a>
+<a class="heat-cell" style="background:#0f766e" title="agourlay__zip-password-finder.704700d: 94.1%" href="../../task/agourlay__zip-password-finder.704700d/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ajeetdsouza__zoxide.67ca1bc: 71.4%" href="../../task/ajeetdsouza__zoxide.67ca1bc/"></a>
+<a class="heat-cell" style="background:#e5e7eb" title="alecthomas__chroma.8d04def: 0.0%" href="../../task/alecthomas__chroma.8d04def/"></a>
+<a class="heat-cell" style="background:#0f766e" title="alexpovel__srgn.89f943b: 76.6%" href="../../task/alexpovel__srgn.89f943b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="altdesktop__i3-style.f93821b: 62.3%" href="../../task/altdesktop__i3-style.f93821b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ammarabouzor__tui-journal.2b4540d: 66.9%" href="../../task/ammarabouzor__tui-journal.2b4540d/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="anordal__shellharden.6a6ffd4: 49.4%" href="../../task/anordal__shellharden.6a6ffd4/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="antonmedv__fx.86d0d34: 8.6%" href="../../task/antonmedv__fx.86d0d34/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="antonmedv__walk.bf802ef: 36.0%" href="../../task/antonmedv__walk.bf802ef/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ariga__atlas.6d81150: 66.8%" href="../../task/ariga__atlas.6d81150/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="arq5x__bedtools2.dd57059: 43.2%" href="../../task/arq5x__bedtools2.dd57059/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="arthursonzogni__json-tui.17a22b6: 47.7%" href="../../task/arthursonzogni__json-tui.17a22b6/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="ast-grep__ast-grep.dde0fe0: 20.5%" href="../../task/ast-grep__ast-grep.dde0fe0/"></a>
+<a class="heat-cell" style="background:#0f766e" title="astaxie__bat.17d1080: 73.9%" href="../../task/astaxie__bat.17d1080/"></a>
+<a class="heat-cell" style="background:#0f766e" title="astro__deadnix.d590041: 88.0%" href="../../task/astro__deadnix.d590041/"></a>
+<a class="heat-cell" style="background:#0f766e" title="axodotdev__oranda.27d60c7: 61.1%" href="../../task/axodotdev__oranda.27d60c7/"></a>
+<a class="heat-cell" style="background:#e5e7eb" title="bellard__quickjs.d7ae12a: 0.0%" href="../../task/bellard__quickjs.d7ae12a/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="bensadeh__tailspin.6278437: 33.2%" href="../../task/bensadeh__tailspin.6278437/"></a>
+<a class="heat-cell" style="background:#0f766e" title="blacknon__hwatch.edfcb62: 76.3%" href="../../task/blacknon__hwatch.edfcb62/"></a>
+<a class="heat-cell" style="background:#0f766e" title="blake3-team__blake3.15e83a5: 65.4%" href="../../task/blake3-team__blake3.15e83a5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="bootandy__dust.62bf1e1: 68.5%" href="../../task/bootandy__dust.62bf1e1/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="boyter__scc.515f91c: 43.3%" href="../../task/boyter__scc.515f91c/"></a>
+<a class="heat-cell" style="background:#0f766e" title="brocode__fblog.3b54330: 84.6%" href="../../task/brocode__fblog.3b54330/"></a>
+<a class="heat-cell" style="background:#0f766e" title="burntsushi__ripgrep.3b7fd44: 79.7%" href="../../task/burntsushi__ripgrep.3b7fd44/"></a>
+<a class="heat-cell" style="background:#0f766e" title="burntsushi__xsv.f430466: 81.9%" href="../../task/burntsushi__xsv.f430466/"></a>
+<a class="heat-cell" style="background:#0f766e" title="byron__dua-cli.8570c15: 81.9%" href="../../task/byron__dua-cli.8570c15/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="canop__broot.d6c798e: 39.1%" href="../../task/canop__broot.d6c798e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="canop__rhit.ae90bcb: 55.0%" href="../../task/canop__rhit.ae90bcb/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="cheat__cheat.b8098dc: 40.7%" href="../../task/cheat__cheat.b8098dc/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="chirlu__sox.42b3557: 49.3%" href="../../task/chirlu__sox.42b3557/"></a>
+<a class="heat-cell" style="background:#0f766e" title="chmln__handlr.90e78ba: 77.8%" href="../../task/chmln__handlr.90e78ba/"></a>
+<a class="heat-cell" style="background:#0f766e" title="chmln__sd.87d1ba5: 87.2%" href="../../task/chmln__sd.87d1ba5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="clog-tool__clog-cli.7066cba: 84.0%" href="../../task/clog-tool__clog-cli.7066cba/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="cmatsuoka__figlet.202a0a8: 41.1%" href="../../task/cmatsuoka__figlet.202a0a8/"></a>
+<a class="heat-cell" style="background:#0f766e" title="codesnap-rs__codesnap.f81e4f3: 76.4%" href="../../task/codesnap-rs__codesnap.f81e4f3/"></a>
+<a class="heat-cell" style="background:#0f766e" title="cordx56__rustowl.655bc5c: 67.2%" href="../../task/cordx56__rustowl.655bc5c/"></a>
+<a class="heat-cell" style="background:#0f766e" title="crowdagger__crowbook.ea214d7: 55.1%" href="../../task/crowdagger__crowbook.ea214d7/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="cslarsen__jp2a.61d205f: 43.3%" href="../../task/cslarsen__jp2a.61d205f/"></a>
+<a class="heat-cell" style="background:#0f766e" title="cweill__gotests.2a672c5: 55.4%" href="../../task/cweill__gotests.2a672c5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="dalance__amber.69a0f52: 72.2%" href="../../task/dalance__amber.69a0f52/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="dandavison__delta.acd758f: 0.7%" href="../../task/dandavison__delta.acd758f/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="danmar__cppcheck.0a5b103: 16.3%" href="../../task/danmar__cppcheck.0a5b103/"></a>
+<a class="heat-cell" style="background:#0f766e" title="direnv__direnv.02040c7: 69.8%" href="../../task/direnv__direnv.02040c7/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="doxygen__doxygen.966d98e: 1.3%" href="../../task/doxygen__doxygen.966d98e/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="drew-alleman__datasurgeon.d257cee: 36.3%" href="../../task/drew-alleman__datasurgeon.d257cee/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ducaale__xh.4a6e44f: 52.2%" href="../../task/ducaale__xh.4a6e44f/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="duckdb__duckdb.bdb65ec: 8.2%" href="../../task/duckdb__duckdb.bdb65ec/"></a>
+<a class="heat-cell" style="background:#0f766e" title="dundee__gdu.ede21d2: 69.1%" href="../../task/dundee__gdu.ede21d2/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ecumene__rust-sloth.051c559: 64.7%" href="../../task/ecumene__rust-sloth.051c559/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="ekzhang__bore.8e059cd: 30.5%" href="../../task/ekzhang__bore.8e059cd/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="eliukblau__pixterm.1a93fd5: 32.1%" href="../../task/eliukblau__pixterm.1a93fd5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="elkowar__pipr.fae0b17: 51.4%" href="../../task/elkowar__pipr.fae0b17/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="epistates__treemd.825c6dd: 45.1%" href="../../task/epistates__treemd.825c6dd/"></a>
+<a class="heat-cell" style="background:#0f766e" title="eradman__entr.8e2e8b4: 78.7%" href="../../task/eradman__entr.8e2e8b4/"></a>
+<a class="heat-cell" style="background:#0f766e" title="esubaalew__run.0fb9dec: 80.3%" href="../../task/esubaalew__run.0fb9dec/"></a>
+<a class="heat-cell" style="background:#0f766e" title="eudoxia0__hashcards.48aa136: 78.2%" href="../../task/eudoxia0__hashcards.48aa136/"></a>
+<a class="heat-cell" style="background:#0f766e" title="facebook__zstd.1168da0: 61.3%" href="../../task/facebook__zstd.1168da0/"></a>
+<a class="heat-cell" style="background:#0f766e" title="facebookresearch__fasttext.1142dc4: 69.2%" href="../../task/facebookresearch__fasttext.1142dc4/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="ffmpeg__ffmpeg.360a402: 8.8%" href="../../task/ffmpeg__ffmpeg.360a402/"></a>
+<a class="heat-cell" style="background:#e5e7eb" title="filosottile__age.706dfc1: 0.0%" href="../../task/filosottile__age.706dfc1/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="foriequal0__git-trim.07c2f50: 37.7%" href="../../task/foriequal0__git-trim.07c2f50/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="gabotechs__dep-tree.60a95a2: 43.2%" href="../../task/gabotechs__dep-tree.60a95a2/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ggreer__the_silver_searcher.a61f178: 75.0%" href="../../task/ggreer__the_silver_searcher.a61f178/"></a>
+<a class="heat-cell" style="background:#0f766e" title="git-bahn__git-graph.87b4473: 75.0%" href="../../task/git-bahn__git-graph.87b4473/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="go-critic__go-critic.9aea378: 43.8%" href="../../task/go-critic__go-critic.9aea378/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="google__brotli.b3dc9cc: 1.4%" href="../../task/google__brotli.b3dc9cc/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="gromacs__gromacs.665ea4c: 3.9%" href="../../task/gromacs__gromacs.665ea4c/"></a>
+<a class="heat-cell" style="background:#0f766e" title="guumaster__hostctl.d6d9699: 86.2%" href="../../task/guumaster__hostctl.d6d9699/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="hairyhenderson__gomplate.05eb3aa: 2.1%" href="../../task/hairyhenderson__gomplate.05eb3aa/"></a>
+<a class="heat-cell" style="background:#0f766e" title="halitechallenge__halite.822cfb6: 65.8%" href="../../task/halitechallenge__halite.822cfb6/"></a>
+<a class="heat-cell" style="background:#0f766e" title="hatoo__oha.8dc6349: 69.0%" href="../../task/hatoo__oha.8dc6349/"></a>
+<a class="heat-cell" style="background:#0f766e" title="hooklift__gowsdl.2a06cec: 85.2%" href="../../task/hooklift__gowsdl.2a06cec/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="hpjansson__chafa.dd4d4c1: 42.0%" href="../../task/hpjansson__chafa.dd4d4c1/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="htop-dev__htop.523600b: 9.7%" href="../../task/htop-dev__htop.523600b/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="hush-shell__hush.560c33a: 7.2%" href="../../task/hush-shell__hush.560c33a/"></a>
+<a class="heat-cell" style="background:#0f766e" title="incu6us__goimports-reviser.81bd549: 71.0%" href="../../task/incu6us__goimports-reviser.81bd549/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="ip7z__7zip.839151e: 45.8%" href="../../task/ip7z__7zip.839151e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ismaelgv__rnr.fc0733b: 90.8%" href="../../task/ismaelgv__rnr.fc0733b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="isona__dirble.e2dea9f: 51.7%" href="../../task/isona__dirble.e2dea9f/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="ivanceras__svgbob.6d00ad9: 25.4%" href="../../task/ivanceras__svgbob.6d00ad9/"></a>
+<a class="heat-cell" style="background:#0f766e" title="jarun__nnn.cb2c535: 93.5%" href="../../task/jarun__nnn.cb2c535/"></a>
+<a class="heat-cell" style="background:#0f766e" title="jesseduffield__lazygit.1d0db51: 59.9%" href="../../task/jesseduffield__lazygit.1d0db51/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="jgm__pandoc.5caad90: 15.7%" href="../../task/jgm__pandoc.5caad90/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="jhspetersson__fselect.c3559ca: 19.4%" href="../../task/jhspetersson__fselect.c3559ca/"></a>
+<a class="heat-cell" style="background:#0f766e" title="johanneskaufmann__html-to-markdown.3006818: 87.3%" href="../../task/johanneskaufmann__html-to-markdown.3006818/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="johnkerl__miller.8d85b46: 28.3%" href="../../task/johnkerl__miller.8d85b46/"></a>
+<a class="heat-cell" style="background:#0f766e" title="jonas__tig.8334123: 85.1%" href="../../task/jonas__tig.8334123/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="jqlang__jq.b33a763: 5.5%" href="../../task/jqlang__jq.b33a763/"></a>
+<a class="heat-cell" style="background:#0f766e" title="jrnxf__thokr.09375ef: 69.7%" href="../../task/jrnxf__thokr.09375ef/"></a>
+<a class="heat-cell" style="background:#0f766e" title="junegunn__fzf.b56d614: 80.4%" href="../../task/junegunn__fzf.b56d614/"></a>
+<a class="heat-cell" style="background:#0f766e" title="kaushiksrini__parqeye.8072121: 55.5%" href="../../task/kaushiksrini__parqeye.8072121/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="kisielk__errcheck.dacab89: 34.6%" href="../../task/kisielk__errcheck.dacab89/"></a>
+<a class="heat-cell" style="background:#0f766e" title="konradsz__igrep.aa75630: 72.7%" href="../../task/konradsz__igrep.aa75630/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ksxgithub__parallel-disk-usage.96978ed: 78.9%" href="../../task/ksxgithub__parallel-disk-usage.96978ed/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="kyoh86__richgo.313114f: 17.8%" href="../../task/kyoh86__richgo.313114f/"></a>
+<a class="heat-cell" style="background:#0f766e" title="kyoheiu__felix.95df390: 85.1%" href="../../task/kyoheiu__felix.95df390/"></a>
+<a class="heat-cell" style="background:#0f766e" title="lfos__calcurse.49180d5: 65.3%" href="../../task/lfos__calcurse.49180d5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="lh3__seqtk.94e7070: 62.2%" href="../../task/lh3__seqtk.94e7070/"></a>
+<a class="heat-cell" style="background:#0f766e" title="lua__lua.c6b4848: 73.4%" href="../../task/lua__lua.c6b4848/"></a>
+<a class="heat-cell" style="background:#0f766e" title="luajit__luajit.a553b3d: 57.2%" href="../../task/luajit__luajit.a553b3d/"></a>
+<a class="heat-cell" style="background:#0f766e" title="lymphatus__caesium-clt.a529b2e: 89.9%" href="../../task/lymphatus__caesium-clt.a529b2e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="lz4__lz4.1519f46: 72.3%" href="../../task/lz4__lz4.1519f46/"></a>
+<a class="heat-cell" style="background:#0f766e" title="madler__pigz.fe4894f: 64.7%" href="../../task/madler__pigz.fe4894f/"></a>
+<a class="heat-cell" style="background:#0f766e" title="mfridman__tparse.2416b4b: 73.9%" href="../../task/mfridman__tparse.2416b4b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="mgdm__htmlq.6e31bc8: 94.4%" href="../../task/mgdm__htmlq.6e31bc8/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="mgechev__revive.201451e: 37.1%" href="../../task/mgechev__revive.201451e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="mibk__dupl.1bf052b: 81.2%" href="../../task/mibk__dupl.1bf052b/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="mikefarah__yq.602586d: 1.1%" href="../../task/mikefarah__yq.602586d/"></a>
+<a class="heat-cell" style="background:#0f766e" title="miserlou__loop.209927c: 89.9%" href="../../task/miserlou__loop.209927c/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="mkj__dropbear.75f699b: 48.5%" href="../../task/mkj__dropbear.75f699b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="mookid__diffr.2152742: 73.9%" href="../../task/mookid__diffr.2152742/"></a>
+<a class="heat-cell" style="background:#0f766e" title="multiprocessio__dsq.c3ae0ba: 64.4%" href="../../task/multiprocessio__dsq.c3ae0ba/"></a>
+<a class="heat-cell" style="background:#0f766e" title="nachoparker__dutree.44e877d: 74.3%" href="../../task/nachoparker__dutree.44e877d/"></a>
+<a class="heat-cell" style="background:#0f766e" title="naggie__dstask.ff57396: 63.5%" href="../../task/naggie__dstask.ff57396/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="nikoladucak__caps-log.2cf2d1e: 40.5%" href="../../task/nikoladucak__caps-log.2cf2d1e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="nikolassv__bartib.6b9b5ce: 86.1%" href="../../task/nikolassv__bartib.6b9b5ce/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ninja-build__ninja.cc60300: 69.2%" href="../../task/ninja-build__ninja.cc60300/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="noborus__ov.b96c2ba: 42.3%" href="../../task/noborus__ov.b96c2ba/"></a>
+<a class="heat-cell" style="background:#0f766e" title="noborus__trdsql.d8c5ff6: 70.7%" href="../../task/noborus__trdsql.d8c5ff6/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="nukesor__pueue.8b9d6fe: 14.9%" href="../../task/nukesor__pueue.8b9d6fe/"></a>
+<a class="heat-cell" style="background:#0f766e" title="nuta__nsh.bdd0702: 70.8%" href="../../task/nuta__nsh.bdd0702/"></a>
+<a class="heat-cell" style="background:#0f766e" title="o2sh__onefetch.e5958ce: 74.7%" href="../../task/o2sh__onefetch.e5958ce/"></a>
+<a class="heat-cell" style="background:#0f766e" title="ogham__dog.721440b: 64.6%" href="../../task/ogham__dog.721440b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="oppiliappan__eva.41ae245: 83.7%" href="../../task/oppiliappan__eva.41ae245/"></a>
+<a class="heat-cell" style="background:#0f766e" title="oppiliappan__statix.e9df54c: 52.9%" href="../../task/oppiliappan__statix.e9df54c/"></a>
+<a class="heat-cell" style="background:#0f766e" title="orf__gping.26eb5b9: 68.4%" href="../../task/orf__gping.26eb5b9/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="osgeo__gdal.0847f12: 14.0%" href="../../task/osgeo__gdal.0847f12/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="osgeo__proj.75d455c: 1.0%" href="../../task/osgeo__proj.75d455c/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="paradigmxyz__solar.5190d0e: 36.9%" href="../../task/paradigmxyz__solar.5190d0e/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="parcel-bundler__lightningcss.aa2ed1e: 12.0%" href="../../task/parcel-bundler__lightningcss.aa2ed1e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="peco__peco.4e58dad: 69.0%" href="../../task/peco__peco.4e58dad/"></a>
+<a class="heat-cell" style="background:#0f766e" title="pemistahl__grex.fa3e8ed: 60.7%" href="../../task/pemistahl__grex.fa3e8ed/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="php__php-src.c891263: 8.8%" href="../../task/php__php-src.c891263/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="pier-cli__pier.5e1bde9: 10.0%" href="../../task/pier-cli__pier.5e1bde9/"></a>
+<a class="heat-cell" style="background:#0f766e" title="pls-rs__pls.4e1ae50: 67.8%" href="../../task/pls-rs__pls.4e1ae50/"></a>
+<a class="heat-cell" style="background:#0f766e" title="psampaz__go-mod-outdated.bb79367: 70.2%" href="../../task/psampaz__go-mod-outdated.bb79367/"></a>
+<a class="heat-cell" style="background:#0f766e" title="quinn-rs__quinn.bb359cc: 63.2%" href="../../task/quinn-rs__quinn.bb359cc/"></a>
+<a class="heat-cell" style="background:#0f766e" title="raviqqe__muffet.a882908: 75.1%" href="../../task/raviqqe__muffet.a882908/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rbakbashev__elfcat.52f8cc7: 71.5%" href="../../task/rbakbashev__elfcat.52f8cc7/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rcoh__angle-grinder.9c2fc88: 55.8%" href="../../task/rcoh__angle-grinder.9c2fc88/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rhysd__kiro-editor.4157485: 75.6%" href="../../task/rhysd__kiro-editor.4157485/"></a>
+<a class="heat-cell" style="background:#0f766e" title="riquito__tuc.16fb471: 93.3%" href="../../task/riquito__tuc.16fb471/"></a>
+<a class="heat-cell" style="background:#0f766e" title="robertdavidgraham__masscan.b99d433: 53.6%" href="../../task/robertdavidgraham__masscan.b99d433/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rochacbruno__marmite.7d4bc2d: 62.4%" href="../../task/rochacbruno__marmite.7d4bc2d/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rs__curlie.5dfcbb1: 85.0%" href="../../task/rs__curlie.5dfcbb1/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rs__jplot.2a54bcc: 68.4%" href="../../task/rs__jplot.2a54bcc/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rust-embedded__svd2rust.1760b5e: 74.9%" href="../../task/rust-embedded__svd2rust.1760b5e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rust-ethereum__ethabi.b1710ad: 79.0%" href="../../task/rust-ethereum__ethabi.b1710ad/"></a>
+<a class="heat-cell" style="background:#0f766e" title="rust-lang__mdbook.37273ba: 67.1%" href="../../task/rust-lang__mdbook.37273ba/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="rvben__rumdl.2d75c4d: 2.7%" href="../../task/rvben__rumdl.2d75c4d/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="samtools__samtools.aa823b5: 13.5%" href="../../task/samtools__samtools.aa823b5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sayanarijit__xplr.1751065: 54.2%" href="../../task/sayanarijit__xplr.1751065/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="sclevine__yj.8016400: 2.1%" href="../../task/sclevine__yj.8016400/"></a>
+<a class="heat-cell" style="background:#0f766e" title="segmentio__chamber.5f93f5f: 78.9%" href="../../task/segmentio__chamber.5f93f5f/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="sharkdp__bat.f822bd0: 45.1%" href="../../task/sharkdp__bat.f822bd0/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sharkdp__fd.40d8eb3: 59.4%" href="../../task/sharkdp__fd.40d8eb3/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sharkdp__hexyl.2e26437: 87.9%" href="../../task/sharkdp__hexyl.2e26437/"></a>
+<a class="heat-cell" style="background:#e5e7eb" title="sharkdp__hyperfine.327d5f4: 0.0%" href="../../task/sharkdp__hyperfine.327d5f4/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sharkdp__pastel.b60e899: 86.9%" href="../../task/sharkdp__pastel.b60e899/"></a>
+<a class="heat-cell" style="background:#0f766e" title="shashwatah__jot.a92aad8: 52.3%" href="../../task/shashwatah__jot.a92aad8/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sheepla__pingu.926d475: 91.4%" href="../../task/sheepla__pingu.926d475/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="sibprogrammer__xq.b89f681: 44.6%" href="../../task/sibprogrammer__xq.b89f681/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="sigoden__argc.04a08f1: 0.4%" href="../../task/sigoden__argc.04a08f1/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="simeg__eureka.df3796c: 34.9%" href="../../task/simeg__eureka.df3796c/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sirwart__ripsecrets.34c9e03: 88.2%" href="../../task/sirwart__ripsecrets.34c9e03/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="sitkevij__hex.61ae69b: 46.2%" href="../../task/sitkevij__hex.61ae69b/"></a>
+<a class="heat-cell" style="background:#0f766e" title="skeema__skeema.6a76243: 64.8%" href="../../task/skeema__skeema.6a76243/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="sqlite__sqlite.839433d: 0.5%" href="../../task/sqlite__sqlite.839433d/"></a>
+<a class="heat-cell" style="background:#0f766e" title="sstadick__hck.b66c751: 93.6%" href="../../task/sstadick__hck.b66c751/"></a>
+<a class="heat-cell" style="background:#0f766e" title="stacked-git__stgit.430027d: 52.2%" href="../../task/stacked-git__stgit.430027d/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="stathissideris__ditaa.f2286c4: 29.4%" href="../../task/stathissideris__ditaa.f2286c4/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="stranger6667__jsonschema.d52e881: 35.0%" href="../../task/stranger6667__jsonschema.d52e881/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="svenstaro__genact.16f96e3: 35.8%" href="../../task/svenstaro__genact.16f96e3/"></a>
+<a class="heat-cell" style="background:#0f766e" title="svenstaro__miniserve.8449e8b: 88.8%" href="../../task/svenstaro__miniserve.8449e8b/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="tarka__xcp.5e5b448: 18.9%" href="../../task/tarka__xcp.5e5b448/"></a>
+<a class="heat-cell" style="background:#0f766e" title="thezoraiz__ascii-image-converter.d05a757: 57.6%" href="../../task/thezoraiz__ascii-image-converter.d05a757/"></a>
+<a class="heat-cell" style="background:#0f766e" title="tinycc__tinycc.9b8765d: 67.4%" href="../../task/tinycc__tinycc.9b8765d/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="tomarrell__wrapcheck.c058da1: 33.8%" href="../../task/tomarrell__wrapcheck.c058da1/"></a>
+<a class="heat-cell" style="background:#0f766e" title="tomnomnom__gron.88a6234: 76.3%" href="../../task/tomnomnom__gron.88a6234/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="trasta298__keifu.3331426: 49.2%" href="../../task/trasta298__keifu.3331426/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="tree-sitter__tree-sitter.5e23cca: 32.7%" href="../../task/tree-sitter__tree-sitter.5e23cca/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="tstack__lnav.ee34494: 14.0%" href="../../task/tstack__lnav.ee34494/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="tukaani-project__xz.1007bf0: 43.8%" href="../../task/tukaani-project__xz.1007bf0/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="typst__typst.88356d0: 40.7%" href="../../task/typst__typst.88356d0/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="unhappychoice__gittype.34b72d0: 3.6%" href="../../task/unhappychoice__gittype.34b72d0/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="universal-ctags__ctags.243595e: 0.1%" href="../../task/universal-ctags__ctags.243595e/"></a>
+<a class="heat-cell" style="background:#0f766e" title="wfxr__code-minimap.0ddeea5: 66.5%" href="../../task/wfxr__code-minimap.0ddeea5/"></a>
+<a class="heat-cell" style="background:#0f766e" title="wfxr__csview.8ac4de0: 71.0%" href="../../task/wfxr__csview.8ac4de0/"></a>
+<a class="heat-cell" style="background:#0f766e" title="wgunderwood__tex-fmt.3f1aef6: 56.9%" href="../../task/wgunderwood__tex-fmt.3f1aef6/"></a>
+<a class="heat-cell" style="background:#0f766e" title="wintermute-cell__ngrrram.8ea13c3: 71.9%" href="../../task/wintermute-cell__ngrrram.8ea13c3/"></a>
+<a class="heat-cell" style="background:#0f766e" title="xampprocky__tokei.505d648: 70.4%" href="../../task/xampprocky__tokei.505d648/"></a>
+<a class="heat-cell" style="background:#0f766e" title="xorg62__tty-clock.f2f847c: 58.0%" href="../../task/xorg62__tty-clock.f2f847c/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="y2z__monolith.8702e66: 48.9%" href="../../task/y2z__monolith.8702e66/"></a>
+<a class="heat-cell" style="background:#0f766e" title="yaa110__nomino.f892499: 88.2%" href="../../task/yaa110__nomino.f892499/"></a>
+<a class="heat-cell" style="background:#0f766e" title="yassinebridi__serpl.c48a9d7: 58.7%" href="../../task/yassinebridi__serpl.c48a9d7/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="yoav-lavi__melody.f4af9b4: 19.9%" href="../../task/yoav-lavi__melody.f4af9b4/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="ys-l__flamelens.0b4dc33: 25.4%" href="../../task/ys-l__flamelens.0b4dc33/"></a>
+<a class="heat-cell" style="background:#0f766e" title="zevv__duc.a58fa4e: 81.5%" href="../../task/zevv__duc.a58fa4e/"></a>
+<a class="heat-cell" style="background:#94a3b8" title="zk-org__zk.10d93d5: 26.8%" href="../../task/zk-org__zk.10d93d5/"></a></div></div>
+    <h2>Per-Instance Results</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Instance</th><th>Score</th><th>Resolved</th><th>Almost</th><th>Eval</th><th>Tests</th><th>Est. cost</th><th>Calls</th><th>Evidence</th></tr></thead>
+        <tbody>
+        <tr>
+          <td><a href="../../task/abishekvashok__cmatrix.5c082c6/"><code>abishekvashok__cmatrix.5c082c6</code></a></td>
+          <td>97.4%</td>
+          <td>no</td>
+          <td>yes</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>494/507</td>
+          <td>$1.81</td>
+          <td>41</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mgdm__htmlq.6e31bc8/"><code>mgdm__htmlq.6e31bc8</code></a></td>
+          <td>94.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1374/1455</td>
+          <td>$3.37</td>
+          <td>61</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mgdm-htmlq/mgdm__htmlq.6e31bc8/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mgdm-htmlq/mgdm__htmlq.6e31bc8/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mgdm-htmlq/mgdm__htmlq.6e31bc8/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mgdm-htmlq/mgdm__htmlq.6e31bc8/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mgdm-htmlq/mgdm__htmlq.6e31bc8/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/agourlay__zip-password-finder.704700d/"><code>agourlay__zip-password-finder.704700d</code></a></td>
+          <td>94.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>640/680</td>
+          <td>$0.00</td>
+          <td>48</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-agourlay-zip-password-finder/agourlay__zip-password-finder.704700d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sstadick__hck.b66c751/"><code>sstadick__hck.b66c751</code></a></td>
+          <td>93.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>800/855</td>
+          <td>$0.00</td>
+          <td>52</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jarun__nnn.cb2c535/"><code>jarun__nnn.cb2c535</code></a></td>
+          <td>93.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>446/477</td>
+          <td>$0.00</td>
+          <td>58</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-jarun-nnn/jarun__nnn.cb2c535/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-jarun-nnn/jarun__nnn.cb2c535/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-jarun-nnn/jarun__nnn.cb2c535/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-jarun-nnn/jarun__nnn.cb2c535/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-jarun-nnn/jarun__nnn.cb2c535/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/riquito__tuc.16fb471/"><code>riquito__tuc.16fb471</code></a></td>
+          <td>93.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1116/1196</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sheepla__pingu.926d475/"><code>sheepla__pingu.926d475</code></a></td>
+          <td>91.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>350/383</td>
+          <td>$0.00</td>
+          <td>43</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ismaelgv__rnr.fc0733b/"><code>ismaelgv__rnr.fc0733b</code></a></td>
+          <td>90.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>620/683</td>
+          <td>$0.00</td>
+          <td>85</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/lymphatus__caesium-clt.a529b2e/"><code>lymphatus__caesium-clt.a529b2e</code></a></td>
+          <td>89.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>517/575</td>
+          <td>$0.00</td>
+          <td>72</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/miserlou__loop.209927c/"><code>miserlou__loop.209927c</code></a></td>
+          <td>89.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>638/710</td>
+          <td>$0.00</td>
+          <td>51</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/svenstaro__miniserve.8449e8b/"><code>svenstaro__miniserve.8449e8b</code></a></td>
+          <td>88.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>270/304</td>
+          <td>$0.00</td>
+          <td>71</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sirwart__ripsecrets.34c9e03/"><code>sirwart__ripsecrets.34c9e03</code></a></td>
+          <td>88.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>539/611</td>
+          <td>$3.67</td>
+          <td>74</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/yaa110__nomino.f892499/"><code>yaa110__nomino.f892499</code></a></td>
+          <td>88.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>276/313</td>
+          <td>$0.00</td>
+          <td>59</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/astro__deadnix.d590041/"><code>astro__deadnix.d590041</code></a></td>
+          <td>88.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>530/602</td>
+          <td>$2.93</td>
+          <td>51</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-astro-deadnix/astro__deadnix.d590041/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-astro-deadnix/astro__deadnix.d590041/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-astro-deadnix/astro__deadnix.d590041/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-astro-deadnix/astro__deadnix.d590041/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-astro-deadnix/astro__deadnix.d590041/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sharkdp__hexyl.2e26437/"><code>sharkdp__hexyl.2e26437</code></a></td>
+          <td>87.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>796/906</td>
+          <td>$0.00</td>
+          <td>66</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/johanneskaufmann__html-to-markdown.3006818/"><code>johanneskaufmann__html-to-markdown.3006818</code></a></td>
+          <td>87.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>773/885</td>
+          <td>$3.76</td>
+          <td>62</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-johanneskaufmann-html-to-markdown/johanneskaufmann__html-to-markdown.3006818/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-johanneskaufmann-html-to-markdown/johanneskaufmann__html-to-markdown.3006818/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-johanneskaufmann-html-to-markdown/johanneskaufmann__html-to-markdown.3006818/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-johanneskaufmann-html-to-markdown/johanneskaufmann__html-to-markdown.3006818/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-johanneskaufmann-html-to-markdown/johanneskaufmann__html-to-markdown.3006818/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/chmln__sd.87d1ba5/"><code>chmln__sd.87d1ba5</code></a></td>
+          <td>87.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>706/810</td>
+          <td>$0.00</td>
+          <td>47</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sharkdp__pastel.b60e899/"><code>sharkdp__pastel.b60e899</code></a></td>
+          <td>86.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>968/1114</td>
+          <td>$0.00</td>
+          <td>66</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/guumaster__hostctl.d6d9699/"><code>guumaster__hostctl.d6d9699</code></a></td>
+          <td>86.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>906/1051</td>
+          <td>$0.00</td>
+          <td>78</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/nikolassv__bartib.6b9b5ce/"><code>nikolassv__bartib.6b9b5ce</code></a></td>
+          <td>86.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>622/722</td>
+          <td>$0.00</td>
+          <td>84</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/hooklift__gowsdl.2a06cec/"><code>hooklift__gowsdl.2a06cec</code></a></td>
+          <td>85.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>333/391</td>
+          <td>$0.00</td>
+          <td>79</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jonas__tig.8334123/"><code>jonas__tig.8334123</code></a></td>
+          <td>85.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1350/1586</td>
+          <td>$0.00</td>
+          <td>60</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/kyoheiu__felix.95df390/"><code>kyoheiu__felix.95df390</code></a></td>
+          <td>85.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>427/502</td>
+          <td>$0.00</td>
+          <td>37</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rs__curlie.5dfcbb1/"><code>rs__curlie.5dfcbb1</code></a></td>
+          <td>85.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>596/701</td>
+          <td>$3.33</td>
+          <td>52</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rs-curlie/rs__curlie.5dfcbb1/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/brocode__fblog.3b54330/"><code>brocode__fblog.3b54330</code></a></td>
+          <td>84.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>827/978</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/clog-tool__clog-cli.7066cba/"><code>clog-tool__clog-cli.7066cba</code></a></td>
+          <td>84.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>483/575</td>
+          <td>$0.00</td>
+          <td>68</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/oppiliappan__eva.41ae245/"><code>oppiliappan__eva.41ae245</code></a></td>
+          <td>83.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>764/913</td>
+          <td>$0.00</td>
+          <td>80</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/byron__dua-cli.8570c15/"><code>byron__dua-cli.8570c15</code></a></td>
+          <td>81.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>581/709</td>
+          <td>$0.00</td>
+          <td>50</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/burntsushi__xsv.f430466/"><code>burntsushi__xsv.f430466</code></a></td>
+          <td>81.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>968/1182</td>
+          <td>$2.55</td>
+          <td>48</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/zevv__duc.a58fa4e/"><code>zevv__duc.a58fa4e</code></a></td>
+          <td>81.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>712/874</td>
+          <td>$0.00</td>
+          <td>53</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mibk__dupl.1bf052b/"><code>mibk__dupl.1bf052b</code></a></td>
+          <td>81.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>303/373</td>
+          <td>$0.00</td>
+          <td>60</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/junegunn__fzf.b56d614/"><code>junegunn__fzf.b56d614</code></a></td>
+          <td>80.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1494/1858</td>
+          <td>$4.31</td>
+          <td>50</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-junegunn-fzf-attempt-2/junegunn__fzf.b56d614/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-junegunn-fzf-attempt-2/junegunn__fzf.b56d614/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-junegunn-fzf-attempt-2/junegunn__fzf.b56d614/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-junegunn-fzf-attempt-2/junegunn__fzf.b56d614/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-junegunn-fzf-attempt-2/junegunn__fzf.b56d614/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/esubaalew__run.0fb9dec/"><code>esubaalew__run.0fb9dec</code></a></td>
+          <td>80.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>973/1212</td>
+          <td>$3.44</td>
+          <td>62</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-esubaalew-run/esubaalew__run.0fb9dec/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-esubaalew-run/esubaalew__run.0fb9dec/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-esubaalew-run/esubaalew__run.0fb9dec/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-esubaalew-run/esubaalew__run.0fb9dec/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-esubaalew-run/esubaalew__run.0fb9dec/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/burntsushi__ripgrep.3b7fd44/"><code>burntsushi__ripgrep.3b7fd44</code></a></td>
+          <td>79.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1589/1994</td>
+          <td>$0.00</td>
+          <td>89</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rust-ethereum__ethabi.b1710ad/"><code>rust-ethereum__ethabi.b1710ad</code></a></td>
+          <td>79.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>788/997</td>
+          <td>$0.00</td>
+          <td>49</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ksxgithub__parallel-disk-usage.96978ed/"><code>ksxgithub__parallel-disk-usage.96978ed</code></a></td>
+          <td>78.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>419/531</td>
+          <td>$0.00</td>
+          <td>49</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/segmentio__chamber.5f93f5f/"><code>segmentio__chamber.5f93f5f</code></a></td>
+          <td>78.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1379/1748</td>
+          <td>$0.00</td>
+          <td>61</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/eradman__entr.8e2e8b4/"><code>eradman__entr.8e2e8b4</code></a></td>
+          <td>78.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>461/586</td>
+          <td>$0.00</td>
+          <td>28</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/eudoxia0__hashcards.48aa136/"><code>eudoxia0__hashcards.48aa136</code></a></td>
+          <td>78.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>797/1019</td>
+          <td>$0.00</td>
+          <td>107</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eudoxia0-hashcards/eudoxia0__hashcards.48aa136/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/chmln__handlr.90e78ba/"><code>chmln__handlr.90e78ba</code></a></td>
+          <td>77.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>562/722</td>
+          <td>$0.00</td>
+          <td>61</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-chmln-handlr/chmln__handlr.90e78ba/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-chmln-handlr/chmln__handlr.90e78ba/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-chmln-handlr/chmln__handlr.90e78ba/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-chmln-handlr/chmln__handlr.90e78ba/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-chmln-handlr/chmln__handlr.90e78ba/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/alexpovel__srgn.89f943b/"><code>alexpovel__srgn.89f943b</code></a></td>
+          <td>76.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1419/1852</td>
+          <td>$0.00</td>
+          <td>71</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/codesnap-rs__codesnap.f81e4f3/"><code>codesnap-rs__codesnap.f81e4f3</code></a></td>
+          <td>76.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>436/571</td>
+          <td>$5.10</td>
+          <td>59</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-codesnap-rs-codesnap/codesnap-rs__codesnap.f81e4f3/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-codesnap-rs-codesnap/codesnap-rs__codesnap.f81e4f3/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-codesnap-rs-codesnap/codesnap-rs__codesnap.f81e4f3/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-codesnap-rs-codesnap/codesnap-rs__codesnap.f81e4f3/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-codesnap-rs-codesnap/codesnap-rs__codesnap.f81e4f3/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tomnomnom__gron.88a6234/"><code>tomnomnom__gron.88a6234</code></a></td>
+          <td>76.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>171/224</td>
+          <td>$0.00</td>
+          <td>80</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/blacknon__hwatch.edfcb62/"><code>blacknon__hwatch.edfcb62</code></a></td>
+          <td>76.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>775/1016</td>
+          <td>$0.00</td>
+          <td>79</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rhysd__kiro-editor.4157485/"><code>rhysd__kiro-editor.4157485</code></a></td>
+          <td>75.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>450/595</td>
+          <td>$0.00</td>
+          <td>35</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/raviqqe__muffet.a882908/"><code>raviqqe__muffet.a882908</code></a></td>
+          <td>75.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>220/293</td>
+          <td>$0.00</td>
+          <td>46</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ggreer__the_silver_searcher.a61f178/"><code>ggreer__the_silver_searcher.a61f178</code></a></td>
+          <td>75.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>753/1004</td>
+          <td>$0.00</td>
+          <td>81</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/git-bahn__git-graph.87b4473/"><code>git-bahn__git-graph.87b4473</code></a></td>
+          <td>75.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>426/568</td>
+          <td>$0.00</td>
+          <td>64</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rust-embedded__svd2rust.1760b5e/"><code>rust-embedded__svd2rust.1760b5e</code></a></td>
+          <td>74.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>689/920</td>
+          <td>$0.00</td>
+          <td>53</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/o2sh__onefetch.e5958ce/"><code>o2sh__onefetch.e5958ce</code></a></td>
+          <td>74.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>871/1166</td>
+          <td>$0.00</td>
+          <td>48</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/nachoparker__dutree.44e877d/"><code>nachoparker__dutree.44e877d</code></a></td>
+          <td>74.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>476/641</td>
+          <td>$0.00</td>
+          <td>73</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mookid__diffr.2152742/"><code>mookid__diffr.2152742</code></a></td>
+          <td>73.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>448/606</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mfridman__tparse.2416b4b/"><code>mfridman__tparse.2416b4b</code></a></td>
+          <td>73.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>314/425</td>
+          <td>$0.00</td>
+          <td>47</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/astaxie__bat.17d1080/"><code>astaxie__bat.17d1080</code></a></td>
+          <td>73.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>806/1091</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/lua__lua.c6b4848/"><code>lua__lua.c6b4848</code></a></td>
+          <td>73.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>982/1338</td>
+          <td>$0.00</td>
+          <td>46</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/konradsz__igrep.aa75630/"><code>konradsz__igrep.aa75630</code></a></td>
+          <td>72.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>280/385</td>
+          <td>$0.00</td>
+          <td>32</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/lz4__lz4.1519f46/"><code>lz4__lz4.1519f46</code></a></td>
+          <td>72.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1081/1496</td>
+          <td>$0.00</td>
+          <td>33</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/dalance__amber.69a0f52/"><code>dalance__amber.69a0f52</code></a></td>
+          <td>72.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>408/565</td>
+          <td>$1.96</td>
+          <td>38</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-dalance-amber/dalance__amber.69a0f52/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/wintermute-cell__ngrrram.8ea13c3/"><code>wintermute-cell__ngrrram.8ea13c3</code></a></td>
+          <td>71.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>218/303</td>
+          <td>$1.98</td>
+          <td>37</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-wintermute-cell-ngrrram/wintermute-cell__ngrrram.8ea13c3/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-wintermute-cell-ngrrram/wintermute-cell__ngrrram.8ea13c3/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-wintermute-cell-ngrrram/wintermute-cell__ngrrram.8ea13c3/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-wintermute-cell-ngrrram/wintermute-cell__ngrrram.8ea13c3/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-wintermute-cell-ngrrram/wintermute-cell__ngrrram.8ea13c3/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rbakbashev__elfcat.52f8cc7/"><code>rbakbashev__elfcat.52f8cc7</code></a></td>
+          <td>71.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>403/564</td>
+          <td>$0.00</td>
+          <td>57</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ajeetdsouza__zoxide.67ca1bc/"><code>ajeetdsouza__zoxide.67ca1bc</code></a></td>
+          <td>71.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>379/531</td>
+          <td>$0.00</td>
+          <td>87</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/wfxr__csview.8ac4de0/"><code>wfxr__csview.8ac4de0</code></a></td>
+          <td>71.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>238/335</td>
+          <td>$0.00</td>
+          <td>82</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/incu6us__goimports-reviser.81bd549/"><code>incu6us__goimports-reviser.81bd549</code></a></td>
+          <td>71.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>364/513</td>
+          <td>$0.00</td>
+          <td>32</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-incu6us-goimports-reviser/incu6us__goimports-reviser.81bd549/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-incu6us-goimports-reviser/incu6us__goimports-reviser.81bd549/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-incu6us-goimports-reviser/incu6us__goimports-reviser.81bd549/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-incu6us-goimports-reviser/incu6us__goimports-reviser.81bd549/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-incu6us-goimports-reviser/incu6us__goimports-reviser.81bd549/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/nuta__nsh.bdd0702/"><code>nuta__nsh.bdd0702</code></a></td>
+          <td>70.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1389/1963</td>
+          <td>$0.00</td>
+          <td>107</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/noborus__trdsql.d8c5ff6/"><code>noborus__trdsql.d8c5ff6</code></a></td>
+          <td>70.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>928/1312</td>
+          <td>$0.00</td>
+          <td>54</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/xampprocky__tokei.505d648/"><code>xampprocky__tokei.505d648</code></a></td>
+          <td>70.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>515/732</td>
+          <td>$0.00</td>
+          <td>41</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/psampaz__go-mod-outdated.bb79367/"><code>psampaz__go-mod-outdated.bb79367</code></a></td>
+          <td>70.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>200/285</td>
+          <td>$0.00</td>
+          <td>26</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/direnv__direnv.02040c7/"><code>direnv__direnv.02040c7</code></a></td>
+          <td>69.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>593/849</td>
+          <td>$0.00</td>
+          <td>59</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jrnxf__thokr.09375ef/"><code>jrnxf__thokr.09375ef</code></a></td>
+          <td>69.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>310/445</td>
+          <td>$0.00</td>
+          <td>46</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/facebookresearch__fasttext.1142dc4/"><code>facebookresearch__fasttext.1142dc4</code></a></td>
+          <td>69.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>216/312</td>
+          <td>$0.00</td>
+          <td>55</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ninja-build__ninja.cc60300/"><code>ninja-build__ninja.cc60300</code></a></td>
+          <td>69.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>995/1438</td>
+          <td>$0.00</td>
+          <td>62</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/dundee__gdu.ede21d2/"><code>dundee__gdu.ede21d2</code></a></td>
+          <td>69.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>802/1161</td>
+          <td>$0.00</td>
+          <td>54</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/peco__peco.4e58dad/"><code>peco__peco.4e58dad</code></a></td>
+          <td>69.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>845/1224</td>
+          <td>$0.00</td>
+          <td>46</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/hatoo__oha.8dc6349/"><code>hatoo__oha.8dc6349</code></a></td>
+          <td>69.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>620/899</td>
+          <td>$0.00</td>
+          <td>51</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/bootandy__dust.62bf1e1/"><code>bootandy__dust.62bf1e1</code></a></td>
+          <td>68.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>400/584</td>
+          <td>$0.00</td>
+          <td>62</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rs__jplot.2a54bcc/"><code>rs__jplot.2a54bcc</code></a></td>
+          <td>68.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>399/583</td>
+          <td>$0.00</td>
+          <td>32</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/orf__gping.26eb5b9/"><code>orf__gping.26eb5b9</code></a></td>
+          <td>68.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>232/339</td>
+          <td>$0.00</td>
+          <td>56</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/pls-rs__pls.4e1ae50/"><code>pls-rs__pls.4e1ae50</code></a></td>
+          <td>67.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>225/332</td>
+          <td>$4.68</td>
+          <td>87</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-pls-rs-pls/pls-rs__pls.4e1ae50/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tinycc__tinycc.9b8765d/"><code>tinycc__tinycc.9b8765d</code></a></td>
+          <td>67.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1334/1978</td>
+          <td>$0.00</td>
+          <td>50</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/cordx56__rustowl.655bc5c/"><code>cordx56__rustowl.655bc5c</code></a></td>
+          <td>67.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>396/589</td>
+          <td>$0.00</td>
+          <td>39</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-cordx56-rustowl/cordx56__rustowl.655bc5c/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-cordx56-rustowl/cordx56__rustowl.655bc5c/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-cordx56-rustowl/cordx56__rustowl.655bc5c/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-cordx56-rustowl/cordx56__rustowl.655bc5c/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-cordx56-rustowl/cordx56__rustowl.655bc5c/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rust-lang__mdbook.37273ba/"><code>rust-lang__mdbook.37273ba</code></a></td>
+          <td>67.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>748/1114</td>
+          <td>$0.00</td>
+          <td>60</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ammarabouzor__tui-journal.2b4540d/"><code>ammarabouzor__tui-journal.2b4540d</code></a></td>
+          <td>66.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>938/1402</td>
+          <td>$0.00</td>
+          <td>53</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ammarabouzor-tui-journal/ammarabouzor__tui-journal.2b4540d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ammarabouzor-tui-journal/ammarabouzor__tui-journal.2b4540d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ammarabouzor-tui-journal/ammarabouzor__tui-journal.2b4540d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ammarabouzor-tui-journal/ammarabouzor__tui-journal.2b4540d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ammarabouzor-tui-journal/ammarabouzor__tui-journal.2b4540d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ariga__atlas.6d81150/"><code>ariga__atlas.6d81150</code></a></td>
+          <td>66.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>881/1318</td>
+          <td>$5.36</td>
+          <td>94</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ariga-atlas/ariga__atlas.6d81150/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ariga-atlas/ariga__atlas.6d81150/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ariga-atlas/ariga__atlas.6d81150/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ariga-atlas/ariga__atlas.6d81150/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ariga-atlas/ariga__atlas.6d81150/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/wfxr__code-minimap.0ddeea5/"><code>wfxr__code-minimap.0ddeea5</code></a></td>
+          <td>66.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>208/313</td>
+          <td>$0.00</td>
+          <td>76</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/halitechallenge__halite.822cfb6/"><code>halitechallenge__halite.822cfb6</code></a></td>
+          <td>65.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>181/275</td>
+          <td>$2.64</td>
+          <td>45</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-halitechallenge-halite/halitechallenge__halite.822cfb6/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-halitechallenge-halite/halitechallenge__halite.822cfb6/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-halitechallenge-halite/halitechallenge__halite.822cfb6/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-halitechallenge-halite/halitechallenge__halite.822cfb6/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-halitechallenge-halite/halitechallenge__halite.822cfb6/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/blake3-team__blake3.15e83a5/"><code>blake3-team__blake3.15e83a5</code></a></td>
+          <td>65.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>423/647</td>
+          <td>$3.43</td>
+          <td>58</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-blake3-team-blake3/blake3-team__blake3.15e83a5/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/lfos__calcurse.49180d5/"><code>lfos__calcurse.49180d5</code></a></td>
+          <td>65.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>435/666</td>
+          <td>$0.00</td>
+          <td>98</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/skeema__skeema.6a76243/"><code>skeema__skeema.6a76243</code></a></td>
+          <td>64.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1107/1708</td>
+          <td>$0.00</td>
+          <td>77</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/madler__pigz.fe4894f/"><code>madler__pigz.fe4894f</code></a></td>
+          <td>64.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>538/831</td>
+          <td>$0.00</td>
+          <td>85</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ecumene__rust-sloth.051c559/"><code>ecumene__rust-sloth.051c559</code></a></td>
+          <td>64.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>246/380</td>
+          <td>$0.00</td>
+          <td>55</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ogham__dog.721440b/"><code>ogham__dog.721440b</code></a></td>
+          <td>64.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>840/1300</td>
+          <td>$0.00</td>
+          <td>63</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/multiprocessio__dsq.c3ae0ba/"><code>multiprocessio__dsq.c3ae0ba</code></a></td>
+          <td>64.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>349/542</td>
+          <td>$0.00</td>
+          <td>96</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/naggie__dstask.ff57396/"><code>naggie__dstask.ff57396</code></a></td>
+          <td>63.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>812/1278</td>
+          <td>$0.00</td>
+          <td>63</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/quinn-rs__quinn.bb359cc/"><code>quinn-rs__quinn.bb359cc</code></a></td>
+          <td>63.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>330/522</td>
+          <td>$0.00</td>
+          <td>67</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rochacbruno__marmite.7d4bc2d/"><code>rochacbruno__marmite.7d4bc2d</code></a></td>
+          <td>62.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>417/668</td>
+          <td>$0.00</td>
+          <td>66</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/altdesktop__i3-style.f93821b/"><code>altdesktop__i3-style.f93821b</code></a></td>
+          <td>62.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>336/539</td>
+          <td>$2.17</td>
+          <td>39</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-altdesktop-i3-style/altdesktop__i3-style.f93821b/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-altdesktop-i3-style/altdesktop__i3-style.f93821b/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-altdesktop-i3-style/altdesktop__i3-style.f93821b/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-altdesktop-i3-style/altdesktop__i3-style.f93821b/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-altdesktop-i3-style/altdesktop__i3-style.f93821b/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/lh3__seqtk.94e7070/"><code>lh3__seqtk.94e7070</code></a></td>
+          <td>62.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>267/429</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/facebook__zstd.1168da0/"><code>facebook__zstd.1168da0</code></a></td>
+          <td>61.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1250/2038</td>
+          <td>$0.00</td>
+          <td>45</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/axodotdev__oranda.27d60c7/"><code>axodotdev__oranda.27d60c7</code></a></td>
+          <td>61.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>469/767</td>
+          <td>$0.00</td>
+          <td>81</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-axodotdev-oranda/axodotdev__oranda.27d60c7/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-axodotdev-oranda/axodotdev__oranda.27d60c7/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-axodotdev-oranda/axodotdev__oranda.27d60c7/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-axodotdev-oranda/axodotdev__oranda.27d60c7/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-axodotdev-oranda/axodotdev__oranda.27d60c7/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/pemistahl__grex.fa3e8ed/"><code>pemistahl__grex.fa3e8ed</code></a></td>
+          <td>60.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>796/1312</td>
+          <td>$0.00</td>
+          <td>77</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jesseduffield__lazygit.1d0db51/"><code>jesseduffield__lazygit.1d0db51</code></a></td>
+          <td>59.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>512/855</td>
+          <td>$0.00</td>
+          <td>47</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sharkdp__fd.40d8eb3/"><code>sharkdp__fd.40d8eb3</code></a></td>
+          <td>59.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>734/1235</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/yassinebridi__serpl.c48a9d7/"><code>yassinebridi__serpl.c48a9d7</code></a></td>
+          <td>58.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>262/446</td>
+          <td>$1.68</td>
+          <td>38</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-yassinebridi-serpl/yassinebridi__serpl.c48a9d7/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-yassinebridi-serpl/yassinebridi__serpl.c48a9d7/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-yassinebridi-serpl/yassinebridi__serpl.c48a9d7/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-yassinebridi-serpl/yassinebridi__serpl.c48a9d7/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-yassinebridi-serpl/yassinebridi__serpl.c48a9d7/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/xorg62__tty-clock.f2f847c/"><code>xorg62__tty-clock.f2f847c</code></a></td>
+          <td>58.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>163/281</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/thezoraiz__ascii-image-converter.d05a757/"><code>thezoraiz__ascii-image-converter.d05a757</code></a></td>
+          <td>57.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>268/465</td>
+          <td>$0.00</td>
+          <td>64</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/luajit__luajit.a553b3d/"><code>luajit__luajit.a553b3d</code></a></td>
+          <td>57.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1698/2967</td>
+          <td>$3.72</td>
+          <td>47</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/wgunderwood__tex-fmt.3f1aef6/"><code>wgunderwood__tex-fmt.3f1aef6</code></a></td>
+          <td>56.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>259/455</td>
+          <td>$0.00</td>
+          <td>75</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rcoh__angle-grinder.9c2fc88/"><code>rcoh__angle-grinder.9c2fc88</code></a></td>
+          <td>55.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>630/1130</td>
+          <td>$5.22</td>
+          <td>90</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/kaushiksrini__parqeye.8072121/"><code>kaushiksrini__parqeye.8072121</code></a></td>
+          <td>55.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>266/479</td>
+          <td>$0.00</td>
+          <td>61</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/cweill__gotests.2a672c5/"><code>cweill__gotests.2a672c5</code></a></td>
+          <td>55.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>334/603</td>
+          <td>$0.00</td>
+          <td>78</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/crowdagger__crowbook.ea214d7/"><code>crowdagger__crowbook.ea214d7</code></a></td>
+          <td>55.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>445/807</td>
+          <td>$0.00</td>
+          <td>37</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/canop__rhit.ae90bcb/"><code>canop__rhit.ae90bcb</code></a></td>
+          <td>55.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>449/817</td>
+          <td>$0.00</td>
+          <td>43</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sayanarijit__xplr.1751065/"><code>sayanarijit__xplr.1751065</code></a></td>
+          <td>54.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>227/419</td>
+          <td>$0.00</td>
+          <td>56</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/robertdavidgraham__masscan.b99d433/"><code>robertdavidgraham__masscan.b99d433</code></a></td>
+          <td>53.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1367/2549</td>
+          <td>$0.00</td>
+          <td>56</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/oppiliappan__statix.e9df54c/"><code>oppiliappan__statix.e9df54c</code></a></td>
+          <td>52.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>431/815</td>
+          <td>$3.05</td>
+          <td>59</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-oppiliappan-statix/oppiliappan__statix.e9df54c/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-oppiliappan-statix/oppiliappan__statix.e9df54c/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-oppiliappan-statix/oppiliappan__statix.e9df54c/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-oppiliappan-statix/oppiliappan__statix.e9df54c/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-oppiliappan-statix/oppiliappan__statix.e9df54c/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/shashwatah__jot.a92aad8/"><code>shashwatah__jot.a92aad8</code></a></td>
+          <td>52.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>393/752</td>
+          <td>$3.27</td>
+          <td>70</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-shashwatah-jot/shashwatah__jot.a92aad8/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-shashwatah-jot/shashwatah__jot.a92aad8/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-shashwatah-jot/shashwatah__jot.a92aad8/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-shashwatah-jot/shashwatah__jot.a92aad8/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-shashwatah-jot/shashwatah__jot.a92aad8/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/stacked-git__stgit.430027d/"><code>stacked-git__stgit.430027d</code></a></td>
+          <td>52.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status almost" title="1 evaluator warning(s)">warn 1</span></td>
+          <td>802/1537</td>
+          <td>$3.84</td>
+          <td>58</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-stacked-git-stgit/stacked-git__stgit.430027d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ducaale__xh.4a6e44f/"><code>ducaale__xh.4a6e44f</code></a></td>
+          <td>52.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>611/1171</td>
+          <td>$0.00</td>
+          <td>54</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ducaale-xh/ducaale__xh.4a6e44f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ducaale-xh/ducaale__xh.4a6e44f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ducaale-xh/ducaale__xh.4a6e44f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ducaale-xh/ducaale__xh.4a6e44f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-ducaale-xh/ducaale__xh.4a6e44f/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/isona__dirble.e2dea9f/"><code>isona__dirble.e2dea9f</code></a></td>
+          <td>51.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>371/718</td>
+          <td>$0.00</td>
+          <td>76</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/elkowar__pipr.fae0b17/"><code>elkowar__pipr.fae0b17</code></a></td>
+          <td>51.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>270/525</td>
+          <td>$0.00</td>
+          <td>45</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/anordal__shellharden.6a6ffd4/"><code>anordal__shellharden.6a6ffd4</code></a></td>
+          <td>49.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>541/1095</td>
+          <td>$0.00</td>
+          <td>69</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/chirlu__sox.42b3557/"><code>chirlu__sox.42b3557</code></a></td>
+          <td>49.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>592/1202</td>
+          <td>$3.82</td>
+          <td>44</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/trasta298__keifu.3331426/"><code>trasta298__keifu.3331426</code></a></td>
+          <td>49.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>129/262</td>
+          <td>$1.91</td>
+          <td>37</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/y2z__monolith.8702e66/"><code>y2z__monolith.8702e66</code></a></td>
+          <td>48.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>349/713</td>
+          <td>$0.00</td>
+          <td>69</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mkj__dropbear.75f699b/"><code>mkj__dropbear.75f699b</code></a></td>
+          <td>48.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>329/678</td>
+          <td>$2.44</td>
+          <td>53</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mkj-dropbear/mkj__dropbear.75f699b/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mkj-dropbear/mkj__dropbear.75f699b/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mkj-dropbear/mkj__dropbear.75f699b/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mkj-dropbear/mkj__dropbear.75f699b/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-mkj-dropbear/mkj__dropbear.75f699b/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/arthursonzogni__json-tui.17a22b6/"><code>arthursonzogni__json-tui.17a22b6</code></a></td>
+          <td>47.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>360/755</td>
+          <td>$0.00</td>
+          <td>88</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sitkevij__hex.61ae69b/"><code>sitkevij__hex.61ae69b</code></a></td>
+          <td>46.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>380/823</td>
+          <td>$0.00</td>
+          <td>62</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ip7z__7zip.839151e/"><code>ip7z__7zip.839151e</code></a></td>
+          <td>45.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>478/1043</td>
+          <td>$0.00</td>
+          <td>30</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/epistates__treemd.825c6dd/"><code>epistates__treemd.825c6dd</code></a></td>
+          <td>45.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>708/1569</td>
+          <td>$0.00</td>
+          <td>54</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sharkdp__bat.f822bd0/"><code>sharkdp__bat.f822bd0</code></a></td>
+          <td>45.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>360/799</td>
+          <td>$4.62</td>
+          <td>71</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sharkdp-bat/sharkdp__bat.f822bd0/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sharkdp-bat/sharkdp__bat.f822bd0/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sharkdp-bat/sharkdp__bat.f822bd0/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sharkdp-bat/sharkdp__bat.f822bd0/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sharkdp-bat/sharkdp__bat.f822bd0/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sibprogrammer__xq.b89f681/"><code>sibprogrammer__xq.b89f681</code></a></td>
+          <td>44.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>353/792</td>
+          <td>$0.00</td>
+          <td>42</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tukaani-project__xz.1007bf0/"><code>tukaani-project__xz.1007bf0</code></a></td>
+          <td>43.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>618/1410</td>
+          <td>$0.00</td>
+          <td>72</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/go-critic__go-critic.9aea378/"><code>go-critic__go-critic.9aea378</code></a></td>
+          <td>43.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>216/493</td>
+          <td>$5.76</td>
+          <td>91</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-go-critic-go-critic/go-critic__go-critic.9aea378/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-go-critic-go-critic/go-critic__go-critic.9aea378/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-go-critic-go-critic/go-critic__go-critic.9aea378/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-go-critic-go-critic/go-critic__go-critic.9aea378/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-go-critic-go-critic/go-critic__go-critic.9aea378/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/boyter__scc.515f91c/"><code>boyter__scc.515f91c</code></a></td>
+          <td>43.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>201/464</td>
+          <td>$0.00</td>
+          <td>65</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/cslarsen__jp2a.61d205f/"><code>cslarsen__jp2a.61d205f</code></a></td>
+          <td>43.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>273/631</td>
+          <td>$0.00</td>
+          <td>83</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/gabotechs__dep-tree.60a95a2/"><code>gabotechs__dep-tree.60a95a2</code></a></td>
+          <td>43.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>374/865</td>
+          <td>$0.00</td>
+          <td>63</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/arq5x__bedtools2.dd57059/"><code>arq5x__bedtools2.dd57059</code></a></td>
+          <td>43.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>455/1053</td>
+          <td>$0.00</td>
+          <td>41</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-arq5x-bedtools2/arq5x__bedtools2.dd57059/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-arq5x-bedtools2/arq5x__bedtools2.dd57059/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-arq5x-bedtools2/arq5x__bedtools2.dd57059/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-arq5x-bedtools2/arq5x__bedtools2.dd57059/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-arq5x-bedtools2/arq5x__bedtools2.dd57059/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/noborus__ov.b96c2ba/"><code>noborus__ov.b96c2ba</code></a></td>
+          <td>42.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>785/1854</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/hpjansson__chafa.dd4d4c1/"><code>hpjansson__chafa.dd4d4c1</code></a></td>
+          <td>42.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>811/1931</td>
+          <td>$0.00</td>
+          <td>49</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/cmatsuoka__figlet.202a0a8/"><code>cmatsuoka__figlet.202a0a8</code></a></td>
+          <td>41.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>358/872</td>
+          <td>$0.00</td>
+          <td>118</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/cheat__cheat.b8098dc/"><code>cheat__cheat.b8098dc</code></a></td>
+          <td>40.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>121/297</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/typst__typst.88356d0/"><code>typst__typst.88356d0</code></a></td>
+          <td>40.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>701/1724</td>
+          <td>$0.00</td>
+          <td>45</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/nikoladucak__caps-log.2cf2d1e/"><code>nikoladucak__caps-log.2cf2d1e</code></a></td>
+          <td>40.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>223/551</td>
+          <td>$4.51</td>
+          <td>68</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nikoladucak-caps-log/nikoladucak__caps-log.2cf2d1e/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nikoladucak-caps-log/nikoladucak__caps-log.2cf2d1e/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nikoladucak-caps-log/nikoladucak__caps-log.2cf2d1e/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nikoladucak-caps-log/nikoladucak__caps-log.2cf2d1e/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nikoladucak-caps-log/nikoladucak__caps-log.2cf2d1e/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/canop__broot.d6c798e/"><code>canop__broot.d6c798e</code></a></td>
+          <td>39.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>211/539</td>
+          <td>$0.00</td>
+          <td>26</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/foriequal0__git-trim.07c2f50/"><code>foriequal0__git-trim.07c2f50</code></a></td>
+          <td>37.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>192/509</td>
+          <td>$0.00</td>
+          <td>79</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-foriequal0-git-trim-attempt-2/foriequal0__git-trim.07c2f50/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-foriequal0-git-trim-attempt-2/foriequal0__git-trim.07c2f50/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-foriequal0-git-trim-attempt-2/foriequal0__git-trim.07c2f50/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-foriequal0-git-trim-attempt-2/foriequal0__git-trim.07c2f50/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-foriequal0-git-trim-attempt-2/foriequal0__git-trim.07c2f50/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mgechev__revive.201451e/"><code>mgechev__revive.201451e</code></a></td>
+          <td>37.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>270/727</td>
+          <td>$0.00</td>
+          <td>88</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/paradigmxyz__solar.5190d0e/"><code>paradigmxyz__solar.5190d0e</code></a></td>
+          <td>36.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>729/1978</td>
+          <td>$0.00</td>
+          <td>84</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/drew-alleman__datasurgeon.d257cee/"><code>drew-alleman__datasurgeon.d257cee</code></a></td>
+          <td>36.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>182/502</td>
+          <td>$4.01</td>
+          <td>71</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-drew-alleman-datasurgeon/drew-alleman__datasurgeon.d257cee/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/antonmedv__walk.bf802ef/"><code>antonmedv__walk.bf802ef</code></a></td>
+          <td>36.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>169/470</td>
+          <td>$0.00</td>
+          <td>40</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/svenstaro__genact.16f96e3/"><code>svenstaro__genact.16f96e3</code></a></td>
+          <td>35.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>83/232</td>
+          <td>$0.00</td>
+          <td>41</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/stranger6667__jsonschema.d52e881/"><code>stranger6667__jsonschema.d52e881</code></a></td>
+          <td>35.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1027/2933</td>
+          <td>$0.00</td>
+          <td>104</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/simeg__eureka.df3796c/"><code>simeg__eureka.df3796c</code></a></td>
+          <td>34.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>120/344</td>
+          <td>$0.00</td>
+          <td>54</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/kisielk__errcheck.dacab89/"><code>kisielk__errcheck.dacab89</code></a></td>
+          <td>34.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>118/341</td>
+          <td>$0.00</td>
+          <td>38</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tomarrell__wrapcheck.c058da1/"><code>tomarrell__wrapcheck.c058da1</code></a></td>
+          <td>33.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>162/480</td>
+          <td>$0.00</td>
+          <td>49</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/bensadeh__tailspin.6278437/"><code>bensadeh__tailspin.6278437</code></a></td>
+          <td>33.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>204/615</td>
+          <td>$0.00</td>
+          <td>48</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tree-sitter__tree-sitter.5e23cca/"><code>tree-sitter__tree-sitter.5e23cca</code></a></td>
+          <td>32.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>403/1232</td>
+          <td>$0.00</td>
+          <td>45</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/eliukblau__pixterm.1a93fd5/"><code>eliukblau__pixterm.1a93fd5</code></a></td>
+          <td>32.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>138/430</td>
+          <td>$0.00</td>
+          <td>62</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eliukblau-pixterm/eliukblau__pixterm.1a93fd5/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eliukblau-pixterm/eliukblau__pixterm.1a93fd5/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eliukblau-pixterm/eliukblau__pixterm.1a93fd5/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eliukblau-pixterm/eliukblau__pixterm.1a93fd5/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-eliukblau-pixterm/eliukblau__pixterm.1a93fd5/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ekzhang__bore.8e059cd/"><code>ekzhang__bore.8e059cd</code></a></td>
+          <td>30.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>120/394</td>
+          <td>$3.44</td>
+          <td>75</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ekzhang-bore/ekzhang__bore.8e059cd/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ekzhang-bore/ekzhang__bore.8e059cd/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ekzhang-bore/ekzhang__bore.8e059cd/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ekzhang-bore/ekzhang__bore.8e059cd/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ekzhang-bore/ekzhang__bore.8e059cd/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/stathissideris__ditaa.f2286c4/"><code>stathissideris__ditaa.f2286c4</code></a></td>
+          <td>29.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>179/609</td>
+          <td>$0.00</td>
+          <td>57</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/johnkerl__miller.8d85b46/"><code>johnkerl__miller.8d85b46</code></a></td>
+          <td>28.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>4147/14637</td>
+          <td>$0.00</td>
+          <td>41</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/zk-org__zk.10d93d5/"><code>zk-org__zk.10d93d5</code></a></td>
+          <td>26.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>297/1108</td>
+          <td>$0.00</td>
+          <td>44</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ys-l__flamelens.0b4dc33/"><code>ys-l__flamelens.0b4dc33</code></a></td>
+          <td>25.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>57/224</td>
+          <td>$0.00</td>
+          <td>46</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ivanceras__svgbob.6d00ad9/"><code>ivanceras__svgbob.6d00ad9</code></a></td>
+          <td>25.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>120/472</td>
+          <td>$4.53</td>
+          <td>71</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ivanceras-svgbob/ivanceras__svgbob.6d00ad9/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ivanceras-svgbob/ivanceras__svgbob.6d00ad9/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ivanceras-svgbob/ivanceras__svgbob.6d00ad9/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ivanceras-svgbob/ivanceras__svgbob.6d00ad9/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-ivanceras-svgbob/ivanceras__svgbob.6d00ad9/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ast-grep__ast-grep.dde0fe0/"><code>ast-grep__ast-grep.dde0fe0</code></a></td>
+          <td>20.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>181/882</td>
+          <td>$0.00</td>
+          <td>55</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/yoav-lavi__melody.f4af9b4/"><code>yoav-lavi__melody.f4af9b4</code></a></td>
+          <td>19.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>240/1205</td>
+          <td>$0.00</td>
+          <td>155</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jhspetersson__fselect.c3559ca/"><code>jhspetersson__fselect.c3559ca</code></a></td>
+          <td>19.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>603/3115</td>
+          <td>$0.00</td>
+          <td>68</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tarka__xcp.5e5b448/"><code>tarka__xcp.5e5b448</code></a></td>
+          <td>18.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>224/1184</td>
+          <td>$3.24</td>
+          <td>54</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-tarka-xcp/tarka__xcp.5e5b448/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-tarka-xcp/tarka__xcp.5e5b448/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-tarka-xcp/tarka__xcp.5e5b448/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-tarka-xcp/tarka__xcp.5e5b448/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-tarka-xcp/tarka__xcp.5e5b448/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/kyoh86__richgo.313114f/"><code>kyoh86__richgo.313114f</code></a></td>
+          <td>17.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>97/546</td>
+          <td>$2.38</td>
+          <td>43</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-kyoh86-richgo/kyoh86__richgo.313114f/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/danmar__cppcheck.0a5b103/"><code>danmar__cppcheck.0a5b103</code></a></td>
+          <td>16.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>347/2126</td>
+          <td>$0.00</td>
+          <td>28</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jgm__pandoc.5caad90/"><code>jgm__pandoc.5caad90</code></a></td>
+          <td>15.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>819/5228</td>
+          <td>$0.00</td>
+          <td>41</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/nukesor__pueue.8b9d6fe/"><code>nukesor__pueue.8b9d6fe</code></a></td>
+          <td>14.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>95/638</td>
+          <td>$2.50</td>
+          <td>44</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-nukesor-pueue/nukesor__pueue.8b9d6fe/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/tstack__lnav.ee34494/"><code>tstack__lnav.ee34494</code></a></td>
+          <td>14.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>139/990</td>
+          <td>$0.00</td>
+          <td>51</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/osgeo__gdal.0847f12/"><code>osgeo__gdal.0847f12</code></a></td>
+          <td>14.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>92/657</td>
+          <td>$0.00</td>
+          <td>56</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/samtools__samtools.aa823b5/"><code>samtools__samtools.aa823b5</code></a></td>
+          <td>13.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>192/1425</td>
+          <td>$0.00</td>
+          <td>45</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/parcel-bundler__lightningcss.aa2ed1e/"><code>parcel-bundler__lightningcss.aa2ed1e</code></a></td>
+          <td>12.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>339/2828</td>
+          <td>$3.96</td>
+          <td>74</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-parcel-bundler-lightningcss/parcel-bundler__lightningcss.aa2ed1e/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-parcel-bundler-lightningcss/parcel-bundler__lightningcss.aa2ed1e/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-parcel-bundler-lightningcss/parcel-bundler__lightningcss.aa2ed1e/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-parcel-bundler-lightningcss/parcel-bundler__lightningcss.aa2ed1e/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-parcel-bundler-lightningcss/parcel-bundler__lightningcss.aa2ed1e/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/pier-cli__pier.5e1bde9/"><code>pier-cli__pier.5e1bde9</code></a></td>
+          <td>10.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>69/692</td>
+          <td>$0.00</td>
+          <td>82</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/htop-dev__htop.523600b/"><code>htop-dev__htop.523600b</code></a></td>
+          <td>9.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>67/693</td>
+          <td>$0.00</td>
+          <td>57</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/ffmpeg__ffmpeg.360a402/"><code>ffmpeg__ffmpeg.360a402</code></a></td>
+          <td>8.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>269/3050</td>
+          <td>$0.00</td>
+          <td>54</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/php__php-src.c891263/"><code>php__php-src.c891263</code></a></td>
+          <td>8.8%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1254/14288</td>
+          <td>$0.00</td>
+          <td>64</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/antonmedv__fx.86d0d34/"><code>antonmedv__fx.86d0d34</code></a></td>
+          <td>8.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>176/2047</td>
+          <td>$0.00</td>
+          <td>47</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/duckdb__duckdb.bdb65ec/"><code>duckdb__duckdb.bdb65ec</code></a></td>
+          <td>8.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>466/5650</td>
+          <td>$0.00</td>
+          <td>40</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/hush-shell__hush.560c33a/"><code>hush-shell__hush.560c33a</code></a></td>
+          <td>7.2%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>87/1201</td>
+          <td>$4.04</td>
+          <td>56</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-hush-shell-hush/hush-shell__hush.560c33a/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-hush-shell-hush/hush-shell__hush.560c33a/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-hush-shell-hush/hush-shell__hush.560c33a/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-hush-shell-hush/hush-shell__hush.560c33a/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-hush-shell-hush/hush-shell__hush.560c33a/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/jqlang__jq.b33a763/"><code>jqlang__jq.b33a763</code></a></td>
+          <td>5.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>333/6072</td>
+          <td>$0.00</td>
+          <td>115</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/gromacs__gromacs.665ea4c/"><code>gromacs__gromacs.665ea4c</code></a></td>
+          <td>3.9%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>49/1245</td>
+          <td>$0.00</td>
+          <td>49</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/unhappychoice__gittype.34b72d0/"><code>unhappychoice__gittype.34b72d0</code></a></td>
+          <td>3.6%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status almost" title="1 evaluator warning(s)">warn 1</span></td>
+          <td>27/742</td>
+          <td>$3.00</td>
+          <td>59</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-unhappychoice-gittype/unhappychoice__gittype.34b72d0/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-unhappychoice-gittype/unhappychoice__gittype.34b72d0/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-unhappychoice-gittype/unhappychoice__gittype.34b72d0/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-unhappychoice-gittype/unhappychoice__gittype.34b72d0/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-unhappychoice-gittype/unhappychoice__gittype.34b72d0/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/rvben__rumdl.2d75c4d/"><code>rvben__rumdl.2d75c4d</code></a></td>
+          <td>2.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status almost" title="1 evaluator warning(s)">warn 1</span></td>
+          <td>91/3323</td>
+          <td>$4.96</td>
+          <td>56</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rvben-rumdl/rvben__rumdl.2d75c4d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rvben-rumdl/rvben__rumdl.2d75c4d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rvben-rumdl/rvben__rumdl.2d75c4d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rvben-rumdl/rvben__rumdl.2d75c4d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rvben-rumdl/rvben__rumdl.2d75c4d/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sclevine__yj.8016400/"><code>sclevine__yj.8016400</code></a></td>
+          <td>2.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>16/767</td>
+          <td>$0.00</td>
+          <td>34</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/hairyhenderson__gomplate.05eb3aa/"><code>hairyhenderson__gomplate.05eb3aa</code></a></td>
+          <td>2.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>60/2926</td>
+          <td>$0.00</td>
+          <td>58</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/google__brotli.b3dc9cc/"><code>google__brotli.b3dc9cc</code></a></td>
+          <td>1.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>6/441</td>
+          <td>$0.00</td>
+          <td>72</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/doxygen__doxygen.966d98e/"><code>doxygen__doxygen.966d98e</code></a></td>
+          <td>1.3%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status almost" title="1 evaluator warning(s)">warn 1</span></td>
+          <td>3/230</td>
+          <td>$0.00</td>
+          <td>61</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/mikefarah__yq.602586d/"><code>mikefarah__yq.602586d</code></a></td>
+          <td>1.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>23/2000</td>
+          <td>$0.00</td>
+          <td>43</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/osgeo__proj.75d455c/"><code>osgeo__proj.75d455c</code></a></td>
+          <td>1.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>52/5319</td>
+          <td>$0.00</td>
+          <td>46</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/dandavison__delta.acd758f/"><code>dandavison__delta.acd758f</code></a></td>
+          <td>0.7%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>7/950</td>
+          <td>$0.00</td>
+          <td>81</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sqlite__sqlite.839433d/"><code>sqlite__sqlite.839433d</code></a></td>
+          <td>0.5%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>62/13514</td>
+          <td>$0.00</td>
+          <td>75</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sigoden__argc.04a08f1/"><code>sigoden__argc.04a08f1</code></a></td>
+          <td>0.4%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>4/995</td>
+          <td>$0.00</td>
+          <td>76</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/universal-ctags__ctags.243595e/"><code>universal-ctags__ctags.243595e</code></a></td>
+          <td>0.1%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>3/2258</td>
+          <td>$0.00</td>
+          <td>62</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/filosottile__age.706dfc1/"><code>filosottile__age.706dfc1</code></a></td>
+          <td>0.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status open" title="compile_failed">error</span></td>
+          <td>0/676</td>
+          <td>$5.20</td>
+          <td>80</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-filosottile-age/filosottile__age.706dfc1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-filosottile-age/filosottile__age.706dfc1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-filosottile-age/filosottile__age.706dfc1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-filosottile-age/filosottile__age.706dfc1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-filosottile-age/filosottile__age.706dfc1/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/bellard__quickjs.d7ae12a/"><code>bellard__quickjs.d7ae12a</code></a></td>
+          <td>0.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>0/3034</td>
+          <td>$0.00</td>
+          <td>76</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/alecthomas__chroma.8d04def/"><code>alecthomas__chroma.8d04def</code></a></td>
+          <td>0.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>0/503</td>
+          <td>$0.00</td>
+          <td>57</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td><a href="../../task/sharkdp__hyperfine.327d5f4/"><code>sharkdp__hyperfine.327d5f4</code></a></td>
+          <td>0.0%</td>
+          <td>no</td>
+          <td>no</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>0/291</td>
+          <td>$0.00</td>
+          <td>42</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

@@ -145,7 +145,7 @@
       <div class="metric"><strong>262</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>87.0%</strong><span>official best score</span></div>
       <div class="metric"><strong>57.3%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.13h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>50.8%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>133/262</td>
+          <td>$3.02</td>
+          <td>59</td>
+          <td>0.15h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>49.2%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>129/262</td>
+          <td>$1.91</td>
+          <td>37</td>
+          <td>0.14h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/usage-audit.json">usage audit</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>57.3% from <strong>150/262</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 175, passed: 234, skipped: 4.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch, terminal rendering mismatch.</p>
         <ul>
           <li><code>222dd9bb6f48</code> eval.tests.test_basic.test_no_arguments_requires_git_repo <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>222dd9bb6f48</code> eval.tests.test_tui_startup.test_tui_navigation_keys <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-trasta298-keifu/trasta298__keifu.3331426/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>49.2% from <strong>129/262</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 192, passed: 214, skipped: 4.</p>
+        <p class="muted">Agent trace: 75 shell command(s), 49 executable-observation command(s), 4 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch, terminal rendering mismatch.</p>
+        <ul>
+          <li><code>222dd9bb6f48</code> eval.tests.test_basic.test_no_arguments_requires_git_repo <span class="muted">(failure)</span></li>
+
+
+          <li><code>222dd9bb6f48</code> eval.tests.test_tui_startup.test_tui_starts_and_quits <span class="muted">(failure)</span></li>
+
+
+          <li><code>222dd9bb6f48</code> eval.tests.test_tui_startup.test_tui_help_toggle <span class="muted">(failure)</span></li>
+
+
+          <li><code>222dd9bb6f48</code> eval.tests.test_tui_startup.test_tui_with_branches <span class="muted">(failure)</span></li>
+
+
+          <li><code>222dd9bb6f48</code> eval.tests.test_tui_startup.test_tui_refresh_command <span class="muted">(failure)</span></li>
+
+
+          <li><code>222dd9bb6f48</code> eval.tests.test_tui_startup.test_tui_with_merge_commit <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-trasta298-keifu/trasta298__keifu.3331426/usage-audit.json">usage audit</a></p>
       </div>
 
   </div>

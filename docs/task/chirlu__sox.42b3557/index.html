@@ -145,7 +145,7 @@
       <div class="metric"><strong>1202</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>38.9%</strong><span>official best score</span></div>
       <div class="metric"><strong>50.3%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.27h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>49.3%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>592/1202</td>
+          <td>$3.82</td>
+          <td>44</td>
+          <td>0.19h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>42.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>505/1202</td>
+          <td>$3.22</td>
+          <td>38</td>
+          <td>0.19h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>50.3% from <strong>605/1202</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 598, passed: 636, skipped: 26.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
         <ul>
           <li><code>86f3178a4b28</code> eval.tests.test_effects.test_gain_reduces_volume <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>86f3178a4b28</code> eval.tests.test_error_handling.test_missing_effect_argument <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-chirlu-sox/chirlu__sox.42b3557/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>49.3% from <strong>592/1202</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 611, passed: 623, skipped: 26.</p>
+        <p class="muted">Agent trace: 87 shell command(s), 61 executable-observation command(s), 5 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
+        <ul>
+          <li><code>86f3178a4b28</code> eval.tests.test_audio_formats.test_add_comment_aiff <span class="muted">(failure)</span></li>
+
+
+          <li><code>86f3178a4b28</code> eval.tests.test_audio_formats.test_endian_big <span class="muted">(failure)</span></li>
+
+
+          <li><code>86f3178a4b28</code> eval.tests.test_audio_formats.test_au_ulaw <span class="muted">(failure)</span></li>
+
+
+          <li><code>86f3178a4b28</code> eval.tests.test_effects.test_highpass_filter <span class="muted">(failure)</span></li>
+
+
+          <li><code>86f3178a4b28</code> eval.tests.test_effects.test_echos_effect <span class="muted">(failure)</span></li>
+
+
+          <li><code>86f3178a4b28</code> eval.tests.test_effects.test_dcshift_effect <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-chirlu-sox/chirlu__sox.42b3557/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

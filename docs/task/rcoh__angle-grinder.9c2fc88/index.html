@@ -145,7 +145,7 @@
       <div class="metric"><strong>1130</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>73.3%</strong><span>official best score</span></div>
       <div class="metric"><strong>62.4%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.38h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>55.8%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>630/1130</td>
+          <td>$5.22</td>
+          <td>90</td>
+          <td>0.26h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>12.6%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>142/1130</td>
+          <td>$5.07</td>
+          <td>74</td>
+          <td>0.25h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>62.4% from <strong>705/1130</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 428, passed: 715.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>9eded8203941</code> eval.tests.test_agrind.test_no_args_returns_error <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>9eded8203941</code> eval.tests.test_agrind.test_count_distinct_missing_arg_error <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>55.8% from <strong>630/1130</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 503, passed: 640.</p>
+        <p class="muted">Agent trace: 194 shell command(s), 156 executable-observation command(s), 10 build command(s), 1 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>9eded8203941</code> eval.tests.test_agrind.test_parse_operator_with_from <span class="muted">(failure)</span></li>
+
+
+          <li><code>9eded8203941</code> eval.tests.test_agrind.test_no_args_returns_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>9eded8203941</code> eval.tests.test_agrind.test_avg_alias_for_average <span class="muted">(failure)</span></li>
+
+
+          <li><code>9eded8203941</code> eval.tests.test_agrind.test_sort_by_multiple_fields <span class="muted">(failure)</span></li>
+
+
+          <li><code>9eded8203941</code> eval.tests.test_agrind.test_output_json_sorted_agg <span class="muted">(failure)</span></li>
+
+
+          <li><code>9eded8203941</code> eval.tests.test_agrind.test_json_from_field <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-rcoh-angle-grinder/rcoh__angle-grinder.9c2fc88/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

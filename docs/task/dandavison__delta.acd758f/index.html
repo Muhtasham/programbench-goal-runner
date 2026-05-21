@@ -145,7 +145,7 @@
       <div class="metric"><strong>950</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>38.9%</strong><span>official best score</span></div>
       <div class="metric"><strong>35.9%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.20h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>16.2%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>154/950</td>
+          <td>$0.00</td>
+          <td>80</td>
+          <td>0.26h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>0.7%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>7/950</td>
+          <td>$0.00</td>
+          <td>81</td>
+          <td>0.19h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/usage-audit.json">usage audit</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>35.9% from <strong>341/950</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 662, passed: 526.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>3c702ddd0c23</code> tests.test_ansi_iterator.test_rgb_foreground_color <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>3c702ddd0c23</code> tests.test_ansi_gaps.test_accumulated_attributes <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-dandavison-delta/dandavison__delta.acd758f/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>0.7% from <strong>7/950</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 1151, passed: 37.</p>
+        <p class="muted">Agent trace: 151 shell command(s), 123 executable-observation command(s), 9 build command(s), 0 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
+        <ul>
+          <li><code>3c702ddd0c23</code> tests.test_ansi_gaps.test_accumulated_attributes <span class="muted">(failure)</span></li>
+
+
+          <li><code>3c702ddd0c23</code> tests.test_ansi_gaps.test_csi_clear_sequences_stripped <span class="muted">(failure)</span></li>
+
+
+          <li><code>3c702ddd0c23</code> tests.test_ansi_iterator.test_mixed_text_and_ansi <span class="muted">(failure)</span></li>
+
+
+          <li><code>3c702ddd0c23</code> tests.test_bat_output_gaps.test_delta_as_pager_fatal_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>3c702ddd0c23</code> tests.test_ansi_iterator.test_rgb_foreground_color <span class="muted">(failure)</span></li>
+
+
+          <li><code>3c702ddd0c23</code> tests.test_diff_stat.test_narrow_stat_width <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-dandavison-delta/dandavison__delta.acd758f/usage-audit.json">usage audit</a></p>
       </div>
 
   </div>

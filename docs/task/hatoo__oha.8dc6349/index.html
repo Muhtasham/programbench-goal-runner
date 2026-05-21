@@ -145,7 +145,7 @@
       <div class="metric"><strong>899</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>78.6%</strong><span>official best score</span></div>
       <div class="metric"><strong>83.9%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.28h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>69.0%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>620/899</td>
+          <td>$0.00</td>
+          <td>51</td>
+          <td>0.14h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>57.8%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>520/899</td>
+          <td>$0.00</td>
+          <td>53</td>
+          <td>0.19h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>83.9% from <strong>754/899</strong> ProgramBench-scored tests. Raw public eval statuses: error: 5, failure: 185, passed: 899, skipped: 6.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch, interactive terminal behavior mismatch.</p>
         <ul>
           <li><code>dd30c5f58032</code> tests.test_basic.test_missing_url_error <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>dd30c5f58032</code> tests.test_errors.test_invalid_http_version <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-hatoo-oha/hatoo__oha.8dc6349/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>69.0% from <strong>620/899</strong> ProgramBench-scored tests. Raw public eval statuses: error: 11, failure: 341, passed: 737, skipped: 6.</p>
+        <p class="muted">Agent trace: 70 shell command(s), 42 executable-observation command(s), 8 build command(s), 1 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>dd30c5f58032</code> tests.test_basic.test_invalid_url_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>dd30c5f58032</code> tests.test_debug.test_db_url_option <span class="muted">(failure)</span></li>
+
+
+          <li><code>dd30c5f58032</code> tests.test_advanced.test_mixed_success_failure <span class="muted">(failure)</span></li>
+
+
+          <li><code>dd30c5f58032</code> tests.test_edge_cases.test_request_count_as_float <span class="muted">(failure)</span></li>
+
+
+          <li><code>dd30c5f58032</code> tests.test_basic.test_missing_url_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>dd30c5f58032</code> tests.test_errors.test_invalid_url_format <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-hatoo-oha/hatoo__oha.8dc6349/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

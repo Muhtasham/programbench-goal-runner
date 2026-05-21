@@ -145,7 +145,7 @@
       <div class="metric"><strong>1182</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>90.7%</strong><span>official best score</span></div>
       <div class="metric"><strong>88.8%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.25h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>81.9%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>968/1182</td>
+          <td>$2.55</td>
+          <td>48</td>
+          <td>0.17h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>74.5%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>881/1182</td>
+          <td>$3.35</td>
+          <td>57</td>
+          <td>0.19h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>88.8% from <strong>1050/1182</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 133, passed: 1183, skipped: 1.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch, interactive terminal behavior mismatch.</p>
         <ul>
           <li><code>e75089074c1a</code> tests.test_basic.test_no_arguments <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>8b960294e03b</code> tests.test_count.test_count_help <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-burntsushi-xsv/burntsushi__xsv.f430466/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>81.9% from <strong>968/1182</strong> ProgramBench-scored tests. Raw public eval statuses: error: 1, failure: 218, passed: 1097, skipped: 1.</p>
+        <p class="muted">Agent trace: 40 shell command(s), 27 executable-observation command(s), 5 build command(s), 1 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
+        <ul>
+          <li><code>e75089074c1a</code> tests.test_basic.test_no_arguments <span class="muted">(failure)</span></li>
+
+
+          <li><code>e75089074c1a</code> tests.test_basic.test_invalid_command <span class="muted">(failure)</span></li>
+
+
+          <li><code>e75089074c1a</code> tests.test_edge_cases.test_invalid_delimiter <span class="muted">(failure)</span></li>
+
+
+          <li><code>e75089074c1a</code> tests.test_edge_cases.test_conflicting_slice_options <span class="muted">(failure)</span></li>
+
+
+          <li><code>e75089074c1a</code> tests.test_frequency.test_frequency_no_nulls <span class="muted">(failure)</span></li>
+
+
+          <li><code>e75089074c1a</code> tests.test_index.test_index_with_output <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-burntsushi-xsv/burntsushi__xsv.f430466/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

@@ -1,0 +1,1428 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "executable_hash": "1d8f2041012c49076c2ce0104cd35df439a95f5a26f43ac36cd3cd44d2b6d128",
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.15336335299070925
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.1187495409976691
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.11915420001605526
+    },
+    {
+      "branch": "",
+      "command": "mv ./executable /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.1225369040039368
+    },
+    {
+      "branch": "",
+      "command": "sha256sum /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 117,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.12246610602596775
+    },
+    {
+      "branch": "",
+      "command": "pip3 install -q --disable-pip-version-check pytest-rerunfailures",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 222,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6636880669975653
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.09919592505320907
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12724382494343445
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1160949130426161
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12620216998038813
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 171536,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 21.682904944987968
+    },
+    {
+      "branch": "9eded8203941",
+      "command": "docker cp e8857a87ef85a022d89ed330d5e7924341bf1854d9414e586145c62ce31dc8d0:/workspace/eval/results.xml /tmp/tmp99d8v9_h.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 103664,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03784729796461761
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.14114942599553615
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12588349095312878
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11353785498067737
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1280332920141518
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 369587,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 62.57187426200835
+    },
+    {
+      "branch": "06dabfabaea7",
+      "command": "docker cp fe6479ef3c33c19cfe61b48489799f3b7f6445732814e86a7dfa17782cc7b6b3:/workspace/eval/results.xml /tmp/tmpnf8xx0h_.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 197837,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03662802395410836
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "failure": 503,
+    "passed": 640
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "9eded8203941",
+    "06dabfabaea7"
+  ],
+  "test_records": 1143,
+  "test_results": [
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_agrind.test_parse_operator_with_from",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.155
+      },
+      "name": "eval.tests.test_agrind.test_no_args_returns_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.16
+      },
+      "name": "eval.tests.test_agrind.test_avg_alias_for_average",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.116
+      },
+      "name": "eval.tests.test_agrind.test_sort_by_multiple_fields",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "eval.tests.test_agrind.test_output_json_sorted_agg",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.102
+      },
+      "name": "eval.tests.test_agrind.test_json_from_field",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "eval.tests.test_agrind.test_nonexistent_file_returns_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "eval.tests.test_agrind.test_alias_nginx",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.093
+      },
+      "name": "eval.tests.test_agrind.test_count_distinct_missing_arg_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.112
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_unterminated_string",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_agrind.test_timeslice_missing_duration_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_agrind.test_where_if_function_not_boolean",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_agrind.test_alias_apache",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.102
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_no_suggestions_for_operators",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "eval.tests.test_agrind.test_split_from_field_with_negative_index",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.167
+      },
+      "name": "eval.tests.test_agrind.test_parse_pattern_mismatch",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_agrind.test_total_as_aggregate",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.171
+      },
+      "name": "eval.tests.test_agrind.test_json_invalid_input_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "eval.tests.test_agrind.test_parse_failure_invalid_operator",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.091
+      },
+      "name": "eval.tests.test_agrind.test_count_distinct_typo_suggestion",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.106
+      },
+      "name": "eval.tests.test_agrind.test_alias_no_alias_flag_disables",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_double_from",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_agrind.test_no_value_for_key_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "eval.tests.test_agrind.test_substring_end_less_than_start_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_agrind.test_alias_invalid_pipeline_in_alias",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_agrind.test_split_with_negative_index",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_agrind.test_parseDate_invalid_format",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.1
+      },
+      "name": "eval.tests.test_agrind.test_length_array",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_agrind.test_fields_except_multiple",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_agrind.test_alias_k8s_ingress",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_agrind.test_default_limit_no_number",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_agrind.test_invalid_alias_warning",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_agrind.test_func_arg_error_abs_too_many",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_agrind.test_alias_no_alias_prevents_user_aliases",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.174
+      },
+      "name": "eval.tests.test_agrind.test_parse_failure_unknown_operator",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_missing_field_name",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_mismatched_captures",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.124
+      },
+      "name": "eval.tests.test_agrind.test_parse_regex_missing_operand_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_agrind.test_nested_escaped_field",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.101
+      },
+      "name": "eval.tests.test_agrind.test_timeslice_with_timeslice_comparison",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.093
+      },
+      "name": "eval.tests.test_agrind.test_length_object",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "eval.tests.test_agrind.test_json_output_with_bool_sort",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.094
+      },
+      "name": "eval.tests.test_agrind.test_where_error_expected_numeric",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "eval.tests.test_agrind.test_func_too_many_args_string1",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.109
+      },
+      "name": "eval.tests.test_agrind.test_array_display_in_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.088
+      },
+      "name": "eval.tests.test_agrind.test_json_output_with_datetime_sort",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_agrind.test_float_display_in_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 71,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_agrind.test_json_output_duration_value",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_agrind.test_func_arg_error_atan2_too_few",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_agrind.test_not_an_agg_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "eval.tests.test_agrind.test_alias_dir_nonexistent_fails",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.132
+      },
+      "name": "eval.tests.test_agrind.test_type_error_where_non_bool",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_pattern_field_mismatch",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.096
+      },
+      "name": "eval.tests.test_agrind.test_sort_by_multiple_fields_asc",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_agrind.test_json_output_sort_with_null",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.141
+      },
+      "name": "eval.tests.test_agrind.test_operator_error_reporting",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.09
+      },
+      "name": "eval.tests.test_agrind.test_missing_field_in_where",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.129
+      },
+      "name": "eval.tests.test_agrind.test_duration_display",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_agrind.test_bool_display_in_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_agrind.test_obj_display_in_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_agrind.test_datetime_add_duration_via_subtraction",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.109
+      },
+      "name": "eval.tests.test_agrind.test_float_float_addition",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_agrind.test_is_empty_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.166
+      },
+      "name": "eval.tests.test_agrind.test_is_blank_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.124
+      },
+      "name": "eval.tests.test_agrind.test_where_no_condition_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_agrind.test_not_an_agg_suggestion",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_agrind.test_limit_zero_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "eval.tests.test_agrind.test_data_sort_types_mixed",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.092
+      },
+      "name": "eval.tests.test_agrind.test_json_serialization_float",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.093
+      },
+      "name": "eval.tests.test_agrind.test_data_duration_sort",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_agrind.test_json_serialization_bool",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_agrind.test_no_alias_with_alias_dir_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_single_quoted_string",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "eval.tests.test_agrind.test_duration_in_error_message",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_agrind.test_datetime_display_in_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_agrind.test_length_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "eval.tests.test_agrind.test_is_null_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_agrind.test_contains_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.158
+      },
+      "name": "eval.tests.test_agrind.test_is_numeric_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 71,
+        "message_redacted": true,
+        "time": 0.166
+      },
+      "name": "eval.tests.test_agrind.test_json_serialization_duration",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.132
+      },
+      "name": "eval.tests.test_agrind.test_limit_float_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.152
+      },
+      "name": "eval.tests.test_agrind.test_now_with_arg_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 67,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "eval.tests.test_agrind.test_data_large_json_serialization",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_agrind.test_string2_wrong_arg_count",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.102
+      },
+      "name": "eval.tests.test_agrind.test_invalid_output_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.109
+      },
+      "name": "eval.tests.test_agrind.test_empty_format_string_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 71,
+        "message_redacted": true,
+        "time": 0.096
+      },
+      "name": "eval.tests.test_agrind.test_data_duration_serialization",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_agrind.test_duration_plus_duration",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_agrind.test_timeslice_non_date_input",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.148
+      },
+      "name": "eval.tests.test_agrind.test_where_with_array_as_object_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.127
+      },
+      "name": "eval.tests.test_agrind.test_where_with_index_out_of_range",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "eval.tests.test_agrind.test_parse_hex_invalid_string",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "eval.tests.test_agrind.test_where_with_non_bool_int_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.111
+      },
+      "name": "eval.tests.test_agrind.test_duration_duration_subtraction",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.164
+      },
+      "name": "eval.tests.test_agrind.test_where_array_index_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "eval.tests.test_agrind.test_type_ranking_duration_obj",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_agrind.test_where_with_function_call_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.164
+      },
+      "name": "eval.tests.test_agrind.test_cant_supply_both_output_and_format",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_agrind.test_invalid_alias_toml_parse",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_agrind.test_split_with_empty_parens",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "eval.tests.test_agrind.test_sort_by_field_desc",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.1
+      },
+      "name": "eval.tests.test_agrind.test_where_with_obj_as_index",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "eval.tests.test_agrind.test_parse_error_missing_operand",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_agrind.test_duration_minus_duration",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "eval.tests.test_agrind.test_datetime_minus_duration",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_agrind.test_int_times_duration",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.173
+      },
+      "name": "eval.tests.test_agrind.test_duration_times_int",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_agrind.test_duration_divide_int",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.154
+      },
+      "name": "eval.tests.test_agrind.test_duration_plus_datetime",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_agrind.test_p50_unterminated",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.151
+      },
+      "name": "eval.tests.test_agrind.test_duration_sort_order",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_agrind.test_sum_with_unterminated_parens",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "eval.tests.test_agrind.test_unterminated_function_call",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_agrind.test_sort_by_ascending_keyword",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "eval.tests.test_agrind.test_timeslice_without_parens",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "eval.tests.test_agrind.test_sort_by_field_descending_keyword",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "eval.tests.test_agrind.test_error_path_in_parse_alias_with_template_error",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_agrind.test_count_alias_apache",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.155
+      },
+      "name": "eval.tests.test_agrind.test_json_from_missing_expression",
+      "status": "failure"
+    },
+    {
+      "branch": "9eded8203941",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_agrind.test_logfmt_from_missing_expression",
+      "status": "failure"
+    }
+  ],
+  "test_results_omitted": 383,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

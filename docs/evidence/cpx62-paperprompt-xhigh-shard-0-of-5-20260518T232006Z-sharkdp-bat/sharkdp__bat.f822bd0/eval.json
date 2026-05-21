@@ -1,0 +1,1429 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "executable_hash": "be89ffe1b6e494f645e53e68a17ccc15bf6ec2d430d63bbcc9a58d3547e0932d",
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.17472116998396814
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.10675101896049455
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.1076782540185377
+    },
+    {
+      "branch": "",
+      "command": "mv ./executable /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.09751078498084098
+    },
+    {
+      "branch": "",
+      "command": "sha256sum /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 117,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.12237245700089261
+    },
+    {
+      "branch": "",
+      "command": "pip3 install -q --disable-pip-version-check pytest-rerunfailures",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 222,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6432725609629415
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11931323498720303
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12934209703234956
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.126973595994059
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11514009401435032
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 140417,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 18.502923722029664
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "command": "docker cp 2c02986ef20f1765995e6393f560e371b33d08f1f4dcec7e0e32d971631e305f:/workspace/eval/results.xml /tmp/tmpp42t2aj5.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 87388,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.021825272007845342
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12319053598912433
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11726545600686222
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.08570470503764227
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.09839431499131024
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 338759,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 52.4917951610405
+    },
+    {
+      "branch": "5d15815af469",
+      "command": "docker cp 91c4cd1e2b0a31fcf8d1cce39c9c2d00fc6a5ea1540aa4e1beeaeb9b887625c8:/workspace/eval/results.xml /tmp/tmpelzpf4ob.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 151890,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03655550896655768
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "failure": 447,
+    "passed": 493,
+    "skipped": 39
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "0fcd4ac3ed40",
+    "5d15815af469"
+  ],
+  "test_records": 979,
+  "test_results": [
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_bat.test_concatenate_file_stdin_file",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.14
+      },
+      "name": "eval.tests.test_bat.test_no_args_reads_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "eval.tests.test_bat.test_multiple_line_ranges",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "eval.tests.test_bat.test_style_header_filesize",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "eval.tests.test_bat.test_file_name_option",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.102
+      },
+      "name": "eval.tests.test_bat.test_quiet_empty_nonempty",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "eval.tests.test_bat.test_tabs_option",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_bat.test_bat_opts_env",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.1
+      },
+      "name": "eval.tests.test_bat.test_generate_config_file",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_bat.test_config_file_with_bat_config_path",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.084
+      },
+      "name": "eval.tests.test_bat.test_shebang_detection",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.084
+      },
+      "name": "eval.tests.test_bat.test_rule_between_files",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.11
+      },
+      "name": "eval.tests.test_bat.test_binary_file_shows_warning_in_decorated",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.082
+      },
+      "name": "eval.tests.test_bat.test_stdin_with_file_name_for_syntax",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "eval.tests.test_bat.test_invalid_map_syntax_format",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.111
+      },
+      "name": "eval.tests.test_bat.test_list_themes_colored",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "eval.tests.test_bat.test_stdin_with_dash",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_bat.test_strip_ansi_auto_strips_for_non_plain_text",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "eval.tests.test_bat.test_paging_never_long_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_bat.test_file_name_affects_syntax",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.106
+      },
+      "name": "eval.tests.test_bat.test_bat_tabs_env",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.128
+      },
+      "name": "eval.tests.test_bat.test_ansi_with_word_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_bat.test_multiple_file_names_mismatch",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_bat.test_style_add_component",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "eval.tests.test_bat.test_show_all_control_chars_unicode",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.1
+      },
+      "name": "eval.tests.test_bat.test_ansi_hyperlink_wrapping",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "eval.tests.test_bat.test_diff_with_context",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.11
+      },
+      "name": "eval.tests.test_bat.test_show_all_unicode_escape",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.094
+      },
+      "name": "eval.tests.test_bat.test_show_all_tab_markers",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.088
+      },
+      "name": "eval.tests.test_bat.test_invalid_fallback_syntax",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_bat.test_cache_clear_with_existing_files",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_bat.test_dim_italic_underline_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.109
+      },
+      "name": "eval.tests.test_bat.test_stdin_implicit",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "eval.tests.test_bat.test_strip_ansi_auto_keeps_for_plain_text",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "eval.tests.test_bat.test_strip_ansi_always",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.145
+      },
+      "name": "eval.tests.test_bat.test_config_file_used",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_bat.test_underline_color_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "eval.tests.test_bat.test_ansi_passthrough_with_character_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_bat.test_multiple_file_names",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_bat.test_ansi_sgr_wrapping",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "eval.tests.test_bat.test_show_all_control_chars_caret",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_bat.test_ansi_sgr_bold_wrapping",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.091
+      },
+      "name": "eval.tests.test_bat.test_show_all_invalid_utf8",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "eval.tests.test_bat.test_line_numbers_continuation_lines",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.113
+      },
+      "name": "eval.tests.test_bat.test_binary_warning_is_shown_in_tty_like_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.091
+      },
+      "name": "eval.tests.test_bat.test_invalid_pager_bat",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.089
+      },
+      "name": "eval.tests.test_bat.test_stdin_no_filename_in_header",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_bat.test_background_color_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_bat.test_strip_ansi_never",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "eval.tests.test_bat.test_nf_escape_sequence_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_bat.test_osc_hyperlink_with_bel_termination_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.154
+      },
+      "name": "eval.tests.test_bat.test_bat_config_dir",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_bat.test_cache_build_with_acknowledgements",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "eval.tests.test_bat.test_line_range_too_many_colons",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.103
+      },
+      "name": "eval.tests.test_bat.test_show_all_with_ansi_and_tabs",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_bat.test_show_all_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_bat.test_cache_build",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_bat.test_ansi_bold_italic_underline_wrapping",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.107
+      },
+      "name": "eval.tests.test_bat.test_error_serde_yaml",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.095
+      },
+      "name": "eval.tests.test_bat.test_bat_config_path_for_config_file",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.122
+      },
+      "name": "eval.tests.test_bat.test_list_themes_colored_shows_preview",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.097
+      },
+      "name": "eval.tests.test_bat.test_show_all_with_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.109
+      },
+      "name": "eval.tests.test_bat.test_file_name_sets_description_title",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_bat.test_bright_foreground_color_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.132
+      },
+      "name": "eval.tests.test_bat.test_unknown_escape_sequence_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_bat.test_cache_build_blank",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.141
+      },
+      "name": "eval.tests.test_bat.test_invalid_yaml_cache_metadata",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.129
+      },
+      "name": "eval.tests.test_bat.test_set_terminal_title_multiple_files",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "eval.tests.test_bat.test_set_terminal_title_with_pager",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.101
+      },
+      "name": "eval.tests.test_bat.test_incompatible_cache_version",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.083
+      },
+      "name": "eval.tests.test_bat.test_line_range_up_to_from_end",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.088
+      },
+      "name": "eval.tests.test_bat.test_line_range_invalid_negative_plus",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.101
+      },
+      "name": "eval.tests.test_bat.test_cache_build_with_permissive_license",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_bat.test_list_themes_colored_further_info",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.096
+      },
+      "name": "eval.tests.test_bat.test_highlight_with_ansi_theme_full",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_bat.test_generate_config_file_exists_no_overwrite",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "eval.tests.test_bat.test_csi_cursor_movement_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.081
+      },
+      "name": "eval.tests.test_bat.test_truecolor_sgr_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "eval.tests.test_bat.test_unsupported_sgr_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "eval.tests.test_bat.test_bright_background_color_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_bat.test_line_range_negative_context",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_bat.test_bat_config_dir_overrides",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.141
+      },
+      "name": "eval.tests.test_bat.test_line_range_from_n_to_offset_from_end",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "eval.tests.test_bat.test_cache_build_with_license_files",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_bat.test_paging_always_with_echo_pager",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_bat.test_pager_not_found_falls_back_to_stdout",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_bat.test_generate_config_existing_file",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.087
+      },
+      "name": "eval.tests.test_bat.test_ansi_osc_non_hyperlink_wrap_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.112
+      },
+      "name": "eval.tests.test_bat.test_ansi_csi_cursor_movement_in_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.098
+      },
+      "name": "eval.tests.test_bat.test_ansi_256_color_non_5_2",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.086
+      },
+      "name": "eval.tests.test_bat.test_nf_charset_sequence",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.128
+      },
+      "name": "eval.tests.test_bat.test_osc_title_sequence_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.111
+      },
+      "name": "eval.tests.test_bat.test_header_filesize_with_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "eval.tests.test_bat.test_hyperlink_end_osc_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.269
+      },
+      "name": "eval.tests.test_bat.test_diff_context_option",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.116
+      },
+      "name": "eval.tests.test_bat.test_strip_ansi_auto_mode",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_bat.test_file_name_title_used_in_header",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "eval.tests.test_bat.test_cache_build_with_integrated_themes",
+      "status": "failure"
+    },
+    {
+      "branch": "0fcd4ac3ed40",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.142
+      },
+      "name": "eval.tests.test_bat.test_ansi_nf_sequence_non_paren_wrap",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "tests.test_cache.test_cache_invalid_syntax_file_error",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "tests.test_core.test_header_filesize_only_without_filename",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 99,
+        "message_redacted": true,
+        "time": 0.125
+      },
+      "name": "tests.test_cache.test_cache_empty_source_directories",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "tests.test_config.test_bat_opts_empty_string",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "tests.test_config.test_config_with_map_syntax",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.165
+      },
+      "name": "tests.test_core.test_multiple_files_with_rule_separator",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.171
+      },
+      "name": "tests.test_config.test_bat_tabs_env_variable_8_spaces",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.193
+      },
+      "name": "tests.test_diff.test_diff_multiple_hunks_in_one_file",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 78,
+        "message_redacted": true,
+        "time": 0.187
+      },
+      "name": "tests.test_diff.test_diff_shows_modified_lines_only",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.182
+      },
+      "name": "tests.test_diff.test_diff_staged_vs_working_directory",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.169
+      },
+      "name": "tests.test_config.test_bat_paging_env_variable",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.212
+      },
+      "name": "tests.test_decorations_gaps.test_git_changes_with_wrap_continuation",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "tests.test_cache.test_cache_build_custom_source",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "tests.test_core.test_language_explicit_specification",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "tests.test_core.test_stdin_with_file_name_header",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.103
+      },
+      "name": "tests.test_core.test_snip_marker_between_discontinuous_ranges",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "tests.test_cache.test_cache_multiple_syntaxes",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.11
+      },
+      "name": "tests.test_config.test_config_file_flag_shows_path",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "tests.test_cache.test_cache_clear_removes_files",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 43,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "tests.test_config.test_generate_config_file_creates_file",
+      "status": "failure"
+    },
+    {
+      "branch": "5d15815af469",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.145
+      },
+      "name": "tests.test_config.test_bat_opts_env_variable",
+      "status": "failure"
+    }
+  ],
+  "test_results_omitted": 366,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

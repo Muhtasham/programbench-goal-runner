@@ -145,7 +145,7 @@
       <div class="metric"><strong>709</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>93.1%</strong><span>official best score</span></div>
       <div class="metric"><strong>87.6%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.23h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>87.4%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>620/709</td>
+          <td>$0.00</td>
+          <td>59</td>
+          <td>0.20h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>81.9%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>581/709</td>
+          <td>$0.00</td>
+          <td>50</td>
+          <td>0.15h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/usage-audit.json">usage audit</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>87.6% from <strong>621/709</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 102, passed: 891, skipped: 9.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch, interactive terminal behavior mismatch.</p>
         <ul>
           <li><code>c2599e7591b2</code> eval.tests.test_interactive_tmux.test_interactive_launches_with_tmux <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>c2599e7591b2</code> eval.tests.test_stress_coverage.test_aggregate_with_all_format_options <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-byron-dua-cli/byron__dua-cli.8570c15/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>81.9% from <strong>581/709</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 155, passed: 838, skipped: 9.</p>
+        <p class="muted">Agent trace: 141 shell command(s), 118 executable-observation command(s), 4 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>c2599e7591b2</code> eval.tests.test_error_paths.test_invalid_arguments <span class="muted">(failure)</span></li>
+
+
+          <li><code>c2599e7591b2</code> eval.tests.test_error_conditions.test_invalid_thread_count <span class="muted">(failure)</span></li>
+
+
+          <li><code>c2599e7591b2</code> eval.tests.test_extreme_coverage.test_completions_detailed_output <span class="muted">(failure)</span></li>
+
+
+          <li><code>c2599e7591b2</code> eval.tests.test_extreme_coverage.test_symlink_combinations <span class="muted">(failure)</span></li>
+
+
+          <li><code>c2599e7591b2</code> eval.tests.test_interactive_tmux.test_interactive_with_no_entry_check <span class="muted">(failure)</span></li>
+
+
+          <li><code>c2599e7591b2</code> eval.tests.test_interactive_tmux.test_interactive_with_subdirectories <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-byron-dua-cli/byron__dua-cli.8570c15/usage-audit.json">usage audit</a></p>
       </div>
 
   </div>

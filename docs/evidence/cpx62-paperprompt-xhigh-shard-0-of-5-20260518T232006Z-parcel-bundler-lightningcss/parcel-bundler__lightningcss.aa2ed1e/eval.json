@@ -1,0 +1,1842 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "executable_hash": "24b4996f26ad69e5bc673753f6ccc856866880ef461a2da0b4d1a96232977e15",
+  "log": [
+    {
+      "branch": "",
+      "command": "rm -rf /workspace/* /workspace/.[!.]*",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 1.0655432029743679
+    },
+    {
+      "branch": "",
+      "command": "find /workspace -type f -exec sha256sum {} + 2>/dev/null | grep -E \"^(123ed57e7a10218733e76a44a20462286e9c35a3be8bc1fed2bdc6e515bb9c13)  \" | cut -c67- | xargs -I% rm -fv %",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "remove_hashed_files",
+      "wall_time": 0.1302136510494165
+    },
+    {
+      "branch": "",
+      "command": "if [ ! -d .git ]; then GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c init.defaultBranch=gold init -q && git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false add -A && GIT_AUTHOR_DATE='2000-01-01T00:00:00Z' GIT_COMMITTER_DATE='2000-01-01T00:00:00Z' git -c user.email=gold@local -c user.name=gold -c commit.gpgsign=false commit -q --allow-empty -m gold; fi",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.12389118399005383
+    },
+    {
+      "branch": "",
+      "command": "chmod +x ./compile.sh && ./compile.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.14390407101018354
+    },
+    {
+      "branch": "",
+      "command": "mv ./executable /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.12433317297836766
+    },
+    {
+      "branch": "",
+      "command": "sha256sum /opt/programbench-stashed-executable-do-not-modify",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 117,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.13841395103372633
+    },
+    {
+      "branch": "",
+      "command": "pip3 install -q --disable-pip-version-check pytest-rerunfailures",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 222,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6398107360000722
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.14454161399044096
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12657655001385137
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11718582600587979
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10141948697855696
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 1386995,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 136.49675000703428
+    },
+    {
+      "branch": "65648d8896da",
+      "command": "docker cp c274e7be8008adddb51efa5c12920688e77009a3959efec30679c36d80fe1c4a:/workspace/eval/results.xml /tmp/tmpbqcrahxz.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 758692,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02993876999244094
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12207352498080581
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12642559700179845
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10824340296676382
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1301657829899341
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 1569714,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 239.86327949201223
+    },
+    {
+      "branch": "dbdaecc4a16f",
+      "command": "docker cp 62e30391cdef4e0509fbfd3b4a6b59632fd245f5857f793c545d102617015958:/workspace/eval/results.xml /tmp/tmp0p4gegff.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 627891,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03528124501463026
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12199598696315661
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11435409798286855
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.09758247097488493
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12545395700726658
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 23493,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 7.7658755060401745
+    },
+    {
+      "branch": "880c457eefa5",
+      "command": "docker cp 928fa55ada19301091b6abcec6b44dd932c61c511f9588682d57af66245dc015:/workspace/eval/results.xml /tmp/tmpz8i0n6k8.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 14080,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.033219966979231685
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11823390005156398
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1258712680428289
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12762561801355332
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.13911531498888507
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 4842,
+      "output_redacted": true,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 5.575752738979645
+    },
+    {
+      "branch": "35469ee3ea06",
+      "command": "docker cp f0643767d8483fef148809327d49b7261f128ec6a6cae73d16b81318a3032b92:/workspace/eval/results.xml /tmp/tmpouh8_q6f.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 2271,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03753729397431016
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13175776798743755
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12401952099753544
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12256491801235825
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1144785630167462
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 6980,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.405398468952626
+    },
+    {
+      "branch": "d4936b1ad070",
+      "command": "docker cp 13adf67c15dfada75be404f198638043a2a1fa7dca2668b302327590480f55cb:/workspace/eval/results.xml /tmp/tmp9pmq_xgi.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 4152,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03410643298411742
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11631469399435446
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12308723700698465
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1243156009586528
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1254799549933523
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 69284,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 10.894349587964825
+    },
+    {
+      "branch": "4d5cb7dc1440",
+      "command": "docker cp 44373df071be2a8f25e8ca434233c78c9a86ed88502d0a7120afff58607074aa:/workspace/eval/results.xml /tmp/tmpdpadhavg.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 42100,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03585681499680504
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11873419495532289
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.10464211198268458
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.06240019103279337
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.0807885309914127
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 6358,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.622579034999944
+    },
+    {
+      "branch": "951581809da3",
+      "command": "docker cp 78027e56c91c88a7ed40bd455c9c40b4ec3bfa3837c364cc230201d66031b7e0:/workspace/eval/results.xml /tmp/tmpis7u3k9i.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 4270,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.021018766972701997
+    },
+    {
+      "branch": "",
+      "command": "rm -f ./executable && mv /opt/programbench-stashed-executable-do-not-modify ./executable && chmod +x ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12870641303015873
+    },
+    {
+      "branch": "",
+      "command": "sha256sum ./executable",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 79,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11293940799077973
+    },
+    {
+      "branch": "",
+      "command": "rm -f eval/results.xml results.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.10087493399623781
+    },
+    {
+      "branch": "",
+      "command": "test -f eval/run.sh && sed -i 's/--timeout-method=signal/--timeout-method=thread/g' eval/run.sh || true",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 0,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12507669196929783
+    },
+    {
+      "branch": "",
+      "command": "export PYTEST_ADDOPTS=\"$PYTEST_ADDOPTS --reruns=2 --reruns-delay=1\" && chmod +x ./eval/run.sh && ./eval/run.sh",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 23224,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.699691818037536
+    },
+    {
+      "branch": "6e177bdba40e",
+      "command": "docker cp 1cfcc2534c387bc2e5b3ea4a22cfab8868a885a8400a822276527d2f1362a80c:/workspace/eval/results.xml /tmp/tmphb20uhuq.xml",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "output_original_chars": 13615,
+      "output_redacted": true,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.020101731992326677
+    }
+  ],
+  "log_entries_omitted": 0,
+  "public_redactions": {
+    "extra_text": "redacted",
+    "log_output": "redacted",
+    "long_extra_text": "truncated to 2000 chars"
+  },
+  "solution_branch": "submission",
+  "status_counts": {
+    "failure": 2753,
+    "passed": 397,
+    "skipped": 5
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "65648d8896da",
+    "dbdaecc4a16f",
+    "880c457eefa5",
+    "35469ee3ea06",
+    "d4936b1ad070",
+    "4d5cb7dc1440",
+    "951581809da3",
+    "6e177bdba40e"
+  ],
+  "test_records": 3155,
+  "test_results": [
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_advanced_features.test_page_rules",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.148
+      },
+      "name": "eval.tests.test_advanced_features.test_counter_style",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.163
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-fill-mode-forwards]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-style-ridge]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.158
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_custom_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.172
+      },
+      "name": "eval.tests.test_comprehensive_css.test_minify_shorthand_combination",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_comprehensive_css.test_font_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-origin-content-box]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.159
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_flexbox_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_document_at_rule",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.175
+      },
+      "name": "eval.tests.test_browserslist.test_browserslistrc_discovery",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.165
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-items-baseline]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.166
+      },
+      "name": "eval.tests.test_css_modern_features.test_gap_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.15
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-attachment-scroll]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-avoid]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_cli_combinations.test_css_modules_with_minify",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-style-inset]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_advanced_features.test_complex_nth_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_advanced_features.test_font_face",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.137
+      },
+      "name": "eval.tests.test_comprehensive_css.test_background_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-auto]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_media_queries_comprehensive",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.129
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_grid_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.152
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_calc_and_math_functions",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.117
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-attachment-fixed]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-repeat]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_nested_at_rules",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-always]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.153
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-fill-mode-backwards]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_css_modules.test_css_modules_basic",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.088
+      },
+      "name": "eval.tests.test_browserslist.test_browserslist_config_env_var",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "eval.tests.test_cli_combinations.test_css_modules_with_targets",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-attachment-local]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.168
+      },
+      "name": "eval.tests.test_advanced_features.test_attribute_selectors_complex",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_comprehensive_css.test_alignment_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_advanced_features.test_font_feature_values",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-style-outset]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.146
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_supports_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-repeat-x]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_background_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.148
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-stretch]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_view_transition",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-all]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_css_modules.test_css_modules_stdout",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-fill-mode-both]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.136
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_aspect_ratio",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.115
+      },
+      "name": "eval.tests.test_browserslist.test_browserslist_environment_sections",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.119
+      },
+      "name": "eval.tests.test_cli_combinations.test_all_flags_combined",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.145
+      },
+      "name": "eval.tests.test_advanced_features.test_dir_lang_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.118
+      },
+      "name": "eval.tests.test_comprehensive_css.test_masking_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_advanced_features.test_font_palette_values",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[box-decoration-break-slice]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.124
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-normal]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_border_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.133
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_keyframes_variations",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.151
+      },
+      "name": "eval.tests.test_browserslist.test_browserslist_node_env",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.111
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-center]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.152
+      },
+      "name": "eval.tests.test_css_modern_features.test_css_nesting",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.145
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-avoid-page]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.135
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-repeat-y]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_object_fit_and_position",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-iteration-count-infinite]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 86,
+        "message_redacted": true,
+        "time": 0.091
+      },
+      "name": "eval.tests.test_css_modules.test_css_modules_scopes_classes",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.081
+      },
+      "name": "eval.tests.test_cli_combinations.test_stdin_with_multiple_options",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_comprehensive_css.test_text_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.151
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-flex-start]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.153
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-multiply]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "eval.tests.test_advanced_features.test_where_is_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.14
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_font_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.144
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-iteration-count-1]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_advanced_features.test_container_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.155
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[box-decoration-break-clone]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.121
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-content-center]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.121
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_container_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.13
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-page]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_browserslist.test_browserslist_default_section",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.102
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-no-repeat]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.127
+      },
+      "name": "eval.tests.test_css_modern_features.test_cascade_layers",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 86,
+        "message_redacted": true,
+        "time": 0.093
+      },
+      "name": "eval.tests.test_css_modules.test_css_modules_scopes_ids",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.129
+      },
+      "name": "eval.tests.test_cli_combinations.test_custom_media_with_targets",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.164
+      },
+      "name": "eval.tests.test_comprehensive_css.test_complex_selectors",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.132
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-space]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.148
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_layer_at_rule",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.154
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-content-flex-start]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.153
+      },
+      "name": "eval.tests.test_advanced_features.test_has_selector",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_text_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.126
+      },
+      "name": "eval.tests.test_advanced_features.test_supports_queries",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-iteration-count-2.5]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.151
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-flex-end]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-left]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.142
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[box-sizing-content-box]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-screen]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_css_modern_features.test_subgrid",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.104
+      },
+      "name": "eval.tests.test_cli_combinations.test_error_recovery_with_minify",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 86,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_css_modules.test_css_modules_scopes_keyframes",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.156
+      },
+      "name": "eval.tests.test_cli_combinations.test_minify_with_targets",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.158
+      },
+      "name": "eval.tests.test_comprehensive_css.test_pseudo_elements",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.138
+      },
+      "name": "eval.tests.test_advanced_features.test_layer_rules",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.168
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-repeat-round]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "eval.tests.test_css_at_rules_comprehensive.test_page_at_rule",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.149
+      },
+      "name": "eval.tests.test_css_properties_comprehensive.test_box_model_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "eval.tests.test_css_modern_features.test_scroll_snap",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.127
+      },
+      "name": "eval.tests.test_advanced_features.test_focus_visible_within",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.134
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[box-sizing-border-box]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.143
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-content-flex-end]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.142
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-before-right]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.139
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[animation-iteration-count-3]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.105
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-overlay]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.131
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-self-baseline]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.12
+      },
+      "name": "eval.tests.test_cli_combinations.test_browserslist_with_minify",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.147
+      },
+      "name": "eval.tests.test_css_modules.test_css_modules_multiple_files",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.161
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[cursor-cell]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.114
+      },
+      "name": "eval.tests.test_advanced_features.test_namespace_rules",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.141
+      },
+      "name": "eval.tests.test_comprehensive_css.test_media_queries_complex",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "eval.tests.test_css_modern_features.test_custom_properties_calc",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.14
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[background-blend-mode-darken]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.123
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[align-content-space-between]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.158
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[break-after-auto]",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.142
+      },
+      "name": "eval.tests.test_comprehensive_css.test_grid_properties",
+      "status": "failure"
+    },
+    {
+      "branch": "65648d8896da",
+      "extra": {
+        "message_chars": 14,
+        "message_redacted": true,
+        "time": 0.15
+      },
+      "name": "eval.tests.test_css_properties_massive.test_property_value[border-collapse-collapse]",
+      "status": "failure"
+    }
+  ],
+  "test_results_omitted": 2638,
+  "test_results_policy": "non-passed records only, capped for public artifact size",
+  "warnings": []
+}

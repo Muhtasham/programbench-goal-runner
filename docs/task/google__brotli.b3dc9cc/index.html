@@ -145,7 +145,7 @@
       <div class="metric"><strong>441</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>95.5%</strong><span>official best score</span></div>
       <div class="metric"><strong>24.9%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.20h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>19.5%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>86/441</td>
+          <td>$0.00</td>
+          <td>96</td>
+          <td>0.28h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>1.4%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>6/441</td>
+          <td>$0.00</td>
+          <td>72</td>
+          <td>0.24h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/usage-audit.json">usage audit</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>24.9% from <strong>110/441</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 458, passed: 148.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestBasicInvocation.test_help_mentions_coalesced_options <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestFileCompression.test_compress_file_creates_valid_br <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-google-brotli/google__brotli.b3dc9cc/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>1.4% from <strong>6/441</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 597, passed: 9.</p>
+        <p class="muted">Agent trace: 108 shell command(s), 71 executable-observation command(s), 5 build command(s), 1 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
+        <ul>
+          <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestFileDecompression.test_decompress_suffix_mismatch_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestBasicInvocation.test_invalid_option_long_format_help_to_stdout <span class="muted">(failure)</span></li>
+
+
+          <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestFileDecompression.test_decompress_precompressed_alice <span class="muted">(failure)</span></li>
+
+
+          <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestFileCompression.test_compress_large_text_file_smaller <span class="muted">(failure)</span></li>
+
+
+          <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestBasicInvocation.test_help_short_goes_to_stderr <span class="muted">(failure)</span></li>
+
+
+          <li><code>f8d762f9e408</code> eval.tests.test_brotli.TestBasicInvocation.test_help_mentions_coalesced_options <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-google-brotli/google__brotli.b3dc9cc/usage-audit.json">usage audit</a></p>
       </div>
 
   </div>

@@ -1,0 +1,727 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.1640102429955732
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.12690654300968163
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.13054791299509816
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.10778168000979349
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.12660171699826606
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6892539370164741
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13183508699876256
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12328644198714755
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12038088100962341
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1315914390143007
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 23.764011496998137
+    },
+    {
+      "branch": "f8d762f9e408",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.040278178988955915
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12680156299029477
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.13019746899954043
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12435132701648399
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1314053509850055
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 60.65514524598257
+    },
+    {
+      "branch": "be0550a7a9ee",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.04006773998844437
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "9e4ba945c4faeb49f0ba7406bf1c63cfcb10205e05a0555a69e64a3f22aabb5b",
+  "failed_tests": [
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 408,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileDecompression.test_decompress_suffix_mismatch_error",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 427,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_invalid_option_long_format_help_to_stdout",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 282,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileDecompression.test_decompress_precompressed_alice",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 248,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileCompression.test_compress_large_text_file_smaller",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 224,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_help_short_goes_to_stderr",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 228,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_help_mentions_coalesced_options",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 115,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestStdinInput.test_compress_from_explicit_dash_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 276,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileDecompression.test_decompress_precompressed_zeros",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 224,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_version_short",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 599,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRoundTrip.test_roundtrip_all_quality_levels",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 230,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestStdinInput.test_decompress_empty_compressed_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 247,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileCompression.test_compress_file_creates_valid_br",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 253,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileCompression.test_compress_file_with_keep_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 218,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_no_args_with_piped_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 139,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRoundTrip.test_roundtrip_text",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 167,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRoundTrip.test_roundtrip_known_test_files",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 418,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileDecompression.test_decompress_nonexistent_file",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 228,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_help_long_goes_to_stderr",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 380,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_invalid_option_short_format",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 460,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestStdinInput.test_stdin_binary_data_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 99,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestOutputOptions.test_stdout_flag_short",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 278,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileCompression.test_compress_multiple_files_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 228,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_help_mentions_stdin_dash",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 252,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileDecompression.test_decompress_keeps_compressed_by_default",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 231,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestBasicInvocation.test_version_long",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 51,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestStdinInput.test_compress_from_stdin_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 224,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestStdinInput.test_compress_empty_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 276,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileDecompression.test_decompress_precompressed_empty",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 247,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestFileCompression.test_compress_keeps_source_by_default",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 109,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestOutputOptions.test_stdout_flag_long",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 462,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRoundTrip.test_roundtrip_binary",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 1055,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_invalid_too_small",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_short_q_11_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 255,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRemoveSource.test_compress_rm_long_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 426,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_and_large_window_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 403,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_invalid_too_high",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 405,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_duplicate_flag_error",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_best_flag_Z_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_0_auto_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_10_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 258,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestForceOverwrite.test_decompress_force_overwrite",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 284,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestOutputOptions.test_output_file_flag_short",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 410,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestForceOverwrite.test_force_flag_duplicate_error",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 253,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestForceOverwrite.test_compress_force_overwrite",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 387,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRemoveSource.test_rm_flag_duplicate_error",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_large_window_flag_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 289,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestOutputOptions.test_decompress_to_output_file",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 618,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_invalid_too_large",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 258,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRemoveSource.test_decompress_rm_removes_source",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 413,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestForceOverwrite.test_compress_fails_if_output_exists",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 522,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_short_flag_0_to_9",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 253,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRemoveSource.test_compress_rm_removes_source_and_valid_output",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 287,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestOutputOptions.test_output_file_flag_long_equals",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 418,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestForceOverwrite.test_decompress_fails_if_output_exists",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 415,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_duplicate_error",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 918,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_invalid_negative",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 253,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestSquash.test_squash_large_compressible_data_keeps_output",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 400,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_and_best_flag_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_long_flag_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 387,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestRemoveSource.test_keep_and_rm_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestWindowSize.test_lgwin_24_max_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 258,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestForceOverwrite.test_force_flag_long_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_short_q_0_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 494,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestCompressionQuality.test_quality_long_flag_roundtrip",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 264,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestSuffix.test_custom_suffix_compress",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 234,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestSquash.test_squash_with_stdout_is_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 224,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_integrity_from_stdin",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 253,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestSquash.test_squash_removes_output_if_larger",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 408,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_integrity_corrupt_file",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 228,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_integrity_long_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 387,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestNoCopyStat.test_no_copy_stat_duplicate_error",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 286,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestNoCopyStat.test_no_copy_stat_short",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 395,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_decompress_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 252,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_integrity_valid_file",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 234,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_with_stdout_flag_is_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 267,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestSuffix.test_custom_suffix_long_flag",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 276,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_integrity_precompressed_file",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 298,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestNoCopyStat.test_no_copy_stat_long",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 293,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestIntegrity.test_test_with_output_flag_is_invalid",
+      "status": "failure"
+    },
+    {
+      "branch": "f8d762f9e408",
+      "message_chars": 387,
+      "message_redacted": true,
+      "name": "eval.tests.test_brotli.TestConcatenated.test_concatenated_duplicate_error",
+      "status": "failure"
+    }
+  ],
+  "failed_tests_omitted": 517,
+  "status_counts": {
+    "failure": 597,
+    "passed": 9
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "f8d762f9e408",
+    "be0550a7a9ee"
+  ],
+  "test_records": 606,
+  "warnings": []
+}

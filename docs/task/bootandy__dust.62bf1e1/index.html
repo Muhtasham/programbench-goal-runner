@@ -145,7 +145,7 @@
       <div class="metric"><strong>584</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>87.3%</strong><span>official best score</span></div>
       <div class="metric"><strong>75.3%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.35h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>68.5%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>400/584</td>
+          <td>$0.00</td>
+          <td>62</td>
+          <td>0.21h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>36.5%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>213/584</td>
+          <td>$0.00</td>
+          <td>92</td>
+          <td>0.31h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>75.3% from <strong>440/584</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 184, passed: 765, skipped: 16.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch, terminal rendering mismatch.</p>
         <ul>
           <li><code>2670a863a199</code> eval.tests.test_size_filtering.test_depth_zero <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>746762709b06</code> tests.test_cli.test_conflicting_file_types_depth <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-bootandy-dust/bootandy__dust.62bf1e1/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>68.5% from <strong>400/584</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 229, passed: 720, skipped: 16.</p>
+        <p class="muted">Agent trace: 138 shell command(s), 104 executable-observation command(s), 13 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, terminal rendering mismatch.</p>
+        <ul>
+          <li><code>2670a863a199</code> eval.tests.test_input_handling.test_invalid_path <span class="muted">(failure)</span></li>
+
+
+          <li><code>2670a863a199</code> eval.tests.test_error_handling.test_print_errors_flag <span class="muted">(failure)</span></li>
+
+
+          <li><code>2670a863a199</code> eval.tests.test_size_filtering.test_depth_zero <span class="muted">(failure)</span></li>
+
+
+          <li><code>24c039380685</code> eval.tests.test_basic_invocation.test_nonexistent_directory <span class="muted">(failure)</span></li>
+
+
+          <li><code>24c039380685</code> eval.tests.test_config.test_invalid_config_file <span class="muted">(failure)</span></li>
+
+
+          <li><code>24c039380685</code> eval.tests.test_error_handling.test_conflicting_only_dir_and_only_file <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-1-of-5-20260518T232006Z-bootandy-dust/bootandy__dust.62bf1e1/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

@@ -145,7 +145,7 @@
       <div class="metric"><strong>2967</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>78.0%</strong><span>official best score</span></div>
       <div class="metric"><strong>71.2%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.34h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>57.8%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1714/2967</td>
+          <td>$4.35</td>
+          <td>61</td>
+          <td>0.23h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>57.2%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>1698/2967</td>
+          <td>$3.72</td>
+          <td>47</td>
+          <td>0.21h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/usage-audit.json">usage audit</a></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>71.2% from <strong>2113/2967</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 894, passed: 2287, skipped: 2.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>673c881d6dd3</code> eval.tests.test_advanced_features.test_metamethod_le <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>673c881d6dd3</code> eval.tests.test_coverage_boost.test_string_match_frontier <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-luajit-luajit/luajit__luajit.a553b3d/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>57.2% from <strong>1698/2967</strong> ProgramBench-scored tests. Raw public eval statuses: error: 1, failure: 750, not_run: 541, passed: 1847, skipped: 2.</p>
+        <p class="muted">Agent trace: 100 shell command(s), 62 executable-observation command(s), 11 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, interactive terminal behavior mismatch.</p>
+        <ul>
+          <li><code>673c881d6dd3</code> eval.tests.test_advanced_features.test_metamethod_le <span class="muted">(failure)</span></li>
+
+
+          <li><code>673c881d6dd3</code> eval.tests.test_coverage_boost.test_string_pattern_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>673c881d6dd3</code> eval.tests.test_coverage_boost.test_debug_getlocal <span class="muted">(failure)</span></li>
+
+
+          <li><code>673c881d6dd3</code> eval.tests.test_advanced_features.test_metamethod_add <span class="muted">(failure)</span></li>
+
+
+          <li><code>673c881d6dd3</code> eval.tests.test_coverage_boost.test_newproxy <span class="muted">(failure)</span></li>
+
+
+          <li><code>673c881d6dd3</code> eval.tests.test_coverage_boost.test_collectgarbage_count <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-luajit-luajit/luajit__luajit.a553b3d/usage-audit.json">usage audit</a></p>
       </div>
 
   </div>

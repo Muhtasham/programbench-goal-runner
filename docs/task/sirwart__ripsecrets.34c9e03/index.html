@@ -145,7 +145,7 @@
       <div class="metric"><strong>611</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>91.2%</strong><span>official best score</span></div>
       <div class="metric"><strong>90.5%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.24h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>88.2%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>539/611</td>
+          <td>$3.67</td>
+          <td>74</td>
+          <td>0.23h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>85.9%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>525/611</td>
+          <td>$2.80</td>
+          <td>55</td>
+          <td>0.17h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,6 +209,7 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>90.5% from <strong>553/611</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 65, passed: 870, skipped: 2.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: behavioral mismatch.</p>
         <ul>
           <li><code>1b0359e8d221</code> tests.test_extensive_patterns.test_alternation_in_patterns <span class="muted">(failure)</span></li>
@@ -197,6 +230,37 @@
           <li><code>1b0359e8d221</code> tests.test_precommit.test_install_precommit_with_strict_ignore_error <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>88.2% from <strong>539/611</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 86, passed: 849, skipped: 2.</p>
+        <p class="muted">Agent trace: 143 shell command(s), 94 executable-observation command(s), 6 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch.</p>
+        <ul>
+          <li><code>1b0359e8d221</code> tests.test_basic.test_nonexistent_file <span class="muted">(failure)</span></li>
+
+
+          <li><code>1b0359e8d221</code> tests.test_extensive_patterns.test_alternation_in_patterns <span class="muted">(failure)</span></li>
+
+
+          <li><code>1b0359e8d221</code> tests.test_ignore_mechanisms.test_pragma_allowlist_secret <span class="muted">(failure)</span></li>
+
+
+          <li><code>1b0359e8d221</code> tests.test_precommit.test_install_precommit_with_strict_ignore_error <span class="muted">(failure)</span></li>
+
+
+          <li><code>1b0359e8d221</code> tests.test_precommit.test_install_precommit_appends_to_existing <span class="muted">(failure)</span></li>
+
+
+          <li><code>1b0359e8d221</code> tests.test_ignore_mechanisms.test_pragma_allowlist_secret_inline <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-sirwart-ripsecrets/sirwart__ripsecrets.34c9e03/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

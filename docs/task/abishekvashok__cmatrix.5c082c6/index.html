@@ -145,7 +145,7 @@
       <div class="metric"><strong>507</strong><span>generated behavioral tests</span></div>
       <div class="metric"><strong>100.0%</strong><span>official best score</span></div>
       <div class="metric"><strong>100.0%</strong><span>Codex best score</span></div>
-      <div class="metric"><strong>1</strong><span>Codex result rows</span></div>
+      <div class="metric"><strong>3</strong><span>Codex result rows</span></div>
     </div>
     <h2>Codex Results by Model</h2>
     <div class="table-wrap">
@@ -166,6 +166,38 @@
           <td>0.17h</td>
           <td><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/usage-audit.json">usage audit</a></td>
         </tr>
+
+
+        <tr>
+          <td>2</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260518T232006Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + /goal no internet</td>
+          <td>97.4%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>494/507</td>
+          <td>$1.81</td>
+          <td>41</td>
+          <td>0.10h</td>
+          <td><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/usage-audit.json">usage audit</a></td>
+        </tr>
+
+
+        <tr>
+          <td>3</td>
+          <td>GPT 5.5 (xhigh)</td>
+          <td><code>20260519T215046Z</code></td>
+          <td>Codex /goal</td>
+          <td>Paper prompt + Goal contract no internet</td>
+          <td>84.4%</td>
+          <td><span class="status resolved">ok</span></td>
+          <td>428/507</td>
+          <td>$3.03</td>
+          <td>73</td>
+          <td>0.17h</td>
+          <td><span class="muted">not exported</span></td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -177,11 +209,43 @@
       <div class="evidence-card">
         <h3>GPT 5.5 (xhigh) · <code>20260517T094700Z</code></h3>
         <p>100.0% from <strong>507/507</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 1, passed: 768.</p>
+        <p class="muted">Agent trace summary unavailable.</p>
         <p class="muted">Likely miss class: exact version/output mismatch.</p>
         <ul>
           <li><code>60fce8bbb0c8</code> eval.tests.test_help_and_version.test_version_flag <span class="muted">(failure)</span></li>
             </ul>
         <p><a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/manifest.json">manifest</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval.json">eval json</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-miniswecompat-xhigh-20260517T094700Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260518T232006Z</code></h3>
+        <p>97.4% from <strong>494/507</strong> ProgramBench-scored tests. Raw public eval statuses: failure: 15, passed: 754.</p>
+        <p class="muted">Agent trace: 70 shell command(s), 46 executable-observation command(s), 6 build command(s), 2 blocked attempt(s). Raw Codex logs are not published.</p>
+        <p class="muted">Likely miss class: behavioral mismatch, exact version/output mismatch.</p>
+        <ul>
+          <li><code>79b69dd3fd98</code> tests.test_error_handling.test_invalid_color <span class="muted">(failure)</span></li>
+
+
+          <li><code>79b69dd3fd98</code> tests.test_error_handling.test_invalid_color_numeric <span class="muted">(failure)</span></li>
+
+
+          <li><code>79b69dd3fd98</code> tests.test_error_handling.test_invalid_color_typo <span class="muted">(failure)</span></li>
+
+
+          <li><code>1b991a57d4e9</code> eval.tests.test_cmatrix.TestColorOptions.test_color_invalid_shows_error_message <span class="muted">(failure)</span></li>
+
+
+          <li><code>f53d318371c8</code> eval.tests.test_args_parsing.test_u_valid_values_start_matrix_render_loop[args3] <span class="muted">(failure)</span></li>
+
+
+          <li><code>f53d318371c8</code> eval.tests.test_args_parsing.test_u_valid_values_start_matrix_render_loop[args1] <span class="muted">(failure)</span></li>
+            </ul>
+        <p><a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/manifest.json">manifest</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval.json">eval json</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/eval-summary.json">eval summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/agent-summary.json">agent summary</a> · <a href="../../evidence/cpx62-paperprompt-xhigh-shard-0-of-5-20260518T232006Z-abishekvashok-cmatrix/abishekvashok__cmatrix.5c082c6/usage-audit.json">usage audit</a></p>
+      </div>
+
+      <div class="evidence-card">
+        <h3>GPT 5.5 (xhigh) · <code>20260519T215046Z</code></h3>
+        <p class="muted">Public eval evidence has not been exported for this row yet.</p>
       </div>
 
   </div>

@@ -1,0 +1,1129 @@
+{
+  "error_code": null,
+  "error_details_chars": 0,
+  "error_details_redacted": false,
+  "evaluator_log_steps": [
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "wipe_workspace",
+      "wall_time": 0.14917035901453346
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "remove_hashed_files",
+      "wall_time": 0.12542150198714808
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "seed_git",
+      "wall_time": 0.11229937302414328
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "compile",
+      "wall_time": 0.1313797680195421
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "copy_executable",
+      "wall_time": 0.0849145189858973
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "hash_executable",
+      "wall_time": 0.11386348702944815
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "install_rerunfailures",
+      "wall_time": 0.6424701680080034
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.1122100530192256
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11488833295879886
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.08111503400141373
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10405084502417594
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 7.481520299974363
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03536891198018566
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.12276807200396433
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.12100809899857268
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1103624309762381
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11868668696843088
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 152.34694999898784
+    },
+    {
+      "branch": "1978239ed7fd",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02573240001220256
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.07928764197276905
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.10422926500905305
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.13720543700037524
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12150293705053627
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.4100616790237837
+    },
+    {
+      "branch": "f4580963f09f",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02792656101519242
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13336942199384794
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.10067946900380775
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12587829999392852
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.11100766895106062
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.448515269963536
+    },
+    {
+      "branch": "930c8e294900",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.03281305200653151
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.11463192402152345
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.10274518100777641
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11759071302367374
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.13240862602833658
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 1,
+      "step": "run_tests",
+      "wall_time": 4.3827543500228785
+    },
+    {
+      "branch": "ff21b48dd295",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.030997238995041698
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.10939816501922905
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1196674850070849
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11902236798778176
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1165714169619605
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.503269290027674
+    },
+    {
+      "branch": "8132514d0d85",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.025950038980226964
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13339700095821172
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1314665999962017
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12883646902628243
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.10111691697966307
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.297097871953156
+    },
+    {
+      "branch": "b1399b04f31c",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.031994044955354184
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.113183421024587
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.13013516494538635
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.12760711403097957
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.12568763201124966
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.3140247859992087
+    },
+    {
+      "branch": "fbaf6e78fb74",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.01929812500020489
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.13045647303806618
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.1144190159975551
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.1200784330139868
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.1252759740455076
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 3.4060298380209133
+    },
+    {
+      "branch": "e74f344aea39",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.02697178500238806
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "restore_executable",
+      "wall_time": 0.129102487990167
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "verify_executable_hash",
+      "wall_time": 0.11102958902483806
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "clean_stale_results",
+      "wall_time": 0.11850067001068965
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "patch_timeout_method",
+      "wall_time": 0.09061839804053307
+    },
+    {
+      "branch": "",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "run_tests",
+      "wall_time": 5.610978775017429
+    },
+    {
+      "branch": "98b552a06daa",
+      "exception_info_chars": 0,
+      "exception_info_redacted": false,
+      "returncode": 0,
+      "step": "results_read",
+      "wall_time": 0.018545448023360223
+    }
+  ],
+  "evaluator_log_steps_omitted": 0,
+  "executable_hash": "645fcff09b03902bb2b7cc92ef7e6d73e75d7035ebb37fbd5f9732b18c5b579c",
+  "failed_tests": [
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_go_file_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_without_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_with_function",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_c_with_variables",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_stdin",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_without_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_with_function",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_for_loop",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_stdin",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_for_loop",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_c_inline_without_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_rust_inline_without_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_c_file_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_with_array",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_cpp_with_vectors",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_simple_cout",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_multiple_includes",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_with_vector",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_go_inline_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_string_operations",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_cpp_inline_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_detect_python_by_import",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_cpp_inline_without_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_go_inline_without_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_file_execution",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_rust_with_variables",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_with_variables",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_simple_printf",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_go_with_variables",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_c_specific.test_c_with_variables",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_file_execution",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_cpp_specific.test_cpp_auto_keyword",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_detect_cpp_extension",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_rust_inline_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_c_inline_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_compiled_languages.test_rust_file_with_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_python_specific_syntax_detection",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_detect_rs_extension",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_compilation_error_rust",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_code_and_file_conflict",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_detect_go_extension",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_detect_c_extension",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_compilation_error_c",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_rust_borrow_error",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_error_handling.test_compilation_error_go",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_execution_modes.test_rust_minimal",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_execution_modes.test_cpp_minimal",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_detection_comprehensive.test_bash_specific_syntax_detection",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_execution_modes.test_go_minimal",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_file_execution.test_example_rust_hello",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_execution_modes.test_c_minimal",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_simple_println",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_file_execution",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_with_variables",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_with_full_main",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_with_slice",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_with_function",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_stdin",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_go_specific.test_go_for_loop",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 27,
+      "message_redacted": true,
+      "name": "eval.tests.test_inline_code.test_javascript_inline_code",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_inline_code.test_ruby_inline_code",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 27,
+      "message_redacted": true,
+      "name": "eval.tests.test_inline_code.test_javascript_with_multiple_statements",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_inline_code.test_language_alias_rb",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_flag_combinations.test_python_all_aliases",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_aliases.test_rust_aliases",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 18,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_aliases.test_c_aliases",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 19,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_aliases.test_go_aliases",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 27,
+      "message_redacted": true,
+      "name": "eval.tests.test_inline_code.test_language_alias_js",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_detection.test_detect_from_rs_extension",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_aliases.test_cpp_aliases",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_detection.test_python_syntax_detection",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 20,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_detection.test_detect_from_cpp_extension",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 14,
+      "message_redacted": true,
+      "name": "eval.tests.test_language_aliases.test_python_aliases",
+      "status": "failure"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_simple_println",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_with_let_binding",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_with_function",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_with_vector",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_file_execution",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_multiline",
+      "status": "skipped"
+    },
+    {
+      "branch": "c88ecf8e564f",
+      "message_chars": 21,
+      "message_redacted": true,
+      "name": "eval.tests.test_rust_specific.test_rust_stdin",
+      "status": "skipped"
+    }
+  ],
+  "failed_tests_omitted": 406,
+  "status_counts": {
+    "error": 26,
+    "failure": 295,
+    "passed": 1021,
+    "skipped": 165
+  },
+  "test_branch_errors": {},
+  "test_branches": [
+    "c88ecf8e564f",
+    "1978239ed7fd",
+    "f4580963f09f",
+    "930c8e294900",
+    "ff21b48dd295",
+    "8132514d0d85",
+    "b1399b04f31c",
+    "fbaf6e78fb74",
+    "e74f344aea39",
+    "98b552a06daa"
+  ],
+  "test_records": 1507,
+  "warnings": []
+}
